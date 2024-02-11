@@ -87,7 +87,7 @@ const Portage = () => {
             (capacité de réduire le salaire). Une fiche de paie lui sera
             envoyée. <br />
             On estime que la partie administrative représente environ un tiers
-            du temps de travail d'un freelance. Par conséquent, choisir une
+            du temps de travail d&apos;un freelance. Par conséquent, choisir une
             société de portage salarial est un gain de temps non négligeable.
           </p>
         </div>

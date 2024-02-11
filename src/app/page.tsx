@@ -22,7 +22,7 @@ export default function Home() {
         <div className="header-valor">
           <h1 className="header-home">Pourquoi Connect et pas une autre ?</h1>
           <h5 className="mt-10 text-2xl">
-            Nos valeurs, c'est ce qui nous différencie.
+            Nos valeurs, c&apos;est ce qui nous différencie.
           </h5>
         </div>
 
@@ -48,7 +48,7 @@ export default function Home() {
           <p className="my-2 text-2xl mb-8">
             Des projets associatifs soutenus par une partie de nos bénéfices.
           </p>
-          <p className="mb-4 text-2xl">En 2023, c'est :</p>
+          <p className="mb-4 text-2xl">En 2023, c&apos;est :</p>
 
           <div className="flex">
             <DimensionCard

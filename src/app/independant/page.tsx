@@ -42,7 +42,7 @@ export default function IndependantPage() {
       <div className="flex justify-between px-20 avantages-section">
         <div className="w-6/12 mt-40">
           <h2 className="text-3xl font-bold mb-14 leading-relaxed">
-            Profitez des avantages d'
+            Profitez des avantages d&apos;
             <span style={{ color: "#8EBA3A" }}>
               un <br />
               salarié
