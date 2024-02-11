@@ -1,0 +1,24 @@
+.pink-button {
+    background-color: #D892C0;
+    font-weight: 700;
+    padding-left: 2rem;
+    padding-right: 2rem;
+
+}
+
+.empty-button {
+    border-color: #B9D386;
+    border-width: 5px;
+    font-weight: 500;
+
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+.custom-button {
+    border-radius: 20px;
+}
+
+.green-button {
+    background-color: #B9D386
+}

@@ -1,0 +1,16 @@
+.portage-section {
+    width: 60%;
+}
+
+.question-section {
+    width: 35%;
+}
+
+.portage-title {
+    font-weight: 600;
+    margin-bottom: 3rem;
+}
+
+.portage-paragraph {
+    line-height: 2rem;
+}

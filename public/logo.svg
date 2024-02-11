@@ -1,0 +1,742 @@
+
+<svg width="168" height="133" viewBox="0 0 168 133" fill="none" xmlns="http://www.w3.org/2000/svg">
+<ellipse cx="65.3332" cy="1.2707" rx="1.24523" ry="1.2707" fill="black"/>
+<ellipse cx="1.24523" cy="51.2516" rx="1.24523" ry="1.2707" fill="black"/>
+<ellipse cx="96.7126" cy="9.91146" rx="1.24524" ry="1.2707" fill="black"/>
+<ellipse cx="17.8485" cy="25.4987" rx="1.24523" ry="1.2707" fill="black"/>
+<ellipse cx="17.3501" cy="101.741" rx="1.24523" ry="1.2707" fill="black"/>
+<ellipse cx="111.988" cy="101.91" rx="1.24523" ry="1.2707" fill="black"/>
+<ellipse cx="33.6213" cy="117.836" rx="1.24523" ry="1.2707" fill="black"/>
+<ellipse cx="96.5464" cy="118.175" rx="1.24524" ry="1.2707" fill="black"/>
+<ellipse cx="112.153" cy="26.1764" rx="1.24523" ry="1.2707" fill="black"/>
+<ellipse cx="128.425" cy="50.4044" rx="1.24523" ry="1.2707" fill="black"/>
+<ellipse cx="1.41149" cy="77.8516" rx="1.24523" ry="1.2707" fill="black"/>
+<ellipse cx="65.8312" cy="131.729" rx="1.24523" ry="1.2707" fill="black"/>
+<ellipse cx="128.425" cy="77.8516" rx="1.24523" ry="1.2707" fill="black"/>
+<ellipse cx="51.5524" cy="64.2974" rx="1.24523" ry="1.2707" fill="black"/>
+<ellipse cx="43.2507" cy="54.1318" rx="1.24523" ry="1.2707" fill="black"/>
+<ellipse cx="55.7034" cy="41.4248" rx="1.24523" ry="1.2707" fill="black"/>
+<ellipse cx="55.7034" cy="54.1318" rx="1.24523" ry="1.2707" fill="black"/>
+<ellipse cx="55.7034" cy="74.4631" rx="1.24523" ry="1.2707" fill="black"/>
+<ellipse cx="55.7034" cy="74.4631" rx="1.24523" ry="1.2707" fill="black"/>
+<ellipse cx="67.3252" cy="79.5459" rx="1.24523" ry="1.2707" fill="black"/>
+<ellipse cx="67.3252" cy="50.7433" rx="1.24523" ry="1.2707" fill="black"/>
+<ellipse cx="67.3252" cy="37.1892" rx="1.24523" ry="1.2707" fill="black"/>
+<ellipse cx="78.1175" cy="40.9166" rx="1.24523" ry="1.2707" fill="black"/>
+<ellipse cx="78.2838" cy="87.8478" rx="1.24523" ry="1.2707" fill="black"/>
+<ellipse cx="88.9094" cy="82.9344" rx="1.24523" ry="1.2707" fill="black"/>
+<ellipse cx="78.1175" cy="54.1318" rx="1.24523" ry="1.2707" fill="black"/>
+<ellipse cx="78.1175" cy="74.4631" rx="1.24523" ry="1.2707" fill="black"/>
+<ellipse cx="67.3252" cy="93.1" rx="1.24523" ry="1.2707" fill="black"/>
+<ellipse cx="55.7034" cy="87.1701" rx="1.24523" ry="1.2707" fill="black"/>
+<ellipse cx="42.7524" cy="74.6325" rx="1.24523" ry="1.2707" fill="black"/>
+<path d="M33.4552 9.74204L65.6652 1.18599L96.713 9.42119L111.988 25.4024L128.508 50.108V77.6673L111.988 102.373L96.713 118.354L65.6652 131.645L33.8703 118.354L17.8483 102.373L1.32825 77.6673V50.108L17.8483 25.4024L33.4552 9.74204Z" stroke="black"/>
+<path d="M78.2002 74.7336V87.763L67.3199 80.256L55.6977 87.763V74.7336H43.3337L51.494 64.5516L43.3337 54.2833H55.6977V41.3401L67.3199 50.4866L78.2002 41.3401V54.2833" stroke="black" stroke-width="2"/>
+<line y1="-1" x2="14.233" y2="-1" transform="matrix(-0.699913 0.714228 -0.699913 -0.714228 54.1261 42.3567)" stroke="black" stroke-width="2"/>
+<line y1="-1" x2="8.53307" y2="-1" transform="matrix(-0.933953 0.357395 -0.344931 -0.938628 65.4158 37.1045)" stroke="black" stroke-width="2"/>
+<line y1="-1" x2="7.76341" y2="-1" transform="matrix(-0.919612 -0.392828 0.379523 -0.925182 76.5402 40.1541)" stroke="black" stroke-width="2"/>
+<line y1="-0.15" x2="15.436" y2="-0.15" transform="matrix(-0.387218 0.921988 -0.916212 -0.400693 106.26 42.0178)" stroke="black" stroke-width="0.3"/>
+<line y1="-0.15" x2="14.4257" y2="-0.15" transform="matrix(0.78264 0.622475 -0.606991 0.794709 88.9924 47.2701)" stroke="black" stroke-width="0.3"/>
+<line y1="-0.15" x2="20.1583" y2="-0.15" transform="matrix(0.222382 0.97496 -0.972932 0.23109 95.7996 36.5962)" stroke="black" stroke-width="0.3"/>
+<line y1="-0.15" x2="12.7499" y2="-0.15" transform="matrix(0.546932 -0.837177 0.82681 0.562481 88.9924 47.2701)" stroke="black" stroke-width="0.3"/>
+<line y1="-0.15" x2="15.1186" y2="-0.15" transform="matrix(0.81266 0.582738 -0.567154 0.823612 83.6793 27.786)" stroke="black" stroke-width="0.3"/>
+<line y1="-0.15" x2="18.2274" y2="-0.15" transform="matrix(0.965537 -0.260264 0.250597 0.968091 83.6793 27.786)" stroke="black" stroke-width="0.3"/>
+<line y1="-0.15" x2="13.9549" y2="-0.15" transform="matrix(0.321237 0.946999 -0.942904 0.333065 96.7957 9.82675)" stroke="black" stroke-width="0.3"/>
+<line y1="-0.15" x2="24.6447" y2="-0.15" transform="matrix(-0.963387 0.268116 -0.258199 -0.966092 96.7957 9.82675)" stroke="black" stroke-width="0.3"/>
+<line y1="-0.15" x2="15.436" y2="-0.15" transform="matrix(-0.677635 -0.735399 0.721557 -0.692355 83.5135 27.786)" stroke="black" stroke-width="0.3"/>
+<line y1="-0.15" x2="22.239" y2="-0.15" transform="matrix(0.589793 -0.807554 0.79596 0.605349 83.5135 27.786)" stroke="black" stroke-width="0.3"/>
+<line y1="-0.15" x2="14.0862" y2="-0.15" transform="matrix(-0.377176 0.926142 -0.920634 -0.390426 83.5135 27.786)" stroke="black" stroke-width="0.3"/>
+<line y1="-0.15" x2="9.01688" y2="-0.15" transform="matrix(0.589227 0.807968 -0.79639 0.604784 72.8875 33.5465)" stroke="black" stroke-width="0.3"/>
+<line y1="-0.15" x2="6.5329" y2="-0.15" transform="matrix(-0.838681 0.544622 -0.52915 -0.848528 72.8875 33.5465)" stroke="black" stroke-width="0.3"/>
+<line y1="-0.15" x2="16.4995" y2="-0.15" transform="matrix(0.744646 0.667459 -0.652376 0.757895 55.1223 26.0917)" stroke="black" stroke-width="0.3"/>
+<line y1="-0.15" x2="19.9939" y2="-0.15" transform="matrix(0.880234 -0.47454 0.459754 0.888047 55.1223 26.0917)" stroke="black" stroke-width="0.3"/>
+<line y1="-0.15" x2="20.162" y2="-0.15" transform="matrix(0.938774 0.344535 -0.3324 0.943138 53.7939 9.65732)" stroke="black" stroke-width="0.3"/>
+<line y1="-0.15" x2="17.061" y2="-0.15" transform="matrix(0.42819 0.903688 -0.89678 0.442477 65.4158 1.18599)" stroke="black" stroke-width="0.3"/>
+<line y1="-0.15" x2="16.9459" y2="-0.15" transform="matrix(-0.0195954 -0.999808 0.999792 -0.0204048 73.0533 33.5465)" stroke="black" stroke-width="0.3"/>
+<line y1="-0.15" x2="11.9413" y2="-0.15" transform="matrix(0.875949 -0.482403 0.467511 0.883987 73.0533 33.5465)" stroke="black" stroke-width="0.3"/>
+<line y1="-0.15" x2="18.3033" y2="-0.15" transform="matrix(0.970607 -0.240672 0.231644 0.972801 78.2006 41.0013)" stroke="black" stroke-width="0.3"/>
+<line y1="-0.15" x2="17.5689" y2="-0.15" transform="matrix(0.264608 0.964356 -0.961521 0.274732 100.283 56.2497)" stroke="black" stroke-width="0.3"/>
+<line y1="-0.15" x2="10.4723" y2="-0.15" transform="matrix(0.998821 0.0485355 -0.0466141 0.998913 94.4717 72.6841)" stroke="black" stroke-width="0.3"/>
+<line y1="-0.15" x2="18.6364" y2="-0.15" transform="matrix(0.855261 -0.518197 0.502914 0.864337 88.9924 82.8497)" stroke="black" stroke-width="0.3"/>
+<line y1="-0.15" x2="15.0421" y2="-0.15" transform="matrix(-0.132454 -0.991189 0.990457 -0.137824 106.924 88.1019)" stroke="black" stroke-width="0.3"/>
+<line y1="-0.15" x2="11.911" y2="-0.15" transform="matrix(-0.850298 0.526302 -0.510952 -0.859609 106.924 88.1019)" stroke="black" stroke-width="0.3"/>
+<path d="M111.738 101.91L96.7812 94.3914" stroke="black" stroke-width="0.3"/>
+<line y1="-0.15" x2="13.5415" y2="-0.15" transform="matrix(0.564003 0.825773 -0.814911 0.579585 88.9924 83.3579)" stroke="black" stroke-width="0.3"/>
+<line y1="-0.15" x2="11.6423" y2="-0.15" transform="matrix(-0.399307 0.916817 -0.910713 -0.41304 88.9924 83.3579)" stroke="black" stroke-width="0.3"/>
+<line y1="-0.15" x2="8.77702" y2="-0.15" transform="matrix(0.699913 0.714228 -0.699913 0.714228 78.2006 87.7631)" stroke="black" stroke-width="0.3"/>
+<line y1="-0.15" x2="16.9428" y2="-0.15" transform="matrix(0.99955 0.0299997 -0.0288103 0.999585 67.4087 93.5236)" stroke="black" stroke-width="0.3"/>
+<line y1="-0.15" x2="11.3886" y2="-0.15" transform="matrix(0.189524 0.981876 -0.980392 0.197057 67.4087 93.5236)" stroke="black" stroke-width="0.3"/>
+<line y1="-0.15" x2="19.533" y2="-0.15" transform="matrix(-0.892503 0.451042 -0.436611 -0.89965 67.4087 93.5236)" stroke="black" stroke-width="0.3"/>
+<line y1="-0.15" x2="12.4569" y2="-0.15" transform="matrix(0.99963 0.0272019 -0.0261235 0.999659 84.3435 94.0319)" stroke="black" stroke-width="0.3"/>
+<line y1="-0.15" x2="20.9792" y2="-0.15" transform="matrix(0.443188 0.896429 -0.889093 0.457726 84.3435 94.0319)" stroke="black" stroke-width="0.3"/>
+<line y1="-0.15" x2="26.3567" y2="-0.15" transform="matrix(0.951207 -0.308555 0.297413 0.954749 68.5707 120.971)" stroke="black" stroke-width="0.3"/>
+<line y1="-0.15" x2="27.8764" y2="-0.15" transform="matrix(0.994648 -0.103323 0.0992634 0.995061 68.5707 120.971)" stroke="black" stroke-width="0.3"/>
+<line y1="-0.15" x2="10.9995" y2="-0.15" transform="matrix(-0.241511 0.970398 -0.96802 -0.250875 68.5707 120.971)" stroke="black" stroke-width="0.3"/>
+<line y1="-0.15" x2="16.3765" y2="-0.15" transform="matrix(-0.963143 -0.268988 0.259044 -0.965865 68.5707 120.971)" stroke="black" stroke-width="0.3"/>
+<line y1="-0.15" x2="18.2287" y2="-0.15" transform="matrix(-0.810633 0.585555 -0.569971 -0.821665 84.3435 94.0319)" stroke="black" stroke-width="0.3"/>
+<line y1="-0.15" x2="16.2861" y2="-0.15" transform="matrix(0.0509736 -0.9987 0.998591 0.0530733 68.7369 120.971)" stroke="black" stroke-width="0.3"/>
+<line y1="-0.15" x2="20.5392" y2="-0.15" transform="matrix(0.816444 -0.577425 0.561845 0.827242 52.7979 116.566)" stroke="black" stroke-width="0.3"/>
+<line y1="-0.15" x2="19.4618" y2="-0.15" transform="matrix(-0.998141 0.0609394 -0.0585293 -0.998286 52.7979 116.566)" stroke="black" stroke-width="0.3"/>
+<path d="M52.8178 116.551L65.4989 131.221" stroke="black" stroke-width="0.3"/>
+<line y1="-0.15" x2="14.3429" y2="-0.15" transform="matrix(-0.196789 -0.980446 0.978848 -0.204588 52.7979 116.566)" stroke="black" stroke-width="0.3"/>
+<line y1="-0.15" x2="12.4867" y2="-0.15" transform="matrix(0.385603 0.922665 -0.916932 0.399043 45.1603 90.9821)" stroke="black" stroke-width="0.3"/>
+<line y1="-0.15" x2="19.9047" y2="-0.15" transform="matrix(-0.900861 0.434107 -0.41997 -0.907538 45.1603 90.9821)" stroke="black" stroke-width="0.3"/>
+<line y1="-0.15" x2="22.9072" y2="-0.15" transform="matrix(-0.992973 -0.11834 0.113705 -0.993515 49.9751 102.334)" stroke="black" stroke-width="0.3"/>
+<line y1="-0.15" x2="8.86977" y2="-0.15" transform="matrix(0.973375 -0.229219 0.220574 0.97537 17.4336 101.995)" stroke="black" stroke-width="0.3"/>
+<line y1="-0.15" x2="22.6577" y2="-0.15" transform="matrix(-0.732779 0.680467 -0.66556 -0.746344 49.9751 102.334)" stroke="black" stroke-width="0.3"/>
+<line y1="-0.15" x2="32.5491" y2="-0.15" transform="matrix(-0.999783 -0.0208212 0.019995 -0.9998 49.9751 102.334)" stroke="black" stroke-width="0.3"/>
+<line y1="-0.15" x2="16.3182" y2="-0.15" transform="matrix(-0.356111 0.934444 -0.929485 -0.368859 55.7864 87.2548)" stroke="black" stroke-width="0.3"/>
+<line y1="-0.15" x2="11.1042" y2="-0.15" transform="matrix(-0.941979 0.335673 -0.323774 -0.946134 55.7864 87.2548)" stroke="black" stroke-width="0.3"/>
+<line y1="-0.15" x2="17.8975" y2="-0.15" transform="matrix(-0.909124 -0.416526 0.402724 -0.915321 55.7864 87.2548)" stroke="black" stroke-width="0.3"/>
+<line y1="-0.15" x2="5.93024" y2="-0.15" transform="matrix(-0.559947 0.828528 -0.817785 -0.575524 42.8359 74.8866)" stroke="black" stroke-width="0.3"/>
+<line y1="-0.15" x2="14.2667" y2="-0.15" transform="matrix(0.069826 0.997559 -0.997354 0.0726967 38.3533 65.5681)" stroke="black" stroke-width="0.3"/>
+<line y1="-0.15" x2="23.7753" y2="-0.15" transform="matrix(0.663418 0.748249 -0.734734 0.678355 23.5765 62.0102)" stroke="black" stroke-width="0.3"/>
+<line y1="-0.15" x2="12.2393" y2="-0.15" transform="matrix(0.0813921 -0.996682 0.996404 0.084732 23.5765 62.0102)" stroke="black" stroke-width="0.3"/>
+<line y1="-0.15" x2="14.94" y2="-0.15" transform="matrix(-0.989073 -0.147426 0.141696 -0.98991 38.3533 64.2127)" stroke="black" stroke-width="0.3"/>
+<line y1="-0.15" x2="18.272" y2="-0.15" transform="matrix(-0.690584 -0.723253 0.709129 -0.705078 37.1908 63.0267)" stroke="black" stroke-width="0.3"/>
+<line y1="-0.15" x2="19.1228" y2="-0.15" transform="matrix(-0.868234 0.496155 -0.481095 -0.876669 41.176 40.3236)" stroke="black" stroke-width="0.3"/>
+<line y1="-0.15" x2="13.8923" y2="-0.15" transform="matrix(0.155367 0.987857 -0.986853 0.161623 41.176 40.3236)" stroke="black" stroke-width="0.3"/>
+<line y1="-0.15" x2="19.2337" y2="-0.15" transform="matrix(0.97545 0.220221 -0.211882 0.977295 24.5728 49.8115)" stroke="black" stroke-width="0.3"/>
+<line y1="-0.15" x2="14.0512" y2="-0.15" transform="matrix(0.496278 0.868163 -0.859283 0.5115 17.5994 37.6127)" stroke="black" stroke-width="0.3"/>
+<line y1="-0.15" x2="23.3217" y2="-0.15" transform="matrix(0.526818 -0.849978 0.8402 0.542277 27.2289 99.6229)" stroke="black" stroke-width="0.3"/>
+<line y1="-0.15" x2="17.8273" y2="-0.15" transform="matrix(-0.800944 -0.598739 0.583168 -0.812352 25.569 98.437)" stroke="black" stroke-width="0.3"/>
+<line y1="-0.15" x2="15.1906" y2="-0.15" transform="matrix(-0.404405 -0.91458 0.908336 -0.418242 17.4336 101.656)" stroke="black" stroke-width="0.3"/>
+<line y1="-0.15" x2="14.1125" y2="-0.15" transform="matrix(0.70589 0.708322 -0.693889 0.720082 1.32825 77.7669)" stroke="black" stroke-width="0.3"/>
+<line y1="-0.15" x2="14.3923" y2="-0.15" transform="matrix(-0.530659 0.847585 -0.837694 -0.54614 18.9272 75.5643)" stroke="black" stroke-width="0.3"/>
+<line y1="-0.15" x2="17.7366" y2="-0.15" transform="matrix(-0.99226 0.124181 -0.119324 -0.992855 18.9272 75.5643)" stroke="black" stroke-width="0.3"/>
+<line y1="-0.15" x2="18.1259" y2="-0.15" transform="matrix(-0.329755 0.944067 -0.939766 -0.341817 7.30542 60.6548)" stroke="black" stroke-width="0.3"/>
+<line y1="-0.15" x2="18.9042" y2="-0.15" transform="matrix(0.614792 0.788689 -0.776409 0.63023 7.30542 60.6548)" stroke="black" stroke-width="0.3"/>
+<line y1="-0.15" x2="11.2137" y2="-0.15" transform="matrix(-0.533021 -0.846102 0.836142 -0.548513 7.30542 60.6548)" stroke="black" stroke-width="0.3"/>
+<line y1="-0.15" x2="21.0496" y2="-0.15" transform="matrix(-0.765098 0.643914 -0.628582 -0.777744 17.4336 37.6127)" stroke="black" stroke-width="0.3"/>
+<line y1="-0.15" x2="11.5318" y2="-0.15" transform="matrix(0.043193 -0.999067 0.998988 0.0449744 17.4336 37.6127)" stroke="black" stroke-width="0.3"/>
+<line y1="-0.15" x2="19.7253" y2="-0.15" transform="matrix(0.757542 -0.652786 0.637537 0.77042 17.4336 37.6127)" stroke="black" stroke-width="0.3"/>
+<line y1="-0.15" x2="11.9959" y2="-0.15" transform="matrix(-0.955003 -0.296598 0.285807 -0.958287 43.832 28.2943)" stroke="black" stroke-width="0.3"/>
+<line y1="-0.15" x2="11.4429" y2="-0.15" transform="matrix(0.986648 -0.162869 0.156567 0.987667 43.832 28.2943)" stroke="black" stroke-width="0.3"/>
+<line y1="-0.15" x2="14.9243" y2="-0.15" transform="matrix(-0.0444994 -0.999009 0.998926 -0.0463343 55.7864 41.3401)" stroke="black" stroke-width="0.3"/>
+<line y1="-0.15" x2="17.8072" y2="-0.15" transform="matrix(-0.68064 -0.732618 0.71871 -0.69531 55.7864 41.3401)" stroke="black" stroke-width="0.3"/>
+<line y1="-0.15" x2="14.4804" y2="-0.15" transform="matrix(-0.997533 -0.0702024 0.0674295 -0.997724 55.7864 41.3401)" stroke="black" stroke-width="0.3"/>
+<line y1="-0.15" x2="12.1185" y2="-0.15" transform="matrix(-0.205509 0.978655 -0.976917 -0.213621 43.832 28.2943)" stroke="black" stroke-width="0.3"/>
+<line y1="-0.15" x2="17.8352" y2="-0.15" transform="matrix(0.502696 0.864463 -0.855394 0.517978 32.3761 24.7363)" stroke="black" stroke-width="0.3"/>
+<line y1="-0.15" x2="13.9563" y2="-0.15" transform="matrix(0.0951716 -0.995461 0.995081 0.0990667 32.3761 24.7363)" stroke="black" stroke-width="0.3"/>
+<line y1="-0.15" x2="26.2915" y2="-0.15" transform="matrix(0.814635 -0.579974 0.564392 0.825507 32.3761 24.7363)" stroke="black" stroke-width="0.3"/>
+<line y1="-0.15" x2="19.5946" y2="-0.15" transform="matrix(0.99985 -0.0172932 0.0166071 0.999862 34.2021 9.82675)" stroke="black" stroke-width="0.3"/>
+<line y1="-0.15" x2="16.6569" y2="-0.15" transform="matrix(-0.0797417 -0.996816 0.996548 -0.0830149 55.1223 26.0917)" stroke="black" stroke-width="0.3"/>
+<line y1="-0.15" x2="14.6909" y2="-0.15" transform="matrix(-0.825018 0.565106 -0.549549 -0.835461 65.9142 1.18599)" stroke="black" stroke-width="0.3"/>
+<line y1="-0.15" x2="14.4804" y2="-0.15" transform="matrix(-0.997533 0.0702025 -0.0674294 -0.997724 32.3761 24.7363)" stroke="black" stroke-width="0.3"/>
+<line y1="-0.15" x2="22.7866" y2="-0.15" transform="matrix(0.998229 0.059483 -0.0571303 0.998367 32.3761 24.7363)" stroke="black" stroke-width="0.3"/>
+<line y1="-0.15" x2="24.0616" y2="-0.15" transform="matrix(0.993633 0.112662 -0.108244 0.994124 17.4336 37.6127)" stroke="black" stroke-width="0.3"/>
+<line y1="-0.15" x2="23.2838" y2="-0.15" transform="matrix(-0.998304 0.0582126 -0.05591 -0.998436 24.5728 49.8115)" stroke="black" stroke-width="0.3"/>
+<line y1="-0.15" x2="20.3896" y2="-0.15" transform="matrix(0.846866 -0.531807 0.516415 0.856338 7.30542 60.6548)" stroke="black" stroke-width="0.3"/>
+<line y1="-0.15" x2="14.3292" y2="-0.15" transform="matrix(-0.324433 0.945909 -0.941737 -0.336349 23.5765 62.0102)" stroke="black" stroke-width="0.3"/>
+<line y1="-0.15" x2="29.327" y2="-0.15" transform="matrix(-0.962431 0.271526 -0.261502 -0.965203 39.5157 79.8)" stroke="black" stroke-width="0.3"/>
+<line y1="-0.15" x2="21.019" y2="-0.15" transform="matrix(0.979485 0.201516 -0.193825 0.981036 18.9272 75.5643)" stroke="black" stroke-width="0.3"/>
+<line y1="-0.15" x2="12.5302" y2="-0.15" transform="matrix(0.477016 0.878894 -0.870579 0.492028 39.3494 79.9694)" stroke="black" stroke-width="0.3"/>
+<line y1="-0.15" x2="19.7347" y2="-0.15" transform="matrix(0.992751 0.120193 -0.115488 0.993309 49.9751 102.334)" stroke="black" stroke-width="0.3"/>
+<line y1="-0.15" x2="25.411" y2="-0.15" transform="matrix(-0.947405 -0.320038 0.308569 -0.951202 93.6417 112.838)" stroke="black" stroke-width="0.3"/>
+<line y1="-0.15" x2="17.2924" y2="-0.15" transform="matrix(0.144021 -0.989575 0.98871 0.149841 93.6417 112.838)" stroke="black" stroke-width="0.3"/>
+<line y1="-0.15" x2="22.1955" y2="-0.15" transform="matrix(-0.00736797 -0.999973 0.999971 -0.00767227 96.6299 118.09)" stroke="black" stroke-width="0.3"/>
+<line y1="-0.15" x2="5.58554" y2="-0.15" transform="matrix(0.475602 0.87966 -0.871386 0.490598 93.6417 112.838)" stroke="black" stroke-width="0.3"/>
+<line y1="-0.15" x2="18.5483" y2="-0.15" transform="matrix(0.96674 0.255762 -0.24624 0.969209 88.9924 83.3579)" stroke="black" stroke-width="0.3"/>
+<line y1="-0.15" x2="17.1783" y2="-0.15" transform="matrix(-0.985844 0.167667 -0.161191 -0.986923 121.867 70.3121)" stroke="black" stroke-width="0.3"/>
+<line y1="-0.15" x2="23.2328" y2="-0.15" transform="matrix(-0.643176 0.765719 -0.752699 -0.658365 121.867 70.3121)" stroke="black" stroke-width="0.3"/>
+<line y1="-0.15" x2="10.0952" y2="-0.15" transform="matrix(0.674309 0.73845 -0.724682 0.689084 121.867 70.3121)" stroke="black" stroke-width="0.3"/>
+<line y1="-0.15" x2="23.6359" y2="-0.15" transform="matrix(0.906165 -0.422924 0.408996 0.912536 106.924 87.7631)" stroke="black" stroke-width="0.3"/>
+<line y1="-0.15" x2="14.9747" y2="-0.15" transform="matrix(0.343709 0.939076 -0.934431 0.356143 106.924 87.7631)" stroke="black" stroke-width="0.3"/>
+<line y1="-0.15" x2="20.4245" y2="-0.15" transform="matrix(0.325159 -0.945659 0.94147 0.337097 121.867 70.1427)" stroke="black" stroke-width="0.3"/>
+<line y1="-0.15" x2="28.6444" y2="-0.15" transform="matrix(0.97957 -0.201104 0.193428 0.981115 100.283 56.2497)" stroke="black" stroke-width="0.3"/>
+<line y1="-0.15" x2="17.5914" y2="-0.15" transform="matrix(-0.330338 0.943863 -0.939548 -0.342416 100.283 56.2497)" stroke="black" stroke-width="0.3"/>
+<line y1="-0.15" x2="16.8919" y2="-0.15" transform="matrix(0.99273 -0.120361 0.115649 0.99329 77.7026 74.8866)" stroke="black" stroke-width="0.3"/>
+<line y1="-0.25" x2="11.3943" y2="-0.25" transform="matrix(0.451713 -0.892163 0.884584 0.466382 89.3245 82.8497)" stroke="black" stroke-width="0.5"/>
+<line y1="-0.15" x2="16.5307" y2="-0.15" transform="matrix(-0.974247 -0.225482 0.216964 -0.97618 94.4717 72.6841)" stroke="black" stroke-width="0.3"/>
+<line y1="-0.15" x2="19.4245" y2="-0.15" transform="matrix(-0.213688 -0.976902 0.975026 -0.222091 94.4717 72.6841)" stroke="black" stroke-width="0.3"/>
+<line y1="-0.15" x2="17.1274" y2="-0.15" transform="matrix(0.930611 0.366009 -0.35333 0.935499 62.4277 62.6879)" stroke="black" stroke-width="0.3"/>
+<line y1="-0.15" x2="14.4022" y2="-0.15" transform="matrix(0.0115281 0.999934 -0.999928 0.0120045 78.2006 54.5554)" stroke="black" stroke-width="0.3"/>
+<line y1="-0.15" x2="12.1498" y2="-0.15" transform="matrix(0.997566 -0.0697239 0.0669697 0.997755 78.2006 54.5554)" stroke="black" stroke-width="0.3"/>
+<line y1="-0.15" x2="19.4786" y2="-0.15" transform="matrix(0.622236 -0.78283 0.770351 0.63762 78.2006 68.9567)" stroke="black" stroke-width="0.3"/>
+<line y1="-0.15" x2="10.2809" y2="-0.15" transform="matrix(-0.968966 -0.247196 0.237952 -0.971277 100.283 56.2497)" stroke="black" stroke-width="0.3"/>
+<line y1="-0.15" x2="6.5738" y2="-0.15" transform="matrix(0.202052 0.979375 -0.977693 0.21004 88.9924 47.2701)" stroke="black" stroke-width="0.3"/>
+<line y1="-0.15" x2="20.8939" y2="-0.15" transform="matrix(0.524461 0.851435 -0.841726 0.539906 67.4087 51.1669)" stroke="black" stroke-width="0.3"/>
+<line x1="78.2168" y1="74.5478" x2="78.2168" y2="68.279" stroke="black" stroke-width="0.3"/>
+<line y1="-0.25" x2="10.4997" y2="-0.25" transform="matrix(-0.632518 -0.774546 0.761797 -0.647815 62.4277 62.6879)" stroke="black" stroke-width="0.5"/>
+<line y1="-0.15" x2="12.5516" y2="-0.15" transform="matrix(0.396835 -0.91789 0.911853 0.410516 62.4277 62.6879)" stroke="black" stroke-width="0.3"/>
+<line y1="-0.15" x2="13.3639" y2="-0.15" transform="matrix(-0.484528 0.874775 -0.86624 -0.499628 62.2618 62.5185)" stroke="black" stroke-width="0.3"/>
+<line y1="-0.15" x2="17.7072" y2="-0.15" transform="matrix(0.29067 0.956823 -0.953432 0.301609 62.2618 62.5185)" stroke="black" stroke-width="0.3"/>
+<line y1="-0.15" x2="19.5325" y2="-0.15" transform="matrix(0.807522 0.589838 -0.574255 0.818677 62.4277 62.6879)" stroke="black" stroke-width="0.3"/>
+<line y1="-0.15" x2="11.0636" y2="-0.15" transform="matrix(-0.990457 0.137825 -0.132453 -0.991189 62.4277 62.6879)" stroke="black" stroke-width="0.3"/>
+<line y1="-0.15" x2="10.4997" y2="-0.15" transform="matrix(-0.632518 -0.774546 0.761797 -0.647815 62.4277 62.6879)" stroke="black" stroke-width="0.3"/>
+<line y1="-0.15" x2="23.596" y2="-0.15" transform="matrix(0.92177 0.387738 -0.374547 0.927208 106.592 41.3401)" stroke="black" stroke-width="0.3"/>
+<line y1="-0.15" x2="10.5202" y2="-0.15" transform="matrix(-0.915365 -0.402624 0.389107 -0.921192 105.429 40.8318)" stroke="black" stroke-width="0.3"/>
+<line y1="-0.15" x2="14.6197" y2="-0.15" transform="matrix(-0.374771 0.927117 -0.921674 -0.387966 101.279 23.042)" stroke="black" stroke-width="0.3"/>
+<line y1="-0.15" x2="32.2562" y2="-0.15" transform="matrix(0.720616 -0.693334 0.67863 0.73448 104.932 73.1924)" stroke="black" stroke-width="0.3"/>
+<line y1="-0.15" x2="16.2598" y2="-0.15" transform="matrix(-0.347179 0.937799 -0.933068 -0.359701 112.236 26.0917)" stroke="black" stroke-width="0.3"/>
+<line y1="-0.15" x2="19.0538" y2="-0.15" transform="matrix(0.278841 0.960337 -0.957203 0.289417 101.279 23.042)" stroke="black" stroke-width="0.3"/>
+<line y1="-0.15" x2="11.055" y2="-0.15" transform="matrix(-0.961196 -0.275866 0.265706 -0.964054 111.904 26.0917)" stroke="black" stroke-width="0.3"/>
+<line y1="-1" x2="8.53072" y2="-1" transform="matrix(-0.85636 -0.51638 0.501113 -0.865382 87.3325 46.0841)" stroke="black" stroke-width="2"/>
+<line y1="-1" x2="9.50201" y2="-1" transform="matrix(-0.821242 0.57058 -0.55501 -0.831844 87.4988 48.6255)" stroke="black" stroke-width="2"/>
+<line y1="-1" x2="10.0808" y2="-1" transform="matrix(-0.724683 -0.689083 0.674309 -0.738449 87.3325 81.6637)" stroke="black" stroke-width="2"/>
+<line y1="-1" x2="14.233" y2="-1" transform="matrix(0.699913 0.714228 -0.699913 0.714228 43.6658 76.242)" stroke="black" stroke-width="2"/>
+<line y1="-1" x2="8.33985" y2="-1" transform="matrix(0.836142 0.548514 -0.533021 0.846102 57.4463 88.4408)" stroke="black" stroke-width="2"/>
+<line y1="-1" x2="8.2797" y2="-1" transform="matrix(0.882322 -0.470647 0.455915 0.890023 69.5669 93.0153)" stroke="black" stroke-width="2"/>
+<line y1="-1" x2="7.53004" y2="-1" transform="matrix(0.904014 -0.427502 0.413487 0.91051 80.3588 87.4242)" stroke="black" stroke-width="2"/>
+<line y1="-1" x2="7.8745" y2="-1" transform="matrix(0.379523 0.925182 -0.919612 0.392827 39.0173 65.907)" stroke="black" stroke-width="2"/>
+<line y1="-1" x2="7.85257" y2="-1" transform="matrix(-0.42287 0.90619 -0.899432 -0.437061 42.0055 55.572)" stroke="black" stroke-width="2"/>
+<path d="M78.2836 74.4631L67.2425 79.4611L55.7864 74.4631L51.4696 64.6363L55.7864 54.1318L67.2425 50.5739L78.2836 54.1318" stroke="black" stroke-width="2"/>
+<ellipse cx="41.3419" cy="40.3236" rx="0.664124" ry="0.677708" fill="black"/>
+<ellipse cx="41.3419" cy="40.3236" rx="0.664124" ry="0.677708" fill="black"/>
+<ellipse cx="41.3419" cy="40.3236" rx="0.664124" ry="0.677708" fill="black"/>
+<ellipse cx="41.3419" cy="40.3236" rx="0.664124" ry="0.677708" fill="black"/>
+<ellipse cx="41.3419" cy="40.3236" rx="0.664124" ry="0.677708" fill="black"/>
+<ellipse cx="93.6418" cy="112.838" rx="0.664124" ry="0.677704" fill="black"/>
+<ellipse cx="93.6418" cy="112.838" rx="0.664124" ry="0.677704" fill="black"/>
+<ellipse cx="93.6418" cy="112.838" rx="0.664124" ry="0.677704" fill="black"/>
+<ellipse cx="93.6418" cy="112.838" rx="0.664124" ry="0.677704" fill="black"/>
+<ellipse cx="93.6418" cy="112.838" rx="0.664124" ry="0.677704" fill="black"/>
+<ellipse cx="18.9277" cy="75.5643" rx="0.664124" ry="0.677704" fill="black"/>
+<ellipse cx="18.9277" cy="75.5643" rx="0.664124" ry="0.677704" fill="black"/>
+<ellipse cx="18.9277" cy="75.5643" rx="0.664124" ry="0.677704" fill="black"/>
+<ellipse cx="18.9277" cy="75.5643" rx="0.664124" ry="0.677704" fill="black"/>
+<ellipse cx="18.9277" cy="75.5643" rx="0.664124" ry="0.677704" fill="black"/>
+<ellipse cx="52.7978" cy="116.566" rx="0.664124" ry="0.677708" fill="black"/>
+<ellipse cx="52.7978" cy="116.566" rx="0.664124" ry="0.677708" fill="black"/>
+<ellipse cx="52.7978" cy="116.566" rx="0.664124" ry="0.677708" fill="black"/>
+<ellipse cx="52.7978" cy="116.566" rx="0.664124" ry="0.677708" fill="black"/>
+<ellipse cx="52.7978" cy="116.566" rx="0.664124" ry="0.677708" fill="black"/>
+<ellipse cx="68.6537" cy="121.055" rx="0.415077" ry="0.423565" fill="black"/>
+<ellipse cx="68.6537" cy="121.055" rx="0.415077" ry="0.423565" fill="black"/>
+<ellipse cx="68.6537" cy="121.055" rx="0.415077" ry="0.423565" fill="black"/>
+<ellipse cx="68.6537" cy="121.055" rx="0.415077" ry="0.423565" fill="black"/>
+<ellipse cx="68.6537" cy="121.055" rx="0.415077" ry="0.423565" fill="black"/>
+<ellipse cx="68.6537" cy="121.055" rx="0.415077" ry="0.423565" fill="black"/>
+<ellipse cx="68.6537" cy="121.055" rx="0.415077" ry="0.423565" fill="black"/>
+<ellipse cx="68.6537" cy="121.055" rx="0.415077" ry="0.423565" fill="black"/>
+<ellipse cx="68.6537" cy="121.055" rx="0.415077" ry="0.423565" fill="black"/>
+<ellipse cx="68.6537" cy="121.055" rx="0.415077" ry="0.423565" fill="black"/>
+<ellipse cx="84.2607" cy="93.9471" rx="0.415077" ry="0.423569" fill="black"/>
+<ellipse cx="84.2607" cy="93.9471" rx="0.415077" ry="0.423569" fill="black"/>
+<ellipse cx="84.2607" cy="93.9471" rx="0.415077" ry="0.423569" fill="black"/>
+<ellipse cx="84.2607" cy="93.9471" rx="0.415077" ry="0.423569" fill="black"/>
+<ellipse cx="84.2607" cy="93.9471" rx="0.415077" ry="0.423569" fill="black"/>
+<ellipse cx="49.8918" cy="102.418" rx="0.415077" ry="0.423565" fill="black"/>
+<ellipse cx="49.8918" cy="102.418" rx="0.415077" ry="0.423565" fill="black"/>
+<ellipse cx="49.8918" cy="102.418" rx="0.415077" ry="0.423565" fill="black"/>
+<ellipse cx="49.8918" cy="102.418" rx="0.415077" ry="0.423565" fill="black"/>
+<ellipse cx="49.8918" cy="102.418" rx="0.415077" ry="0.423565" fill="black"/>
+<ellipse cx="11.2069" cy="87.8478" rx="0.415077" ry="0.423565" fill="black"/>
+<ellipse cx="11.2069" cy="87.8478" rx="0.415077" ry="0.423565" fill="black"/>
+<ellipse cx="11.2069" cy="87.8478" rx="0.415077" ry="0.423565" fill="black"/>
+<ellipse cx="11.2069" cy="87.8478" rx="0.415077" ry="0.423565" fill="black"/>
+<ellipse cx="11.2069" cy="87.8478" rx="0.415077" ry="0.423565" fill="black"/>
+<ellipse cx="39.4324" cy="79.8847" rx="0.415077" ry="0.423569" fill="black"/>
+<ellipse cx="39.4324" cy="79.8847" rx="0.415077" ry="0.423569" fill="black"/>
+<ellipse cx="39.4324" cy="79.8847" rx="0.415077" ry="0.423569" fill="black"/>
+<ellipse cx="39.4324" cy="79.8847" rx="0.415077" ry="0.423569" fill="black"/>
+<ellipse cx="39.4324" cy="79.8847" rx="0.415077" ry="0.423569" fill="black"/>
+<ellipse cx="23.4933" cy="62.0949" rx="0.415077" ry="0.423567" fill="black"/>
+<ellipse cx="23.4933" cy="62.0949" rx="0.415077" ry="0.423567" fill="black"/>
+<ellipse cx="23.4933" cy="62.0949" rx="0.415077" ry="0.423567" fill="black"/>
+<ellipse cx="23.4933" cy="62.0949" rx="0.415077" ry="0.423567" fill="black"/>
+<ellipse cx="23.4933" cy="62.0949" rx="0.415077" ry="0.423567" fill="black"/>
+<ellipse cx="17.5166" cy="37.6974" rx="0.415077" ry="0.423567" fill="black"/>
+<ellipse cx="17.5166" cy="37.6974" rx="0.415077" ry="0.423567" fill="black"/>
+<ellipse cx="17.5166" cy="37.6974" rx="0.415077" ry="0.423567" fill="black"/>
+<ellipse cx="17.5166" cy="37.6974" rx="0.415077" ry="0.423567" fill="black"/>
+<ellipse cx="17.5166" cy="37.6974" rx="0.415077" ry="0.423567" fill="black"/>
+<ellipse cx="43.7488" cy="28.379" rx="0.415077" ry="0.423567" fill="black"/>
+<ellipse cx="43.7488" cy="28.379" rx="0.415077" ry="0.423567" fill="black"/>
+<ellipse cx="43.7488" cy="28.379" rx="0.415077" ry="0.423567" fill="black"/>
+<ellipse cx="43.7488" cy="28.379" rx="0.415077" ry="0.423567" fill="black"/>
+<ellipse cx="43.7488" cy="28.379" rx="0.415077" ry="0.423567" fill="black"/>
+<ellipse cx="95.8825" cy="36.6809" rx="0.415081" ry="0.423567" fill="black"/>
+<ellipse cx="95.8825" cy="36.6809" rx="0.415081" ry="0.423567" fill="black"/>
+<ellipse cx="95.8825" cy="36.6809" rx="0.415081" ry="0.423567" fill="black"/>
+<ellipse cx="95.8825" cy="36.6809" rx="0.415081" ry="0.423567" fill="black"/>
+<ellipse cx="95.8825" cy="36.6809" rx="0.415081" ry="0.423567" fill="black"/>
+<ellipse cx="32.376" cy="24.7363" rx="0.664124" ry="0.677708" fill="black"/>
+<ellipse cx="32.376" cy="24.7363" rx="0.664124" ry="0.677708" fill="black"/>
+<ellipse cx="32.376" cy="24.7363" rx="0.664124" ry="0.677708" fill="black"/>
+<ellipse cx="32.376" cy="24.7363" rx="0.664124" ry="0.677708" fill="black"/>
+<ellipse cx="32.376" cy="24.7363" rx="0.664124" ry="0.677708" fill="black"/>
+<ellipse cx="24.5728" cy="49.8115" rx="0.664124" ry="0.677708" fill="black"/>
+<ellipse cx="24.5728" cy="49.8115" rx="0.664124" ry="0.677708" fill="black"/>
+<ellipse cx="24.5728" cy="49.8115" rx="0.664124" ry="0.677708" fill="black"/>
+<ellipse cx="24.5728" cy="49.8115" rx="0.664124" ry="0.677708" fill="black"/>
+<ellipse cx="24.5728" cy="49.8115" rx="0.664124" ry="0.677708" fill="black"/>
+<ellipse cx="73.0533" cy="16.6038" rx="0.664124" ry="0.677707" fill="black"/>
+<ellipse cx="73.0533" cy="16.6038" rx="0.664124" ry="0.677707" fill="black"/>
+<ellipse cx="73.0533" cy="16.6038" rx="0.664124" ry="0.677707" fill="black"/>
+<ellipse cx="73.0533" cy="16.6038" rx="0.664124" ry="0.677707" fill="black"/>
+<ellipse cx="73.0533" cy="16.6038" rx="0.664124" ry="0.677707" fill="black"/>
+<ellipse cx="72.887" cy="33.5465" rx="0.664124" ry="0.677708" fill="black"/>
+<ellipse cx="72.887" cy="33.5465" rx="0.664124" ry="0.677708" fill="black"/>
+<ellipse cx="72.887" cy="33.5465" rx="0.664124" ry="0.677708" fill="black"/>
+<ellipse cx="72.887" cy="33.5465" rx="0.664124" ry="0.677708" fill="black"/>
+<ellipse cx="72.887" cy="33.5465" rx="0.664124" ry="0.677708" fill="black"/>
+<ellipse cx="83.5135" cy="27.786" rx="0.996185" ry="1.01656" fill="black"/>
+<ellipse cx="83.5135" cy="27.786" rx="0.996185" ry="1.01656" fill="black"/>
+<ellipse cx="83.5135" cy="27.786" rx="0.996185" ry="1.01656" fill="black"/>
+<ellipse cx="83.5135" cy="27.786" rx="0.996185" ry="1.01656" fill="black"/>
+<ellipse cx="83.5135" cy="27.786" rx="0.996185" ry="1.01656" fill="black"/>
+<ellipse cx="101.279" cy="23.042" rx="0.996185" ry="1.01656" fill="black"/>
+<ellipse cx="101.279" cy="23.042" rx="0.996185" ry="1.01656" fill="black"/>
+<ellipse cx="101.279" cy="23.042" rx="0.996185" ry="1.01656" fill="black"/>
+<ellipse cx="101.279" cy="23.042" rx="0.996185" ry="1.01656" fill="black"/>
+<ellipse cx="101.279" cy="23.042" rx="0.996185" ry="1.01656" fill="black"/>
+<ellipse cx="53.794" cy="9.82676" rx="0.996187" ry="1.01656" fill="black"/>
+<ellipse cx="53.794" cy="9.82676" rx="0.996187" ry="1.01656" fill="black"/>
+<ellipse cx="53.794" cy="9.82676" rx="0.996187" ry="1.01656" fill="black"/>
+<ellipse cx="53.794" cy="9.82676" rx="0.996187" ry="1.01656" fill="black"/>
+<ellipse cx="53.794" cy="9.82676" rx="0.996187" ry="1.01656" fill="black"/>
+<ellipse cx="55.1223" cy="26.4306" rx="0.996185" ry="1.01656" fill="black"/>
+<ellipse cx="55.1223" cy="26.4306" rx="0.996185" ry="1.01656" fill="black"/>
+<ellipse cx="55.1223" cy="26.4306" rx="0.996185" ry="1.01656" fill="black"/>
+<ellipse cx="55.1223" cy="26.4306" rx="0.996185" ry="1.01656" fill="black"/>
+<ellipse cx="55.1223" cy="26.4306" rx="0.996185" ry="1.01656" fill="black"/>
+<ellipse cx="7.30539" cy="60.6548" rx="0.996186" ry="1.01656" fill="black"/>
+<ellipse cx="7.30539" cy="60.6548" rx="0.996186" ry="1.01656" fill="black"/>
+<ellipse cx="7.30539" cy="60.6548" rx="0.996186" ry="1.01656" fill="black"/>
+<ellipse cx="7.30539" cy="60.6548" rx="0.996186" ry="1.01656" fill="black"/>
+<ellipse cx="7.30539" cy="60.6548" rx="0.996186" ry="1.01656" fill="black"/>
+<ellipse cx="69.5669" cy="104.706" rx="0.996185" ry="1.01656" fill="black"/>
+<ellipse cx="69.5669" cy="104.706" rx="0.996185" ry="1.01656" fill="black"/>
+<ellipse cx="69.5669" cy="104.706" rx="0.996185" ry="1.01656" fill="black"/>
+<ellipse cx="69.5669" cy="104.706" rx="0.996185" ry="1.01656" fill="black"/>
+<ellipse cx="69.5669" cy="104.706" rx="0.996185" ry="1.01656" fill="black"/>
+<ellipse cx="96.6299" cy="94.5401" rx="0.996185" ry="1.01656" fill="black"/>
+<ellipse cx="96.6299" cy="94.5401" rx="0.996185" ry="1.01656" fill="black"/>
+<ellipse cx="96.6299" cy="94.5401" rx="0.996185" ry="1.01656" fill="black"/>
+<ellipse cx="96.6299" cy="94.5401" rx="0.996185" ry="1.01656" fill="black"/>
+<ellipse cx="96.6299" cy="94.5401" rx="0.996185" ry="1.01656" fill="black"/>
+<ellipse cx="94.4716" cy="72.6841" rx="0.996189" ry="1.01656" fill="black"/>
+<ellipse cx="94.4716" cy="72.6841" rx="0.996189" ry="1.01656" fill="black"/>
+<ellipse cx="94.4716" cy="72.6841" rx="0.996189" ry="1.01656" fill="black"/>
+<ellipse cx="94.4716" cy="72.6841" rx="0.996189" ry="1.01656" fill="black"/>
+<ellipse cx="94.4716" cy="72.6841" rx="0.996189" ry="1.01656" fill="black"/>
+<ellipse cx="62.2617" cy="62.5185" rx="0.830154" ry="0.847134" fill="black"/>
+<ellipse cx="62.2617" cy="62.5185" rx="0.830154" ry="0.847134" fill="black"/>
+<ellipse cx="62.2617" cy="62.5185" rx="0.830154" ry="0.847134" fill="black"/>
+<ellipse cx="62.2617" cy="62.5185" rx="0.830154" ry="0.847134" fill="black"/>
+<ellipse cx="62.2617" cy="62.5185" rx="0.830154" ry="0.847134" fill="black"/>
+<ellipse cx="104.931" cy="73.1923" rx="0.996185" ry="1.01656" fill="black"/>
+<ellipse cx="104.931" cy="73.1923" rx="0.996185" ry="1.01656" fill="black"/>
+<ellipse cx="104.931" cy="73.1923" rx="0.996185" ry="1.01656" fill="black"/>
+<ellipse cx="104.931" cy="73.1923" rx="0.996185" ry="1.01656" fill="black"/>
+<ellipse cx="104.931" cy="73.1923" rx="0.996185" ry="1.01656" fill="black"/>
+<ellipse cx="78.3668" cy="68.9567" rx="0.664124" ry="0.677708" fill="black"/>
+<ellipse cx="78.3668" cy="68.9567" rx="0.664124" ry="0.677708" fill="black"/>
+<ellipse cx="78.3668" cy="68.9567" rx="0.664124" ry="0.677708" fill="black"/>
+<ellipse cx="78.3668" cy="68.9567" rx="0.664124" ry="0.677708" fill="black"/>
+<ellipse cx="78.3668" cy="68.9567" rx="0.664124" ry="0.677708" fill="black"/>
+<ellipse cx="90.3206" cy="53.7083" rx="0.664124" ry="0.677706" fill="black"/>
+<ellipse cx="90.3206" cy="53.7083" rx="0.664124" ry="0.677706" fill="black"/>
+<ellipse cx="90.3206" cy="53.7083" rx="0.664124" ry="0.677706" fill="black"/>
+<ellipse cx="90.3206" cy="53.7083" rx="0.664124" ry="0.677706" fill="black"/>
+<ellipse cx="90.3206" cy="53.7083" rx="0.664124" ry="0.677706" fill="black"/>
+<ellipse cx="121.867" cy="70.1427" rx="0.664124" ry="0.677708" fill="black"/>
+<ellipse cx="121.867" cy="70.1427" rx="0.664124" ry="0.677708" fill="black"/>
+<ellipse cx="121.867" cy="70.1427" rx="0.664124" ry="0.677708" fill="black"/>
+<ellipse cx="121.867" cy="70.1427" rx="0.664124" ry="0.677708" fill="black"/>
+<ellipse cx="121.867" cy="70.1427" rx="0.664124" ry="0.677708" fill="black"/>
+<ellipse cx="100.283" cy="56.2497" rx="0.664124" ry="0.677708" fill="black"/>
+<ellipse cx="100.283" cy="56.2497" rx="0.664124" ry="0.677708" fill="black"/>
+<ellipse cx="100.283" cy="56.2497" rx="0.664124" ry="0.677708" fill="black"/>
+<ellipse cx="100.283" cy="56.2497" rx="0.664124" ry="0.677708" fill="black"/>
+<ellipse cx="100.283" cy="56.2497" rx="0.664124" ry="0.677708" fill="black"/>
+<ellipse cx="106.924" cy="88.1019" rx="0.664124" ry="0.677708" fill="black"/>
+<ellipse cx="106.924" cy="88.1019" rx="0.664124" ry="0.677708" fill="black"/>
+<ellipse cx="106.924" cy="88.1019" rx="0.664124" ry="0.677708" fill="black"/>
+<ellipse cx="106.924" cy="88.1019" rx="0.664124" ry="0.677708" fill="black"/>
+<ellipse cx="106.924" cy="88.1019" rx="0.664124" ry="0.677708" fill="black"/>
+<ellipse cx="45.1603" cy="90.9821" rx="0.664124" ry="0.677708" fill="black"/>
+<ellipse cx="45.1603" cy="90.9821" rx="0.664124" ry="0.677708" fill="black"/>
+<ellipse cx="45.1603" cy="90.9821" rx="0.664124" ry="0.677708" fill="black"/>
+<ellipse cx="45.1603" cy="90.9821" rx="0.664124" ry="0.677708" fill="black"/>
+<ellipse cx="45.1603" cy="90.9821" rx="0.664124" ry="0.677708" fill="black"/>
+<ellipse cx="65.3332" cy="1.2707" rx="1.24523" ry="1.2707" fill="black"/>
+<ellipse cx="1.24523" cy="51.2516" rx="1.24523" ry="1.2707" fill="black"/>
+<ellipse cx="96.7126" cy="9.91146" rx="1.24524" ry="1.2707" fill="black"/>
+<ellipse cx="17.8485" cy="25.4987" rx="1.24523" ry="1.2707" fill="black"/>
+<ellipse cx="17.3501" cy="101.741" rx="1.24523" ry="1.2707" fill="black"/>
+<ellipse cx="111.988" cy="101.91" rx="1.24523" ry="1.2707" fill="black"/>
+<ellipse cx="33.6213" cy="117.836" rx="1.24523" ry="1.2707" fill="black"/>
+<ellipse cx="96.5464" cy="118.175" rx="1.24524" ry="1.2707" fill="black"/>
+<ellipse cx="112.153" cy="26.1764" rx="1.24523" ry="1.2707" fill="black"/>
+<ellipse cx="128.425" cy="50.4044" rx="1.24523" ry="1.2707" fill="black"/>
+<ellipse cx="1.41149" cy="77.8516" rx="1.24523" ry="1.2707" fill="black"/>
+<ellipse cx="65.8312" cy="131.729" rx="1.24523" ry="1.2707" fill="black"/>
+<ellipse cx="128.425" cy="77.8516" rx="1.24523" ry="1.2707" fill="black"/>
+<ellipse cx="51.5524" cy="64.2974" rx="1.24523" ry="1.2707" fill="black"/>
+<ellipse cx="43.2507" cy="54.1318" rx="1.24523" ry="1.2707" fill="black"/>
+<ellipse cx="55.7034" cy="41.4248" rx="1.24523" ry="1.2707" fill="black"/>
+<ellipse cx="55.7034" cy="54.1318" rx="1.24523" ry="1.2707" fill="black"/>
+<ellipse cx="55.7034" cy="74.4631" rx="1.24523" ry="1.2707" fill="black"/>
+<ellipse cx="55.7034" cy="74.4631" rx="1.24523" ry="1.2707" fill="black"/>
+<ellipse cx="67.3252" cy="79.5459" rx="1.24523" ry="1.2707" fill="black"/>
+<ellipse cx="67.3252" cy="50.7433" rx="1.24523" ry="1.2707" fill="black"/>
+<ellipse cx="67.3252" cy="37.1892" rx="1.24523" ry="1.2707" fill="black"/>
+<ellipse cx="78.1175" cy="40.9166" rx="1.24523" ry="1.2707" fill="black"/>
+<ellipse cx="78.2838" cy="87.8478" rx="1.24523" ry="1.2707" fill="black"/>
+<ellipse cx="88.9094" cy="82.9344" rx="1.24523" ry="1.2707" fill="black"/>
+<ellipse cx="78.1175" cy="54.1318" rx="1.24523" ry="1.2707" fill="black"/>
+<ellipse cx="78.1175" cy="74.4631" rx="1.24523" ry="1.2707" fill="black"/>
+<ellipse cx="67.3252" cy="93.1" rx="1.24523" ry="1.2707" fill="black"/>
+<ellipse cx="55.7034" cy="87.1701" rx="1.24523" ry="1.2707" fill="black"/>
+<ellipse cx="42.7524" cy="74.6325" rx="1.24523" ry="1.2707" fill="black"/>
+<path d="M33.4552 9.74204L65.6652 1.18599L96.713 9.42119L111.988 25.4024L128.508 50.108V77.6673L111.988 102.373L96.713 118.354L65.6652 131.645L33.8703 118.354L17.8483 102.373L1.32825 77.6673V50.108L17.8483 25.4024L33.4552 9.74204Z" stroke="black"/>
+<path d="M78.2002 74.7336V87.763L67.3199 80.256L55.6977 87.763V74.7336H43.3337L51.494 64.5516L43.3337 54.2833H55.6977V41.3401L67.3199 50.4866L78.2002 41.3401V54.2833" stroke="black" stroke-width="2"/>
+<line y1="-1" x2="14.233" y2="-1" transform="matrix(-0.699913 0.714228 -0.699913 -0.714228 54.1261 42.3567)" stroke="black" stroke-width="2"/>
+<line y1="-1" x2="8.53307" y2="-1" transform="matrix(-0.933953 0.357395 -0.344931 -0.938628 65.4158 37.1045)" stroke="black" stroke-width="2"/>
+<line y1="-1" x2="7.76341" y2="-1" transform="matrix(-0.919612 -0.392828 0.379523 -0.925182 76.5402 40.1541)" stroke="black" stroke-width="2"/>
+<line y1="-0.15" x2="15.436" y2="-0.15" transform="matrix(-0.387218 0.921988 -0.916212 -0.400693 106.26 42.0178)" stroke="black" stroke-width="0.3"/>
+<line y1="-0.15" x2="14.4257" y2="-0.15" transform="matrix(0.78264 0.622475 -0.606991 0.794709 88.9924 47.2701)" stroke="black" stroke-width="0.3"/>
+<line y1="-0.15" x2="20.1583" y2="-0.15" transform="matrix(0.222382 0.97496 -0.972932 0.23109 95.7996 36.5962)" stroke="black" stroke-width="0.3"/>
+<line y1="-0.15" x2="12.7499" y2="-0.15" transform="matrix(0.546932 -0.837177 0.82681 0.562481 88.9924 47.2701)" stroke="black" stroke-width="0.3"/>
+<line y1="-0.15" x2="15.1186" y2="-0.15" transform="matrix(0.81266 0.582738 -0.567154 0.823612 83.6793 27.786)" stroke="black" stroke-width="0.3"/>
+<line y1="-0.15" x2="18.2274" y2="-0.15" transform="matrix(0.965537 -0.260264 0.250597 0.968091 83.6793 27.786)" stroke="black" stroke-width="0.3"/>
+<line y1="-0.15" x2="13.9549" y2="-0.15" transform="matrix(0.321237 0.946999 -0.942904 0.333065 96.7957 9.82675)" stroke="black" stroke-width="0.3"/>
+<line y1="-0.15" x2="24.6447" y2="-0.15" transform="matrix(-0.963387 0.268116 -0.258199 -0.966092 96.7957 9.82675)" stroke="black" stroke-width="0.3"/>
+<line y1="-0.15" x2="15.436" y2="-0.15" transform="matrix(-0.677635 -0.735399 0.721557 -0.692355 83.5135 27.786)" stroke="black" stroke-width="0.3"/>
+<line y1="-0.15" x2="22.239" y2="-0.15" transform="matrix(0.589793 -0.807554 0.79596 0.605349 83.5135 27.786)" stroke="black" stroke-width="0.3"/>
+<line y1="-0.15" x2="14.0862" y2="-0.15" transform="matrix(-0.377176 0.926142 -0.920634 -0.390426 83.5135 27.786)" stroke="black" stroke-width="0.3"/>
+<line y1="-0.15" x2="9.01688" y2="-0.15" transform="matrix(0.589227 0.807968 -0.79639 0.604784 72.8875 33.5465)" stroke="black" stroke-width="0.3"/>
+<line y1="-0.15" x2="6.5329" y2="-0.15" transform="matrix(-0.838681 0.544622 -0.52915 -0.848528 72.8875 33.5465)" stroke="black" stroke-width="0.3"/>
+<line y1="-0.15" x2="16.4995" y2="-0.15" transform="matrix(0.744646 0.667459 -0.652376 0.757895 55.1223 26.0917)" stroke="black" stroke-width="0.3"/>
+<line y1="-0.15" x2="19.9939" y2="-0.15" transform="matrix(0.880234 -0.47454 0.459754 0.888047 55.1223 26.0917)" stroke="black" stroke-width="0.3"/>
+<line y1="-0.15" x2="20.162" y2="-0.15" transform="matrix(0.938774 0.344535 -0.3324 0.943138 53.7939 9.65732)" stroke="black" stroke-width="0.3"/>
+<line y1="-0.15" x2="17.061" y2="-0.15" transform="matrix(0.42819 0.903688 -0.89678 0.442477 65.4158 1.18599)" stroke="black" stroke-width="0.3"/>
+<line y1="-0.15" x2="16.9459" y2="-0.15" transform="matrix(-0.0195954 -0.999808 0.999792 -0.0204048 73.0533 33.5465)" stroke="black" stroke-width="0.3"/>
+<line y1="-0.15" x2="11.9413" y2="-0.15" transform="matrix(0.875949 -0.482403 0.467511 0.883987 73.0533 33.5465)" stroke="black" stroke-width="0.3"/>
+<line y1="-0.15" x2="18.3033" y2="-0.15" transform="matrix(0.970607 -0.240672 0.231644 0.972801 78.2006 41.0013)" stroke="black" stroke-width="0.3"/>
+<line y1="-0.15" x2="17.5689" y2="-0.15" transform="matrix(0.264608 0.964356 -0.961521 0.274732 100.283 56.2497)" stroke="black" stroke-width="0.3"/>
+<line y1="-0.15" x2="10.4723" y2="-0.15" transform="matrix(0.998821 0.0485355 -0.0466141 0.998913 94.4717 72.6841)" stroke="black" stroke-width="0.3"/>
+<line y1="-0.15" x2="18.6364" y2="-0.15" transform="matrix(0.855261 -0.518197 0.502914 0.864337 88.9924 82.8497)" stroke="black" stroke-width="0.3"/>
+<line y1="-0.15" x2="15.0421" y2="-0.15" transform="matrix(-0.132454 -0.991189 0.990457 -0.137824 106.924 88.1019)" stroke="black" stroke-width="0.3"/>
+<line y1="-0.15" x2="11.911" y2="-0.15" transform="matrix(-0.850298 0.526302 -0.510952 -0.859609 106.924 88.1019)" stroke="black" stroke-width="0.3"/>
+<path d="M111.738 101.91L96.7812 94.3914" stroke="black" stroke-width="0.3"/>
+<line y1="-0.15" x2="13.5415" y2="-0.15" transform="matrix(0.564003 0.825773 -0.814911 0.579585 88.9924 83.3579)" stroke="black" stroke-width="0.3"/>
+<line y1="-0.15" x2="11.6423" y2="-0.15" transform="matrix(-0.399307 0.916817 -0.910713 -0.41304 88.9924 83.3579)" stroke="black" stroke-width="0.3"/>
+<line y1="-0.15" x2="8.77702" y2="-0.15" transform="matrix(0.699913 0.714228 -0.699913 0.714228 78.2006 87.7631)" stroke="black" stroke-width="0.3"/>
+<line y1="-0.15" x2="16.9428" y2="-0.15" transform="matrix(0.99955 0.0299997 -0.0288103 0.999585 67.4087 93.5236)" stroke="black" stroke-width="0.3"/>
+<line y1="-0.15" x2="11.3886" y2="-0.15" transform="matrix(0.189524 0.981876 -0.980392 0.197057 67.4087 93.5236)" stroke="black" stroke-width="0.3"/>
+<line y1="-0.15" x2="19.533" y2="-0.15" transform="matrix(-0.892503 0.451042 -0.436611 -0.89965 67.4087 93.5236)" stroke="black" stroke-width="0.3"/>
+<line y1="-0.15" x2="12.4569" y2="-0.15" transform="matrix(0.99963 0.0272019 -0.0261235 0.999659 84.3435 94.0319)" stroke="black" stroke-width="0.3"/>
+<line y1="-0.15" x2="20.9792" y2="-0.15" transform="matrix(0.443188 0.896429 -0.889093 0.457726 84.3435 94.0319)" stroke="black" stroke-width="0.3"/>
+<line y1="-0.15" x2="26.3567" y2="-0.15" transform="matrix(0.951207 -0.308555 0.297413 0.954749 68.5707 120.971)" stroke="black" stroke-width="0.3"/>
+<line y1="-0.15" x2="27.8764" y2="-0.15" transform="matrix(0.994648 -0.103323 0.0992634 0.995061 68.5707 120.971)" stroke="black" stroke-width="0.3"/>
+<line y1="-0.15" x2="10.9995" y2="-0.15" transform="matrix(-0.241511 0.970398 -0.96802 -0.250875 68.5707 120.971)" stroke="black" stroke-width="0.3"/>
+<line y1="-0.15" x2="16.3765" y2="-0.15" transform="matrix(-0.963143 -0.268988 0.259044 -0.965865 68.5707 120.971)" stroke="black" stroke-width="0.3"/>
+<line y1="-0.15" x2="18.2287" y2="-0.15" transform="matrix(-0.810633 0.585555 -0.569971 -0.821665 84.3435 94.0319)" stroke="black" stroke-width="0.3"/>
+<line y1="-0.15" x2="16.2861" y2="-0.15" transform="matrix(0.0509736 -0.9987 0.998591 0.0530733 68.7369 120.971)" stroke="black" stroke-width="0.3"/>
+<line y1="-0.15" x2="20.5392" y2="-0.15" transform="matrix(0.816444 -0.577425 0.561845 0.827242 52.7979 116.566)" stroke="black" stroke-width="0.3"/>
+<line y1="-0.15" x2="19.4618" y2="-0.15" transform="matrix(-0.998141 0.0609394 -0.0585293 -0.998286 52.7979 116.566)" stroke="black" stroke-width="0.3"/>
+<path d="M52.8178 116.551L65.4989 131.221" stroke="black" stroke-width="0.3"/>
+<line y1="-0.15" x2="14.3429" y2="-0.15" transform="matrix(-0.196789 -0.980446 0.978848 -0.204588 52.7979 116.566)" stroke="black" stroke-width="0.3"/>
+<line y1="-0.15" x2="12.4867" y2="-0.15" transform="matrix(0.385603 0.922665 -0.916932 0.399043 45.1603 90.9821)" stroke="black" stroke-width="0.3"/>
+<line y1="-0.15" x2="19.9047" y2="-0.15" transform="matrix(-0.900861 0.434107 -0.41997 -0.907538 45.1603 90.9821)" stroke="black" stroke-width="0.3"/>
+<line y1="-0.15" x2="22.9072" y2="-0.15" transform="matrix(-0.992973 -0.11834 0.113705 -0.993515 49.9751 102.334)" stroke="black" stroke-width="0.3"/>
+<line y1="-0.15" x2="8.86977" y2="-0.15" transform="matrix(0.973375 -0.229219 0.220574 0.97537 17.4336 101.995)" stroke="black" stroke-width="0.3"/>
+<line y1="-0.15" x2="22.6577" y2="-0.15" transform="matrix(-0.732779 0.680467 -0.66556 -0.746344 49.9751 102.334)" stroke="black" stroke-width="0.3"/>
+<line y1="-0.15" x2="32.5491" y2="-0.15" transform="matrix(-0.999783 -0.0208212 0.019995 -0.9998 49.9751 102.334)" stroke="black" stroke-width="0.3"/>
+<line y1="-0.15" x2="16.3182" y2="-0.15" transform="matrix(-0.356111 0.934444 -0.929485 -0.368859 55.7864 87.2548)" stroke="black" stroke-width="0.3"/>
+<line y1="-0.15" x2="11.1042" y2="-0.15" transform="matrix(-0.941979 0.335673 -0.323774 -0.946134 55.7864 87.2548)" stroke="black" stroke-width="0.3"/>
+<line y1="-0.15" x2="17.8975" y2="-0.15" transform="matrix(-0.909124 -0.416526 0.402724 -0.915321 55.7864 87.2548)" stroke="black" stroke-width="0.3"/>
+<line y1="-0.15" x2="5.93024" y2="-0.15" transform="matrix(-0.559947 0.828528 -0.817785 -0.575524 42.8359 74.8866)" stroke="black" stroke-width="0.3"/>
+<line y1="-0.15" x2="14.2667" y2="-0.15" transform="matrix(0.069826 0.997559 -0.997354 0.0726967 38.3533 65.5681)" stroke="black" stroke-width="0.3"/>
+<line y1="-0.15" x2="23.7753" y2="-0.15" transform="matrix(0.663418 0.748249 -0.734734 0.678355 23.5765 62.0102)" stroke="black" stroke-width="0.3"/>
+<line y1="-0.15" x2="12.2393" y2="-0.15" transform="matrix(0.0813921 -0.996682 0.996404 0.084732 23.5765 62.0102)" stroke="black" stroke-width="0.3"/>
+<line y1="-0.15" x2="14.94" y2="-0.15" transform="matrix(-0.989073 -0.147426 0.141696 -0.98991 38.3533 64.2127)" stroke="black" stroke-width="0.3"/>
+<line y1="-0.15" x2="18.272" y2="-0.15" transform="matrix(-0.690584 -0.723253 0.709129 -0.705078 37.1908 63.0267)" stroke="black" stroke-width="0.3"/>
+<line y1="-0.15" x2="19.1228" y2="-0.15" transform="matrix(-0.868234 0.496155 -0.481095 -0.876669 41.176 40.3236)" stroke="black" stroke-width="0.3"/>
+<line y1="-0.15" x2="13.8923" y2="-0.15" transform="matrix(0.155367 0.987857 -0.986853 0.161623 41.176 40.3236)" stroke="black" stroke-width="0.3"/>
+<line y1="-0.15" x2="19.2337" y2="-0.15" transform="matrix(0.97545 0.220221 -0.211882 0.977295 24.5728 49.8115)" stroke="black" stroke-width="0.3"/>
+<line y1="-0.15" x2="14.0512" y2="-0.15" transform="matrix(0.496278 0.868163 -0.859283 0.5115 17.5994 37.6127)" stroke="black" stroke-width="0.3"/>
+<line y1="-0.15" x2="23.3217" y2="-0.15" transform="matrix(0.526818 -0.849978 0.8402 0.542277 27.2289 99.6229)" stroke="black" stroke-width="0.3"/>
+<line y1="-0.15" x2="17.8273" y2="-0.15" transform="matrix(-0.800944 -0.598739 0.583168 -0.812352 25.569 98.437)" stroke="black" stroke-width="0.3"/>
+<line y1="-0.15" x2="15.1906" y2="-0.15" transform="matrix(-0.404405 -0.91458 0.908336 -0.418242 17.4336 101.656)" stroke="black" stroke-width="0.3"/>
+<line y1="-0.15" x2="14.1125" y2="-0.15" transform="matrix(0.70589 0.708322 -0.693889 0.720082 1.32825 77.7669)" stroke="black" stroke-width="0.3"/>
+<line y1="-0.15" x2="14.3923" y2="-0.15" transform="matrix(-0.530659 0.847585 -0.837694 -0.54614 18.9272 75.5643)" stroke="black" stroke-width="0.3"/>
+<line y1="-0.15" x2="17.7366" y2="-0.15" transform="matrix(-0.99226 0.124181 -0.119324 -0.992855 18.9272 75.5643)" stroke="black" stroke-width="0.3"/>
+<line y1="-0.15" x2="18.1259" y2="-0.15" transform="matrix(-0.329755 0.944067 -0.939766 -0.341817 7.30542 60.6548)" stroke="black" stroke-width="0.3"/>
+<line y1="-0.15" x2="18.9042" y2="-0.15" transform="matrix(0.614792 0.788689 -0.776409 0.63023 7.30542 60.6548)" stroke="black" stroke-width="0.3"/>
+<line y1="-0.15" x2="11.2137" y2="-0.15" transform="matrix(-0.533021 -0.846102 0.836142 -0.548513 7.30542 60.6548)" stroke="black" stroke-width="0.3"/>
+<line y1="-0.15" x2="21.0496" y2="-0.15" transform="matrix(-0.765098 0.643914 -0.628582 -0.777744 17.4336 37.6127)" stroke="black" stroke-width="0.3"/>
+<line y1="-0.15" x2="11.5318" y2="-0.15" transform="matrix(0.043193 -0.999067 0.998988 0.0449744 17.4336 37.6127)" stroke="black" stroke-width="0.3"/>
+<line y1="-0.15" x2="19.7253" y2="-0.15" transform="matrix(0.757542 -0.652786 0.637537 0.77042 17.4336 37.6127)" stroke="black" stroke-width="0.3"/>
+<line y1="-0.15" x2="11.9959" y2="-0.15" transform="matrix(-0.955003 -0.296598 0.285807 -0.958287 43.832 28.2943)" stroke="black" stroke-width="0.3"/>
+<line y1="-0.15" x2="11.4429" y2="-0.15" transform="matrix(0.986648 -0.162869 0.156567 0.987667 43.832 28.2943)" stroke="black" stroke-width="0.3"/>
+<line y1="-0.15" x2="14.9243" y2="-0.15" transform="matrix(-0.0444994 -0.999009 0.998926 -0.0463343 55.7864 41.3401)" stroke="black" stroke-width="0.3"/>
+<line y1="-0.15" x2="17.8072" y2="-0.15" transform="matrix(-0.68064 -0.732618 0.71871 -0.69531 55.7864 41.3401)" stroke="black" stroke-width="0.3"/>
+<line y1="-0.15" x2="14.4804" y2="-0.15" transform="matrix(-0.997533 -0.0702024 0.0674295 -0.997724 55.7864 41.3401)" stroke="black" stroke-width="0.3"/>
+<line y1="-0.15" x2="12.1185" y2="-0.15" transform="matrix(-0.205509 0.978655 -0.976917 -0.213621 43.832 28.2943)" stroke="black" stroke-width="0.3"/>
+<line y1="-0.15" x2="17.8352" y2="-0.15" transform="matrix(0.502696 0.864463 -0.855394 0.517978 32.3761 24.7363)" stroke="black" stroke-width="0.3"/>
+<line y1="-0.15" x2="13.9563" y2="-0.15" transform="matrix(0.0951716 -0.995461 0.995081 0.0990667 32.3761 24.7363)" stroke="black" stroke-width="0.3"/>
+<line y1="-0.15" x2="26.2915" y2="-0.15" transform="matrix(0.814635 -0.579974 0.564392 0.825507 32.3761 24.7363)" stroke="black" stroke-width="0.3"/>
+<line y1="-0.15" x2="19.5946" y2="-0.15" transform="matrix(0.99985 -0.0172932 0.0166071 0.999862 34.2021 9.82675)" stroke="black" stroke-width="0.3"/>
+<line y1="-0.15" x2="16.6569" y2="-0.15" transform="matrix(-0.0797417 -0.996816 0.996548 -0.0830149 55.1223 26.0917)" stroke="black" stroke-width="0.3"/>
+<line y1="-0.15" x2="14.6909" y2="-0.15" transform="matrix(-0.825018 0.565106 -0.549549 -0.835461 65.9142 1.18599)" stroke="black" stroke-width="0.3"/>
+<line y1="-0.15" x2="14.4804" y2="-0.15" transform="matrix(-0.997533 0.0702025 -0.0674294 -0.997724 32.3761 24.7363)" stroke="black" stroke-width="0.3"/>
+<line y1="-0.15" x2="22.7866" y2="-0.15" transform="matrix(0.998229 0.059483 -0.0571303 0.998367 32.3761 24.7363)" stroke="black" stroke-width="0.3"/>
+<line y1="-0.15" x2="24.0616" y2="-0.15" transform="matrix(0.993633 0.112662 -0.108244 0.994124 17.4336 37.6127)" stroke="black" stroke-width="0.3"/>
+<line y1="-0.15" x2="23.2838" y2="-0.15" transform="matrix(-0.998304 0.0582126 -0.05591 -0.998436 24.5728 49.8115)" stroke="black" stroke-width="0.3"/>
+<line y1="-0.15" x2="20.3896" y2="-0.15" transform="matrix(0.846866 -0.531807 0.516415 0.856338 7.30542 60.6548)" stroke="black" stroke-width="0.3"/>
+<line y1="-0.15" x2="14.3292" y2="-0.15" transform="matrix(-0.324433 0.945909 -0.941737 -0.336349 23.5765 62.0102)" stroke="black" stroke-width="0.3"/>
+<line y1="-0.15" x2="29.327" y2="-0.15" transform="matrix(-0.962431 0.271526 -0.261502 -0.965203 39.5157 79.8)" stroke="black" stroke-width="0.3"/>
+<line y1="-0.15" x2="21.019" y2="-0.15" transform="matrix(0.979485 0.201516 -0.193825 0.981036 18.9272 75.5643)" stroke="black" stroke-width="0.3"/>
+<line y1="-0.15" x2="12.5302" y2="-0.15" transform="matrix(0.477016 0.878894 -0.870579 0.492028 39.3494 79.9694)" stroke="black" stroke-width="0.3"/>
+<line y1="-0.15" x2="19.7347" y2="-0.15" transform="matrix(0.992751 0.120193 -0.115488 0.993309 49.9751 102.334)" stroke="black" stroke-width="0.3"/>
+<line y1="-0.15" x2="25.411" y2="-0.15" transform="matrix(-0.947405 -0.320038 0.308569 -0.951202 93.6417 112.838)" stroke="black" stroke-width="0.3"/>
+<line y1="-0.15" x2="17.2924" y2="-0.15" transform="matrix(0.144021 -0.989575 0.98871 0.149841 93.6417 112.838)" stroke="black" stroke-width="0.3"/>
+<line y1="-0.15" x2="22.1955" y2="-0.15" transform="matrix(-0.00736797 -0.999973 0.999971 -0.00767227 96.6299 118.09)" stroke="black" stroke-width="0.3"/>
+<line y1="-0.15" x2="5.58554" y2="-0.15" transform="matrix(0.475602 0.87966 -0.871386 0.490598 93.6417 112.838)" stroke="black" stroke-width="0.3"/>
+<line y1="-0.15" x2="18.5483" y2="-0.15" transform="matrix(0.96674 0.255762 -0.24624 0.969209 88.9924 83.3579)" stroke="black" stroke-width="0.3"/>
+<line y1="-0.15" x2="17.1783" y2="-0.15" transform="matrix(-0.985844 0.167667 -0.161191 -0.986923 121.867 70.3121)" stroke="black" stroke-width="0.3"/>
+<line y1="-0.15" x2="23.2328" y2="-0.15" transform="matrix(-0.643176 0.765719 -0.752699 -0.658365 121.867 70.3121)" stroke="black" stroke-width="0.3"/>
+<line y1="-0.15" x2="10.0952" y2="-0.15" transform="matrix(0.674309 0.73845 -0.724682 0.689084 121.867 70.3121)" stroke="black" stroke-width="0.3"/>
+<line y1="-0.15" x2="23.6359" y2="-0.15" transform="matrix(0.906165 -0.422924 0.408996 0.912536 106.924 87.7631)" stroke="black" stroke-width="0.3"/>
+<line y1="-0.15" x2="14.9747" y2="-0.15" transform="matrix(0.343709 0.939076 -0.934431 0.356143 106.924 87.7631)" stroke="black" stroke-width="0.3"/>
+<line y1="-0.15" x2="20.4245" y2="-0.15" transform="matrix(0.325159 -0.945659 0.94147 0.337097 121.867 70.1427)" stroke="black" stroke-width="0.3"/>
+<line y1="-0.15" x2="28.6444" y2="-0.15" transform="matrix(0.97957 -0.201104 0.193428 0.981115 100.283 56.2497)" stroke="black" stroke-width="0.3"/>
+<line y1="-0.15" x2="17.5914" y2="-0.15" transform="matrix(-0.330338 0.943863 -0.939548 -0.342416 100.283 56.2497)" stroke="black" stroke-width="0.3"/>
+<line y1="-0.15" x2="16.8919" y2="-0.15" transform="matrix(0.99273 -0.120361 0.115649 0.99329 77.7026 74.8866)" stroke="black" stroke-width="0.3"/>
+<line y1="-0.25" x2="11.3943" y2="-0.25" transform="matrix(0.451713 -0.892163 0.884584 0.466382 89.3245 82.8497)" stroke="black" stroke-width="0.5"/>
+<line y1="-0.15" x2="16.5307" y2="-0.15" transform="matrix(-0.974247 -0.225482 0.216964 -0.97618 94.4717 72.6841)" stroke="black" stroke-width="0.3"/>
+<line y1="-0.15" x2="19.4245" y2="-0.15" transform="matrix(-0.213688 -0.976902 0.975026 -0.222091 94.4717 72.6841)" stroke="black" stroke-width="0.3"/>
+<line y1="-0.15" x2="17.1274" y2="-0.15" transform="matrix(0.930611 0.366009 -0.35333 0.935499 62.4277 62.6879)" stroke="black" stroke-width="0.3"/>
+<line y1="-0.15" x2="14.4022" y2="-0.15" transform="matrix(0.0115281 0.999934 -0.999928 0.0120045 78.2006 54.5554)" stroke="black" stroke-width="0.3"/>
+<line y1="-0.15" x2="12.1498" y2="-0.15" transform="matrix(0.997566 -0.0697239 0.0669697 0.997755 78.2006 54.5554)" stroke="black" stroke-width="0.3"/>
+<line y1="-0.15" x2="19.4786" y2="-0.15" transform="matrix(0.622236 -0.78283 0.770351 0.63762 78.2006 68.9567)" stroke="black" stroke-width="0.3"/>
+<line y1="-0.15" x2="10.2809" y2="-0.15" transform="matrix(-0.968966 -0.247196 0.237952 -0.971277 100.283 56.2497)" stroke="black" stroke-width="0.3"/>
+<line y1="-0.15" x2="6.5738" y2="-0.15" transform="matrix(0.202052 0.979375 -0.977693 0.21004 88.9924 47.2701)" stroke="black" stroke-width="0.3"/>
+<line y1="-0.15" x2="20.8939" y2="-0.15" transform="matrix(0.524461 0.851435 -0.841726 0.539906 67.4087 51.1669)" stroke="black" stroke-width="0.3"/>
+<line x1="78.2168" y1="74.5478" x2="78.2168" y2="68.279" stroke="black" stroke-width="0.3"/>
+<line y1="-0.25" x2="10.4997" y2="-0.25" transform="matrix(-0.632518 -0.774546 0.761797 -0.647815 62.4277 62.6879)" stroke="black" stroke-width="0.5"/>
+<line y1="-0.15" x2="12.5516" y2="-0.15" transform="matrix(0.396835 -0.91789 0.911853 0.410516 62.4277 62.6879)" stroke="black" stroke-width="0.3"/>
+<line y1="-0.15" x2="13.3639" y2="-0.15" transform="matrix(-0.484528 0.874775 -0.86624 -0.499628 62.2618 62.5185)" stroke="black" stroke-width="0.3"/>
+<line y1="-0.15" x2="17.7072" y2="-0.15" transform="matrix(0.29067 0.956823 -0.953432 0.301609 62.2618 62.5185)" stroke="black" stroke-width="0.3"/>
+<line y1="-0.15" x2="19.5325" y2="-0.15" transform="matrix(0.807522 0.589838 -0.574255 0.818677 62.4277 62.6879)" stroke="black" stroke-width="0.3"/>
+<line y1="-0.15" x2="11.0636" y2="-0.15" transform="matrix(-0.990457 0.137825 -0.132453 -0.991189 62.4277 62.6879)" stroke="black" stroke-width="0.3"/>
+<line y1="-0.15" x2="10.4997" y2="-0.15" transform="matrix(-0.632518 -0.774546 0.761797 -0.647815 62.4277 62.6879)" stroke="black" stroke-width="0.3"/>
+<line y1="-0.15" x2="23.596" y2="-0.15" transform="matrix(0.92177 0.387738 -0.374547 0.927208 106.592 41.3401)" stroke="black" stroke-width="0.3"/>
+<line y1="-0.15" x2="10.5202" y2="-0.15" transform="matrix(-0.915365 -0.402624 0.389107 -0.921192 105.429 40.8318)" stroke="black" stroke-width="0.3"/>
+<line y1="-0.15" x2="14.6197" y2="-0.15" transform="matrix(-0.374771 0.927117 -0.921674 -0.387966 101.279 23.042)" stroke="black" stroke-width="0.3"/>
+<line y1="-0.15" x2="32.2562" y2="-0.15" transform="matrix(0.720616 -0.693334 0.67863 0.73448 104.932 73.1924)" stroke="black" stroke-width="0.3"/>
+<line y1="-0.15" x2="16.2598" y2="-0.15" transform="matrix(-0.347179 0.937799 -0.933068 -0.359701 112.236 26.0917)" stroke="black" stroke-width="0.3"/>
+<line y1="-0.15" x2="19.0538" y2="-0.15" transform="matrix(0.278841 0.960337 -0.957203 0.289417 101.279 23.042)" stroke="black" stroke-width="0.3"/>
+<line y1="-0.15" x2="11.055" y2="-0.15" transform="matrix(-0.961196 -0.275866 0.265706 -0.964054 111.904 26.0917)" stroke="black" stroke-width="0.3"/>
+<line y1="-1" x2="8.53072" y2="-1" transform="matrix(-0.85636 -0.51638 0.501113 -0.865382 87.3325 46.0841)" stroke="black" stroke-width="2"/>
+<line y1="-1" x2="9.50201" y2="-1" transform="matrix(-0.821242 0.57058 -0.55501 -0.831844 87.4988 48.6255)" stroke="black" stroke-width="2"/>
+<line y1="-1" x2="10.0808" y2="-1" transform="matrix(-0.724683 -0.689083 0.674309 -0.738449 87.3325 81.6637)" stroke="black" stroke-width="2"/>
+<line y1="-1" x2="14.233" y2="-1" transform="matrix(0.699913 0.714228 -0.699913 0.714228 43.6658 76.242)" stroke="black" stroke-width="2"/>
+<line y1="-1" x2="8.33985" y2="-1" transform="matrix(0.836142 0.548514 -0.533021 0.846102 57.4463 88.4408)" stroke="black" stroke-width="2"/>
+<line y1="-1" x2="8.2797" y2="-1" transform="matrix(0.882322 -0.470647 0.455915 0.890023 69.5669 93.0153)" stroke="black" stroke-width="2"/>
+<line y1="-1" x2="7.53004" y2="-1" transform="matrix(0.904014 -0.427502 0.413487 0.91051 80.3588 87.4242)" stroke="black" stroke-width="2"/>
+<line y1="-1" x2="7.8745" y2="-1" transform="matrix(0.379523 0.925182 -0.919612 0.392827 39.0173 65.907)" stroke="black" stroke-width="2"/>
+<line y1="-1" x2="7.85257" y2="-1" transform="matrix(-0.42287 0.90619 -0.899432 -0.437061 42.0055 55.572)" stroke="black" stroke-width="2"/>
+<path d="M78.2836 74.4631L67.2425 79.4611L55.7864 74.4631L51.4696 64.6363L55.7864 54.1318L67.2425 50.5739L78.2836 54.1318" stroke="black" stroke-width="2"/>
+<ellipse cx="41.3419" cy="40.3236" rx="0.664124" ry="0.677708" fill="black"/>
+<ellipse cx="41.3419" cy="40.3236" rx="0.664124" ry="0.677708" fill="black"/>
+<ellipse cx="41.3419" cy="40.3236" rx="0.664124" ry="0.677708" fill="black"/>
+<ellipse cx="41.3419" cy="40.3236" rx="0.664124" ry="0.677708" fill="black"/>
+<ellipse cx="41.3419" cy="40.3236" rx="0.664124" ry="0.677708" fill="black"/>
+<ellipse cx="93.6418" cy="112.838" rx="0.664124" ry="0.677704" fill="black"/>
+<ellipse cx="93.6418" cy="112.838" rx="0.664124" ry="0.677704" fill="black"/>
+<ellipse cx="93.6418" cy="112.838" rx="0.664124" ry="0.677704" fill="black"/>
+<ellipse cx="93.6418" cy="112.838" rx="0.664124" ry="0.677704" fill="black"/>
+<ellipse cx="93.6418" cy="112.838" rx="0.664124" ry="0.677704" fill="black"/>
+<ellipse cx="18.9277" cy="75.5643" rx="0.664124" ry="0.677704" fill="black"/>
+<ellipse cx="18.9277" cy="75.5643" rx="0.664124" ry="0.677704" fill="black"/>
+<ellipse cx="18.9277" cy="75.5643" rx="0.664124" ry="0.677704" fill="black"/>
+<ellipse cx="18.9277" cy="75.5643" rx="0.664124" ry="0.677704" fill="black"/>
+<ellipse cx="18.9277" cy="75.5643" rx="0.664124" ry="0.677704" fill="black"/>
+<ellipse cx="52.7978" cy="116.566" rx="0.664124" ry="0.677708" fill="black"/>
+<ellipse cx="52.7978" cy="116.566" rx="0.664124" ry="0.677708" fill="black"/>
+<ellipse cx="52.7978" cy="116.566" rx="0.664124" ry="0.677708" fill="black"/>
+<ellipse cx="52.7978" cy="116.566" rx="0.664124" ry="0.677708" fill="black"/>
+<ellipse cx="52.7978" cy="116.566" rx="0.664124" ry="0.677708" fill="black"/>
+<ellipse cx="68.6537" cy="121.055" rx="0.415077" ry="0.423565" fill="black"/>
+<ellipse cx="68.6537" cy="121.055" rx="0.415077" ry="0.423565" fill="black"/>
+<ellipse cx="68.6537" cy="121.055" rx="0.415077" ry="0.423565" fill="black"/>
+<ellipse cx="68.6537" cy="121.055" rx="0.415077" ry="0.423565" fill="black"/>
+<ellipse cx="68.6537" cy="121.055" rx="0.415077" ry="0.423565" fill="black"/>
+<ellipse cx="68.6537" cy="121.055" rx="0.415077" ry="0.423565" fill="black"/>
+<ellipse cx="68.6537" cy="121.055" rx="0.415077" ry="0.423565" fill="black"/>
+<ellipse cx="68.6537" cy="121.055" rx="0.415077" ry="0.423565" fill="black"/>
+<ellipse cx="68.6537" cy="121.055" rx="0.415077" ry="0.423565" fill="black"/>
+<ellipse cx="68.6537" cy="121.055" rx="0.415077" ry="0.423565" fill="black"/>
+<ellipse cx="84.2607" cy="93.9471" rx="0.415077" ry="0.423569" fill="black"/>
+<ellipse cx="84.2607" cy="93.9471" rx="0.415077" ry="0.423569" fill="black"/>
+<ellipse cx="84.2607" cy="93.9471" rx="0.415077" ry="0.423569" fill="black"/>
+<ellipse cx="84.2607" cy="93.9471" rx="0.415077" ry="0.423569" fill="black"/>
+<ellipse cx="84.2607" cy="93.9471" rx="0.415077" ry="0.423569" fill="black"/>
+<ellipse cx="49.8918" cy="102.418" rx="0.415077" ry="0.423565" fill="black"/>
+<ellipse cx="49.8918" cy="102.418" rx="0.415077" ry="0.423565" fill="black"/>
+<ellipse cx="49.8918" cy="102.418" rx="0.415077" ry="0.423565" fill="black"/>
+<ellipse cx="49.8918" cy="102.418" rx="0.415077" ry="0.423565" fill="black"/>
+<ellipse cx="49.8918" cy="102.418" rx="0.415077" ry="0.423565" fill="black"/>
+<ellipse cx="11.2069" cy="87.8478" rx="0.415077" ry="0.423565" fill="black"/>
+<ellipse cx="11.2069" cy="87.8478" rx="0.415077" ry="0.423565" fill="black"/>
+<ellipse cx="11.2069" cy="87.8478" rx="0.415077" ry="0.423565" fill="black"/>
+<ellipse cx="11.2069" cy="87.8478" rx="0.415077" ry="0.423565" fill="black"/>
+<ellipse cx="11.2069" cy="87.8478" rx="0.415077" ry="0.423565" fill="black"/>
+<ellipse cx="39.4324" cy="79.8847" rx="0.415077" ry="0.423569" fill="black"/>
+<ellipse cx="39.4324" cy="79.8847" rx="0.415077" ry="0.423569" fill="black"/>
+<ellipse cx="39.4324" cy="79.8847" rx="0.415077" ry="0.423569" fill="black"/>
+<ellipse cx="39.4324" cy="79.8847" rx="0.415077" ry="0.423569" fill="black"/>
+<ellipse cx="39.4324" cy="79.8847" rx="0.415077" ry="0.423569" fill="black"/>
+<ellipse cx="23.4933" cy="62.0949" rx="0.415077" ry="0.423567" fill="black"/>
+<ellipse cx="23.4933" cy="62.0949" rx="0.415077" ry="0.423567" fill="black"/>
+<ellipse cx="23.4933" cy="62.0949" rx="0.415077" ry="0.423567" fill="black"/>
+<ellipse cx="23.4933" cy="62.0949" rx="0.415077" ry="0.423567" fill="black"/>
+<ellipse cx="23.4933" cy="62.0949" rx="0.415077" ry="0.423567" fill="black"/>
+<ellipse cx="17.5166" cy="37.6974" rx="0.415077" ry="0.423567" fill="black"/>
+<ellipse cx="17.5166" cy="37.6974" rx="0.415077" ry="0.423567" fill="black"/>
+<ellipse cx="17.5166" cy="37.6974" rx="0.415077" ry="0.423567" fill="black"/>
+<ellipse cx="17.5166" cy="37.6974" rx="0.415077" ry="0.423567" fill="black"/>
+<ellipse cx="17.5166" cy="37.6974" rx="0.415077" ry="0.423567" fill="black"/>
+<ellipse cx="43.7488" cy="28.379" rx="0.415077" ry="0.423567" fill="black"/>
+<ellipse cx="43.7488" cy="28.379" rx="0.415077" ry="0.423567" fill="black"/>
+<ellipse cx="43.7488" cy="28.379" rx="0.415077" ry="0.423567" fill="black"/>
+<ellipse cx="43.7488" cy="28.379" rx="0.415077" ry="0.423567" fill="black"/>
+<ellipse cx="43.7488" cy="28.379" rx="0.415077" ry="0.423567" fill="black"/>
+<ellipse cx="95.8825" cy="36.6809" rx="0.415081" ry="0.423567" fill="black"/>
+<ellipse cx="95.8825" cy="36.6809" rx="0.415081" ry="0.423567" fill="black"/>
+<ellipse cx="95.8825" cy="36.6809" rx="0.415081" ry="0.423567" fill="black"/>
+<ellipse cx="95.8825" cy="36.6809" rx="0.415081" ry="0.423567" fill="black"/>
+<ellipse cx="95.8825" cy="36.6809" rx="0.415081" ry="0.423567" fill="black"/>
+<ellipse cx="32.376" cy="24.7363" rx="0.664124" ry="0.677708" fill="black"/>
+<ellipse cx="32.376" cy="24.7363" rx="0.664124" ry="0.677708" fill="black"/>
+<ellipse cx="32.376" cy="24.7363" rx="0.664124" ry="0.677708" fill="black"/>
+<ellipse cx="32.376" cy="24.7363" rx="0.664124" ry="0.677708" fill="black"/>
+<ellipse cx="32.376" cy="24.7363" rx="0.664124" ry="0.677708" fill="black"/>
+<ellipse cx="24.5728" cy="49.8115" rx="0.664124" ry="0.677708" fill="black"/>
+<ellipse cx="24.5728" cy="49.8115" rx="0.664124" ry="0.677708" fill="black"/>
+<ellipse cx="24.5728" cy="49.8115" rx="0.664124" ry="0.677708" fill="black"/>
+<ellipse cx="24.5728" cy="49.8115" rx="0.664124" ry="0.677708" fill="black"/>
+<ellipse cx="24.5728" cy="49.8115" rx="0.664124" ry="0.677708" fill="black"/>
+<ellipse cx="73.0533" cy="16.6038" rx="0.664124" ry="0.677707" fill="black"/>
+<ellipse cx="73.0533" cy="16.6038" rx="0.664124" ry="0.677707" fill="black"/>
+<ellipse cx="73.0533" cy="16.6038" rx="0.664124" ry="0.677707" fill="black"/>
+<ellipse cx="73.0533" cy="16.6038" rx="0.664124" ry="0.677707" fill="black"/>
+<ellipse cx="73.0533" cy="16.6038" rx="0.664124" ry="0.677707" fill="black"/>
+<ellipse cx="72.887" cy="33.5465" rx="0.664124" ry="0.677708" fill="black"/>
+<ellipse cx="72.887" cy="33.5465" rx="0.664124" ry="0.677708" fill="black"/>
+<ellipse cx="72.887" cy="33.5465" rx="0.664124" ry="0.677708" fill="black"/>
+<ellipse cx="72.887" cy="33.5465" rx="0.664124" ry="0.677708" fill="black"/>
+<ellipse cx="72.887" cy="33.5465" rx="0.664124" ry="0.677708" fill="black"/>
+<ellipse cx="83.5135" cy="27.786" rx="0.996185" ry="1.01656" fill="black"/>
+<ellipse cx="83.5135" cy="27.786" rx="0.996185" ry="1.01656" fill="black"/>
+<ellipse cx="83.5135" cy="27.786" rx="0.996185" ry="1.01656" fill="black"/>
+<ellipse cx="83.5135" cy="27.786" rx="0.996185" ry="1.01656" fill="black"/>
+<ellipse cx="83.5135" cy="27.786" rx="0.996185" ry="1.01656" fill="black"/>
+<ellipse cx="101.279" cy="23.042" rx="0.996185" ry="1.01656" fill="black"/>
+<ellipse cx="101.279" cy="23.042" rx="0.996185" ry="1.01656" fill="black"/>
+<ellipse cx="101.279" cy="23.042" rx="0.996185" ry="1.01656" fill="black"/>
+<ellipse cx="101.279" cy="23.042" rx="0.996185" ry="1.01656" fill="black"/>
+<ellipse cx="101.279" cy="23.042" rx="0.996185" ry="1.01656" fill="black"/>
+<ellipse cx="53.794" cy="9.82676" rx="0.996187" ry="1.01656" fill="black"/>
+<ellipse cx="53.794" cy="9.82676" rx="0.996187" ry="1.01656" fill="black"/>
+<ellipse cx="53.794" cy="9.82676" rx="0.996187" ry="1.01656" fill="black"/>
+<ellipse cx="53.794" cy="9.82676" rx="0.996187" ry="1.01656" fill="black"/>
+<ellipse cx="53.794" cy="9.82676" rx="0.996187" ry="1.01656" fill="black"/>
+<ellipse cx="55.1223" cy="26.4306" rx="0.996185" ry="1.01656" fill="black"/>
+<ellipse cx="55.1223" cy="26.4306" rx="0.996185" ry="1.01656" fill="black"/>
+<ellipse cx="55.1223" cy="26.4306" rx="0.996185" ry="1.01656" fill="black"/>
+<ellipse cx="55.1223" cy="26.4306" rx="0.996185" ry="1.01656" fill="black"/>
+<ellipse cx="55.1223" cy="26.4306" rx="0.996185" ry="1.01656" fill="black"/>
+<ellipse cx="7.30539" cy="60.6548" rx="0.996186" ry="1.01656" fill="black"/>
+<ellipse cx="7.30539" cy="60.6548" rx="0.996186" ry="1.01656" fill="black"/>
+<ellipse cx="7.30539" cy="60.6548" rx="0.996186" ry="1.01656" fill="black"/>
+<ellipse cx="7.30539" cy="60.6548" rx="0.996186" ry="1.01656" fill="black"/>
+<ellipse cx="7.30539" cy="60.6548" rx="0.996186" ry="1.01656" fill="black"/>
+<ellipse cx="69.5669" cy="104.706" rx="0.996185" ry="1.01656" fill="black"/>
+<ellipse cx="69.5669" cy="104.706" rx="0.996185" ry="1.01656" fill="black"/>
+<ellipse cx="69.5669" cy="104.706" rx="0.996185" ry="1.01656" fill="black"/>
+<ellipse cx="69.5669" cy="104.706" rx="0.996185" ry="1.01656" fill="black"/>
+<ellipse cx="69.5669" cy="104.706" rx="0.996185" ry="1.01656" fill="black"/>
+<ellipse cx="96.6299" cy="94.5401" rx="0.996185" ry="1.01656" fill="black"/>
+<ellipse cx="96.6299" cy="94.5401" rx="0.996185" ry="1.01656" fill="black"/>
+<ellipse cx="96.6299" cy="94.5401" rx="0.996185" ry="1.01656" fill="black"/>
+<ellipse cx="96.6299" cy="94.5401" rx="0.996185" ry="1.01656" fill="black"/>
+<ellipse cx="96.6299" cy="94.5401" rx="0.996185" ry="1.01656" fill="black"/>
+<ellipse cx="94.4716" cy="72.6841" rx="0.996189" ry="1.01656" fill="black"/>
+<ellipse cx="94.4716" cy="72.6841" rx="0.996189" ry="1.01656" fill="black"/>
+<ellipse cx="94.4716" cy="72.6841" rx="0.996189" ry="1.01656" fill="black"/>
+<ellipse cx="94.4716" cy="72.6841" rx="0.996189" ry="1.01656" fill="black"/>
+<ellipse cx="94.4716" cy="72.6841" rx="0.996189" ry="1.01656" fill="black"/>
+<ellipse cx="62.2617" cy="62.5185" rx="0.830154" ry="0.847134" fill="black"/>
+<ellipse cx="62.2617" cy="62.5185" rx="0.830154" ry="0.847134" fill="black"/>
+<ellipse cx="62.2617" cy="62.5185" rx="0.830154" ry="0.847134" fill="black"/>
+<ellipse cx="62.2617" cy="62.5185" rx="0.830154" ry="0.847134" fill="black"/>
+<ellipse cx="62.2617" cy="62.5185" rx="0.830154" ry="0.847134" fill="black"/>
+<ellipse cx="104.931" cy="73.1923" rx="0.996185" ry="1.01656" fill="black"/>
+<ellipse cx="104.931" cy="73.1923" rx="0.996185" ry="1.01656" fill="black"/>
+<ellipse cx="104.931" cy="73.1923" rx="0.996185" ry="1.01656" fill="black"/>
+<ellipse cx="104.931" cy="73.1923" rx="0.996185" ry="1.01656" fill="black"/>
+<ellipse cx="104.931" cy="73.1923" rx="0.996185" ry="1.01656" fill="black"/>
+<ellipse cx="78.3668" cy="68.9567" rx="0.664124" ry="0.677708" fill="black"/>
+<ellipse cx="78.3668" cy="68.9567" rx="0.664124" ry="0.677708" fill="black"/>
+<ellipse cx="78.3668" cy="68.9567" rx="0.664124" ry="0.677708" fill="black"/>
+<ellipse cx="78.3668" cy="68.9567" rx="0.664124" ry="0.677708" fill="black"/>
+<ellipse cx="78.3668" cy="68.9567" rx="0.664124" ry="0.677708" fill="black"/>
+<ellipse cx="90.3206" cy="53.7083" rx="0.664124" ry="0.677706" fill="black"/>
+<ellipse cx="90.3206" cy="53.7083" rx="0.664124" ry="0.677706" fill="black"/>
+<ellipse cx="90.3206" cy="53.7083" rx="0.664124" ry="0.677706" fill="black"/>
+<ellipse cx="90.3206" cy="53.7083" rx="0.664124" ry="0.677706" fill="black"/>
+<ellipse cx="90.3206" cy="53.7083" rx="0.664124" ry="0.677706" fill="black"/>
+<ellipse cx="121.867" cy="70.1427" rx="0.664124" ry="0.677708" fill="black"/>
+<ellipse cx="121.867" cy="70.1427" rx="0.664124" ry="0.677708" fill="black"/>
+<ellipse cx="121.867" cy="70.1427" rx="0.664124" ry="0.677708" fill="black"/>
+<ellipse cx="121.867" cy="70.1427" rx="0.664124" ry="0.677708" fill="black"/>
+<ellipse cx="121.867" cy="70.1427" rx="0.664124" ry="0.677708" fill="black"/>
+<ellipse cx="100.283" cy="56.2497" rx="0.664124" ry="0.677708" fill="black"/>
+<ellipse cx="100.283" cy="56.2497" rx="0.664124" ry="0.677708" fill="black"/>
+<ellipse cx="100.283" cy="56.2497" rx="0.664124" ry="0.677708" fill="black"/>
+<ellipse cx="100.283" cy="56.2497" rx="0.664124" ry="0.677708" fill="black"/>
+<ellipse cx="100.283" cy="56.2497" rx="0.664124" ry="0.677708" fill="black"/>
+<ellipse cx="106.924" cy="88.1019" rx="0.664124" ry="0.677708" fill="black"/>
+<ellipse cx="106.924" cy="88.1019" rx="0.664124" ry="0.677708" fill="black"/>
+<ellipse cx="106.924" cy="88.1019" rx="0.664124" ry="0.677708" fill="black"/>
+<ellipse cx="106.924" cy="88.1019" rx="0.664124" ry="0.677708" fill="black"/>
+<ellipse cx="106.924" cy="88.1019" rx="0.664124" ry="0.677708" fill="black"/>
+<ellipse cx="45.1603" cy="90.9821" rx="0.664124" ry="0.677708" fill="black"/>
+<ellipse cx="45.1603" cy="90.9821" rx="0.664124" ry="0.677708" fill="black"/>
+<ellipse cx="45.1603" cy="90.9821" rx="0.664124" ry="0.677708" fill="black"/>
+<ellipse cx="45.1603" cy="90.9821" rx="0.664124" ry="0.677708" fill="black"/>
+<ellipse cx="45.1603" cy="90.9821" rx="0.664124" ry="0.677708" fill="black"/>
+<g clip-path="url(#clip0_2179_2577)">
+<path d="M97.6895 94.9694C97.7755 94.4518 97.5669 93.9068 97.1123 93.5943C96.6576 93.2817 96.084 93.2888 95.6458 93.5643C94.8627 93.1822 94.2331 93.0637 94.0682 93.3131C93.8634 93.623 94.4441 94.3988 95.4053 95.1503C95.4068 95.1515 95.4082 95.1526 95.4097 95.1538C95.4415 95.1786 95.4737 95.2033 95.5063 95.2281C95.5107 95.2314 95.5152 95.2349 95.5197 95.2383C95.5489 95.2604 95.5786 95.2825 95.6085 95.3045C95.6164 95.3103 95.6242 95.3162 95.6322 95.3221C95.6605 95.3428 95.6892 95.3634 95.718 95.384C95.7275 95.3908 95.7367 95.3976 95.7463 95.4043C95.7844 95.4315 95.8231 95.4585 95.8622 95.4854C95.9014 95.5123 95.9406 95.5388 95.9796 95.5648C95.9873 95.5699 95.995 95.5748 96.0026 95.5799C96.0343 95.6008 96.066 95.6217 96.0976 95.642C96.1039 95.6461 96.1101 95.65 96.1164 95.654C96.1496 95.6752 96.1826 95.6962 96.2155 95.7167C96.2197 95.7193 96.2238 95.7218 96.228 95.7244C96.2632 95.7462 96.2983 95.7677 96.3333 95.7888C96.335 95.7898 96.3366 95.7907 96.3382 95.7917C97.3818 96.4186 98.3047 96.6766 98.5096 96.3667C98.6744 96.1174 98.3305 95.5665 97.6895 94.9694H97.6895ZM94.7978 93.7241C94.8615 93.6276 95.0832 93.6528 95.3917 93.7713C95.3347 93.8306 95.282 93.8956 95.2348 93.9669C95.168 94.0681 95.1165 94.1751 95.079 94.2851C94.8447 94.0299 94.7325 93.8228 94.7978 93.7241ZM97.8623 95.8312C97.7971 95.9299 97.5667 95.9014 97.247 95.7757C97.3329 95.699 97.4108 95.6102 97.4777 95.509C97.5248 95.4377 97.5641 95.3635 97.5967 95.2873C97.82 95.5346 97.9261 95.7347 97.8623 95.8312Z" fill="black"/>
+<path d="M95.0176 94.9354C95.0703 95.3069 95.2708 95.6553 95.6001 95.8817C95.9294 96.1081 96.3213 96.167 96.6788 96.0775C96.4022 95.9312 96.111 95.7553 95.8172 95.5533C95.5234 95.3514 95.2543 95.142 95.0176 94.9354Z" fill="black"/>
+</g>
+<g clip-path="url(#clip1_2179_2577)">
+<path d="M90.0542 46.5338C89.7862 46.0857 89.2782 45.8143 88.7342 45.883C88.1901 45.9518 87.762 46.3414 87.6086 46.8427C86.7721 47.0791 86.2209 47.4114 86.2569 47.71C86.3017 48.081 87.2389 48.2772 88.4474 48.2003C88.4493 48.2002 88.4511 48.2001 88.453 48.2C88.4929 48.1974 88.5331 48.1945 88.5736 48.1913C88.5792 48.1909 88.5847 48.1905 88.5903 48.1901C88.6266 48.1872 88.6632 48.1839 88.6999 48.1805C88.7096 48.1796 88.7193 48.1789 88.7291 48.1779C88.7637 48.1746 88.7986 48.1709 88.8336 48.1671C88.8451 48.1659 88.8565 48.1648 88.8681 48.1636C88.9143 48.1585 88.9609 48.1529 89.0077 48.147C89.0546 48.141 89.1011 48.1348 89.1473 48.1283C89.1564 48.127 89.1653 48.1255 89.1743 48.1242C89.2118 48.1188 89.249 48.1133 89.286 48.1075C89.2934 48.1063 89.3006 48.1051 89.3079 48.1039C89.3465 48.0978 89.3849 48.0914 89.423 48.0849C89.4278 48.084 89.4325 48.0831 89.4373 48.0823C89.4779 48.0752 89.5183 48.0679 89.5582 48.0604C89.5601 48.06 89.562 48.0596 89.5638 48.0592C90.7544 47.8331 91.6165 47.4096 91.5717 47.0385C91.5356 46.74 90.9219 46.5548 90.0542 46.5338L90.0542 46.5338ZM87.0716 47.5313C87.0577 47.4158 87.2411 47.2864 87.5501 47.1692C87.5452 47.252 87.5473 47.3364 87.5576 47.4218C87.5723 47.5429 87.6022 47.658 87.6447 47.7662C87.3038 47.7306 87.0859 47.6495 87.0716 47.5313ZM90.739 47.0681C90.7533 47.1863 90.5611 47.3191 90.2391 47.4385C90.2545 47.323 90.2562 47.2038 90.2416 47.0827C90.2313 46.9974 90.2132 46.915 90.1887 46.8358C90.5162 46.8727 90.725 46.9526 90.739 47.0681Z" fill="black"/>
+<path d="M88.0167 48.2978C88.2956 48.5428 88.6709 48.6713 89.0649 48.6215C89.459 48.5717 89.7925 48.3537 90.0046 48.0467C89.7018 48.1216 89.369 48.184 89.0174 48.2284C88.6659 48.2728 88.3282 48.2951 88.0167 48.2978Z" fill="black"/>
+</g>
+<g clip-path="url(#clip2_2179_2577)">
+<path d="M35.5436 10.5159C35.644 9.91202 35.4006 9.2762 34.8702 8.91155C34.3398 8.54686 33.6706 8.55521 33.1594 8.8766C32.2457 8.43081 31.5112 8.29256 31.3189 8.5835C31.0798 8.94506 31.7574 9.85013 32.8787 10.727C32.8805 10.7283 32.8822 10.7296 32.8839 10.731C32.921 10.7599 32.9586 10.7888 32.9966 10.8176C33.0018 10.8216 33.007 10.8256 33.0122 10.8296C33.0463 10.8554 33.0809 10.8811 33.1158 10.9068C33.1251 10.9136 33.1341 10.9205 33.1434 10.9273C33.1764 10.9515 33.2099 10.9755 33.2435 10.9995C33.2546 11.0074 33.2654 11.0154 33.2765 11.0233C33.3211 11.055 33.3662 11.0865 33.4118 11.1178C33.4576 11.1492 33.5033 11.1801 33.5488 11.2105C33.5578 11.2165 33.5667 11.2221 33.5756 11.2281C33.6126 11.2525 33.6496 11.2768 33.6864 11.3006C33.6938 11.3053 33.701 11.3099 33.7084 11.3146C33.747 11.3393 33.7856 11.3638 33.824 11.3877C33.8289 11.3907 33.8337 11.3936 33.8386 11.3967C33.8796 11.4221 33.9206 11.4472 33.9614 11.4719C33.9634 11.473 33.9653 11.4741 33.9672 11.4752C35.1847 12.2066 36.2614 12.5076 36.5004 12.1461C36.6927 11.8551 36.2915 11.2125 35.5436 10.5159H35.5436ZM32.17 9.06297C32.2443 8.9504 32.503 8.97987 32.8628 9.11809C32.7964 9.18723 32.7349 9.26308 32.6799 9.34632C32.6019 9.46434 32.5418 9.58914 32.498 9.7175C32.2247 9.41979 32.0939 9.17813 32.17 9.06297ZM35.7453 11.5213C35.6692 11.6365 35.4004 11.6033 35.0274 11.4566C35.1276 11.3671 35.2186 11.2634 35.2965 11.1454C35.3515 11.0623 35.3974 10.9756 35.4353 10.8868C35.6959 11.1752 35.8197 11.4088 35.7453 11.5213Z" fill="black"/>
+<path d="M32.4265 10.4762C32.4881 10.9097 32.722 11.3161 33.1062 11.5802C33.4903 11.8444 33.9475 11.9131 34.3646 11.8087C34.0419 11.6379 33.7021 11.4327 33.3594 11.197C33.0167 10.9615 32.7027 10.7172 32.4265 10.4762Z" fill="black"/>
+</g>
+<g clip-path="url(#clip3_2179_2577)">
+<path d="M28.2039 99.5628C28.3043 98.9589 28.0609 98.3231 27.5305 97.9584C27.0001 97.5937 26.3309 97.6021 25.8197 97.9235C24.906 97.4777 24.1714 97.3394 23.9791 97.6304C23.7401 97.9919 24.4176 98.897 25.539 99.7738C25.5408 99.7751 25.5425 99.7765 25.5442 99.7778C25.5812 99.8067 25.6189 99.8356 25.6569 99.8645C25.662 99.8684 25.6672 99.8725 25.6725 99.8765C25.7066 99.9022 25.7412 99.928 25.7761 99.9537C25.7854 99.9605 25.7944 99.9674 25.8037 99.9742C25.8367 99.9983 25.8702 100.022 25.9038 100.046C25.9149 100.054 25.9257 100.062 25.9368 100.07C25.9814 100.102 26.0265 100.133 26.0721 100.165C26.1179 100.196 26.1635 100.227 26.2091 100.257C26.2181 100.263 26.227 100.269 26.2359 100.275C26.2729 100.299 26.3098 100.324 26.3467 100.347C26.3541 100.352 26.3613 100.357 26.3687 100.361C26.4073 100.386 26.4459 100.411 26.4843 100.435C26.4892 100.438 26.494 100.441 26.4989 100.444C26.5399 100.469 26.5809 100.494 26.6217 100.519C26.6237 100.52 26.6256 100.521 26.6275 100.522C27.845 101.253 28.9217 101.554 29.1607 101.193C29.353 100.902 28.9518 100.259 28.2039 99.5628H28.2039ZM24.8302 98.1098C24.9046 97.9973 25.1632 98.0267 25.5231 98.165C25.4567 98.2341 25.3952 98.3099 25.3402 98.3932C25.2622 98.5112 25.2021 98.636 25.1583 98.7644C24.885 98.4666 24.7541 98.225 24.8302 98.1098ZM28.4055 100.568C28.3295 100.683 28.0607 100.65 27.6877 100.503C27.7879 100.414 27.8788 100.31 27.9568 100.192C28.0118 100.109 28.0577 100.023 28.0956 99.9336C28.3562 100.222 28.48 100.456 28.4055 100.568Z" fill="black"/>
+<path d="M25.0868 99.523C25.1484 99.9565 25.3823 100.363 25.7664 100.627C26.1506 100.891 26.6077 100.96 27.0249 100.856C26.7022 100.685 26.3624 100.48 26.0196 100.244C25.677 100.008 25.363 99.7641 25.0868 99.523Z" fill="black"/>
+</g>
+<g clip-path="url(#clip4_2179_2577)">
+<path d="M39.7365 63.5482C39.501 63.0541 39.0121 62.7059 38.4622 62.6986C37.9122 62.6913 37.4547 63.027 37.2643 63.5154C36.409 63.6372 35.8325 63.8972 35.8467 64.2061C35.8643 64.59 36.7886 64.9227 38.0047 65.016C38.0066 65.0161 38.0084 65.0162 38.0103 65.0164C38.0505 65.0194 38.091 65.0222 38.1318 65.0247C38.1373 65.025 38.143 65.0254 38.1486 65.0258C38.1851 65.028 38.222 65.0299 38.259 65.0316C38.2689 65.0321 38.2786 65.0327 38.2884 65.0331C38.3234 65.0347 38.3586 65.0359 38.3939 65.037C38.4056 65.0374 38.4171 65.0379 38.4287 65.0382C38.4754 65.0396 38.5225 65.0406 38.5698 65.0412C38.6172 65.0418 38.6643 65.0421 38.711 65.042C38.7202 65.0419 38.7292 65.0417 38.7384 65.0417C38.7763 65.0415 38.814 65.0412 38.8514 65.0406C38.8589 65.0404 38.8662 65.0402 38.8737 65.04C38.9128 65.0392 38.9517 65.0382 38.9903 65.0369C38.9952 65.0367 39 65.0365 39.0049 65.0363C39.0461 65.0349 39.087 65.0332 39.1276 65.0312C39.1295 65.0311 39.1314 65.0309 39.1333 65.0309C40.3423 64.9697 41.237 64.6611 41.2194 64.2772C41.2052 63.9683 40.6041 63.6927 39.7365 63.5482L39.7365 63.5482ZM36.6759 64.1399C36.6703 64.0204 36.8636 63.9147 37.1817 63.8393C37.1707 63.9229 37.1666 64.009 37.1706 64.0974C37.1764 64.2227 37.198 64.3442 37.2326 64.4602C36.8937 64.3757 36.6815 64.2622 36.6759 64.1399ZM40.3831 64.1891C40.3887 64.3114 40.1866 64.4193 39.8552 64.495C39.8792 64.3797 39.8896 64.2586 39.8838 64.1333C39.8798 64.045 39.8677 63.9587 39.849 63.8746C40.1744 63.9586 40.3776 64.0696 40.3831 64.1891Z" fill="black"/>
+<path d="M37.5662 65.054C37.8274 65.3429 38.1939 65.5269 38.5923 65.5322C38.9906 65.5375 39.3407 65.3629 39.5757 65.0806C39.2669 65.1138 38.929 65.1301 38.5735 65.1254C38.2183 65.1207 37.8784 65.0955 37.5662 65.054Z" fill="black"/>
+</g>
+<defs>
+<clipPath id="clip0_2179_2577">
+<rect width="4.8932" height="4.99328" fill="white" transform="translate(93.7865 92.3758)"/>
+</clipPath>
+<clipPath id="clip1_2179_2577">
+<rect width="4.93658" height="4.95041" fill="white" transform="matrix(0.747757 -0.663972 0.648846 0.760919 85.4414 47.1916)"/>
+</clipPath>
+<clipPath id="clip2_2179_2577">
+<rect width="5.70874" height="5.8255" fill="white" transform="translate(30.9902 7.48994)"/>
+</clipPath>
+<clipPath id="clip3_2179_2577">
+<rect width="5.70874" height="5.8255" fill="white" transform="translate(23.6505 96.5368)"/>
+</clipPath>
+<clipPath id="clip4_2179_2577">
+<rect width="4.83867" height="5.20024" fill="white" transform="matrix(0.813876 -0.581039 0.565456 0.824779 35.068 63.5628)"/>
+</clipPath>
+</defs>
+</svg>

@@ -1,0 +1,28 @@
+.demarche-section {
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.5) 0%,
+    rgba(185, 211, 134, 0.5) 100%
+  );
+}
+
+.partenaire-section {
+  background: linear-gradient(
+    180deg,
+    rgba(185, 211, 134, 0.5) 0%,
+    rgba(216, 146, 192, 0.5) 100%
+  );
+}
+
+.mission-section {
+  background: linear-gradient(
+    180deg,
+    rgba(216, 146, 192, 0.5) 0%,
+    rgba(216, 146, 192, 0.5) 0.01%,
+    rgba(216, 146, 192, 0) 100%
+  );
+}
+
+.fusee-img {
+    margin-top: -7rem
+}

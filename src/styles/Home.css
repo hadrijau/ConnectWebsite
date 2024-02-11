@@ -1,0 +1,53 @@
+.section-background {
+    width: 95%;
+    border-top-right-radius: 100px;
+    border-bottom-right-radius: 250px;
+    border-top-left-radius: 100px;
+    border-bottom-left-radius: 100px;
+    min-height: 600px;
+    overflow: hidden;
+}
+
+.section-image {
+    width: 50%;
+}
+
+.img-banner {
+    margin-top: 2rem;
+    margin-right: 10rem
+}
+
+.img-portage {
+    margin-top: 6rem;
+    margin-right: -4rem;
+}
+
+.header-section {
+    line-height: 5.5rem;
+    font-weight: 600;
+}
+
+.header-home {
+    font-size: 3.5rem;
+    font-weight: 700;
+}
+
+.header-valor {
+    width: 30%;
+}
+
+.valor-container {
+    width: 65%;
+}
+
+.dimension-container {
+    width: 40%;
+}
+
+.text-app-container {
+    max-width: 70%;
+}
+
+.ios-picture {
+    width: 275px!important;
+}
