@@ -24,3 +24,7 @@ b, strong {
 .text-light {
   font-weight: 400;
 }
+
+a {
+  cursor: pointer;
+}
