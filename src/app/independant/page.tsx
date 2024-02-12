@@ -67,7 +67,7 @@ export default function IndependantPage() {
         <div className="w-6/12 mt-40">
           <h2 className="text-3xl font-bold mb-14 mr leading-relaxed">
             Déléguez votre
-            <span style={{ color: "#3A8EBA" }} className="ml-1">
+            <span style={{ color: "#3A8EBA" }} className="ml-2">
               gestion <br />
               administrative
             </span>
@@ -96,7 +96,7 @@ export default function IndependantPage() {
         <div className="w-6/12 mt-20">
           <h2 className="text-3xl font-bold mb-14 mr leading-relaxed">
             Glissez vers toutes les
-            <span style={{ color: "#3A8EBA" }} className="ml-1">
+            <span style={{ color: "#3A8EBA" }} className="ml-2">
               opportunités
             </span>
           </h2>
