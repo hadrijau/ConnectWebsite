@@ -20,3 +20,7 @@ b, strong {
 .text-semibold {
   font-weight: 600;
 }
+
+.text-light {
+  font-weight: 400;
+}

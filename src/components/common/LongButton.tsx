@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import React, { ReactNode } from 'react';
+import React, { ReactNode, CSSProperties } from 'react';
 import "@/styles/components/LongButton.css";
 
 interface LongButtonProps {
@@ -8,12 +8,13 @@ interface LongButtonProps {
   background?: string;
   children?: ReactNode;
     className?: string;
+    style?: CSSProperties;
     textClassName: string;
 }
 
-const LongButton: React.FC<LongButtonProps> = ({ title, href, className, textClassName, background, children, ...props }) => {
+const LongButton: React.FC<LongButtonProps> = ({ title, href, className, style, textClassName, background, children, ...props }) => {
   return (
-    <button className={`${className} text-white text-center rounded-full py-3 w-full`} style={{background: background}}>
+    <button className={`${className} text-white text-center rounded-full py-3 w-full`} style={{ background, ...style }}>
       <Link href={href} className={`${textClassName}`}> 
         {title ? <p>{title}</p>: <>Télécharger <span className='font-bold'>Connect</span></>}
       </Link>

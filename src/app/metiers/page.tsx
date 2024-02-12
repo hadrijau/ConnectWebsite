@@ -1,0 +1,106 @@
+import IntroSection from "@/components/home/IntroSection";
+import React from "react";
+import "@/styles/Portage.css";
+import Image from "next/image";
+import LongButton from "@/components/common/LongButton";
+
+const Portage = () => {
+  return (
+    <main className="flex flex-col items-center justify-between">
+      <IntroSection
+        firstTitle="La société de"
+        secondTitle="portage pour les"
+        thirdTitle="métiers de service"
+        undertitle="Découvre les métiers éligibles au portage"
+        image="/sectionMetiers.svg"
+        background="linear-gradient(135deg, #79B3D1 0%, #D892C0 100%)"
+      />
+      <div className="px-40 mt-20">
+        <p className="text-xl text-light leading-relaxed">
+          Toutes les sociétés de portage proposent d’accompagner des
+          indépendants sur différentes missions. Mais cela ne concerne pas tous
+          les métiers. Seuls les métiers de services sont éligibles à la société
+          de portage.
+          <br />
+          Tous les indépendants du service qui souhaitent exercer une activité
+          indépendante en conservant la sécurité d’un salarié font appel à des
+          sociétés telle que Connect.
+          <br />
+          <br />
+          Voici les métiers phares auxquels les freelances peuvent prétendre
+          chez Connect :
+        </p>
+      </div>
+
+      <div className="flex justify-between px-40 mt-20">
+        <Image
+          src="/expert_IT.svg"
+          alt="Freelance expert IT"
+          width={350}
+          height={200}
+        />
+        <div className="flex-col flex w-7/12 justify-center">
+          <p className="text-3xl text-semibold mb-10 text-left">Expert en IT</p>
+          <p className="text-xl mt-4 text-light leading-relaxed mb-10">
+            Tu es consultant en systèmes d&apos;information, programmeur
+            informatique, développeur web ou autre profil d&apos;ingénieur
+            informatique ?
+            <br />
+            Tu souhaites te développer vers un de nos méties informatiques ?{" "}
+            <br />
+            Découvre les avantages de Connect...
+          </p>
+
+          <div className="flex flex-col items-center justify-center">
+            <div className="w-4/12 ">
+              <LongButton
+                title="Découvrir le métier"
+                href="/expert-it"
+                textClassName="text-black font-bold text-xl"
+                background="#D892C0C7"
+                className="self-center"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div className="flex justify-between flex-row-reverse px-40 mt-20">
+        <Image
+          src="/expert_RH.svg"
+          alt="Freelance expert RH"
+          width={350}
+          height={200}
+        />
+        <div className="flex-col flex w-7/12 justify-center">
+          <p className="text-3xl text-semibold mb-10 text-left">Expert en RH</p>
+          <p className="text-xl mt-4 text-light leading-relaxed mb-10">Tu es expert dans un domaine particulier ?</p>
+          <p className="text-xl mt-4 text-light leading-relaxed mb-10 text-white">
+
+            Tu es consultant en systèmes d&apos;information, programmeur
+            informatique, développeur web ou autre profil d&apos;ingénieur
+            informatique ?
+            <br />
+            Tu souhaites te développer vers un de nos méties informatiques ?{" "}
+            <br />
+            Découvre les avantages de Connect...
+          </p>
+
+          <div className="flex flex-col items-center justify-center">
+            <div className="w-4/12 ">
+              <LongButton
+                title="Découvrir le métier"
+                href="/expert-it"
+                textClassName="text-black font-bold text-xl"
+                background="#D892C0C7"
+                className="self-center"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  );
+};
+
+export default Portage;

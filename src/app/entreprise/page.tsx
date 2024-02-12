@@ -3,7 +3,6 @@ import "@/styles/Home.css";
 import "@/styles/Entreprise.css";
 
 import IntroSection from "@/components/home/IntroSection";
-import LongButton from "@/components/common/LongButton";
 
 export default function EnterprisePage() {
   return (
@@ -101,7 +100,7 @@ export default function EnterprisePage() {
         </div>
       </div>
 
-      <div className="flex justify-between px-20 opportunity-section mb-10 w-full py-10">
+      <div className="flex justify-between px-20 mb-10 w-full py-10">
         <div className="w-6/12 mt-20">
           <h2 className="text-3xl font-bold mb-14 mr leading-relaxed">
             Diffusez vos offres de missions avec simplicité

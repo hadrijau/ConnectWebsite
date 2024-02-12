@@ -2,7 +2,7 @@
 import Link, { LinkProps } from "next/link";
 import { usePathname } from "next/navigation";
 import React, { ReactNode } from "react";
-
+import "@/styles/components/NavLink.css";
 interface NavLinkProps extends LinkProps {
   children: ReactNode;
   background?: string;
@@ -17,7 +17,6 @@ const NavLink: React.FC<NavLinkProps> = ({
   ...props
 }) => {
   const path = usePathname();
-
   return (
     <div
       style={{ background: background }}

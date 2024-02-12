@@ -23,7 +23,7 @@ const IntroSection: React.FC<IntroSectionProps> = ({
   undertitle,
   image,
   background,
-  buttonBackground
+  buttonBackground,
 }) => {
   const path = usePathname();
   return (
@@ -35,36 +35,44 @@ const IntroSection: React.FC<IntroSectionProps> = ({
         <h1 className="header-section text-white text-6xl">
           {firstTitle} <br /> {secondTitle} <br /> {thirdTitle}
         </h1>
-        <h5 className={(path.startsWith("/independant") || path.startsWith("/entreprise")) ? "text-white my-10 text-2xl" : "text-white my-14 text-2xl"} >{undertitle}</h5>
+        <h5
+          className={
+            path.startsWith("/independant") || path.startsWith("/entreprise")
+              ? "text-white my-10 text-2xl"
+              : "text-white my-14 text-2xl"
+          }
+        >
+          {undertitle}
+        </h5>
 
         {path.startsWith("/independant") || path.startsWith("/entreprise") ? (
           <div className="flex flex-col">
             <div className="button-container">
-            <LongButton
-              title="Télécharger l'application"
-              href="/entreprise"
-              textClassName="text-xl"
-              background={buttonBackground}
-              className="green-button mr-2"
-            ></LongButton>
+              <LongButton
+                title="Télécharger l'application"
+                href="/entreprise"
+                textClassName="text-xl"
+                background={buttonBackground}
+                className="green-button mr-2"
+              ></LongButton>
             </div>
-      
+
             <div className="flex mt-10">
-            <Image
-              src="googlePlay.svg"
-              alt="Google Play"
-              className="mr-10"
-              width={170}
-              height={66}
-            />
-            <Image
-              className="mx-10"
-              src="iosStore.svg"
-              alt="IOS Store"
-              width={170}
-              height={70}
-            />
-          </div>
+              <Image
+                src="googlePlay.svg"
+                alt="Google Play"
+                className="mr-10"
+                width={170}
+                height={66}
+              />
+              <Image
+                className="mx-10"
+                src="iosStore.svg"
+                alt="IOS Store"
+                width={170}
+                height={70}
+              />
+            </div>
           </div>
         ) : (
           <div className="flex">
@@ -88,7 +96,11 @@ const IntroSection: React.FC<IntroSectionProps> = ({
         width={500}
         height={500}
         className={
-          path.startsWith("/portage") || path.startsWith("/independant") || path.startsWith("/entreprise")
+          path.startsWith("/portage") ||
+          path.startsWith("/independant") ||
+          path.startsWith("/histoire") ||
+          path.startsWith("/entreprise") ||
+          path.startsWith("/metiers")
             ? "img-portage"
             : "img-banner"
         }
