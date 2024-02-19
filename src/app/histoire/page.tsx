@@ -1,9 +1,12 @@
 import IntroSection from "@/components/home/IntroSection";
 import React from "react";
 import "@/styles/Portage.css";
+import Navbar from "@/components/navbar/NavBar";
 
 const HistoirePage = () => {
   return (
+    <>
+    <Navbar />
     <main className="flex flex-col items-center justify-between">
       <IntroSection
         firstTitle="Ne cherchez plus, il"
@@ -30,6 +33,7 @@ const HistoirePage = () => {
         </p>
       </div>
     </main>
+    </>
   );
 };
 

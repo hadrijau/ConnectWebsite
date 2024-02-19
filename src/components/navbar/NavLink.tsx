@@ -25,7 +25,7 @@ const NavLink: React.FC<NavLinkProps> = ({
       <Link
         href={href}
         {...props}
-        className={path.startsWith(href.toString()) ? "link-active" : undefined}
+        className={path.startsWith(href.toString()) ? "link-active" : background ? "nav-link-white" : "nav-link"}
       >
         {children}
       </Link>

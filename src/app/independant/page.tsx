@@ -7,9 +7,12 @@ import "@/styles/Independant.css";
 
 import IntroSection from "@/components/home/IntroSection";
 import LongButton from "@/components/common/LongButton";
+import Navbar from "@/components/navbar/NavBar";
 
 export default function IndependantPage() {
   return (
+    <>
+    <Navbar />
     <main className="flex flex-col items-center justify-between">
       <IntroSection
         firstTitle="Connect, société de"
@@ -124,5 +127,6 @@ export default function IndependantPage() {
         </div>
       </div>
     </main>
+    </>
   );
 }

@@ -1,0 +1,32 @@
+.login-container {
+    height: 100vh;
+    background: linear-gradient(180deg, rgba(186, 58, 142, 0.45) 0%, rgba(58, 142, 186, 0.45) 40.63%, rgba(185, 211, 134, 0.45) 84.9%);
+}
+
+.form-container {
+    background: #FFFFFF82;
+    z-index: 2;
+    position: relative;
+    border-radius: 50px;
+}
+
+.input-placeholder::placeholder {
+    font-weight: bold;
+    color: #807B7B;
+}
+
+.password-forgotten {
+    color: #807B7B;;
+}
+
+.text-test {
+    width: 100%;
+}
+.login-img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 70%;
+    z-index: 1;
+}

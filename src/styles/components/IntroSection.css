@@ -1,3 +1,33 @@
 .button-container {
     width: 70%;
 }
+
+.img-banner {
+    margin-top: 2rem;
+    margin-right: 10rem
+}
+
+.img-portage {
+    margin-top: 6rem;
+    margin-right: -4rem;
+}
+
+.img-histoire{
+    margin-top: -4rem;
+    margin-right: -4rem;
+} 
+
+.section-background {
+    width: 95%;
+    border-top-right-radius: 100px;
+    border-bottom-right-radius: 250px;
+    border-top-left-radius: 100px;
+    border-bottom-left-radius: 100px;
+    min-height: 600px;
+    overflow: hidden;
+}
+
+.header-section {
+    line-height: 5.5rem;
+    font-weight: 600;
+}

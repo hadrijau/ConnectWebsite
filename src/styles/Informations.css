@@ -1,0 +1,10 @@
+.text-infos {
+    border-bottom: 3px solid #86A868;
+    padding-bottom: 1rem;
+    width: 50%;
+}
+
+.choice-container {
+    border: 3px solid #698754;
+    border-radius: 50px;
+}

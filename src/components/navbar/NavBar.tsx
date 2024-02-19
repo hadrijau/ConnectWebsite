@@ -50,10 +50,10 @@ const Navbar = () => {
         <Image src="searchIcon.svg" alt="Search" width={24} height={24} />
       )}
 
-      <NavLink href="/decouvrir" background={background}>
+      <NavLink href="/signup" background={background}>
         Découvrir maintenant
       </NavLink>
-      <div style={{ display: "inline-block", transform: "scale(1, 3)" }}>|</div>
+      <div style={{ display: "inline-block", transform: "scale(0.3, 4)" }}>|</div>
       <NavLink href="/login">Me connecter</NavLink>
     </nav>
   );

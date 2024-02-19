@@ -1,0 +1,20 @@
+.header-offres {
+    color: #B9D386;
+}
+
+.card-mission-container {
+    border: 1px solid #0000002E;
+    border-radius: 30px;
+    width: 100%;
+}
+
+.ongoing-mission-container {
+    background: #B9D38647;
+}
+
+.img-section-freelance {
+    margin-right: -5rem;
+    margin-top: -5rem;
+    height: 25rem;
+    width: auto;
+}

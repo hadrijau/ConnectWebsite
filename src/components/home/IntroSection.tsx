@@ -26,6 +26,12 @@ const IntroSection: React.FC<IntroSectionProps> = ({
   buttonBackground,
 }) => {
   const path = usePathname();
+  let className = "img-portage"
+  if (path == "/") {
+    className = "img-banner"
+  } else if (path.startsWith("/histoire")) {
+    className = "img-histoire"
+  }
   return (
     <div
       className="section-background flex px-20 pt-20 justify-between mt-2"
@@ -79,11 +85,17 @@ const IntroSection: React.FC<IntroSectionProps> = ({
             <Button
               title="Entreprise"
               href="/entreprise"
-              className="pink-button mr-2"
+              background="#D892C0"
+              borderColor="#D892C0"
+              newBackground="none"
+              className="mr-2"
             ></Button>
             <Button
               title="Indépendant"
               href="/independant"
+              background="none"
+              borderColor="#B9D386"
+              newBackground="#B9D386"
               className="empty-button mx-2"
             ></Button>
           </div>
@@ -95,15 +107,7 @@ const IntroSection: React.FC<IntroSectionProps> = ({
         alt="Mission connect"
         width={500}
         height={500}
-        className={
-          path.startsWith("/portage") ||
-          path.startsWith("/independant") ||
-          path.startsWith("/histoire") ||
-          path.startsWith("/entreprise") ||
-          path.startsWith("/metiers")
-            ? "img-portage"
-            : "img-banner"
-        }
+        className={className}
       />
     </div>
   );

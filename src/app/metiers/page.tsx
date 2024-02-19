@@ -3,9 +3,12 @@ import React from "react";
 import "@/styles/Portage.css";
 import Image from "next/image";
 import LongButton from "@/components/common/LongButton";
+import Navbar from "@/components/navbar/NavBar";
 
 const Portage = () => {
   return (
+    <>
+    <Navbar />
     <main className="flex flex-col items-center justify-between">
       <IntroSection
         firstTitle="La société de"
@@ -55,7 +58,7 @@ const Portage = () => {
             <div className="w-4/12 ">
               <LongButton
                 title="Découvrir le métier"
-                href="/expert-it"
+                href="/metiers/expert-it"
                 textClassName="text-black font-bold text-xl"
                 background="#D892C0C7"
                 className="self-center"
@@ -100,6 +103,7 @@ const Portage = () => {
         </div>
       </div>
     </main>
+    </>
   );
 };
 

@@ -5,9 +5,12 @@ import ValorCard from "@/components/home/ValorCard";
 import DimensionCard from "@/components/home/DimensionCard";
 import "@/styles/Home.css";
 import IntroSection from "@/components/home/IntroSection";
+import Navbar from "@/components/navbar/NavBar";
 
 export default function Home() {
   return (
+    <>
+  <Navbar />
     <main className="flex flex-col items-center justify-between">
       <IntroSection
         firstTitle="Nous portons la"
@@ -74,7 +77,7 @@ export default function Home() {
 
         <div>
           <Image
-            src="association.svg"
+            src="dimensionHumaine.svg"
             alt="Dimension connect"
             width={700}
             height={700}
@@ -127,5 +130,6 @@ export default function Home() {
         />
       </div>
     </main>
+    </>
   );
 }

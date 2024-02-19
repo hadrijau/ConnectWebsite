@@ -1,9 +1,12 @@
 import IntroSection from "@/components/home/IntroSection";
 import React from "react";
 import "@/styles/Portage.css";
+import Navbar from "@/components/navbar/NavBar";
 
 const Portage = () => {
   return (
+    <>
+    <Navbar />
     <main className="flex flex-col items-center justify-between">
       <IntroSection
         firstTitle="Connect, la société de"
@@ -194,6 +197,7 @@ const Portage = () => {
         </div>
       </div>
     </main>
+    </>
   );
 };
 
