@@ -8,25 +8,20 @@ const FreelanceNavBar = () => {
   const path = usePathname();
 
   return (
-    <nav className="flex justify-between items-center px-10 pt-4">
+    <nav className="flex justify-between items-center px-10 pt-4 pb-4">
       <FreelanceNavLink href="/">
         <Image src={"/logo.svg"} alt="logo-connect" width={100} height={60} />
       </FreelanceNavLink>
 
-      <FreelanceNavLink href="/portage">Mon entreprise</FreelanceNavLink>
-      <FreelanceNavLink href="/metiers">AO</FreelanceNavLink>
-      <FreelanceNavLink href="/histoire">Mes missions</FreelanceNavLink>
-      {path.startsWith("/independant") || path.startsWith("/entreprise") ? (
-        <></>
-      ) : (
-        <Image src="searchIcon.svg" alt="Search" width={24} height={24} />
-      )}
+      <FreelanceNavLink href="/freelance/entreprise">Mon entreprise</FreelanceNavLink>
+      <FreelanceNavLink href="/freelance/AO">AO</FreelanceNavLink>
+      <FreelanceNavLink href="/freelance/missions">Mes missions</FreelanceNavLink>
 
-      <FreelanceNavLink href="/decouvrir" className="text-center">
+      <FreelanceNavLink href="/freelance/documents" className="text-center">
         Mes documents <br /> officiels
       </FreelanceNavLink>
       <div className="flex">
-        <div style={{ display: "inline-block", transform: "scale(0.3, 4)" }} className="mr-10 mt-3">
+        <div style={{ display: "inline-block", transform: "scale(0.3, 4)" }} className="mr-10 mt-7">
           |
         </div>
         <div className="flex justify-start">
@@ -47,9 +42,9 @@ const FreelanceNavBar = () => {
           <Image
             src="freelanceProfileNav.svg"
             alt="Notifications"
-            width={35}
-            className="mx-3"
-            height={35}
+            width={60}
+            className="mx-3 cursor-pointer"
+            height={60}
           />
         </div>
       </div>

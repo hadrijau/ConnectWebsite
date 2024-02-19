@@ -9,3 +9,12 @@
 .nav-link-white:hover {
     color: white;
 }
+
+.link-active-freelance, .nav-link-freelance:hover {
+    color:  #B9D386;
+    border-bottom: 3px solid #B9D386;
+}
+
+.nav-link-freelance {
+    padding-bottom: 2rem;
+}

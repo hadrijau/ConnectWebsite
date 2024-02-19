@@ -3,18 +3,25 @@ import React from "react";
 import Image from "next/image";
 import SignupForm from "@/components/forms/SignupForm";
 import "@/styles/Signup.css";
-import { useRouter } from 'next/navigation'
+import { useRouter } from "next/navigation";
+import { createUser } from "@/http/user";
 
 const SignupPage = () => {
-    const router = useRouter()
-  const handleSubmit = (values: {
+  const router = useRouter();
+  const handleSubmit = async (values: {
     firstname: string;
     lastname: string;
     email: string;
     password: string;
     accept: boolean;
   }) => {
-    router.push('/informations')
+    try {
+      const result = await createUser(values.email, values.password);
+      console.log("res", result);
+      router.push("/informations");
+    } catch (err) {
+      console.log("Error in signup", err);
+    }
     console.log("Submitted with values:", values);
   };
   return (
@@ -31,7 +38,9 @@ const SignupPage = () => {
         <SignupForm handleSubmit={handleSubmit} />
       </div>
       <div className="w-6/12 flex flex-col join-connect overflow-hidden">
-        <h3 className="text-3xl text-normal mt-20 ml-10 mb-20">Rejoignez la team connect</h3>
+        <h3 className="text-3xl text-normal mt-20 ml-10 mb-20">
+          Rejoignez la team connect
+        </h3>
         <div className="flex flex-col items-center justify-center">
           <Image
             src="signup1.svg"

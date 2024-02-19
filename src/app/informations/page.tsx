@@ -1,6 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import "@/styles/Informations.css";
+import Link from "next/link";
 
 const InformationsPage = () => {
   return (
@@ -26,14 +27,16 @@ const InformationsPage = () => {
           Où vous situez vous ?
         </h3>
 
-        <div className=" flex flex-col items-center choice-container py-10 px-5">
-          <h5 className="text-semibold text-center text-2xl mb-10">
-            Indépendant
-          </h5>
-          <p className="text-light text-xl">
-            Tu recherches la mission idéale chez le client idéal.
-          </p>
-        </div>
+        <Link href="/freelance">
+          <div className=" flex flex-col items-center choice-container py-10 px-5">
+            <h5 className="text-semibold text-center text-2xl mb-10">
+              Indépendant
+            </h5>
+            <p className="text-light text-xl">
+              Tu recherches la mission idéale chez le client idéal.
+            </p>
+          </div>
+        </Link>
 
         <h4 className="my-10 text-semibold text-2xl text-center">OU</h4>
 
