@@ -1,36 +1,42 @@
-import React, {ReactNode} from "react";
-import { FieldProps } from "formik";
-
-interface TextInputProps extends FieldProps {
+import React, { ReactNode } from "react";
+import "@/styles/components/TextInput.css";
+interface TextInputProps {
   label?: string;
   name: string;
   id: string;
-  className: string;
+  textarea?: boolean;
+  className?: string;
+  placeholder: string;
   type: string;
 }
 
 const TextInput: React.FC<TextInputProps> = ({
-  field,
   label,
   name,
   id,
   type,
+  placeholder,
   className,
-  form: { touched, errors },
+  textarea,
   ...props
 }) => {
-  const isError = touched[name] && errors[name];
-
   return (
-    <div className={`${className} rounded-xl ${isError ? "input-error" : ""}`}>
-      <input
-        id={id}
-        type={type}
-        {...field}
-        {...props}
-        className={`w-full bg-inherit border-none outline-none ${isError ? "input-field-error" : ""}`}
-      />
-      {isError && <div className="c-input__error">{errors[name] as ReactNode}</div>}
+    <div className={`${className} input-container p-3`}>
+      {textarea ? (
+        <textarea
+          placeholder={placeholder}
+          id={id}
+          className={`w-full bg-inherit border-none outline-none`}
+        />
+      ) : (
+        <input
+          id={id}
+          placeholder={placeholder}
+          type={type}
+          {...props}
+          className={`w-full bg-inherit border-none outline-none`}
+        />
+      )}
     </div>
   );
 };

@@ -27,7 +27,7 @@ const InformationsPage = () => {
           Où vous situez vous ?
         </h3>
 
-        <Link href="/freelance">
+        <Link href="/freelance/profil">
           <div className=" flex flex-col items-center choice-container py-10 px-5">
             <h5 className="text-semibold text-center text-2xl mb-10">
               Indépendant

@@ -16,8 +16,7 @@ const SignupPage = () => {
     accept: boolean;
   }) => {
     try {
-      const result = await createUser(values.email, values.password);
-      console.log("res", result);
+      await createUser(values.email, values.password);
       router.push("/informations");
     } catch (err) {
       console.log("Error in signup", err);

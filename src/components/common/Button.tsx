@@ -7,7 +7,7 @@ interface ButtonProps {
   href: string;
   background: string;
   newBackground: string;
-  borderColor: string;
+  borderColor?: string;
   className: string;
   children?: ReactNode;
 }

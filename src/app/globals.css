@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 body {
-  font-family: 'Poppins', sans-serif;
+  font-family: var(--font-poppins);
   font-size: 16px;
   font-weight: 500;
 }
@@ -43,4 +43,16 @@ b, strong {
 
 a {
   cursor: pointer;
+}
+
+.font-green {
+  color: #B9D386;
+}
+
+.bg-green {
+  background: linear-gradient(0deg, #B9D386, #B9D386);
+}
+
+.font-bad-script {
+  font-family: var(--font-bad-script);
 }

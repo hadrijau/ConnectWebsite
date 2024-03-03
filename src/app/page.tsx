@@ -3,7 +3,6 @@ import "@/styles/Home.css";
 import Button from "@/components/common/Button";
 import ValorCard from "@/components/home/ValorCard";
 import DimensionCard from "@/components/home/DimensionCard";
-import "@/styles/Home.css";
 import IntroSection from "@/components/home/IntroSection";
 import Navbar from "@/components/navbar/NavBar";
 

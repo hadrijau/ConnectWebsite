@@ -1,4 +1,3 @@
-import { NextApiRequest, NextApiResponse } from "next";
 import { connectToDatabase } from "@/lib/db";
 import { hashPassword } from "@/lib/auth";
 import { NextResponse } from "next/server";

@@ -1,7 +1,7 @@
 import * as React from "react";
 import { Formik, Field, Form } from "formik";
 import Image from "next/image";
-import TextInput from "@/components/common/TextInput";
+import TextInput from "@/components/common/FormTextInput";
 
 interface LoginFormProps {
   handleSubmit: (values: { email: string; password: string }) => void;

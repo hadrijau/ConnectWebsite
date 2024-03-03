@@ -3,12 +3,15 @@ import "@/styles/Freelance.css";
 import DimensionCard from "@/components/home/DimensionCard";
 import FreelanceIntroSection from "@/components/common/FreelanceIntroSection";
 import FreelanceNavBar from "@/components/navbar/FreelanceNavbar";
-import missions from "@/mockData/missions";
+// import missions from "@/mockData/missions";
 import CardMission from "@/components/freelance/CardMission";
 import ongoingMissions from "@/mockData/ongoingmissions";
 import CardOnGoingMission from "@/components/freelance/CardOnGoingMission";
+import { getMissions } from "@/http/mission";
 
-export default function FreelancePage() {
+export default async function FreelancePage() {
+  const missions = await getMissions();
+
   return (
     <>
       <FreelanceNavBar />
@@ -36,6 +39,7 @@ export default function FreelancePage() {
                 companyLogo,
                 propositions,
                 date,
+                length,
               } = mission;
               return (
                 <CardMission
@@ -43,10 +47,10 @@ export default function FreelancePage() {
                   title={title}
                   propositions={propositions}
                   date={date}
-                  companyLogo={companyLogo}
-                  companyName={companyName}
+                  companyLogo={"/logoSoge.svg"}
+                  companyName={"Company B"}
                   price={price}
-                  time={time}
+                  length={length}
                 />
               );
             })}

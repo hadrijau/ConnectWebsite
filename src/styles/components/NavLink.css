@@ -15,6 +15,11 @@
     border-bottom: 3px solid #B9D386;
 }
 
-.nav-link-freelance {
+.link-active-client, .nav-link-client:hover {
+    color:  #D892C0;
+    border-bottom: 3px solid #D892C0;
+}
+
+.nav-link-freelance, .nav-link-client {
     padding-bottom: 2rem;
 }

@@ -8,7 +8,7 @@ interface CardMissionProps {
   price: string;
   propositions: number;
   date: Date;
-  time: string;
+  length: number;
 }
 
 const CardMission: FC<CardMissionProps> = ({
@@ -18,8 +18,12 @@ const CardMission: FC<CardMissionProps> = ({
   price,
   propositions,
   date,
-  time,
+  length,
 }) => {
+  const formattedDate = typeof date === 'string'
+    ? new Date(date).toLocaleDateString('fr-FR').replaceAll("/", ".")
+    : date.toLocaleDateString('fr-FR').replaceAll("/", ".");
+
   return (
     <div className="flex card-mission-container p-4 my-10 w-full">
       <Image src={companyLogo} alt="logo" width={75} height={75} className="mr-7" />
@@ -29,39 +33,41 @@ const CardMission: FC<CardMissionProps> = ({
         <div className="flex justify-between w-full mt-2">
           <div className="flex w-3/12">
             <Image
-              src="numberPropositions.svg"
+              src="/numberPropositions.svg"
               width={20}
               height={20}
               alt="Nombre de propositions"
+              color="black"
             />
             <p className="ml-2 text-sm">{propositions} propositions</p>
           </div>
           <div className="flex w-3/12">
             <Image
-              src="price.svg"
+              src="/price.svg"
               width={15}
               height={15}
               alt="Prix d'une mission"
             />
-            <p className="ml-2 text-sm">{price}</p>
+            <p className="ml-2 text-sm">{price} € HT/jour</p>
           </div>
           <div className="flex w-3/12">
             <Image
-              src="duration.svg"
+              src="/duration.svg"
               width={15}
               height={15}
               alt="Durée d'une mission"
             />
-            <p className="ml-2 text-sm">{time}</p>
+            <p className="ml-2 text-sm">{length.toString()}</p>
           </div>
           <div className="flex w-3/12">
             <Image
-              src="calendar.svg"
+              src="/calendar.svg"
               width={15}
               height={15}
+              color="black"
               alt="Durée d'une mission"
             />
-            <p className="ml-2 text-sm">{date.toLocaleDateString('fr-FR').replaceAll("/", ".")}</p>
+            <p className="ml-2 text-sm">{formattedDate}</p>
           </div>
         </div>
       </div>

@@ -1,16 +1,14 @@
 "use client";
 import React from "react";
-import Button from "@/components/common/Button";
 import { usePathname } from "next/navigation";
 import Image from "next/image";
-import LongButton from "@/components/common/LongButton";
 import "@/styles/components/FreelanceIntroSection.css";
 
 interface FreelanceIntroSectionProps {
   firstTitle: string;
-  secondTitle: string;
-  undertitle: string;
-  image: string;
+  secondTitle?: string;
+  undertitle?: string;
+  image?: string;
   background: string;
   buttonBackground?: string;
 }
@@ -26,7 +24,7 @@ const FreelanceIntroSection: React.FC<FreelanceIntroSectionProps> = ({
 
   return (
     <div
-      className="section-freelance-background flex px-20 pt-20 justify-between mt-2 leading-relaxed"
+      className="section-freelance-background flex px-20 py-20 justify-between mt-2 leading-relaxed"
       style={{ background: background }}
     >   
       <div className="pt-5">

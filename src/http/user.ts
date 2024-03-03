@@ -1,5 +1,4 @@
 export async function createUser(email: string, password: string) {
-  console.log("meila", email, password);
   const response = await fetch("/api/auth/signup", {
     method: "POST",
     body: JSON.stringify({ email, password }),
