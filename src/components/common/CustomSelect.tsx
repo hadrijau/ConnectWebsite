@@ -4,8 +4,9 @@ import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select, { SelectChangeEvent } from "@mui/material/Select";
+import "@/styles/components/CustomSelect.css";
 
-export default function CustomSelect({ value, setValue }) {
+export default function CustomSelect({ value, setValue, label }) {
   const handleChange = (event: SelectChangeEvent) => {
     setValue(event.target.value as string);
   };
@@ -14,7 +15,7 @@ export default function CustomSelect({ value, setValue }) {
     <Box sx={{ minWidth: "50%" }}>
       <FormControl fullWidth>
         <InputLabel id="demo-simple-select-label">
-          Durée de la mission
+          {label}
         </InputLabel>
         <Select
           labelId="demo-simple-select-label"

@@ -5,7 +5,6 @@ textarea {
     width: 100%;
     padding: 1.5rem;
     margin-bottom: 1rem;
-
 }
 
 .input-title {
@@ -31,4 +30,26 @@ input:focus-visible {
 
 .header-offres {
     color: #D892C0;
+}
+
+.card-mission-container {
+    border: 1px solid #0000002E;
+    border-radius: 30px;
+    width: 100%;
+}
+
+.context-container {
+    background: #D9D9D969;
+    border-radius: 10px;
+    margin-bottom: 1rem;
+}
+
+.img-modification {
+    margin-left: 70%;
+    margin-bottom: 2rem;
+    cursor: pointer;
+}
+
+.select-profil-container {
+    border: 2px solid #A9A5A5;
 }

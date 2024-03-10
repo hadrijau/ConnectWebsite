@@ -32,9 +32,11 @@ export default async function FreelancePage() {
 
             {missions.map((mission, index) => {
               const {
+                _id,
                 title,
                 companyName,
                 price,
+
                 time,
                 companyLogo,
                 propositions,
@@ -44,6 +46,7 @@ export default async function FreelancePage() {
               return (
                 <CardMission
                   key={index}
+                  _id={_id}
                   title={title}
                   propositions={propositions}
                   date={date}
@@ -56,7 +59,14 @@ export default async function FreelancePage() {
             })}
           </div>
 
-          <div className="flex flex-col ongoing-mission-container p-10 rounded-3xl w-3/12">
+          <div className="flex flex-col ongoing-mission-container p-10 rounded-3xl w-3/12 items-center">
+            <Image
+              src="/freelanceMissionSpaceship.svg"
+              width={70}
+              height={70}
+              alt="Missions en cours"
+              className="mb-5"
+            />
             <h5 className="text-center text-normal text-xl">
               Mes missions en cours...
             </h5>

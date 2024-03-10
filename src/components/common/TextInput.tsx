@@ -6,6 +6,7 @@ interface TextInputProps {
   id: string;
   textarea?: boolean;
   className?: string;
+  onChange?: (event: any) => void;
   placeholder: string;
   type: string;
 }
@@ -18,6 +19,7 @@ const TextInput: React.FC<TextInputProps> = ({
   placeholder,
   className,
   textarea,
+  onChange,
   ...props
 }) => {
   return (
@@ -31,6 +33,7 @@ const TextInput: React.FC<TextInputProps> = ({
       ) : (
         <input
           id={id}
+          onChange={onChange}
           placeholder={placeholder}
           type={type}
           {...props}

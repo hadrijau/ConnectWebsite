@@ -3,31 +3,59 @@ import React, { useState } from "react";
 import dayjs, { Dayjs } from "dayjs";
 import Image from "next/image";
 import CustomSelect from "@/components/common/CustomSelect";
-import CustomDateField from "../common/CustomDateField";
+import CustomDateField from "@/components/common/CustomDateField";
+import FormButton from "@/components/common/FormButton";
+
+import { updateMissionById } from "@/http/mission";
+
 import "@/styles/Client.css";
-import { createMission } from "@/http/mission";
-import FormButton from "../common/FormButton";
+import { useRouter } from "next/navigation";
+interface ModifyMissionFormProps {
+  _id: string;
+  title: string;
+  context: string;
+  goals: string;
+  date: Dayjs;
+  price: number;
+  length: number;
+  modalities: string;
+  setModify: React.Dispatch<React.SetStateAction<boolean>>;
+}
 
-const CreateMissionForm: React.FC = () => {
-  const [title, setTitle] = useState("");
-  const [context, setContext] = useState("");
-  const [goals, setGoals] = useState("");
-  const [date, setDate] = React.useState<Dayjs>(dayjs("2022-04-17"));
-  const [price, setPrice] = React.useState(0);
-  const [length, setLength] = useState(0);
-  const [modalities, setModalities] = useState("test");
+const ModifyMissionForm: React.FC<ModifyMissionFormProps> = ({
+  _id,
+  title,
+  context,
+  goals,
+  date,
+  price,
+  length,
+  modalities,
+  setModify,
+}) => {
+  const [newTitle, setNewTitle] = useState(title);
+  const [newContext, setNewContext] = useState(context);
+  const [newGoals, setNewGoals] = useState(goals);
+  const [newDate, setNewDate] = React.useState<Dayjs>(dayjs(date));
+  const [newPrice, setNewPrice] = React.useState(price);
+  const [newLength, setNewLength] = useState(length);
+  const [newModalities, setNewModalities] = useState(modalities);
 
+  const router = useRouter()
   const handleSubmit = async () => {
     try {
-      await createMission(
-        title,
-        context,
-        goals,
-        date,
-        price,
-        length,
-        modalities
+      await updateMissionById(
+        _id,
+        newTitle,
+        newContext,
+        newGoals,
+        newDate,
+        newPrice,
+        newLength,
+        newModalities
       );
+      setModify(false);
+      router.refresh()
     } catch (err) {
       console.log("Error creating mission", err);
     }
@@ -37,20 +65,23 @@ const CreateMissionForm: React.FC = () => {
     <div className="flex flex-col w-full">
       <div className="flex w-full justify-between">
         <div className="flex flex-col w-7/12">
-        <h5 className="text-light mb-3">AO 00002</h5>
+          <h5 className="text-light mb-3">AO 00002</h5>
           <input
             type="text"
             placeholder="Titre de la mission*"
-            onChange={(e) => setTitle(e.target.value)}
+            value={newTitle}
+            onChange={(e) => setNewTitle(e.target.value)}
             className="input-title"
           />
           <textarea
             placeholder="Contexte *"
-            onChange={(e) => setContext(e.target.value)}
+            value={newContext}
+            onChange={(e) => setNewContext(e.target.value)}
           ></textarea>
           <textarea
             placeholder="Missions et livrables *"
-            onChange={(e) => setGoals(e.target.value)}
+            value={newGoals}
+            onChange={(e) => setNewGoals(e.target.value)}
           ></textarea>
         </div>
 
@@ -64,7 +95,7 @@ const CreateMissionForm: React.FC = () => {
               className="mr-4"
             />
             <div className="w-full">
-              <CustomDateField date={date} setDate={setDate} />
+              <CustomDateField date={newDate} setDate={setNewDate} />
             </div>
           </div>
           <div className="flex my-2">
@@ -75,7 +106,11 @@ const CreateMissionForm: React.FC = () => {
               alt="calendrier"
               className="mr-4"
             />
-            <input className="price-input" onChange={(e) => setPrice(Number(e.target.value))}/>
+            <input
+              className="price-input"
+              onChange={(e) => setNewPrice(Number(e.target.value))}
+              value={newPrice}
+            />
             <p className="mt-2">€ HT/jour</p>
           </div>
           <div className="flex my-2">
@@ -86,7 +121,7 @@ const CreateMissionForm: React.FC = () => {
               alt="calendrier"
               className="mr-4"
             />
-            <CustomSelect value={length} setValue={setLength} label="Durée de la mission"/>
+            <CustomSelect value={newLength} setValue={setNewLength} label="Durée de la mission"/>
           </div>
           <div className="flex my-2">
             <Image
@@ -101,7 +136,7 @@ const CreateMissionForm: React.FC = () => {
       </div>
       <div className="w-4/12 my-20">
         <FormButton
-          title="Soumettre la mission"
+          title="Enregistrer les modifications"
           background="#D892C0"
           handleButtonClick={handleSubmit}
         />
@@ -110,4 +145,4 @@ const CreateMissionForm: React.FC = () => {
   );
 };
 
-export default CreateMissionForm;
+export default ModifyMissionForm;

@@ -49,8 +49,17 @@ a {
   color: #B9D386;
 }
 
+.font-pink {
+  color: #D892C0
+}
+
+
 .bg-green {
   background: linear-gradient(0deg, #B9D386, #B9D386);
+}
+
+.bg-pink {
+  background: linear-gradient(0deg, #D892C0, #D892C0);
 }
 
 .font-bad-script {

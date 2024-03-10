@@ -1,17 +1,17 @@
 import React from "react";
 import FreelanceIntroSection from "@/components/common/FreelanceIntroSection";
-import CardMission from "@/components/freelance/CardMission";
 import CardOnGoingMission from "@/components/freelance/CardOnGoingMission";
 import ClientNavbar from "@/components/navbar/ClientNavbar";
+import CardMissionClient from "@/components/freelance/CardMissionClient";
 import { getMissions } from "@/http/mission";
 import ongoingMissions from "@/mockData/ongoingmissions";
 import Link from "next/link";
+import Image from "next/image";
 
 import "@/styles/Client.css";
 
 export const ClientSpacePage = async () => {
   const missions = await getMissions();
-  console.log("missions", missions);
   return (
     <>
       <ClientNavbar />
@@ -20,7 +20,7 @@ export const ClientSpacePage = async () => {
           firstTitle="Bienvenue dans"
           secondTitle="votre espace"
           undertitle="Le succès n'est pas final, l'échec n'est pas fatal. C'est le courage de continuer qui compte."
-          background="linear-gradient(94deg, rgba(216, 146, 192, 0.65) 0%, rgba(121, 179, 209, 0.65) 99.73%);"
+          background="linear-gradient(94deg, rgba(216, 146, 192, 0.65) 0%, rgba(121, 179, 209, 0.65) 99.73%)"
         />
 
         <div className="flex justify-between w-full px-40 mt-10">
@@ -29,11 +29,12 @@ export const ClientSpacePage = async () => {
               <h1 className="text-semibold header-offres text-2xl">
                 Mes appels d&apos;offres
               </h1>
-              <Link href="create-oa">+ Ajouter un appel d&apos;offre</Link>
+              <Link href="create-ao">+ Ajouter un appel d&apos;offre</Link>
             </div>
 
             {missions.map((mission, index: number) => {
               const {
+                _id,
                 title,
                 companyName,
                 price,
@@ -44,7 +45,8 @@ export const ClientSpacePage = async () => {
                 length,
               } = mission;
               return (
-                <CardMission
+                <CardMissionClient
+                  _id={_id}
                   key={index}
                   title={title}
                   propositions={propositions}
@@ -58,7 +60,14 @@ export const ClientSpacePage = async () => {
             })}
           </div>
 
-          <div className="flex flex-col ongoing-mission-container p-10 rounded-3xl w-3/12">
+          <div className="flex flex-col ongoing-mission-container p-10 rounded-3xl w-3/12 items-center">
+            <Image
+              src="/clientMissionSpaceship.svg"
+              width={70}
+              height={70}
+              alt="Missions en cours"
+              className="mb-5"
+            />
             <h5 className="text-center text-normal text-xl">
               Les missions en cours...
             </h5>

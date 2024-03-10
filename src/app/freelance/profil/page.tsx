@@ -1,26 +1,35 @@
 import TextInput from "@/components/common/TextInput";
-import NavBarProfile from "@/components/profile/NavBarProfile";
+import NavBarProfile from "@/components/profile/NavBarProfileFreelance";
 import React from "react";
 import Image from "next/image";
+import FormButton from "@/components/common/FormButton";
+import Link from "next/link";
 
 const ProfileFreelancePage = () => {
   return (
     <div className="flex h-screen">
-      <NavBarProfile className="w-4/12 h-screen"/>
+      <NavBarProfile className="w-4/12 h-screen" />
       <div className="flex-col w-8/12">
         <div className="flex justify-end">
-          <h5 className="font-bad-script text-2xl mt-10 mr-10">Bienvenue dans ma vie</h5>
+          <h5 className="font-bad-script text-2xl mt-10 mr-10">
+            Bienvenue dans ma vie
+          </h5>
         </div>
         <div className="flex-col mt-5 ml-20">
           <h1 className="font-bold text-3xl font-green">Mon profil</h1>
           <h5 className="font-normal text-xl mt-5">On fait connaissance ?</h5>
-        <div className="flex my-5">
-            <Image src="/upload_profil.svg" width={150} height={150} alt="Photo de profil" />
+          <div className="flex my-5">
+            <Image
+              src="/upload_profil.svg"
+              width={150}
+              height={150}
+              alt="Photo de profil"
+            />
             <div className="flex-col mt-10 ml-10">
-                <h5 className="font-normal text-xl">Prénom Nom</h5>
-                <p className="font-light">adresseemail@grouperhapsodie.fr</p>
+              <h5 className="font-normal text-xl">Prénom Nom</h5>
+              <p className="font-light">adresseemail@grouperhapsodie.fr</p>
             </div>
-        </div>
+          </div>
           <TextInput
             name="job"
             id="job"
@@ -57,6 +66,14 @@ const ProfileFreelancePage = () => {
             textarea={true}
             className="h-40 rounded-3xl w-10/12"
           />
+          <div className="w-10/12 mt-4">
+            <Link href="/freelance/competences">
+              <FormButton
+                title="Sauvegarder"
+                background="linear-gradient(0deg, #B9D386, #B9D386)"
+              />
+            </Link>
+          </div>
         </div>
       </div>
     </div>

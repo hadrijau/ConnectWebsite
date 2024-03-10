@@ -1,8 +1,9 @@
 import React, { FC } from "react";
 import Image from "next/image";
-import Link from "next/link";
 import { ObjectId } from "mongodb";
-interface CardMissionProps {
+import Link from "next/link";
+
+interface CardMissionClientProps {
   _id: ObjectId;
   title: string;
   companyName: string;
@@ -13,7 +14,7 @@ interface CardMissionProps {
   length: number;
 }
 
-const CardMission: FC<CardMissionProps> = ({
+const CardMissionClient: FC<CardMissionClientProps> = ({
   _id,
   title,
   companyName,
@@ -29,7 +30,7 @@ const CardMission: FC<CardMissionProps> = ({
       : date.toLocaleDateString("fr-FR").replaceAll("/", ".");
 
   return (
-    <Link href={`freelance/mission/${_id}`}>
+    <Link href={`ao/${_id}`}>
       <div className="flex card-mission-container p-4 my-10 w-full">
         <Image
           src={companyLogo}
@@ -44,7 +45,7 @@ const CardMission: FC<CardMissionProps> = ({
           <div className="flex justify-between w-full mt-2">
             <div className="flex w-3/12">
               <Image
-                src="/numberPropositions.svg"
+                src="/clientMissionProposition.svg"
                 width={20}
                 height={20}
                 alt="Nombre de propositions"
@@ -54,7 +55,7 @@ const CardMission: FC<CardMissionProps> = ({
             </div>
             <div className="flex w-3/12">
               <Image
-                src="/price.svg"
+                src="/clientMissionPrice.svg"
                 width={15}
                 height={15}
                 alt="Prix d'une mission"
@@ -63,7 +64,7 @@ const CardMission: FC<CardMissionProps> = ({
             </div>
             <div className="flex w-3/12">
               <Image
-                src="/duration.svg"
+                src="/clientMissionDuration.svg"
                 width={15}
                 height={15}
                 alt="Durée d'une mission"
@@ -72,7 +73,7 @@ const CardMission: FC<CardMissionProps> = ({
             </div>
             <div className="flex w-3/12">
               <Image
-                src="/calendar.svg"
+                src="/clientMissionCalendar.svg"
                 width={15}
                 height={15}
                 color="black"
@@ -87,4 +88,4 @@ const CardMission: FC<CardMissionProps> = ({
   );
 };
 
-export default CardMission;
+export default CardMissionClient;
