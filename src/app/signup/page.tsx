@@ -28,7 +28,7 @@ const SignupPage = () => {
         email: values.email,
         password: values.password,
       });
-      console.log("res", result)
+      console.log("result", result)
       if (!result?.error) {
         router.push("/informations");
       }
