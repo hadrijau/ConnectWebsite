@@ -32,3 +32,17 @@
 .content-profile {
     margin-left: 33%;
 }
+
+.why-me-text {
+    background: linear-gradient(90deg, #79B3D1 0%, #9ABF7A 93.91%);
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+}
+
+.mui-zii6vw-MuiFormLabel-root-MuiInputLabel-root {
+    display: none;
+}
+
+.mui-4jnixx-MuiStack-root>.MuiTextField-root {
+    min-width: unset;
+}

@@ -3,8 +3,16 @@ import { NextResponse } from "next/server";
 
 export async function POST(req: Request) {
   try {
-    const { title, context, goals, date, price, length, modalities } =
-      await req.json();
+    const {
+      title,
+      context,
+      goals,
+      date,
+      price,
+      length,
+      modalities,
+      competences,
+    } = await req.json();
 
     const client = await connectToDatabase();
     const db = client.db();
@@ -17,6 +25,7 @@ export async function POST(req: Request) {
       price: price,
       length: length,
       modalities: modalities,
+      competences,
     });
 
     return NextResponse.json({ message: "Mission created" }, { status: 201 });

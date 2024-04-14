@@ -5,6 +5,7 @@ import SignupForm from "@/components/forms/SignupForm";
 import "@/styles/Signup.css";
 import { useRouter } from "next/navigation";
 import { createUser } from "@/http/user";
+import { signIn } from "next-auth/react";
 
 const SignupPage = () => {
   const router = useRouter();
@@ -16,8 +17,20 @@ const SignupPage = () => {
     accept: boolean;
   }) => {
     try {
-      await createUser(values.email, values.password);
-      router.push("/informations");
+      await createUser(
+        values.email,
+        values.password,
+        values.firstname,
+        values.lastname
+      );
+      const result = await signIn("credentials", {
+        redirect: false,
+        email: values.email,
+        password: values.password,
+      });
+      if (!result?.error) {
+        router.push("/informations");
+      }
     } catch (err) {
       console.log("Error in signup", err);
     }

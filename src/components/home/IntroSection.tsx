@@ -9,7 +9,6 @@ import "@/styles/components/IntroSection.css";
 interface IntroSectionProps {
   firstTitle: string;
   secondTitle: string;
-  thirdTitle: string;
   undertitle: string;
   image: string;
   background: string;
@@ -19,7 +18,6 @@ interface IntroSectionProps {
 const IntroSection: React.FC<IntroSectionProps> = ({
   firstTitle,
   secondTitle,
-  thirdTitle,
   undertitle,
   image,
   background,
@@ -31,31 +29,34 @@ const IntroSection: React.FC<IntroSectionProps> = ({
     className = "img-banner"
   } else if (path.startsWith("/histoire")) {
     className = "img-histoire"
+  } else if (path.startsWith("/independant") || path.startsWith("/entreprise"))   {
+    className = "img-indep"
   }
+
   return (
     <div
-      className="section-background flex px-20 pt-20 justify-between mt-2"
+      className="section-background flex px-20 py-10 justify-between mt-10"
       style={{ background: background }}
     >
       <div className="pt-5">
-        <h1 className="header-section text-white text-6xl">
-          {firstTitle} <br /> {secondTitle} <br /> {thirdTitle}
+        <h1 className="header-section text-white text-4xl lg:text-3xl ">
+          {firstTitle} <br /> {secondTitle} <br />
         </h1>
         <h5
           className={
             path.startsWith("/independant") || path.startsWith("/entreprise")
-              ? "text-white my-10 text-2xl"
-              : "text-white my-14 text-2xl"
+              ? "text-white my-4 text-2xl lg:text-xl"
+              : "text-white my-6 text-2xl lg:text-xl"
           }
         >
           {undertitle}
         </h5>
 
         {path.startsWith("/independant") || path.startsWith("/entreprise") ? (
-          <div className="flex flex-col">
+          <div className="flex items-center">
             <div className="button-container">
               <LongButton
-                title="Télécharger l'application"
+                title="Télécharger Connect"
                 href="/entreprise"
                 textClassName="text-xl"
                 background={buttonBackground}
@@ -63,25 +64,25 @@ const IntroSection: React.FC<IntroSectionProps> = ({
               ></LongButton>
             </div>
 
-            <div className="flex mt-10">
+            <div className="flex flex-col ml-5">
               <Image
                 src="googlePlay.svg"
                 alt="Google Play"
                 className="mr-10"
-                width={170}
+                width={120}
                 height={66}
               />
               <Image
-                className="mx-10"
+                className="mt-5"
                 src="iosStore.svg"
                 alt="IOS Store"
-                width={170}
+                width={120}
                 height={70}
               />
             </div>
           </div>
         ) : (
-          <div className="flex">
+          <div className="flex w-12/12 lg:w-10/12">
             <Button
               title="Entreprise"
               href="/entreprise"

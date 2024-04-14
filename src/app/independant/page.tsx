@@ -16,8 +16,7 @@ export default function IndependantPage() {
     <main className="flex flex-col items-center justify-between">
       <IntroSection
         firstTitle="Connect, société de"
-        secondTitle="portage pour les"
-        thirdTitle="indépendants"
+        secondTitle="portage pour les indépendants"
         undertitle="Glissez vers toutes les opportunités"
         image="/sectionIndependant.svg"
         background="linear-gradient(135deg, #79B3D1 0%, #B9D386 100%)"
@@ -53,7 +52,7 @@ export default function IndependantPage() {
           </h2>
           <p className="text-xl leading-relaxed">
             En faisant partie de CONNECT, vous êtes totalement indépendant, mais
-            vous{" "}
+            vous
             <span style={{ color: "#8EBA3A" }}>
               bénéficiez des avantages salarial
             </span>
@@ -77,7 +76,7 @@ export default function IndependantPage() {
           </h2>
           <p className="text-xl leading-relaxed">
             Avec <span style={{ fontWeight: "italic" }}>CONNECT</span> , il vous
-            suffit juste d’exécuter votre mission. Nous nous occupons du reste.{" "}
+            suffit juste d’exécuter votre mission. Nous nous occupons du reste.
             <br /> Plus besoin de mettre la tête dans les papiers, la
             <span style={{ color: "#3A8EBA" }} className="mx-1">
               gestion de votre activité est notre mission.
@@ -105,13 +104,13 @@ export default function IndependantPage() {
           </h2>
           <p className="text-xl leading-relaxed">
             Avec CONNECT, il vous suffit d’ajouter votre profil sur
-            l’application. Vous recherchez plutôt une mission longue ? Courte ?{" "}
+            l’application. Vous recherchez plutôt une mission longue ? Courte ?
             <br />
             Ne perdez plus de temps, vous pouvez trouver du travail en vous
-            amusant sur votre smartphone.{" "}
+            amusant sur votre smartphone
             <span style={{ color: "#3A8EBA" }} className="mx-1 font-bold">
               BOOM CA CONNECTE !
-            </span>{" "}
+            </span>
             <br />
             <span className="font-bold">Disponible prochainement</span>
           </p>

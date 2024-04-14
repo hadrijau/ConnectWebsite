@@ -6,7 +6,18 @@ import FormControl from "@mui/material/FormControl";
 import Select, { SelectChangeEvent } from "@mui/material/Select";
 import "@/styles/components/CustomSelect.css";
 
-export default function CustomSelect({ value, setValue, label }) {
+interface Option {
+  label: string;
+  value: number;
+}
+
+interface CustomSelectProps {
+  value: string;
+  setValue: React.Dispatch<React.SetStateAction<string>>;
+  options: Option[]
+}
+
+const CustomSelect: React.FC<CustomSelectProps> = ({ value, setValue, options }) => {
   const handleChange = (event: SelectChangeEvent) => {
     setValue(event.target.value as string);
   };
@@ -14,22 +25,23 @@ export default function CustomSelect({ value, setValue, label }) {
   return (
     <Box sx={{ minWidth: "50%" }}>
       <FormControl fullWidth>
-        <InputLabel id="demo-simple-select-label">
-          {label}
-        </InputLabel>
         <Select
           labelId="demo-simple-select-label"
           id="demo-simple-select"
+          className="pl-3"
           value={value}
-          label="Age"
-          variant="standard"
           onChange={handleChange}
         >
-          <MenuItem value={10}>3 mois</MenuItem>
-          <MenuItem value={20}>4 mois</MenuItem>
-          <MenuItem value={30}>5 mois</MenuItem>
+          {options.map((option, index) => {
+            return (
+              <MenuItem value={option.value} key={index}>{option.label}</MenuItem>
+            )
+          })}
+
         </Select>
       </FormControl>
     </Box>
   );
 }
+
+export default CustomSelect

@@ -10,16 +10,20 @@ import { updateMissionById } from "@/http/mission";
 
 import "@/styles/Client.css";
 import { useRouter } from "next/navigation";
+import { lengthOptions, levelOptions, modalitiesOptions } from "@/lib/selectConstants";
+import SearchBar from "@/components/common/SearchBar";
+import { ObjectId } from "mongodb";
 interface ModifyMissionFormProps {
-  _id: string;
+  _id: ObjectId;
   title: string;
   context: string;
   goals: string;
-  date: Dayjs;
+  date: Date;
   price: number;
-  length: number;
+  length: string;
   modalities: string;
   setModify: React.Dispatch<React.SetStateAction<boolean>>;
+  competences: { label: string; level: number }[];
 }
 
 const ModifyMissionForm: React.FC<ModifyMissionFormProps> = ({
@@ -31,6 +35,7 @@ const ModifyMissionForm: React.FC<ModifyMissionFormProps> = ({
   price,
   length,
   modalities,
+  competences,
   setModify,
 }) => {
   const [newTitle, setNewTitle] = useState(title);
@@ -38,10 +43,26 @@ const ModifyMissionForm: React.FC<ModifyMissionFormProps> = ({
   const [newGoals, setNewGoals] = useState(goals);
   const [newDate, setNewDate] = React.useState<Dayjs>(dayjs(date));
   const [newPrice, setNewPrice] = React.useState(price);
-  const [newLength, setNewLength] = useState(length);
-  const [newModalities, setNewModalities] = useState(modalities);
+  const [newLength, setNewLength] = useState(
+    lengthOptions.find((option) => option.label === length)!.label
+  );
+  const [newModalities, setNewModalities] = useState(
+    modalitiesOptions.find((option) => option.label === modalities)!.label
+  );
 
-  const router = useRouter()
+  const [selectedCompetences, setSelectedCompetences] = useState(competences);
+
+  const handleSelectOption = (label: string, level: number): void => {
+    setSelectedCompetences([...selectedCompetences, { label, level }]);
+  };
+
+  const removeCompetence = (index: number): void => {
+    const updatedOptions = [...selectedCompetences];
+    updatedOptions.splice(index, 1);
+    setSelectedCompetences(updatedOptions);
+  };
+
+  const router = useRouter();
   const handleSubmit = async () => {
     try {
       await updateMissionById(
@@ -51,11 +72,12 @@ const ModifyMissionForm: React.FC<ModifyMissionFormProps> = ({
         newGoals,
         newDate,
         newPrice,
-        newLength,
-        newModalities
+        newLength, 
+        newModalities,
+        selectedCompetences
       );
       setModify(false);
-      router.refresh()
+      router.refresh();
     } catch (err) {
       console.log("Error creating mission", err);
     }
@@ -121,7 +143,11 @@ const ModifyMissionForm: React.FC<ModifyMissionFormProps> = ({
               alt="calendrier"
               className="mr-4"
             />
-            <CustomSelect value={newLength} setValue={setNewLength} label="Durée de la mission"/>
+            <CustomSelect
+              value={newLength}
+              setValue={setNewLength}
+              options={lengthOptions}
+            />
           </div>
           <div className="flex my-2">
             <Image
@@ -131,6 +157,64 @@ const ModifyMissionForm: React.FC<ModifyMissionFormProps> = ({
               alt="calendrier"
               className="mr-4"
             />
+            <CustomSelect
+              value={newModalities}
+              setValue={setNewModalities}
+              options={modalitiesOptions}
+            />
+          </div>
+
+          <div className="flex my-2 competences-container rounded-2xl p-6 flex-col h-96">
+            <p className="mb-5">
+              Compétences requises <span className="color-red">*</span>
+            </p>
+            <SearchBar
+              createMission={true}
+              onSelectOption={(competence) =>
+                handleSelectOption(competence, levelOptions[0].value)
+              } // Assuming the default level is the first one
+              setSelectedCompetences={setSelectedCompetences}
+              //@ts-ignore
+              selectedCompetences={selectedCompetences.map(
+                ({ label }) => label
+              )}
+              placeholder="UI/UX, Open Office,..."
+            />
+            {selectedCompetences && (
+              <div className="flex justify-between mt-5">
+                <p>Compétences</p>
+                <p>Niveau</p>
+              </div>
+            )}
+            {selectedCompetences.map((competence, index) => (
+              <div
+                key={competence.label}
+                className="competence-container rounded-xl py-2 flex flex-row mt-5 mx-3 justify-between lg:mx-0"
+              >
+                <span>
+                  <span
+                    className="mr-3 text-xl cursor-pointer"
+                    onClick={() => removeCompetence(index)}
+                  >
+                    x
+                  </span>
+                  {competence.label}
+                </span>
+                <div className="competences-select w-5/12 lg:w-7/12">
+                  <CustomSelect
+                  //@ts-ignore
+                    value={competence.level}
+                    //@ts-ignore
+                    setValue={(level: number) => {
+                      const updatedCompetences = [...selectedCompetences];
+                      updatedCompetences[index].level = level;
+                      setSelectedCompetences(updatedCompetences);
+                    }}
+                    options={levelOptions}
+                  />
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </div>

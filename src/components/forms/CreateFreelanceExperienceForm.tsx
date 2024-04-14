@@ -9,9 +9,11 @@ import { v4 as uuidv4 } from "uuid";
 
 import "@/styles/Freelance.css";
 import CustomUpload from "../upload/CustomUpload";
+import { typeOfContractOptions } from "@/lib/selectConstants";
+import { useRouter } from "next/navigation";
 
 interface Experience {
-  id: uuidv4;
+  id: any;
   jobTitle: string;
   company: string;
   typeOfContract: string;
@@ -22,6 +24,8 @@ interface Experience {
 }
 
 const CreateFreelanceExperienceForm = () => {
+
+  const router = useRouter();
   const [experiences, setExperiences] = useState<Experience[]>([
     {
       id: uuidv4(),
@@ -49,7 +53,7 @@ const CreateFreelanceExperienceForm = () => {
   };
 
   const addExperience = () => {
-    console.log("down", downloadUrl)
+    console.log("down", downloadUrl);
     sanitizeDates();
     const newExperience = {
       id: uuidv4(),
@@ -104,14 +108,14 @@ const CreateFreelanceExperienceForm = () => {
     });
   };
 
-  const handleDelete = (idToDelete: uuidv4) => {
+  const handleDelete = (idToDelete: any) => {
     setExperiences((prevExperiences) =>
       prevExperiences.filter((experience) => experience.id !== idToDelete)
     );
   };
 
   return (
-    <div>
+    <div className="flex flex-col">
       {experiences.map((experience, index) => {
         return (
           <div key={experience.id}>
@@ -158,9 +162,11 @@ const CreateFreelanceExperienceForm = () => {
                 <div className="w-full picker-container rounded-full px-4 py-2 my-4">
                   <CustomSelect
                     value={experience.typeOfContract}
+                    //@ts-ignore
                     setValue={(value: string) =>
                       handleSelectChange(index, value)
                     }
+                    options={typeOfContractOptions}
                     label="Sélectionne le type de contrat"
                   />
                 </div>
@@ -172,7 +178,9 @@ const CreateFreelanceExperienceForm = () => {
                 <p className="mb-2">Date de début*</p>
                 <div className="picker-container pl-4">
                   <CustomDatePicker
+                    //@ts-ignore
                     value={experience.beginningDate}
+                    //@ts-ignore
                     setValue={(newDate: Dayjs) =>
                       handleBeginningDateChange(index, newDate)
                     }
@@ -184,7 +192,9 @@ const CreateFreelanceExperienceForm = () => {
                 <p className="mb-2">Date de fin*</p>
                 <div className="picker-container pl-4">
                   <CustomDatePicker
+                    //@ts-ignore
                     value={experience.endDate}
+                    //@ts-ignore
                     setValue={(newDate: Dayjs) =>
                       handleEndDateChange(index, newDate)
                     }
@@ -205,11 +215,11 @@ const CreateFreelanceExperienceForm = () => {
       </div>
 
       <div className="flex justify-center items-center w-10/12 mt-6">
-        <div className="w-3/12">
+        <div className="w-3/12 lg:w-5/12">
           {!downloadUrl ? (
             <CustomUpload setDownloadUrl={setDownloadUrl}>
               <FormButton
-                title="Télcharge ton CV ici"
+                title="Télécharge ton CV ici"
                 background="#B9D386"
                 textClassName="text-black"
                 className="w-3/12"
@@ -221,6 +231,15 @@ const CreateFreelanceExperienceForm = () => {
             </div>
           )}
         </div>
+      </div>
+
+      <div className="w-2/12 self-end lg:w-4/12 mr-10">
+        <FormButton
+          title="OK"
+          background="#B9D386"
+          textClassName="text-black"
+          handleButtonClick={() => router.push("/freelance/entreprise")}
+        />
       </div>
     </div>
   );

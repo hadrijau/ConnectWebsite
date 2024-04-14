@@ -8,10 +8,10 @@ interface CardMissionClientProps {
   title: string;
   companyName: string;
   companyLogo: string;
-  price: string;
+  price: number;
   propositions: number;
   date: Date;
-  length: number;
+  length: string;
 }
 
 const CardMissionClient: FC<CardMissionClientProps> = ({

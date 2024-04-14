@@ -9,9 +9,8 @@ const Portage = () => {
     <Navbar />
     <main className="flex flex-col items-center justify-between">
       <IntroSection
-        firstTitle="Connect, la société de"
-        secondTitle="portage à taille"
-        thirdTitle="humaine"
+        firstTitle="Connect, la société de portage à"
+        secondTitle="taille humaine"
         undertitle="Glissez vers toutes les opportunités"
         image="/sectionPortage.svg"
         background="linear-gradient(135deg, #79B3D1 0%, #D892C0 100%)"

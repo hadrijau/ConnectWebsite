@@ -1,14 +1,14 @@
-import React, { ReactNode, CSSProperties } from "react";
+import React, { ReactNode, CSSProperties, ButtonHTMLAttributes, MouseEventHandler } from "react";
 import "@/styles/components/LongButton.css";
 
-interface FormButtonProps {
+interface FormButtonProps extends ButtonHTMLAttributes<HTMLDivElement>{
   title: string;
   background?: string;
   children?: ReactNode;
   className?: string;
   style?: CSSProperties;
+  handleButtonClick?: MouseEventHandler<HTMLDivElement>;
   textClassName?: string;
-  handleButtonClick?: () => void;
 }
 
 const FormButton: React.FC<FormButtonProps> = ({
@@ -19,16 +19,17 @@ const FormButton: React.FC<FormButtonProps> = ({
   background,
   children,
   handleButtonClick,
-  ...props
+  ...rest
 }) => {
   return (
-    <button
-      className={`${className} text-white text-center rounded-full py-3 w-full`}
-      style={{ background, ...style }}
+    <div
+      {...rest}
       onClick={handleButtonClick}
+      className={`${className} text-white text-center rounded-2xl py-3 w-full cursor-pointer`}
+      style={{ background, ...style }}
     >
-      <p>{title}</p>
-    </button>
+      <p className={textClassName}>{title}</p>
+    </div>
   );
 };
 

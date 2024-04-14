@@ -1,22 +1,28 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
 import Image from "next/image";
 import LoginForm from "@/components/forms/LoginForm";
 import "@/styles/Login.css";
 import { signIn } from "next-auth/react";
 import { useRouter } from "next/navigation";
+import { getUserByEmail } from "@/http/user";
+import Link from "next/link";
 
 const LoginPage = () => {
-  const router = useRouter()
+  const router = useRouter();
+  const [error, setError] = useState("");
   const handleSubmit = async (values: { email: string; password: string }) => {
-    console.log("values", values)
+    const user = await getUserByEmail(values.email);
     const result = await signIn("credentials", {
       redirect: false,
       email: values.email,
       password: values.password,
     });
+    if (result?.error) {
+      setError("Mot de passe incorrect");
+    }
     if (!result?.error) {
-      router.push("/freelance")
+      router.push("/freelance");
     }
   };
 
@@ -30,21 +36,24 @@ const LoginPage = () => {
         alt="Connection à connect"
       />
 
-      <div className="form-container w-5/12 flex flex-col items-center py-4 px-10 justify-center">
+      <div className="form-container w-5/12 flex flex-col items-center py-4 px-10 justify-center lg:w-7/12">
         <Image
           src="logoWithConnect.svg"
           alt="Logo Connect avec le nom"
           width={180}
           height={180}
         />
-        <h1 className="text-bold mb-20 text-3xl">
-          Connectez-vous à votre compte
+        <h1 className="text-bold mb-20 text-3xl text-center">
+          Connecte-toi à ton compte
         </h1>
         <LoginForm handleSubmit={handleSubmit} />
 
-        <h5 className="password-forgotten font-bold my-20">
-          Mot de passe oublié ?
-        </h5>
+        {error && <p className="mt-10 color-red">{error}</p>}
+        <Link href="#">
+          <h5 className="password-forgotten font-bold my-10">
+            Mot de passe oublié ?
+          </h5>
+        </Link>
       </div>
     </div>
   );

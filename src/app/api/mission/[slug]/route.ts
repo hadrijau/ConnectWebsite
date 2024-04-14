@@ -24,8 +24,16 @@ export async function PUT(
   { params }: { params: { slug: string } }
 ) {
   try {
-    const { title, context, goals, date, price, length, modalities } =
-      await req.json();
+    const {
+      title,
+      context,
+      goals,
+      date,
+      price,
+      length,
+      modalities,
+      competences,
+    } = await req.json();
 
     const client = await connectToDatabase();
     const db = client.db();
@@ -51,6 +59,7 @@ export async function PUT(
           price,
           length,
           modalities,
+          competences,
         },
       }
     );

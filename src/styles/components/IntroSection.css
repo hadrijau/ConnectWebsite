@@ -3,31 +3,62 @@
 }
 
 .img-banner {
-    margin-top: 2rem;
-    margin-right: 10rem
+    position: absolute;
+    right: 5rem;
+    width: 24rem;
+    top: -15.5%
 }
 
 .img-portage {
-    margin-top: 6rem;
-    margin-right: -4rem;
+    position: absolute;
+    right: 4rem;
+    width: 24rem;
+    top: -13.5%
 }
 
 .img-histoire{
-    margin-top: -4rem;
-    margin-right: -4rem;
+    position: absolute;
+    right: 4rem;
+    width: 24rem;
+    top: -8.5%
 } 
 
+.img-indep {
+    position: absolute;
+    right: 2.3rem;
+    width: 26rem;
+    top: -15%
+}
+
 .section-background {
-    width: 95%;
+    width: 90%;
     border-top-right-radius: 100px;
     border-bottom-right-radius: 250px;
     border-top-left-radius: 100px;
     border-bottom-left-radius: 100px;
-    min-height: 600px;
-    overflow: hidden;
+    position: relative;
 }
 
 .header-section {
-    line-height: 5.5rem;
-    font-weight: 600;
+    line-height: 3rem;
+    font-weight: 700;
+}
+
+@media screen and (max-width:1200px) {
+    .img-portage {
+        position: absolute;
+        right: 4rem;
+        width: 23rem;
+        top: -10%
+    }
+    .img-histoire{
+        position: absolute;
+        right: 4.2rem;
+  }
+  .img-indep {
+    position: absolute;
+    right: 2.5rem;
+    width: 26rem;
+    top: -16%
+} 
 }

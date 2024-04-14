@@ -9,14 +9,15 @@ import { getMissionById } from "@/http/mission";
 
 import "@/styles/Client.css";
 import DisplayOrModifyMission from "@/components/client/DisplayOrModifyMission";
+import FreelanceNavBar from "@/components/navbar/FreelanceNavbar";
 
+//@ts-ignore
 const ClientAODetailPage = async ({ params }) => {
   const mission = await getMissionById(params.slug);
-  console.log("mission", mission);
 
   return (
     <>
-      <ClientNavbar />
+      <FreelanceNavBar />
       <main className="flex flex-col items-center justify-between">
         <FreelanceIntroSection
           firstTitle="Mes appels"
@@ -26,7 +27,7 @@ const ClientAODetailPage = async ({ params }) => {
           image="/aoIntroSection.svg"
         />
 
-        <div className="flex flex-col justify-between w-full px-40 mt-10">
+        <div className="flex flex-col justify-between w-full px-40 mt-10 lg:px-10">
           <Link href="/client/ao">
             <h5 className="mb-10">&#60;- retour aux appels d&apos;offres</h5>
           </Link>
@@ -37,5 +38,6 @@ const ClientAODetailPage = async ({ params }) => {
     </>
   );
 };
+
 
 export default ClientAODetailPage;

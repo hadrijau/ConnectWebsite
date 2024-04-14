@@ -1,14 +1,10 @@
-
-
 .section-image {
     width: 50%;
 }
 
-
-
 .header-home {
     font-size: 3.5rem;
-    font-weight: 700;
+    font-weight: 800;
 }
 
 .header-valor {
@@ -19,14 +15,18 @@
     width: 65%;
 }
 
-.dimension-container {
-    width: 40%;
-}
-
 .text-app-container {
     max-width: 70%;
 }
 
 .ios-picture {
     width: 275px!important;
+}
+
+.dimension-img {
+    width: 100%;
+}
+
+.play-store-img {
+    width: 30%;
 }

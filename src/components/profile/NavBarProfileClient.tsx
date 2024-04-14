@@ -45,7 +45,7 @@ const NavBarProfileClient: React.FC<NavBarProfileClientProps> = ({
         return (
           <Link href={href} key={index} className="flex my-10">
             <div className="bg-white rounded-full overflow-hidden">
-              <Image src={image} alt="Mon Profil" width={130} height={130} />
+              <img src={image} alt="Mon Profil"  className="nav-profil-img"/>
             </div>
             <div
               className={

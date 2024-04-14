@@ -53,3 +53,21 @@ input:focus-visible {
 .select-profil-container {
     border: 2px solid #A9A5A5;
 }
+
+.nav-profil-img {
+    width: 8rem;
+}
+
+.competences-container {
+    background: #D9D9D969;
+}
+
+.competences-select {
+    border: 1px solid grey;
+    border-radius: 20px;
+}
+@media screen and (max-width:1200px) {
+    .nav-profil-img {
+        width: 6rem;
+    }
+}

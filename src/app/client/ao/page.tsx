@@ -9,9 +9,10 @@ import Link from "next/link";
 import Image from "next/image";
 
 import "@/styles/Client.css";
+import { Mission } from "@/entities/mission";
 
-export const ClientSpacePage = async () => {
-  const missions = await getMissions();
+const ClientSpacePage = async () => {
+  const missions: Mission[] = await getMissions();
   return (
     <>
       <ClientNavbar />
@@ -23,7 +24,7 @@ export const ClientSpacePage = async () => {
           background="linear-gradient(94deg, rgba(216, 146, 192, 0.65) 0%, rgba(121, 179, 209, 0.65) 99.73%)"
         />
 
-        <div className="flex justify-between w-full px-40 mt-10">
+        <div className="flex justify-between w-full px-40 mt-10 lg:px-10">
           <div className="flex-col w-8/12">
             <div className="flex justify-between w-full">
               <h1 className="text-semibold header-offres text-2xl">
@@ -36,10 +37,7 @@ export const ClientSpacePage = async () => {
               const {
                 _id,
                 title,
-                companyName,
                 price,
-                time,
-                companyLogo,
                 propositions,
                 date,
                 length,

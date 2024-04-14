@@ -1,8 +1,14 @@
 import React from "react";
 import Image from "next/image";
 import FormButton from "@/components/common/FormButton";
+import Link from "next/link";
+import { Mission } from "@/entities/mission";
 
-const DisplayMission = ({ mission }) => {
+interface DisplayMissionProps {
+  mission: Mission
+}
+
+const DisplayMission:React.FC<DisplayMissionProps> = ({ mission }) => {
   return (
     <div className="flex flex-col w-full">
       <div className="flex flex-col w-full">
@@ -37,7 +43,7 @@ const DisplayMission = ({ mission }) => {
           <div className="flex flex-col w-4/12">
             <div className="flex my-2">
               <Image
-                src="/calendrier.svg"
+                src="/freelanceMissionCalendar.svg"
                 height={25}
                 width={25}
                 alt="calendrier"
@@ -49,7 +55,7 @@ const DisplayMission = ({ mission }) => {
             </div>
             <div className="flex my-2">
               <Image
-                src="/tarifHT.svg"
+                src="/freelanceMissionPrice.svg"
                 height={25}
                 width={25}
                 alt="calendrier"
@@ -59,7 +65,7 @@ const DisplayMission = ({ mission }) => {
             </div>
             <div className="flex my-2">
               <Image
-                src="/dureeMission.svg"
+                src="/freelanceMissionTime.svg"
                 height={25}
                 width={25}
                 alt="calendrier"
@@ -69,7 +75,7 @@ const DisplayMission = ({ mission }) => {
             </div>
             <div className="flex my-2">
               <Image
-                src="/modaliteTravail.svg"
+                src="/freelanceMissionPropositions.svg"
                 height={25}
                 width={25}
                 alt="calendrier"
@@ -78,11 +84,16 @@ const DisplayMission = ({ mission }) => {
             </div>
           </div>
         </div>
-        <div className="w-4/12 my-20">
-          <FormButton
-            title="Besoin d'aide pour trouver la personne idéale ?"
-            background="#D892C0"
-          />
+        <div className=" flex items-center justify-center w-7/12">
+          <div className="w-5/12 my-20">
+            <Link href={`/freelance/mission/answer/${mission._id}`}>
+              <FormButton
+                title="Répondre"
+                background="#B9D38680"
+                textClassName="text-black"
+              />
+            </Link>
+          </div>
         </div>
       </div>
     </div>

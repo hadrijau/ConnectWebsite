@@ -1,6 +1,3 @@
-.mui-zii6vw-MuiFormLabel-root-MuiInputLabel-root {
-    display: none!important;
-}
 
 .mui-1rxz5jq-MuiSelect-select-MuiInputBase-input-MuiInput-input:focus {
     background-color: transparent!important;
@@ -13,4 +10,8 @@
 .mui-ehibnp-MuiFormLabel-root-MuiInputLabel-root {
     top: -10px!important;
     left: -16px!important
+}
+
+.mui-11u53oe-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input {
+    padding: 3px!important
 }

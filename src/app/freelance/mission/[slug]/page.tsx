@@ -8,6 +8,7 @@ import { getMissionById } from "@/http/mission";
 import "@/styles/Client.css";
 import DisplayMission from "@/components/freelance/DisplayMission";
 
+//@ts-ignore
 const FreelanceMissionDetailPage = async ({ params }) => {
   const mission = await getMissionById(params.slug);
 
@@ -21,7 +22,7 @@ const FreelanceMissionDetailPage = async ({ params }) => {
 
         />
 
-        <div className="flex flex-col justify-between w-full px-40 mt-10">
+        <div className="flex flex-col justify-between w-full px-40 mt-10 lg:px-10">
           <Link href="/client/ao">
             <h5 className="mb-10">&#60;- retour aux appels d&apos;offres</h5>
           </Link>

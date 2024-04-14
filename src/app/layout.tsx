@@ -4,6 +4,8 @@ import { AppRouterCacheProvider } from "@mui/material-nextjs/v13-appRouter";
 import { ThemeProvider } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
 import theme from '@/theme';
+import { SessionProvider } from "next-auth/react";
+
 import "./globals.css";
 
 const bad_script = Bad_Script({
@@ -16,8 +18,6 @@ const poppins = Poppins({
   subsets: ["latin"],
   variable: "--font-poppins",
 });
-
-
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -32,6 +32,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${poppins.variable} ${bad_script.variable}`}>
+      <SessionProvider>
       <AppRouterCacheProvider options={{ enableCssLayer: true }}>
           <ThemeProvider theme={theme}>
             {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
@@ -39,6 +40,7 @@ export default function RootLayout({
             {children}
           </ThemeProvider>
         </AppRouterCacheProvider>
+        </SessionProvider>
       </body>
     </html>
   );

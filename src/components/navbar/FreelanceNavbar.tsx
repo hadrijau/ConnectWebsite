@@ -26,21 +26,21 @@ const FreelanceNavBar = () => {
         </div>
         <div className="flex justify-start">
           <Image
-            src="freelanceNavBarSearch.svg"
+            src="/freelanceNavBarSearch.svg"
             alt="Notifications"
             width={35}
             height={35}
             className="mx-3"
           />
           <Image
-            src="notifFreelanceNav.svg"
+            src="/notifFreelanceNav.svg"
             alt="Notifications"
             width={35}
             height={35}
             className="mx-3"
           />
           <Image
-            src="freelanceProfileNav.svg"
+            src="/freelanceProfileNav.svg"
             alt="Notifications"
             width={60}
             className="mx-3 cursor-pointer"

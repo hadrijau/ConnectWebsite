@@ -8,7 +8,8 @@ import dayjs, { Dayjs } from "dayjs";
 import Link from "next/link";
 
 import "@/styles/Freelance.css";
-import CustomUpload from "../upload/CustomUpload";
+import { typeOfContractOptions } from "@/lib/selectConstants";
+import { useRouter } from "next/navigation";
 
 interface Experience {
   typeOfContract: string;
@@ -27,23 +28,8 @@ const EntrepriseFreelanceForm = () => {
     formattedEndDate: "",
   });
 
-  const sanitizeDates = () => {
-    experience.formattedBeginningDate = dayjs(experience.beginningDate).format(
-      "DD-MM-YYYY"
-    );
-    experience.formattedEndDate = dayjs(experience.endDate).format(
-      "DD-MM-YYYY"
-    );
-  };
+  const [typeOfContract, setTypeOfContract] = useState(10);
 
-  
-
-  const handleJobTitleChange = (value: string) => {
-    setExperience((prevExperience) => ({
-      ...prevExperience,
-      jobTitle: value,
-    }));
-  };
   
   const handleBeginningDateChange = (value: Dayjs) => {
     setExperience((prevExperience) => ({
@@ -59,6 +45,8 @@ const EntrepriseFreelanceForm = () => {
     }));
   };
 
+  const router = useRouter();
+
   return (
     <div>
       <div>
@@ -70,9 +58,12 @@ const EntrepriseFreelanceForm = () => {
             <p className="mb-2">Type de contrat</p>
             <div className="w-full picker-container rounded-full px-4 py-2 my-4">
               <CustomSelect
-                value={experience.typeOfContract}
-                setValue={(value: string) => handleJobTitleChange(value)}
+                //@ts-ignore
+                value={typeOfContract}
+                //@ts-ignore
+                setValue={setTypeOfContract}
                 label="Sélectionne le type de contrat"
+                options={typeOfContractOptions}
               />
             </div>
           </div>
@@ -83,7 +74,9 @@ const EntrepriseFreelanceForm = () => {
             <p className="mb-2">Date de début*</p>
             <div className="picker-container pl-4">
               <CustomDatePicker
+                //@ts-ignore
                 value={experience.beginningDate}
+                //@ts-ignore
                 setValue={(newDate: Dayjs) =>
                   handleBeginningDateChange(newDate)
                 }
@@ -95,7 +88,9 @@ const EntrepriseFreelanceForm = () => {
             <p className="mb-2">Date de fin*</p>
             <div className="picker-container pl-4">
               <CustomDatePicker
+                //@ts-ignore
                 value={experience.endDate}
+                //@ts-ignore
                 setValue={(newDate: Dayjs) =>
                   handleEndDateChange(newDate)
                 }
@@ -112,11 +107,12 @@ const EntrepriseFreelanceForm = () => {
             background="#B9D386"
             textClassName="text-black"
             className="w-3/12"
+            handleButtonClick={() => router.push("/freelance")}
           />
         </div>
       </div>
 
-      <Link href="#" className="mt-20">Je passe cette étape</Link>
+      <Link href="/freelance" className="mt-20">Je passe cette étape</Link>
     </div>
   );
 };

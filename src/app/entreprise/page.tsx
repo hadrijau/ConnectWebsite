@@ -13,8 +13,7 @@ export default function EnterprisePage() {
       <main className="flex flex-col items-center justify-between">
         <IntroSection
           firstTitle="Connect, société de"
-          secondTitle="portage pour les"
-          thirdTitle="entreprises"
+          secondTitle="portage pour les entreprises"
           undertitle="Glissez vers toutes les opportunités"
           image="/sectionEnterprise.svg"
           background="linear-gradient(135deg, #D892C0 0%, #B9D386 100%)"
@@ -29,8 +28,7 @@ export default function EnterprisePage() {
             <h2 className="text-3xl font-bold mb-10 leading-relaxed">
               Une démarche
               <span style={{ color: "#8EBA3A" }} className="ml-2">
-                simplfiée et sans <br />
-                surprise
+                simplfiée et sans surprise
               </span>
             </h2>
             <p className="text-xl leading-relaxed">
@@ -55,7 +53,7 @@ export default function EnterprisePage() {
               <span style={{ color: "#BA3A8E" }} className="ml-2">
                 nos partenaires
               </span>{" "}
-              de <br />
+              de 
               travail
             </h2>
             <p className="text-xl leading-relaxed">
@@ -80,7 +78,7 @@ export default function EnterprisePage() {
               <span style={{ color: "#BA3A8E" }} className="mx-2">
                 rapidement
               </span>{" "}
-              les <br /> missions
+              les missions
             </h2>
             <p className="text-xl leading-relaxed">
               Nous vous accompagnons dans la partie contractuelle et nous

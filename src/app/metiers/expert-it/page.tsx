@@ -11,9 +11,8 @@ const ExpertITPage = () => {
       <Navbar />
       <main className="flex flex-col items-center justify-between">
         <IntroSection
-          firstTitle="La société de"
-          secondTitle="portage pour les"
-          thirdTitle="métiers de service"
+          firstTitle="La société de portage pour les"
+          secondTitle="métiers de service"
           undertitle="Découvre les métiers éligibles au portage"
           image="/sectionMetiers.svg"
           background="linear-gradient(135deg, #79B3D1 0%, #D892C0 100%)"

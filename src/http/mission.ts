@@ -1,13 +1,15 @@
 import { baseUrl } from "@/lib/baseUrl";
 import { Dayjs } from "dayjs";
+import { ObjectId } from "mongodb";
 export async function createMission(
   title: string,
   context: string,
   goals: string,
   date: Dayjs,
   price: number,
-  length: number,
-  modalities: string
+  length: string,
+  modalities: string,
+  competences: { label: string; level: number }[]
 ) {
   const response = await fetch("/api/mission", {
     method: "POST",
@@ -19,6 +21,7 @@ export async function createMission(
       price,
       length,
       modalities,
+      competences,
     }),
     headers: {
       "Content-Type": "application/json",
@@ -41,7 +44,8 @@ export async function getMissions() {
     throw new Error("Failed to fetch data");
   }
 
-  return res.json();
+  const data = await res.json();
+  return data;
 }
 
 export async function getMissionById(slug: string) {
@@ -53,18 +57,21 @@ export async function getMissionById(slug: string) {
     throw new Error("Failed to fetch data");
   }
 
-  return res.json();
+  const data = await res.json();
+  console.log("DATA", data);
+  return data;
 }
 
 export async function updateMissionById(
-  slug: string,
+  slug: ObjectId,
   title: string,
   context: string,
   goals: string,
   date: Dayjs,
   price: number,
-  length: number,
-  modalities: string
+  length: string,
+  modalities: string,
+  competences: { label: string; level: number }[]
 ) {
   console.log("goes here");
   const response = await fetch(`/api/mission/${slug}`, {
@@ -77,6 +84,7 @@ export async function updateMissionById(
       price,
       length,
       modalities,
+      competences,
     }),
     headers: {
       "Content-Type": "application/json",

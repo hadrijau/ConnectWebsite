@@ -24,7 +24,7 @@ const FreelanceIntroSection: React.FC<FreelanceIntroSectionProps> = ({
 
   return (
     <div
-      className="section-freelance-background flex px-20 py-20 justify-between mt-2 leading-relaxed"
+      className="section-freelance-background flex px-20 py-5 justify-between mt-2 leading-relaxed"
       style={{ background: background }}
     >
       <div className="pt-5">

@@ -16,7 +16,6 @@ const CustomUpload: React.FC<CustomUploadProps> = ({
   setDownloadUrl,
   children
 }) => {
-  const [image, setImage] = useState<File | null>(null);
   const fileInputRef = useRef<HTMLInputElement | null>(null);
 
   const handleClick = () => {

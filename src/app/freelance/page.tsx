@@ -8,9 +8,10 @@ import CardMission from "@/components/freelance/CardMission";
 import ongoingMissions from "@/mockData/ongoingmissions";
 import CardOnGoingMission from "@/components/freelance/CardOnGoingMission";
 import { getMissions } from "@/http/mission";
+import { Mission } from "@/entities/mission";
 
 export default async function FreelancePage() {
-  const missions = await getMissions();
+  const missions: Mission[] = await getMissions();
 
   return (
     <>
@@ -24,8 +25,8 @@ export default async function FreelancePage() {
           background="linear-gradient(94deg, rgba(185, 211, 134, 0.65) 0%, rgba(121, 179, 209, 0.65) 99.73%)"
         />
 
-        <div className="flex justify-between w-full px-40 mt-10">
-          <div className="flex-col w-7/12">
+        <div className="flex justify-between w-full px-40 mt-10 lg:px-20">
+          <div className="flex-col w-7/12 lg:w-8/12">
             <h1 className="text-semibold header-offres text-2xl">
               Les appels d&apos;offre du moment spécialement pour toi
             </h1>
@@ -34,11 +35,7 @@ export default async function FreelancePage() {
               const {
                 _id,
                 title,
-                companyName,
                 price,
-
-                time,
-                companyLogo,
                 propositions,
                 date,
                 length,

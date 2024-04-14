@@ -36,7 +36,7 @@ const Button: React.FC<ButtonProps> = ({
         borderColor: borderColor
       }}
     >
-      <Link href={href} className="text-xl">
+      <Link href={href} className="text-xl lg:text-lg">
         {children || title}
       </Link>
     </button>
