@@ -22,7 +22,6 @@ const CreateProfilClientForm: React.FC<CreateProfilClientFormProps> = ({client})
   const [postalCode, setPostalCode] = useState("");
   const [city, setCity] = useState("");
   const [description, setDescription] = useState("");
-  console.log("user", client)
   const [sector, setSector] = useState("");
   const session = useSession();
   const router = useRouter();
@@ -136,7 +135,7 @@ const CreateProfilClientForm: React.FC<CreateProfilClientFormProps> = ({client})
         <div className="w-8/12 mt-2 lg:w-11/12">
           <FormButton
             title="Sauvegarder"
-            onClick={handleSubmit}
+            handleButtonClick={handleSubmit}
             background="linear-gradient(0deg, #D892C0, #D892C0)"
           />
         </div>
