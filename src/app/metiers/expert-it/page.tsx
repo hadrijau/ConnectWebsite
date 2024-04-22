@@ -9,7 +9,7 @@ const ExpertITPage = () => {
   return (
     <>
       <Navbar />
-      <main className="flex flex-col items-center justify-between">
+      <main className="flex flex-col items-center justify-between mt-24">
         <IntroSection
           firstTitle="La société de portage pour les"
           secondTitle="métiers de service"

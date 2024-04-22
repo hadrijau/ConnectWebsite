@@ -1,3 +1,45 @@
-.freelance-active {
-    
+.freelance-navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #ffffff; /* adjust as needed */
+    z-index: 1000;
+}
+
+.undertitle-select {
+    color: #95AA84
+}
+
+.select-ao {
+    border: 1px solid #698754;
+    border-radius: 10px;
+    position: absolute;
+    top: 2rem;
+    right: 0rem;
+    width: 20rem;
+    z-index: 1000;
+    background-color: white;
+}
+
+.ao-option:hover {
+    background-color: rgba(185, 211, 134, 0.5);
+    border-radius: 5px;
+}
+
+.profil-option:hover {
+    background-color: rgba(185, 211, 134, 0.5);
+    border-radius: 5px;
+    font-weight: 600;
+}
+
+
+.select-profile {
+    border: 1px solid #698754;
+    border-radius: 10px;
+    position: absolute;
+    background-color: white;
+    z-index: 1000;
+    top: 6rem;
+    right: 3rem;
 }

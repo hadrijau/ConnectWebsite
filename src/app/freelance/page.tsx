@@ -16,7 +16,7 @@ export default async function FreelancePage() {
   return (
     <>
       <FreelanceNavBar />
-      <main className="flex flex-col items-center justify-between">
+      <div className="flex flex-col items-center justify-between mt-32">
         <FreelanceIntroSection
           firstTitle="Bienvenue dans"
           secondTitle="ton espace"
@@ -80,7 +80,7 @@ export default async function FreelancePage() {
             })}
           </div>
         </div>
-      </main>
+      </div>
     </>
   );
 }

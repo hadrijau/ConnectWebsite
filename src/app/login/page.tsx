@@ -43,17 +43,20 @@ const LoginPage = () => {
           width={180}
           height={180}
         />
-        <h1 className="text-bold mb-20 text-3xl text-center">
+        <h1 className="text-bold mb-8 text-3xl text-center">
           Connecte-toi à ton compte
         </h1>
         <LoginForm handleSubmit={handleSubmit} />
 
         {error && <p className="mt-10 color-red">{error}</p>}
         <Link href="#">
-          <h5 className="password-forgotten font-bold my-10">
+          <h5 className="password-forgotten font-bold my-7">
             Mot de passe oublié ?
           </h5>
         </Link>
+        <h5 className="font-bold text-center">Pas encore de compte</h5>
+          <Link href="/signup"><h3 className="text-center underline font-bold">Inscris-toi</h3></Link>
+          
       </div>
     </div>
   );

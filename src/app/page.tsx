@@ -10,7 +10,7 @@ export default function Home() {
   return (
     <>
       <Navbar />
-      <main className="flex flex-col items-center justify-between">
+      <main className="flex flex-col items-center justify-between mt-24">
         <IntroSection
           firstTitle="Nous portons la passion de"
           secondTitle="nos métiers"

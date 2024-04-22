@@ -4,7 +4,36 @@
     width: 50%;
 }
 
-.choice-container {
+.independant-signup-card {
     border: 3px solid #698754;
     border-radius: 50px;
+}
+
+.independant-signup-card:hover {
+    background-color: rgba(154, 191, 122, 0.37)
+}
+
+.client-signup-card:hover {
+    background-color: rgba(216, 146, 192, 0.37)
+}
+
+.client-signup-card {
+    border: 3px solid rgba(216, 146, 192, 1);
+    border-radius: 50px;
+}
+
+.independant-signup-span {
+    color: #698754
+}
+
+.client-signup-span {
+    color: rgba(216, 146, 192, 1)
+}
+
+.independant-signup-card:hover .independant-signup-span {
+    color: white;
+}
+
+.client-signup-card:hover .client-signup-span {
+    color: white;
 }

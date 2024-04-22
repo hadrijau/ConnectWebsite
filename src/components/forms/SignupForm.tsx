@@ -77,14 +77,14 @@ const SignupForm: React.FC<SignupFormProps> = ({ handleSubmit }) => {
             <div className="flex flex-col">
               <p className="mb-2">Déja inscrit ?</p>
               <Link href="/login" className="text-bold underline">
-                Connectez-vous
+                Connecte-toi
               </Link>
             </div>
             <button
               className="flex items-center justify-center py-3 px-10 submit-button rounded-full"
               type="submit"
             >
-              <span className="text-white text-sm ml-2">Suivant</span>
+              <span className="text-white text-sm ml-2 mr-2">Suivant</span>
               <Image
                 src="connectionIcon.svg"
                 width={18}

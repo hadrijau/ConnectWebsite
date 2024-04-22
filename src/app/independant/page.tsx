@@ -13,7 +13,7 @@ export default function IndependantPage() {
   return (
     <>
     <Navbar />
-    <main className="flex flex-col items-center justify-between">
+    <main className="flex flex-col items-center justify-between mt-24">
       <IntroSection
         firstTitle="Connect, société de"
         secondTitle="portage pour les indépendants"

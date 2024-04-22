@@ -7,7 +7,7 @@ const Portage = () => {
   return (
     <>
     <Navbar />
-    <main className="flex flex-col items-center justify-between">
+    <main className="flex flex-col items-center justify-between mt-24">
       <IntroSection
         firstTitle="Connect, la société de portage à"
         secondTitle="taille humaine"

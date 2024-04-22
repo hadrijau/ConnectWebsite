@@ -1,5 +1,8 @@
 .link-active {
     color:  #79B3D1;
+    border-bottom: 1px solid #79B3D1;
+    padding-bottom: 1rem;
+    font-weight: bold;
 }
 
 .nav-link:hover {
@@ -10,16 +13,25 @@
     color: white;
 }
 
-.link-active-freelance, .nav-link-freelance:hover {
+.link-active-freelance {
     color:  #B9D386;
     border-bottom: 3px solid #B9D386;
+    padding-bottom: 1rem;
+    font-weight: bold
 }
 
-.link-active-client, .nav-link-client:hover {
+.link-active-client {
     color:  #D892C0;
     border-bottom: 3px solid #D892C0;
+    padding-bottom: 1rem;
+    font-weight: bold
 }
 
+.nav-link-freelance:hover {
+    color:  #B9D386;
+}
+
+
 .nav-link-freelance, .nav-link-client {
-    padding-bottom: 2rem;
+    padding-bottom: 1rem;
 }
