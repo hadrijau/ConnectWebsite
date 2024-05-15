@@ -6,6 +6,8 @@ import CredentialsProvider from "next-auth/providers/credentials";
 export const {
   handlers: { GET, POST },
   auth,
+  signIn,
+  signOut,
 } = NextAuth({
   jwt: {
     maxAge: 60 * 60 * 24 * 30,

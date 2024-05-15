@@ -14,11 +14,11 @@ b, strong {
 }
 
 .text-bold {
-  font-weight: 800;
+  font-weight: 600;
   }
 
   .font-bold {
-    font-weight: 800;
+    font-weight: 600;
   }
 .text-semibold {
   font-weight: 600;
@@ -70,4 +70,8 @@ a {
 
 .font-bad-script {
   font-family: var(--font-bad-script);
+}
+
+.main-content {
+  max-width: 1498px;
 }

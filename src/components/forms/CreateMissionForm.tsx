@@ -38,6 +38,7 @@ const CreateMissionForm: React.FC<CreateMissionFormProps> = ({ user }) => {
         selectedCompetences
       );
       router.push("/client/ao");
+      router.refresh()
     } catch (err) {
       console.log("Error creating mission", err);
     }

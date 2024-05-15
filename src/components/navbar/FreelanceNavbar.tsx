@@ -4,16 +4,25 @@ import Image from "next/image";
 import { usePathname, useRouter } from "next/navigation";
 import FreelanceNavLink from "@/components/navbar/FreelanceNavLink";
 import "@/styles/components/NavBarProfile.css";
+import { signOut } from "next-auth/react";
 
 const FreelanceNavBar = () => {
   const path = usePathname();
+  const router = useRouter();
 
   const [openAO, setOpenAO] = useState(false);
+  const [openPopupDisconnect, setOpenPopupDisconnect] = useState(false);
+
   const handleOpenAO = () => {
     setOpenAO(!openAO);
   };
 
-  const router = useRouter();
+  const handleSignOut = async () => {
+    await signOut();
+    router.push("/");
+  };
+
+
   return (
     <nav className="flex justify-between items-center px-10 pt-4 pb-4 freelance-navbar">
       <FreelanceNavLink href="/">
@@ -136,18 +145,30 @@ const FreelanceNavBar = () => {
             width={60}
             className="mx-3 cursor-pointer relative"
             height={60}
+            onClick={() => setOpenPopupDisconnect(!openPopupDisconnect)}
           />
-          <div className="flex flex-col p-3 select-profile">
-            <p className="profil-option cursor-pointer py-2 px-3" onClick={() => router.push("/")}>
-              Accueil
-            </p>
-            <p className="profil-option cursor-pointer py-2 px-3">
-              Mon espace
-            </p>
-            <p className="profil-option cursor-pointer py-2 px-3">
-              Déconnexion
-            </p>
-          </div>
+          {openPopupDisconnect && (
+            <div className="flex flex-col p-3 select-profile">
+              <p
+                className="profil-option cursor-pointer py-2 px-3"
+                onClick={() => router.push("/freelance")}
+              >
+                Accueil
+              </p>
+              <p
+                className="profil-option cursor-pointer py-2 px-3"
+                onClick={() => router.push("/freelance/profil")}
+              >
+                Mon espace
+              </p>
+              <p
+                className="profil-option cursor-pointer py-2 px-3"
+                onClick={() => handleSignOut()}
+              >
+                Déconnexion
+              </p>
+            </div>
+          )}
         </div>
       </div>
     </nav>

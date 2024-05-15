@@ -1,8 +1,8 @@
 .link-active {
     color:  #79B3D1;
-    border-bottom: 1px solid #79B3D1;
-    padding-bottom: 1rem;
-    font-weight: bold;
+    border-bottom: 3px solid #79B3D1;
+    padding-bottom: 2.4rem;
+    font-weight: 600;
 }
 
 .nav-link:hover {
@@ -17,14 +17,14 @@
     color:  #B9D386;
     border-bottom: 3px solid #B9D386;
     padding-bottom: 1rem;
-    font-weight: bold
+    font-weight: 600
 }
 
 .link-active-client {
     color:  #D892C0;
     border-bottom: 3px solid #D892C0;
     padding-bottom: 1rem;
-    font-weight: bold
+    font-weight: 600
 }
 
 .nav-link-freelance:hover {

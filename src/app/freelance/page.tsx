@@ -9,10 +9,17 @@ import ongoingMissions from "@/mockData/ongoingmissions";
 import CardOnGoingMission from "@/components/freelance/CardOnGoingMission";
 import { getMissions } from "@/http/mission";
 import { Mission } from "@/entities/mission";
+import { auth } from "@/auth";
+import { redirect } from 'next/navigation' 
 
 export default async function FreelancePage() {
   const missions: Mission[] = await getMissions();
 
+  const session = await auth();
+  if (!session) {
+    redirect("/")
+  }
+  
   return (
     <>
       <FreelanceNavBar />
