@@ -25,7 +25,7 @@ const NavLink: React.FC<NavLinkProps> = ({
       <Link
         href={href}
         {...props}
-        className={path.startsWith(href.toString()) ? "text-xl link-active" : background ? "text-xl nav-link-white" : " text-xl nav-link"}
+        className={path.startsWith(href.toString()) ? "text-xl link-active xl:text-base 2lg:text-sm" : background ? "text-xl nav-link-white xl:text-base 2lg:text-sm" : " text-xl nav-link xl:text-base 2lg:text-sm"}
       >
         {children}
       </Link>

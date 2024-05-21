@@ -18,9 +18,9 @@ const Portage = () => {
           background="linear-gradient(135deg, #79B3D1 0%, #D892C0 100%)"
         />
 
-        <div className="main-content">
-          <div className=" mt-20">
-            <p className="text-xl text-light leading-relaxed">
+        <div className="main-content px-10">
+          <div className="mt-20">
+            <p className="text-xl text-light leading-relaxed 2lg:text-base">
               Toutes les sociétés de portage proposent d’accompagner des
               indépendants sur différentes missions. Mais cela ne concerne pas
               tous les métiers. Seuls les métiers de services sont éligibles à
@@ -43,11 +43,11 @@ const Portage = () => {
               width={350}
               height={200}
             />
-            <div className="flex-col flex w-7/12 justify-center">
-              <p className="text-3xl text-semibold mb-10 text-left">
+            <div className="flex-col flex w-7/12 justify-center 2lg:w-6/12">
+              <p className="text-3xl text-semibold mb-10 text-left 2lg:text-2xl">
                 Expert en IT
               </p>
-              <p className="text-xl mt-4 text-light leading-relaxed mb-10">
+              <p className="text-xl mt-4 text-light leading-relaxed mb-10 2lg:text-base">
                 Tu es consultant en systèmes d&apos;information, programmeur
                 informatique, développeur web ou autre profil d&apos;ingénieur
                 informatique ?
@@ -58,15 +58,13 @@ const Portage = () => {
               </p>
 
               <div className="flex flex-col items-center justify-center">
-                <div className="w-4/12 ">
-                  <LongButton
-                    title="Découvrir le métier"
-                    href="/metiers/expert-it"
-                    textClassName="text-black font-bold text-xl"
-                    background="#D892C0C7"
-                    className="self-center"
-                  />
-                </div>
+                <LongButton
+                  title="Découvrir le métier"
+                  href="/metiers/expert-it"
+                  textClassName="text-black font-bold text-xl 2lg:text-base"
+                  background="#D892C0C7"
+                  className="self-center"
+                />
               </div>
             </div>
           </div>
@@ -78,11 +76,11 @@ const Portage = () => {
               width={350}
               height={200}
             />
-            <div className="flex-col flex w-7/12 justify-center">
-              <p className="text-3xl text-semibold mb-10 text-left">
+            <div className="flex-col flex w-7/12 justify-center 2lg:w-6/12">
+              <p className="text-3xl text-semibold mb-10 text-left 2lg:text-2xl">
                 Expert en RH
               </p>
-              <p className="text-xl mt-4 text-light leading-relaxed mb-10">
+              <p className="text-xl mt-4 text-light leading-relaxed mb-10 2lg:text-base">
                 Tu es expert dans un domaine particulier ?
               </p>
               <p className="text-xl mt-4 text-light leading-relaxed mb-10 text-white">
@@ -96,15 +94,13 @@ const Portage = () => {
               </p>
 
               <div className="flex flex-col items-center justify-center">
-                <div className="w-4/12 ">
-                  <LongButton
-                    title="Découvrir le métier"
-                    href="/expert-it"
-                    textClassName="text-black font-bold text-xl"
-                    background="#D892C0C7"
-                    className="self-center"
-                  />
-                </div>
+                <LongButton
+                  title="Découvrir le métier"
+                  href="/expert-it"
+                  textClassName="text-black font-bold text-xl 2lg:text-base"
+                  background="#D892C0C7"
+                  className="self-center"
+                />
               </div>
             </div>
           </div>

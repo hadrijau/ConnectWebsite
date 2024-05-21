@@ -10,24 +10,29 @@ export default function IndependantPage() {
   return (
     <>
       <Navbar />
-      <main className="flex flex-col items-center justify-between mt-24">
-        <IntroSection
-          firstTitle="Connect, société de"
-          secondTitle="portage pour les indépendants"
-          undertitle="Glisse vers toutes les opportunités"
-          image="/sectionIndependant.svg"
-          background="linear-gradient(135deg, #79B3D1 0%, #B9D386 100%)"
-        />
+      <div className="flex flex-col items-center justify-between mt-24">
+        <div className="main-indep">
+          <IntroSection
+            firstTitle="Connect, société de"
+            secondTitle="portage pour les indépendants"
+            undertitle="Glisse vers toutes les opportunités"
+            image="/sectionIndependant.svg"
+            background="linear-gradient(135deg, #79B3D1 0%, #B9D386 100%)"
+          />
+        </div>
+        <div className="xl:mx-20">
         <Image
-          src="/independantFrame.svg"
-          alt="Connect independant"
-          width={1000}
-          height={1000}
-          className="mt-20"
-        />
+            src="/independantFrame.svg"
+            alt="Connect independant"
+            width={1000}
+            height={1000}
+            className="mt-20"
+          />
+        </div>
+
         <div>
           <LongButton
-            href="/"
+            href="/portage"
             textClassName="text-sm"
             className="font-bold text-xs mt-6 py-5 px-8 mb-10"
             title="Découvre la société de portage"
@@ -35,20 +40,20 @@ export default function IndependantPage() {
           />
         </div>
 
-        <h1 className="text-5xl text-center text-bold my-20">
+        <h1 className="text-4xl text-center text-bold my-20 2lg:text-3xl">
           Tes avantages en tant que salarié porté
         </h1>
         <div className="avantages-section w-full flex justify-center">
-          <div className="main-content flex justify-between self-center">
-            <div className="w-6/12 mt-40">
-              <h2 className="text-3xl font-bold mb-14 leading-relaxed">
+          <div className="main-indep flex justify-between">
+            <div className="w-6/12 mt-40 ">
+              <h2 className="text-3xl font-bold mb-14 leading-relaxed 2lg:text-2xl">
                 Profite des avantages d&apos;
                 <span style={{ color: "#8EBA3A" }}>
                   un <br />
                   salarié
                 </span>
               </h2>
-              <p className="text-xl leading-relaxed">
+              <p className="text-xl leading-relaxed 2lg:text-base">
                 En faisant partie de CONNECT, vous êtes totalement indépendant,
                 mais vous
                 <span style={{ color: "#8EBA3A" }}>
@@ -69,17 +74,17 @@ export default function IndependantPage() {
           </div>
         </div>
 
-        <div className=" gestion-section py-20 flex justify-center w-full">
-          <div className="main-content flex justify-between flex-row-reverse">
+        <div className="gestion-section py-20 flex justify-center w-full">
+          <div className="main-indep flex justify-between flex-row-reverse">
             <div className="w-6/12 mt-40">
-              <h2 className="text-3xl font-bold mb-14 mr leading-relaxed">
+              <h2 className="text-3xl font-bold mb-14 mr leading-relaxed 2lg:text-2xl">
                 Délégue ta
                 <span style={{ color: "#3A8EBA" }} className="ml-2">
                   gestion <br />
                   administrative
                 </span>
               </h2>
-              <p className="text-xl leading-relaxed">
+              <p className="text-xl leading-relaxed 2lg:text-base">
                 Avec <span style={{ fontWeight: "italic" }}>CONNECT</span> , il
                 vous suffit juste d’exécuter votre mission. Nous nous occupons
                 du reste.
@@ -102,15 +107,15 @@ export default function IndependantPage() {
         </div>
 
         <div className="opportunity-section w-full flex justify-center">
-          <div className="main-content flex justify-between mb-10 py-10">
+          <div className="main-indep flex justify-between mb-10 py-10">
             <div className="w-6/12 mt-20">
-              <h2 className="text-3xl font-bold mb-14 mr leading-relaxed">
+              <h2 className="text-3xl font-bold mb-14 mr leading-relaxed 2lg:text-2xl">
                 Glisse vers toutes les
                 <span style={{ color: "#3A8EBA" }} className="ml-2">
                   opportunités
                 </span>
               </h2>
-              <p className="text-xl leading-relaxed">
+              <p className="text-xl leading-relaxed 2lg:text-base">
                 Avec CONNECT, il vous suffit d’ajouter votre profil sur
                 l’application. Vous recherchez plutôt une mission longue ?
                 Courte ?
@@ -135,7 +140,7 @@ export default function IndependantPage() {
             </div>
           </div>
         </div>
-      </main>
+      </div>
     </>
   );
 }

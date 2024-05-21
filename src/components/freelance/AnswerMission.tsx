@@ -73,7 +73,7 @@ const AnswerMission:React.FC<AnswerMissionProps> = ({ mission }) => {
               </div>
               <div className="w-5/12">
                 {!downloadUrl ? (
-                  <CustomUpload setDownloadUrl={setDownloadUrl}>
+                  <CustomUpload setDownloadUrl={setDownloadUrl} accept="application/pdf">
                     <FormButton
                       title="J'ajoute mon CV"
                       background="#B9D386"

@@ -5,20 +5,51 @@ import Link from "next/link";
 import FormButton from "@/components/common/FormButton";
 import "@/styles/Freelance.css";
 import { useRouter } from "next/navigation";
+import { updateFreelanceCompetences } from "@/http/freelance";
+import { Freelance } from "@/entities/freelance";
+import CircularProgress from "@mui/material/CircularProgress";
 
-const SelectOptions = () => {
+interface SelectOptionsProps {
+  user: Freelance;
+}
+
+const SelectOptions: React.FC<SelectOptionsProps> = ({ user }) => {
   const router = useRouter();
-  const [selectedCompetences, setSelectedCompetences] = useState<string[]>([]);
+  let competences: { label: string; level: number }[];
+  if (user.competences) {
+    competences = user.competences
+  } else {
+    competences = []
+  }
 
-  const handleSelectOption = (option: string): void => {
-    setSelectedCompetences([...selectedCompetences, option]);
+  const [selectedCompetences, setSelectedCompetences] = useState<{ label: string; level: number }[]>(
+    competences
+  );
+
+  const handleSelectOption = (option: { label: string; level: number }): void => {
+    setSelectedCompetences([...selectedCompetences, {label: option.label, level: 0}]);
   };
 
-  const removeCompetence = (option: string): void => {
+  const removeCompetence = (option: { label: string; level: number }): void => {
     const updatedOptions = selectedCompetences.filter(
-      (selectedCompetence) => selectedCompetence !== option
+      (selectedCompetence) => selectedCompetence.label !== option.label
     );
     setSelectedCompetences(updatedOptions);
+  };
+
+  const [isLoading, setIsLoading] = useState(false);
+
+  const [error, setError] = useState("");
+
+  const handleCompetencesSubmit = async () => {
+    setIsLoading(true)
+    if (selectedCompetences.length < 5) {
+      setError("Sélectionne 5 compétences minimum");
+      return;
+    }
+    await updateFreelanceCompetences(user.email, selectedCompetences);
+    router.push("/freelance/experiences");
+    setIsLoading(false)
   };
 
   return (
@@ -31,47 +62,56 @@ const SelectOptions = () => {
 
       <p className="my-10">
         <span className="font-bold">Astuce CONNECT: </span>Sélectionne au moins
-        2 compétences pour te faire remarquer.
+        5 compétences pour te faire remarquer.
       </p>
 
-      <div className="w-9/12">
-        <SearchBar
-          createMission={false}
-          onSelectOption={handleSelectOption}
-          //@ts-ignore
-          setSelectedCompetences={setSelectedCompetences}
-          //@ts-ignore
-          selectedCompetences={selectedCompetences}
-          placeholder="Ecriture, UX Design, Communication, Pack Office ..."
-        />
-      </div>
-
-      {selectedCompetences.map((competence) => (
-        <div
-          key={competence}
-          className="competence-container rounded-xl px-5 py-2 flex flex-row mt-5 mx-3"
-        >
-          <span>
-            <span
-              className="mr-3 text-xl cursor-pointer"
-              onClick={() => removeCompetence(competence)}
-            >
-              x
-            </span>
-            {competence}
-          </span>
-        </div>
-      ))}
-
-      <div style={{ height: "25rem" }}></div>
-      <div className="w-6/12 ml-20">
-        <Link href="/freelance/experiences">
-          <FormButton
-            title="Sauvegarder"
-            background="linear-gradient(0deg, #B9D386, #B9D386)"
-            handleButtonClick={() => router.push("/freelance/experiences")}
+      <div className="flex-col mt-5 w-8/12 2xl:w-9/12 2lg:w-10/12">
+        <div className="w-12/12">
+          <SearchBar
+            createMission={false}
+            onSelectOption={handleSelectOption}
+            //@ts-ignore
+            setSelectedCompetences={setSelectedCompetences}
+            //@ts-ignore
+            selectedCompetences={selectedCompetences}
+            placeholder="Ecriture, UX Design, Communication, Pack Office ..."
           />
-        </Link>
+        </div>
+
+        {error && <p className="error">{error}</p>}
+
+        {selectedCompetences.map((competence) => (
+          <div
+            key={competence.label}
+            className="competence-container rounded-xl px-5 py-2 flex flex-row mt-5 mx-3"
+          >
+            <span>
+              <span
+                className="mr-3 text-xl cursor-pointer"
+                onClick={() => removeCompetence(competence)}
+              >
+                x
+              </span>
+              {competence.label}
+            </span>
+          </div>
+        ))}
+
+        <div style={{ height: "20rem" }}></div>
+        <div className="flex justify-end mt-10">
+          {isLoading ? (
+            <CircularProgress size={20} />
+          ) : (
+            <button
+              type="submit"
+              onClick={handleCompetencesSubmit}
+              className={` text-center rounded-2xl py-3 cursor-pointer px-8 font-semibold`}
+              style={{ background: "rgba(185, 211, 134, 0.5)" }}
+            >
+              OK
+            </button>
+          )}
+        </div>
       </div>
     </div>
   );

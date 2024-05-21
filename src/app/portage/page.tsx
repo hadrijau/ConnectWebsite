@@ -39,7 +39,7 @@ const PortagePage = () => {
           background="linear-gradient(135deg, #79B3D1 0%, #D892C0 100%)"
         />
 
-        <div className="main-content">
+        <div className="main-content px-10 ">
           <h1 className="text-4xl text-center mb-20 text-bold mt-20">
             Tout savoir sur les sociétés de portage salarial
           </h1>

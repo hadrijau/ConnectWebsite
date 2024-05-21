@@ -7,21 +7,31 @@ import { getUserByEmail } from "@/http/user";
 import Link from "next/link";
 import { signIn } from "next-auth/react";
 import { Formik, Field, Form } from "formik";
-import TextInput from "@/components/common/FormTextInput";
+import TextInput from "@/components/common/TextInput";
 import CircularProgress from "@mui/material/CircularProgress";
+import * as yup from "yup";
 
 const LoginPage = () => {
   const router = useRouter();
   const [error, setError] = useState("");
   const [isLoading, setIsLoading] = useState(false);
+  const [userExists, setUserExists] = useState(true);
+
   const handleSubmit = async (values: { email: string; password: string }) => {
     setIsLoading(true);
+    const isUserKnown = await getUserByEmail(values.email);
+    if (!isUserKnown) {
+      setIsLoading(false)
+      setUserExists(false);
+      return;
+    }
     const user = await getUserByEmail(values.email);
     const result = await signIn("credentials", {
       redirect: false,
       email: values.email,
       password: values.password,
     });
+ 
     if (result?.error) {
       setError("Mot de passe incorrect");
       setIsLoading(false);
@@ -39,6 +49,13 @@ const LoginPage = () => {
     }
   };
 
+  const validationSchema = yup.object({
+    email: yup
+      .string()
+      .email("Adresse email incorrecte")
+      .required("L'email est obligatoire"),
+  });
+
   return (
     <div className="login-container p-4 flex flex-col justify-center items-center">
       <Image
@@ -50,12 +67,15 @@ const LoginPage = () => {
       />
 
       <div className="form-container w-5/12 flex flex-col items-center py-4 px-10 justify-center lg:w-7/12">
-        <Image
-          src="logoWithConnect.svg"
-          alt="Logo Connect avec le nom"
-          width={180}
-          height={180}
-        />
+        <Link href="/">
+          <Image
+            src="logoWithConnect.svg"
+            alt="Logo Connect avec le nom"
+            width={180}
+            height={180}
+          />
+        </Link>
+
         <h1 className="text-bold mb-8 text-3xl text-center">
           Connecte-toi à ton compte
         </h1>
@@ -63,51 +83,80 @@ const LoginPage = () => {
           <Formik
             initialValues={{ email: "", password: "" }}
             onSubmit={(values) => handleSubmit(values)}
+            validationSchema={validationSchema}
           >
-            <Form>
-              <Field
-                id="email"
-                name="email"
-                className="bg-white input-placeholder my-10 w-full py-4 px-3 "
-                placeholder="Email"
-                type="email"
-                component={TextInput}
-              />
+            {({
+              values,
+              errors,
+              touched,
+              handleChange,
+              handleBlur,
+              handleSubmit,
+            }) => (
+              <Form onSubmit={handleSubmit}>
+                <div className="my-3">
+                  <TextInput
+                    id="email"
+                    name="email"
+                    className="bg-white input-placeholder my-10 w-full py-4 px-3 "
+                    placeholder="Email"
+                    type="email"
+                    value={values.email}
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                    error={touched.email! && Boolean(errors.email)}
+                    helperText={touched.email && errors.email}
+                  />
+                </div>
 
-              <Field
-                id="password"
-                name="password"
-                className="bg-white input-placeholder my-10 w-full text-test py-4 px-3 "
-                placeholder="Mot de passe"
-                type="password"
-                component={TextInput}
-              />
-
-              <button
-                className="flex items-center justify-center py-2 mt-10 submit-button w-full rounded"
-                type="submit"
-              >
-                {isLoading ? (
-                  <CircularProgress size={20}/>
-                ) : (
-                  <>
-                    <Image
-                      src="connectionIcon.svg"
-                      width={18}
-                      height={25}
-                      alt="Connection icone"
-                    />
-                    <span className="text-white text-bold text-sm ml-2">
-                      Connexion
-                    </span>
-                  </>
+                {!userExists && (
+                  <p className="error mt-2 text-sm">
+                    Ce compte n&apos;existe pas
+                  </p>
                 )}
-              </button>
-            </Form>
+
+                <div className="my-3">
+                  <TextInput
+                    id="password"
+                    name="password"
+                    className="bg-white input-placeholder my-10 w-full text-test py-4 px-3 "
+                    placeholder="Mot de passe"
+                    type="password"
+                    value={values.password}
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                    error={touched.password! && Boolean(errors.password)}
+                    helperText={touched.password && errors.password}
+                  />
+                </div>
+
+                {error && <p className="error mt-2 text-sm">{error}</p>}
+                <button
+                  className="flex items-center justify-center py-2 mt-10 submit-button w-full rounded"
+                  type="submit"
+                >
+                  {isLoading ? (
+                    <CircularProgress size={20} />
+                  ) : (
+                    <>
+                      <Image
+                        src="connectionIcon.svg"
+                        width={18}
+                        height={25}
+                        alt="Connection icone"
+                      />
+                      <span className="text-white text-bold text-sm ml-2">
+                        Connexion
+                      </span>
+                    </>
+                  )}
+                </button>
+              </Form>
+            )}
           </Formik>
         </div>
 
-        {error && <p className="mt-10 color-red">{error}</p>}
+
         <Link href="#">
           <h5 className="password-forgotten font-bold my-7">
             Mot de passe oublié ?

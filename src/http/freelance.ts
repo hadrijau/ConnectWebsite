@@ -32,7 +32,7 @@ export async function getFreelanceByEmail(email: string) {
   });
 
   const data = await response.json();
-
+  console.log("data", data);
   if (!response.ok) {
     throw new Error(data.message);
   }
@@ -45,8 +45,9 @@ export async function updateFreelance(
   title: string,
   phone: string,
   lastMission: string,
-  desiredMissionLength: string,
-  description: string
+  lengthMissionWanted: string,
+  descriptionMissionWanted: string,
+  profilePicture: string
 ) {
   const response = await fetch(`${baseUrl}/api/freelance/${email}`, {
     method: "PUT",
@@ -55,13 +56,41 @@ export async function updateFreelance(
       title,
       phone,
       lastMission,
-      desiredMissionLength,
-      description,
+      lengthMissionWanted,
+      descriptionMissionWanted,
+      profilePicture,
     }),
     headers: {
       "Content-Type": "application/json",
     },
   });
+
+  const data = await response.json();
+  console.log("DATA", data);
+  if (!response.ok) {
+    throw new Error(data.message);
+  }
+
+  return data;
+}
+
+export async function updateFreelanceCompetences(
+  email: string,
+  competences: { label: string; level: number }[]
+) {
+  const response = await fetch(
+    `${baseUrl}/api/freelance/${email}/competences`,
+    {
+      method: "PUT",
+      body: JSON.stringify({
+        email,
+        competences,
+      }),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    }
+  );
 
   const data = await response.json();
 

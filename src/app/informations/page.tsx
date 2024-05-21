@@ -2,11 +2,14 @@ import React from "react";
 import Image from "next/image";
 import "@/styles/Informations.css";
 import InformationsChoice from "@/components/informations/InformationsChoice";
-import { auth } from "@/auth";
 
-const InformationsPage = async () => {
+//@ts-ignore
+const InformationsPage = async ({searchParams}) => {
   
-  const session = await auth();
+  const email = searchParams.email.split("?")[0]
+  const firstname = searchParams.email.split("?")[1]
+  const lastname = searchParams.email.split("?")[2]
+  const password = searchParams.email.split("?")[3]
 
   return (
     <div className="flex h-screen">
@@ -25,7 +28,7 @@ const InformationsPage = async () => {
           />
         </div>
       </div>
-      <InformationsChoice session={session}/>
+      <InformationsChoice email={email} firstname={firstname} lastname={lastname} password={password}/>
 
     </div>
   );

@@ -18,18 +18,18 @@ export default function Home() {
           background="linear-gradient(135deg, #79B3D1 0%, #D892C0 100%)"
         />
 
-        <div className="main-content">
-          <div className="flex justify-between mt-20 lg:flex-col">
-            <div className="w-4/12 lg:w-full">
-              <h1 className="text-4xl font-bold leading-relaxed lg:text-4xl lg:text-center">
+        <div className="main-content px-10">
+          <div className="flex justify-between mt-20 2xl:flex-col">
+            <div className="w-4/12 2xl:w-full">
+              <h1 className="text-4xl font-bold leading-relaxed 2xl:text-4xl 2xl:text-center 2lg:text-3xl">
                 Pourquoi Connect et pas une autre ?
               </h1>
-              <h5 className="mt-10 text-2xl lg:text-xl lg:text-center lg:mb-10">
+              <h5 className="mt-10 text-2xl 2xl:text-center 2xl:mb-10 2lg:text-xl">
                 Nos valeurs, c&apos;est ce qui nous différencie.
               </h5>
             </div>
 
-            <div className="flex justify-around w-8/12 lg:w-full">
+            <div className="flex justify-around w-8/12 2xl:w-full">
               <ValorCard imageSrc="/passionPicto.svg" title="Passion">
                 Nous nous investissons pleinement dans chaque projet en mettant
                 du cœur à l’ouvrage.
@@ -47,14 +47,14 @@ export default function Home() {
 
           <div className="flex justify-between my-5 w-full mt-20 items-center">
             <div className="flex flex-col dimension-container w-7/12">
-              <h1 className="my-5 text-4xl text-bold leading-relaxed lg:text-4xl">
+              <h1 className="my-5 text-4xl text-bold leading-relaxed 2lg:text-3xl">
                 Une dimension plus humaine
               </h1>
-              <p className="my-2 text-2xl mb-8 lg:text-xl">
+              <p className="my-2 text-2xl mb-8 2lg:text-xl">
                 Des projets associatifs soutenus par une partie de nos
                 bénéfices.
               </p>
-              <p className="mb-4 text-2xl lg:text-xl">En 2023, c&apos;est :</p>
+              <p className="mb-4 text-2xl 2lg:text-xl">En 2023, c&apos;est :</p>
 
               <div className="flex">
                 <DimensionCard
@@ -89,16 +89,16 @@ export default function Home() {
 
           <div className="justify-between my-10 w-full flex">
             <div className="flex flex-col w-7/12 lg:w-8/12">
-              <h1 className="my-2 text-left text-4xl text-bold leading-relaxed lg:text-4xl">
+              <h1 className="my-2 text-left text-4xl text-bold leading-relaxed 2lg:text-3xl">
                 Une application facile d’utilisation et ludique
               </h1>
 
               <div className="flex flex-col text-app-container">
-                <p className="text-2xl lg:text-xl">
+                <p className="text-2xl 2lg:text-xl">
                   Disponible sur IOS et Android, l’application Connect connait
                   un réel succès grâce à son ergonomie.
                 </p>
-                <p className="mt-10 text-2xl lg:text-xl">
+                <p className="mt-10 text-2xl 2lg:text-xl">
                   Inspirée d’une autre application très connue, tu trouveras le
                   job qui te convient en swipant à droite. Si ton profil
                   correspond à la mission, ça CONNECTE !

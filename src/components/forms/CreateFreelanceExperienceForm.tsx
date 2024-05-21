@@ -217,7 +217,7 @@ const CreateFreelanceExperienceForm = () => {
       <div className="flex justify-center items-center w-10/12 mt-6">
         <div className="w-3/12 lg:w-5/12">
           {!downloadUrl ? (
-            <CustomUpload setDownloadUrl={setDownloadUrl}>
+            <CustomUpload setDownloadUrl={setDownloadUrl} accept="application/pdf">
               <FormButton
                 title="Télécharge ton CV ici"
                 background="#B9D386"

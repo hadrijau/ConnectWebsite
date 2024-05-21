@@ -13,7 +13,7 @@ interface ValorCardProps {
 const ValorCard: React.FC<ValorCardProps> = ({ imageSrc, title, children }) => {
   const isWideScreen = useMediaQuery("(min-width: 1140px)");
   return (
-    <div className="flex flex-col items-center mx-3 py-10 valor-container px-5">
+    <div className="flex flex-col items-center mx-3 py-3 valor-container px-5">
       <Image
         src={imageSrc}
         alt=""
@@ -21,7 +21,7 @@ const ValorCard: React.FC<ValorCardProps> = ({ imageSrc, title, children }) => {
         width={isWideScreen ? 200 : 150}
       />
 
-      <h2 className="text-center font-bold text-4xl my-3">{title}</h2>
+      <h2 className="text-center font-bold text-4xl my-3 2lg:text-3xl">{title}</h2>
       <p className="text h-6/12 text-center">{children}</p>
     </div>
   );

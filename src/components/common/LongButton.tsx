@@ -26,13 +26,13 @@ const LongButton: React.FC<LongButtonProps> = ({
 }) => {
   return (
     <button
-      className={`${className} text-white text-center rounded-full py-3 w-full`}
+      className={`${className} text-white text-center rounded-full py-3 px-8`}
       style={{ background, ...style }}
       onClick={handleButtonClick}
     >
       <Link href={href} className={`${textClassName}`}>
         {title ? (
-          <p>{title}</p>
+          <p >{title}</p>
         ) : (
           <>
             Télécharger <span className="font-bold">Connect</span>

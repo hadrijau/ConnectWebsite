@@ -39,10 +39,14 @@
     -webkit-background-clip: text;
 }
 
-.mui-zii6vw-MuiFormLabel-root-MuiInputLabel-root {
+.delete-account-button {
+    border: 4px solid rgba(185, 211, 134, 1);
+    border-radius: 10px
+}
+/* .mui-zii6vw-MuiFormLabel-root-MuiInputLabel-root {
     display: none;
 }
 
 .mui-4jnixx-MuiStack-root>.MuiTextField-root {
     min-width: unset;
-}
+} */

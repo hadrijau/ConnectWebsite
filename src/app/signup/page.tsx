@@ -1,14 +1,21 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
 import Image from "next/image";
 import SignupForm from "@/components/forms/SignupForm";
 import "@/styles/Signup.css";
 import { useRouter } from "next/navigation";
-import { createUser } from "@/http/user";
-import { signIn } from "next-auth/react";
+import { getUserByEmail } from "@/http/user";
 
 const SignupPage = () => {
   const router = useRouter();
+  const createQueryString = (name: string, value: string) => {
+    const params = new URLSearchParams();
+    params.set(name, value);
+
+    return params.toString();
+  };
+  const [userExists, setUserExists] = useState(false);
+
   const handleSubmit = async (values: {
     firstname: string;
     lastname: string;
@@ -17,20 +24,23 @@ const SignupPage = () => {
     accept: boolean;
   }) => {
     try {
-      await createUser(
-        values.email,
-        values.password,
-        values.firstname,
-        values.lastname
-      );
-      const result = await signIn("credentials", {
-        redirect: false,
-        email: values.email,
-        password: values.password,
-      });
+      console.log("values", values)
+      const result = await getUserByEmail(values.email);
       console.log("result", result)
-      if (!result?.error) {
-        router.push("/informations");
+      if (result) {
+        setUserExists(true);
+      } else {
+        router.push(
+          "/informations" +
+            "?" +
+            createQueryString("email", values.email) +
+            "?" +
+            values.firstname +
+            "?" +
+            values.lastname +
+            "?" +
+            values.password
+        );
       }
     } catch (err) {
       console.log("Error in signup", err);
@@ -46,9 +56,11 @@ const SignupPage = () => {
           width={120}
           className="mb-5"
           height={100}
+          onClick={() => router.push("/")}
         />
         <h1 className="text-3xl mb-10 text-normal">Inscription</h1>
-        <SignupForm handleSubmit={handleSubmit} />
+
+        <SignupForm handleSubmit={handleSubmit} userExists={userExists} />
       </div>
       <div className="w-6/12 flex flex-col join-connect overflow-hidden">
         <h3 className="text-3xl text-normal mt-20 ml-10 mb-20">

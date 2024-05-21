@@ -75,3 +75,30 @@ a {
 .main-content {
   max-width: 1498px;
 }
+
+.main-indep {
+  max-width: 1498px;
+}
+
+.error {
+  color: #d32f2f;
+}
+
+.placeholder-select {
+  color: currentColor;
+}
+
+@media (max-width: 1550px) { 
+  main {
+    margin-right: 3rem;
+    margin-left: 3rem;
+  }
+  .main-content {
+    margin-right: 2rem;
+    margin-left: 2rem;
+  }
+  .main-indep {
+    margin-right: 5rem;
+    margin-left: 5rem;
+  }
+}

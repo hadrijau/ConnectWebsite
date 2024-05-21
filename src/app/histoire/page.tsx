@@ -16,18 +16,18 @@ const HistoirePage = () => {
           background="linear-gradient(135deg, #79B3D1 0%, #D892C0 100%)"
         />
         <div className="main-content">
-          <h1 className="text-4xl mb-20 text-semibold mt-20 px-10">
+          <h1 className="text-4xl mb-20 text-semibold mt-20 px-10 2lg:text-3xl">
             Il était une fois... notre histoire
           </h1>
 
           <div className="px-10">
-            <p className="text-2xl text-light leading-relaxed">
+            <p className="text-2xl text-light leading-relaxed 2lg:text-xl">
               Toujours en quête de nouvelles aventures et dans un soucis
               d&apos;accompagnement encore plus poussée nous avons crée
               CONNECTcellence.
             </p>
 
-            <p className="text-2xl text-light leading-relaxed mt-10">
+            <p className="text-2xl text-light leading-relaxed mt-10 2lg:text-xl">
               Le consulting, <span className="text-bold">ça nous connait </span>{" "}
               ! Déjà propriétaire d’une société de conseil depuis bientôt 5 ans,
               nous voulions faire plaisir aussi aux indépendants ! Chez nous, il

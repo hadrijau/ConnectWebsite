@@ -5,9 +5,15 @@ import { usePathname, useRouter } from "next/navigation";
 import NavLink from "@/components/navbar/NavLink";
 import { useSession, signOut } from "next-auth/react";
 import "@/styles/components/NavBar.css";
+import { getUserByEmail } from "@/http/user";
 
 const Navbar = () => {
   const { data: session, status } = useSession();
+
+  const handleSignOut = () => {
+    signOut();
+    router.push("/");
+  }; 
 
   const path = usePathname();
   let background;
@@ -24,22 +30,32 @@ const Navbar = () => {
 
   const router = useRouter();
 
-  const handleSignOut = () => {
-    signOut();
-    router.push("/");
-  };
   const [viewProfileDropdown, setViewProfilDropdown] = useState(false);
+
+  const [logoFullShown, setLogoFullShown] = useState(false);
 
   return (
     <nav className="flex justify-between items-center px-10 pt-4 static-navbar pb-4">
       <NavLink href="/">
-        <Image
-          src={"/logo.svg"}
-          alt="logo-connect"
-          width={100}
-          height={60}
-          className="logo-connect"
-        />
+        {logoFullShown ? (
+          <Image
+            src={"/logo_entier.svg"}
+            alt="logo-connect"
+            width={100}
+            height={60}
+            className="logo-full"
+            onMouseLeave={() => setLogoFullShown(false)}
+          />
+        ) : (
+          <Image
+            src={"/logo.svg"}
+            alt="logo-connect"
+            width={100}
+            height={60}
+            onMouseEnter={() => setLogoFullShown(true)}
+            className="logo-connect"
+          />
+        )}
       </NavLink>
       <div
         className={`flex ${status === "authenticated" ? "w-9/12" : "w-7/12 "}`}
@@ -47,34 +63,34 @@ const Navbar = () => {
         {path.startsWith("/independant") && (
           <div
             style={{ background: "#D892C0" }}
-            className="py-2 px-10 rounded-lg cursor-pointer"
+            className="py-2 px-10 rounded-lg cursor-pointer mr-10  lg:mr-2 lg:px-6"
             onClick={() => router.push("/entreprise")}
           >
-            <p className="text-white">Entreprise</p>
+            <p className="text-white xl:text-base 2lg:text-sm text-normal">Entreprise</p>
           </div>
         )}
         {path.startsWith("/entreprise") && (
           <div
             style={{ background: "#B9D386" }}
-            className="py-2 px-6 rounded-lg cursor-pointer"
+            className="py-2 px-6 rounded-lg cursor-pointer  lg:px-6"
             onClick={() => router.push("/independant")}
           >
-            <p className="text-white">Indépendant</p>
+            <p className="text-white 2lg:text-sm text-normal">Indépendant</p>
           </div>
         )}
         {!path.startsWith("/entreprise") && (
           <NavLink
             href="/portage"
-            className={`mt-2 ${status === "authenticated" ? "mr-10" : "mx-10"}`}
+            className={`mt-2 text-normal ${status === "authenticated" ? "mr-10" : "mx-10 2xl:mx-4 lg:mx-2"}`}
           >
             Société de portage
           </NavLink>
         )}
 
-        <NavLink href="/metiers" className="mx-10 mt-2">
+        <NavLink href="/metiers" className="mx-10 mt-2 2xl:mx-4 text-normal">
           Métiers
         </NavLink>
-        <NavLink href="/histoire" className="mx-10 mt-2">
+        <NavLink href="/histoire" className="mx-10 mt-2 2xl:mx-4 text-normal">
           Notre histoire
         </NavLink>
       </div>
@@ -120,8 +136,8 @@ const Navbar = () => {
           )}
         </div>
       ) : (
-        <div className="flex w-4/12 justify-between">
-          <NavLink href="/signup" background={background} className="mr-5">
+        <div className="flex w-4/12 justify-between 2lg:w-5/12">
+          <NavLink href="/signup" background={background} className="mr-5 text-normal">
             Découvrir maintenant
           </NavLink>
           <div
@@ -130,7 +146,7 @@ const Navbar = () => {
           >
             |
           </div>
-          <NavLink href="/login" className="ml-5">
+          <NavLink href="/login" className="ml-5 text-normal">
             Me connecter
           </NavLink>
         </div>

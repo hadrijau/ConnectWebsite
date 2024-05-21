@@ -1,74 +1,152 @@
 .button-container {
-    width: 70%;
+  width: 70%;
 }
 
 .img-portage {
-    position: absolute;
-    right: 4rem;
-    width: 24rem;
-    top: -13.5%
+  position: absolute;
+  right: 4rem;
+  width: 24rem;
+  top: -13.5%;
 }
 
-.img-histoire{
-    position: absolute;
-    right: 4rem;
-    width: 24rem;
-    top: -8.5%
-} 
+.img-histoire {
+  position: absolute;
+  right: 4rem;
+  width: 24rem;
+  top: -8.5%;
+}
 
 .img-indep {
-    position: absolute;
-    right: 2.3rem;
-    width: 26rem;
-    top: -15%
+  position: absolute;
+  right: 2.3rem;
+  width: 26rem;
+  top: -15%;
 }
 
 .section-background {
-    width: 90%;
-    border-top-right-radius: 100px;
-    border-bottom-right-radius: 200px;
-    border-top-left-radius: 100px;
-    border-bottom-left-radius: 100px;
-    position: relative;
+  width: 90%;
+  border-top-right-radius: 100px;
+  border-bottom-right-radius: 200px;
+  border-top-left-radius: 100px;
+  border-bottom-left-radius: 100px;
+  position: relative;
 }
 
 .header-section {
-    line-height: 5rem;
-    font-weight: 600;
+  line-height: 5rem;
+  font-weight: 600;
 }
 
 .text-container {
-    position: absolute;
-    top: 6rem;
-    left: 5rem;
+  position: absolute;
+  top: 6rem;
+  left: 5rem;
 }
 
 .text-container-histoire {
-    position: absolute;
-    top: 9rem;
-    left: 5rem;
+  position: absolute;
+  top: 9rem;
+  left: 5rem;
 }
 
 .text-container-independant {
-    position: absolute;
-    top: 11rem;
-    left: 5rem;
+  position: absolute;
+  top: 11rem;
+  left: 5rem;
 }
-@media screen and (max-width:1200px) {
-    .img-portage {
-        position: absolute;
-        right: 4rem;
-        width: 23rem;
-        top: -10%
-    }
-    .img-histoire{
-        position: absolute;
-        right: 4.2rem;
+
+@media screen and (max-width: 1400px) {
+  .text-container-histoire {
+    position: absolute;
+    top: 7rem;
+    left: 5rem;
+  }
+  .text-container-independant {
+    position: absolute;
+    top: 10rem;
+    left: 5rem;
+  }
+}
+
+@media screen and (max-width: 1360px) {
+  .text-container {
+    position: absolute;
+    top: 5rem;
+    left: 5rem;
+  }
+}
+
+@media screen and (max-width: 1300px) {
+  .text-container {
+    position: absolute;
+    top: 4rem;
+    left: 5rem;
+  }
+  .header-section {
+    line-height: normal;
+  }
+}
+
+@media screen and (max-width: 1250px) {
+  .text-container {
+    position: absolute;
+    top: 4rem;
+    left: 4rem;
+  }
+  .text-container-independant {
+    position: absolute;
+    top: 9rem;
+    left: 5rem;
+  }
+}
+
+@media screen and (max-width: 1180px) {
+  .text-container {
+    position: absolute;
+    top: 3.5rem;
+    left: 4rem;
+  }
+  .text-container-histoire {
+    position: absolute;
+    top: 6rem;
+    left: 4rem;
+  }
+  .text-container-independant {
+    position: absolute;
+    top: 8rem;
+    left: 4rem;
+  }
+}
+
+@media screen and (max-width: 1100px) {
+  .text-container-histoire {
+    position: absolute;
+    top: 5rem;
+    left: 3rem;
+  }
+  .text-container-independant {
+    position: absolute;
+    top: 7rem;
+    left: 3rem;
+  }
+
+}
+
+@media screen and (max-width: 1200px) {
+  .img-portage {
+    position: absolute;
+    right: 4rem;
+    width: 23rem;
+    top: -10%;
+  }
+  .img-histoire {
+    position: absolute;
+    right: 4.2rem;
   }
   .img-indep {
     position: absolute;
     right: 2.5rem;
     width: 26rem;
-    top: -16%
-} 
+    top: -16%;
+  }
 }

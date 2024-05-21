@@ -12,6 +12,10 @@ const poppins = Poppins({
 const theme = createTheme({
   palette: {
     mode: "light",
+    text: {
+      secondary: "grey",
+    },
+    divider: "rgba(0, 0, 0, 0.50)",
   },
   typography: {
     fontFamily: poppins.style.fontFamily,

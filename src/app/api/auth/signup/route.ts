@@ -4,7 +4,7 @@ import { NextResponse } from "next/server";
 
 export async function POST(req: Request) {
   try {
-    const { email, password, firstname, lastname } = await req.json();
+    const { email, password, firstname, lastname, type } = await req.json();
     if (!email || !email.includes("@") || !password) {
       return NextResponse.json({ message: "Invalid input" }, { status: 422 });
     }
@@ -22,6 +22,7 @@ export async function POST(req: Request) {
       email: email,
       firstname: firstname,
       lastname: lastname,
+      type: type,
       password: await hashPassword(password),
     });
 
@@ -29,6 +30,7 @@ export async function POST(req: Request) {
       email: email,
       firstname: firstname,
       lastname: lastname,
+      type: type,
     };
     return NextResponse.json(
       { message: "Created User", user: userData },

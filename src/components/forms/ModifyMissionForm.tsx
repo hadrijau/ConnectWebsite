@@ -143,11 +143,11 @@ const ModifyMissionForm: React.FC<ModifyMissionFormProps> = ({
               alt="calendrier"
               className="mr-4"
             />
-            <CustomSelect
+            {/* <CustomSelect
               value={newLength}
               setValue={setNewLength}
               options={lengthOptions}
-            />
+            /> */}
           </div>
           <div className="flex my-2">
             <Image
@@ -157,11 +157,13 @@ const ModifyMissionForm: React.FC<ModifyMissionFormProps> = ({
               alt="calendrier"
               className="mr-4"
             />
-            <CustomSelect
+            
+      
+            {/* <CustomSelect
               value={newModalities}
               setValue={setNewModalities}
               options={modalitiesOptions}
-            />
+            /> */}
           </div>
 
           <div className="flex my-2 competences-container rounded-2xl p-6 flex-col h-96">
@@ -171,7 +173,7 @@ const ModifyMissionForm: React.FC<ModifyMissionFormProps> = ({
             <SearchBar
               createMission={true}
               onSelectOption={(competence) =>
-                handleSelectOption(competence, levelOptions[0].value)
+                handleSelectOption(competence.label, levelOptions[0].value)
               } // Assuming the default level is the first one
               setSelectedCompetences={setSelectedCompetences}
               //@ts-ignore

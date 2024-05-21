@@ -4,8 +4,8 @@ import CreateFreelanceExperienceForm from "@/components/forms/CreateFreelanceExp
 
 const ExperienceFreelancePage = () => {
   return (
-    <div className="flex h-screen">
-      <NavBarProfile className="w-4/12 h-screen fixed overflow-y-auto" />
+    <div className="flex min-h-screen">
+      <NavBarProfile className="w-4/12 fixed overflow-y-auto" />
       <div className="flex-col w-8/12 content-profile">
         <div className="flex justify-end">
           <h5 className="font-bad-script text-2xl mt-10 mr-10">

@@ -160,7 +160,7 @@ const CreateMissionForm: React.FC<CreateMissionFormProps> = ({ user }) => {
             <SearchBar
               createMission={true}
               onSelectOption={(competence) =>
-                handleSelectOption(competence, levelOptions[0].value)
+                handleSelectOption(competence.label, levelOptions[0].value)
               } // Assuming the default level is the first one
               setSelectedCompetences={setSelectedCompetences}
               selectedCompetences={selectedCompetences.map(
@@ -191,12 +191,13 @@ const CreateMissionForm: React.FC<CreateMissionFormProps> = ({ user }) => {
                 </span>
                 <div className="competences-select w-5/12 lg:w-7/12">
                   <CustomSelect
-                  //@ts-ignore
+
                     value={competence.level}
+                    //@ts-ignore
                     setValue={(level) => {
 
                       const updatedCompetences = [...selectedCompetences];
-                      //@ts-ignore
+         
                       updatedCompetences[index].level = level;
                       setSelectedCompetences(updatedCompetences);
                     }}

@@ -9,11 +9,13 @@ import {
 
 interface CustomUploadProps {
   setDownloadUrl: React.Dispatch<React.SetStateAction<string>>;
+  accept: string;
   children?: ReactNode;
 }
 
 const CustomUpload: React.FC<CustomUploadProps> = ({
   setDownloadUrl,
+  accept,
   children
 }) => {
   const fileInputRef = useRef<HTMLInputElement | null>(null);
@@ -60,6 +62,7 @@ const CustomUpload: React.FC<CustomUploadProps> = ({
     <div>
       <input
         type="file"
+        accept={accept}
         onChange={handleChange}
         style={{ display: "none" }}
         ref={(input) => (fileInputRef.current = input)}

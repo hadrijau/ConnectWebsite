@@ -4,11 +4,12 @@ export async function createUser(
   email: string,
   password: string,
   firstname: string,
-  lastname: string
+  lastname: string,
+  type: string
 ) {
   const response = await fetch("/api/auth/signup", {
     method: "POST",
-    body: JSON.stringify({ email, password, firstname, lastname }),
+    body: JSON.stringify({ email, password, firstname, lastname, type }),
     headers: {
       "Content-Type": "application/json",
     },
@@ -24,20 +25,24 @@ export async function createUser(
 }
 
 export async function getUserByEmail(email: string) {
-  const response = await fetch(`${baseUrl}/api/user/${email}`, {
-    method: "GET",
-    headers: {
-      "Content-Type": "application/json",
-    },
-  });
+  try {
+    const response = await fetch(`${baseUrl}/api/user/${email}`, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
 
-  const data = await response.json();
+    const data = await response.json();
+    console.log("data", data);
+    if (!response.ok) {
+      throw new Error(data.message);
+    }
 
-  if (!response.ok) {
-    throw new Error(data.message);
+    return data;
+  } catch (err) {
+    console.log("err", err);
   }
-
-  return data;
 }
 
 export async function updateUser(email: string, type: string) {

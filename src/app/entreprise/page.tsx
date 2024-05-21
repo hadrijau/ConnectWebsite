@@ -10,29 +10,31 @@ export default function EnterprisePage() {
     <>
       <Navbar />
 
-      <main className="flex flex-col items-center justify-between mt-24">
-        <IntroSection
-          firstTitle="CONNECT, société de portage"
-          secondTitle=" pour les entreprises"
-          undertitle="Glisse vers toutes les opportunités"
-          image="/sectionEnterprise.svg"
-          background="linear-gradient(135deg, #D892C0 0%, #B9D386 100%)"
-          buttonBackground="#D892C0"
-        />
+      <div className="flex flex-col items-center justify-between mt-24">
+        <div className="main-indep">
+          <IntroSection
+            firstTitle="CONNECT, société de portage"
+            secondTitle=" pour les entreprises"
+            undertitle="Glisse vers toutes les opportunités"
+            image="/sectionEnterprise.svg"
+            background="linear-gradient(135deg, #D892C0 0%, #B9D386 100%)"
+            buttonBackground="#D892C0"
+          />
+        </div>
 
-        <h1 className="text-5xl text-center text-bold my-20">
+        <h1 className="text-4xl text-center text-bold my-20 2lg:text-3xl">
           Tes avantages en tant que entreprise cliente
         </h1>
         <div className="demarche-section w-full flex justify-center">
-          <div className="main-content flex justify-between flex-row-reverse">
+          <div className="main-indep flex justify-between flex-row-reverse">
             <div className="w-6/12 mt-20">
-              <h2 className="text-3xl font-bold mb-10 leading-relaxed">
+              <h2 className="text-3xl font-bold mb-10 leading-relaxed 2lg:text-2xl">
                 Une démarche
                 <span style={{ color: "#8EBA3A" }} className="ml-2">
                   simplfiée et sans surprise
                 </span>
               </h2>
-              <p className="text-xl leading-relaxed">
+              <p className="text-xl leading-relaxed 2lg:text-base">
                 La démarche liée aux obligations sociales et fiscales est à
                 notre charge. <br />
                 <span style={{ color: "#9ABF7A" }} className="mr-2">
@@ -49,16 +51,16 @@ export default function EnterprisePage() {
         </div>
 
         <div className="partenaire-section py-5 w-full flex justify-center">
-          <div className="main-content flex justify-between flex-row-reverse">
+          <div className="main-indep flex justify-between flex-row-reverse">
             <div className="w-6/12 mt-20">
-              <h2 className="text-3xl font-bold mb-10 mr leading-relaxed">
+              <h2 className="text-3xl font-bold mb-10 mr leading-relaxed 2lg:text-2xl">
                 Devenez
                 <span style={{ color: "#BA3A8E" }} className="ml-2">
                   nos partenaires
                 </span>{" "}
                 de travail
               </h2>
-              <p className="text-xl leading-relaxed">
+              <p className="text-xl leading-relaxed 2lg:text-base">
                 Nous ne sommes pas simplement un lien entre vous et le salarié
                 porté, mais nous
                 <span style={{ color: "#BA3A8E" }} className="mx-1">
@@ -80,16 +82,16 @@ export default function EnterprisePage() {
         </div>
 
         <div className="w-full flex justify-center mission-section mb-10">
-          <div className="main-content flex justify-between">
+          <div className="main-indep flex justify-between">
             <div className="w-6/12 mt-10">
-              <h2 className="text-3xl font-bold mb-14 mr leading-relaxed">
+              <h2 className="text-3xl font-bold mb-14 mr leading-relaxed 2lg:text-2xl">
                 Démarrez
                 <span style={{ color: "#BA3A8E" }} className="mx-2">
                   rapidement
                 </span>{" "}
                 les missions
               </h2>
-              <p className="text-xl leading-relaxed">
+              <p className="text-xl leading-relaxed 2lg:text-base">
                 Nous vous accompagnons dans la partie contractuelle et nous
                 mettons en place la mission en très peu de temps. Le contrat est
                 signé,
@@ -104,19 +106,19 @@ export default function EnterprisePage() {
                 alt="Application mobile connect"
                 width={500}
                 height={100}
-                className="mr-40 fusee-img"
+                className="mr-40 fusee-img 2lg:mr-20"
               />
             </div>
           </div>
         </div>
 
         <div className="flex justify-center mb-10 w-full py-10">
-          <div className="main-content flex justify-between">
+          <div className="main-indep flex justify-between">
             <div className="w-6/12 mt-20">
-              <h2 className="text-3xl font-bold mb-14 mr leading-relaxed">
+              <h2 className="text-3xl font-bold mb-14 mr leading-relaxed 2lg:text-2xl">
                 Diffusez vos offres de missions avec simplicité
               </h2>
-              <p className="text-xl leading-relaxed">
+              <p className="text-xl leading-relaxed 2lg:text-base">
                 Avec CONNECT, il vous suffit de mettre votre annonce sur
                 l’application. C’est après à nous de jouer. <br />
                 Nous vous cherchons un profil qui connecte avec la mission
@@ -132,12 +134,12 @@ export default function EnterprisePage() {
                 alt="Application mobile connect"
                 width={300}
                 height={100}
-                className="mr-40 mt-5"
+                className="mr-40 mt-5 2lg:mr-20"
               />
             </div>
           </div>
         </div>
-      </main>
+      </div>
     </>
   );
 }

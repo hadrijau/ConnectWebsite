@@ -10,8 +10,8 @@ const ProfileClientPage = async () => {
   const user = await getClientByEmail(session?.user?.email!);
   return (
     <SessionProvider>
-      <div className="flex h-screen">
-        <NavBarProfileClient className="w-4/12 h-screen" />
+      <div className="flex min-h-screen">
+        <NavBarProfileClient className="w-4/12" />
         <div className="flex-col w-8/12 ml-20">
           <div className="flex justify-end">
             <h5 className="font-bad-script text-2xl mt-10 mr-10">

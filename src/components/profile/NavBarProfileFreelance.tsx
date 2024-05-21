@@ -3,9 +3,48 @@ import React from "react";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
+import Dialog, { DialogProps } from "@mui/material/Dialog";
+import "@/styles/Freelance.css";
 
 interface NavBarProfileFreelanceProps {
   className?: string;
+}
+
+export interface SimpleDialogProps {
+  open: boolean;
+  onClose: () => void;
+}
+
+function SimpleDialog(props: SimpleDialogProps) {
+  const { onClose, open } = props;
+
+  const [maxWidth, setMaxWidth] = React.useState<DialogProps["maxWidth"]>("lg");
+
+  const handleClose = () => {
+    onClose();
+  };
+
+  return (
+    <Dialog onClose={handleClose} open={open} maxWidth={maxWidth}>
+      <h2 className="text-normal text-2xl mr-32 ml-10 mt-10">
+        Es-tu sûr(e) de vouloir supprimer ton compte ?
+      </h2>
+      <h5 className="mb-10 ml-10 mt-3">
+        Toutes tes données seront définitivement supprimées
+      </h5>
+      <div className="flex justify-center mb-10">
+        <div className="delete-account-button cursor-pointer rounded-4xl py-3 w-4/12 text-center mr-2">
+          Oui supprimer
+        </div>
+        <div
+          className="delete-account-button cursor-pointer rounded-4xl py-3 w-4/12 text-center ml-2"
+          onClick={handleClose}
+        >
+          Non je change d&apos;avis
+        </div>
+      </div>
+    </Dialog>
+  );
 }
 
 const NavBarProfileFreelance: React.FC<NavBarProfileFreelanceProps> = ({
@@ -45,15 +84,28 @@ const NavBarProfileFreelance: React.FC<NavBarProfileFreelanceProps> = ({
     },
   ];
 
+  const [open, setOpen] = React.useState(false);
+
+  const handleClickOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
+
   return (
-    <div className={`flex-col bg-green p-10 ${className}`}>
-      <Image
-        src="/logoWithConnect.svg"
-        alt="Logo Connect avec le nom"
-        width={120}
-        height={120}
-        className="mb-10"
-      />
+    <div className={`flex-col bg-green pt-10 px-10 ${className}`}>
+      <Link href="/">
+        <Image
+          src="/logoWithConnect.svg"
+          alt="Logo Connect avec le nom"
+          width={120}
+          height={120}
+          className="mb-10"
+        />
+      </Link>
+
       {welcomeData.map((data, index) => {
         const { href, title, image } = data;
         return (
@@ -86,6 +138,11 @@ const NavBarProfileFreelance: React.FC<NavBarProfileFreelanceProps> = ({
           </Link>
         );
       })}
+
+      <h5 className="cursor-pointer mt-20" onClick={handleClickOpen}>
+        Supprimer mon compte
+      </h5>
+      <SimpleDialog open={open} onClose={handleClose} />
     </div>
   );
 };

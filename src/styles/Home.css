@@ -12,7 +12,8 @@
 }
 
 .valor-container {
-    width: 65%;
+    width: 308px;
+    height: 415px;
 }
 
 .text-app-container {
@@ -29,4 +30,10 @@
 
 .play-store-img {
     width: 30%;
+}
+
+@media screen and (max-width:1200px) {
+    .valor-container {
+        width: 250px;
+    }
 }

@@ -3,9 +3,10 @@ import React, { useState } from "react";
 import Autosuggest, { ChangeEvent } from "react-autosuggest";
 import Image from "next/image";
 import "@/styles/components/SearchBar.css";
+import { competences } from "@/lib/competences";
 
 interface SearchBarProps {
-  onSelectOption: (option: string) => void;
+  onSelectOption: (option: { label: string; level: number }) => void;
   setSelectedCompetences: React.Dispatch<React.SetStateAction<{ label: string; level: number }[]>>;
   selectedCompetences: { label: string; level: number }[]
   placeholder: string;
@@ -17,13 +18,7 @@ const SearchBar: React.FC<SearchBarProps> = ({onSelectOption, setSelectedCompete
   const [suggestions, setSuggestions] = useState<string[]>([]);
 
   // Define your list of suggestions
-  const suggestionsList: string[] = [
-    "Ecriture",
-    "UX Design",
-    "Communication",
-    "Pack Office",
-  ];
-
+  const suggestionsList = competences
   // Function to get suggestions based on user input
   const getSuggestions = (inputValue: string): string[] => {
     const inputValueLowerCase = inputValue.trim().toLowerCase();
@@ -33,7 +28,8 @@ const SearchBar: React.FC<SearchBarProps> = ({onSelectOption, setSelectedCompete
       ? []
       : suggestionsList.filter(
           (item) =>
-            item.toLowerCase().slice(0, inputLength) === inputValueLowerCase
+            item.toLowerCase().slice(0, inputLength) === inputValueLowerCase &&
+            !selectedCompetences.some(competence => competence.label.toLowerCase() === item.toLowerCase())
         );
   };
 
@@ -43,9 +39,11 @@ const SearchBar: React.FC<SearchBarProps> = ({onSelectOption, setSelectedCompete
   );
 
   const onSuggestionSelected = (_event: React.FormEvent, { suggestion }: { suggestion: string }): void => {
-    setSelectedCompetences([...selectedCompetences, suggestion] as any);
-    onSelectOption(suggestion);
-    setValue(''); 
+    if (!selectedCompetences.some(competence => competence.label.toLowerCase() === suggestion.toLowerCase())) {
+      setSelectedCompetences([...selectedCompetences, { label: suggestion, level: 0 }]);
+      onSelectOption({ label: suggestion, level: 0 });
+      setValue('');
+    }
   };
 
   // Autosuggest input properties
