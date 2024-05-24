@@ -52,14 +52,14 @@ const IntroSection: React.FC<IntroSectionProps> = ({
     <div className="flex justify-center relative">
       <img src={pathImage} alt="banner connect"></img>
       <div className={textContainerClassName}>
-        <h1 className="header-section text-white text-5xl 2lg:text-4xl lg:text-3xl">
+        <h1 className="header-title-intro-section-text text-white">
           {firstTitle} <br /> {secondTitle} <br />
         </h1>
         <h5
           className={
             path.startsWith("/independant") || path.startsWith("/entreprise")
-              ? "text-white my-4 text-2xl 2lg:text-xl"
-              : "text-white my-6 text-2xl 2lg:text-xl"
+              ? "undertitle-text my-4 text-white"
+              : "undertitle-text my-6 text-white"
           }
         >
           {undertitle}
@@ -68,7 +68,7 @@ const IntroSection: React.FC<IntroSectionProps> = ({
         {path.startsWith("/independant") || path.startsWith("/entreprise") ? (
           <div className="flex items-center">
 
-            <div className="flex ml-5 mt-6">
+            <div className="flex ml-5 mt-6 lg:mt-2">
               <Image
                 src="googlePlay.svg"
                 alt="Google Play"

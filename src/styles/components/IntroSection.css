@@ -32,11 +32,6 @@
   position: relative;
 }
 
-.header-section {
-  line-height: 5rem;
-  font-weight: 600;
-}
-
 .text-container {
   position: absolute;
   top: 6rem;
@@ -55,79 +50,40 @@
   left: 5rem;
 }
 
-@media screen and (max-width: 1400px) {
+
+@media screen and (max-width: 1440px) {
   .text-container-histoire {
-    position: absolute;
     top: 7rem;
     left: 5rem;
   }
   .text-container-independant {
-    position: absolute;
     top: 10rem;
     left: 5rem;
   }
+  .text-container {
+    top: 5rem;
+    left: 5rem;
+  }
+}
+
+@media screen and (max-width: 1400px) {
+
+  .text-container-independant {
+    top: 8rem;
+    left: 3.5rem;
+  }
+
 }
 
 @media screen and (max-width: 1360px) {
   .text-container {
     position: absolute;
-    top: 5rem;
-    left: 5rem;
-  }
-}
-
-@media screen and (max-width: 1300px) {
-  .text-container {
-    position: absolute;
     top: 4rem;
     left: 5rem;
-  }
-  .header-section {
-    line-height: normal;
-  }
-}
-
-@media screen and (max-width: 1250px) {
-  .text-container {
-    position: absolute;
-    top: 4rem;
-    left: 4rem;
-  }
-  .text-container-independant {
-    position: absolute;
-    top: 9rem;
-    left: 5rem;
-  }
-}
-
-@media screen and (max-width: 1180px) {
-  .text-container {
-    position: absolute;
-    top: 3.5rem;
-    left: 4rem;
   }
   .text-container-histoire {
-    position: absolute;
     top: 6rem;
-    left: 4rem;
-  }
-  .text-container-independant {
-    position: absolute;
-    top: 8rem;
-    left: 4rem;
-  }
-}
-
-@media screen and (max-width: 1100px) {
-  .text-container-histoire {
-    position: absolute;
-    top: 5rem;
-    left: 3rem;
-  }
-  .text-container-independant {
-    position: absolute;
-    top: 7rem;
-    left: 3rem;
+    left: 4.5rem;
   }
 
 }
@@ -148,5 +104,112 @@
     right: 2.5rem;
     width: 26rem;
     top: -16%;
+  }
+  .text-container {
+    position: absolute;
+    top: 3.5rem;
+    left: 4rem;
+  }
+  .text-container-independant {
+    top: 7rem;
+    left: 3.25rem;
+  }
+}
+
+@media screen and (max-width: 1180px) {
+
+  .text-container-histoire {
+    position: absolute;
+    top: 6rem;
+    left: 4rem;
+  }
+}
+
+@media screen and (max-width: 1150px) {
+  .text-container {
+    position: absolute;
+    top: 4rem;
+    left: 4rem;
+  }
+}
+
+@media screen and (max-width: 1100px) {
+  .text-container-histoire {
+    position: absolute;
+    top: 5.5rem;
+    left: 3rem;
+  }
+  .text-container-independant {
+    position: absolute;
+    top: 7rem;
+    left: 3rem;
+  }
+  .text-container {
+    position: absolute;
+    top: 4.5rem;
+    left: 4rem;
+  }
+}
+
+@media screen and (max-width: 1050px) {
+  .text-container {
+    position: absolute;
+    top: 4rem;
+    left: 4rem;
+  }
+  .text-container-independant {
+    top: 6.5rem;
+    left: 3.25rem;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .text-container {
+    position: absolute;
+    top: 3.25rem;
+    left: 4rem;
+  }
+  .text-container-independant {
+    top: 6rem;
+    left: 3rem;
+  }
+  .text-container-histoire {
+    position: absolute;
+    top: 5rem;
+    left: 3rem;
+  }
+}
+
+@media screen and (max-width: 950px) {
+  .text-container {
+    position: absolute;
+    top: 3rem;
+    left: 3.5rem;
+  }
+  .text-container-independant {
+    top: 5.5rem;
+    left: 2.75rem;
+  }
+  .text-container-histoire {
+    position: absolute;
+    top: 4.5rem;
+    left: 3rem;
+  }
+}
+
+@media screen and (max-width: 925px) {
+  .text-container {
+    position: absolute;
+    top: 2.5rem;
+    left: 3rem;
+  }
+  .text-container-independant {
+    top: 5rem;
+    left: 2.5rem;
+  }
+  .text-container-histoire {
+    position: absolute;
+    top: 4rem;
+    left: 3rem;
   }
 }

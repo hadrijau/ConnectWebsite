@@ -38,7 +38,7 @@ const InformationsChoice = ({ email, firstname, lastname, password }) => {
 
   return (
     <div className="w-6/12 flex flex-col px-20">
-      <h3 className="text-3xl text-normal mt-20 ml-10 mb-20 text-infos">
+      <h3 className="text-3xl text-normal mt-20 ml-10 mb-20 text-infos underline underline-offset-8 decoration-green-700">
         Où te situes-tu ?
       </h3>
 

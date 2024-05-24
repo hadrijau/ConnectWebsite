@@ -21,10 +21,10 @@ export default function Home() {
         <div className="main-content px-10">
           <div className="flex justify-between mt-20 2xl:flex-col">
             <div className="w-4/12 2xl:w-full">
-              <h1 className="text-4xl font-bold leading-relaxed 2xl:text-4xl 2xl:text-center 2lg:text-3xl">
+              <h1 className="header-title-text font-bold 2xl:text-center ">
                 Pourquoi Connect et pas une autre ?
               </h1>
-              <h5 className="mt-10 text-2xl 2xl:text-center 2xl:mb-10 2lg:text-xl">
+              <h5 className="mt-10 text-2xl 2xl:text-center 2xl:mb-10 ">
                 Nos valeurs, c&apos;est ce qui nous différencie.
               </h5>
             </div>
