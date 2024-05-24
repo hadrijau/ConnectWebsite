@@ -143,7 +143,7 @@ const SignupForm: React.FC<SignupFormProps> = ({
           
               </div>
               {touched.accept && errors.accept && (
-                  <div className="error text-sm">{errors.accept}</div>
+                  <div className="error text-xs ml-4 mt-1">{errors.accept}</div>
                 )}
             </div>
 

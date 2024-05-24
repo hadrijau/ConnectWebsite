@@ -36,3 +36,18 @@
 .client-signup-card:hover .client-signup-span {
     color: white;
 }
+
+.join-connect {
+    position: relative;
+  }
+  
+  .image-container {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+  }
+  
+  .image-container img {
+    width: 100%;
+    height: auto;
+  }

@@ -3,3 +3,21 @@
 .image-signup {
     margin-bottom: -20%;
 }
+
+.join-connect {
+  position: relative;
+}
+
+.image-container {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.image-container img {
+  width: 100%;
+  height: auto;
+}

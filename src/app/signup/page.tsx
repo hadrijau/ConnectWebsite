@@ -24,9 +24,9 @@ const SignupPage = () => {
     accept: boolean;
   }) => {
     try {
-      console.log("values", values)
+      console.log("values", values);
       const result = await getUserByEmail(values.email);
-      console.log("result", result)
+      console.log("result", result);
       if (result) {
         setUserExists(true);
       } else {
@@ -72,14 +72,17 @@ const SignupPage = () => {
             alt="Rejoignez connect"
             width={350}
             height={100}
-            className="image-signup"
+            className="image-signup mb-10"
           />
-          <Image
-            src="signup2.svg"
-            alt="Equipe connect"
-            width={785}
-            height={100}
-          />
+          <div className="image-container">
+            <Image
+              src="signup2.svg"
+              alt="Equipe connect"
+              width={0}
+              height={0}
+              style={{ width: "90%", height: "auto" }}
+            />
+          </div>
         </div>
       </div>
     </div>
