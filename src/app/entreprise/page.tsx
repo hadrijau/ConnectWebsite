@@ -10,25 +10,22 @@ export default function EnterprisePage() {
     <>
       <Navbar />
 
-      <div className="flex flex-col items-center justify-between mt-24">
+      <div className="flex flex-col items-center justify-between mt-32">
         <div className="main-indep">
           <IntroSection
             firstTitle="CONNECT, société de portage"
             secondTitle=" pour les entreprises"
             undertitle="Glisse vers toutes les opportunités"
-            image="/sectionEnterprise.svg"
-            background="linear-gradient(135deg, #D892C0 0%, #B9D386 100%)"
-            buttonBackground="#D892C0"
           />
         </div>
 
-        <h1 className="text-4xl text-center text-bold my-20 2lg:text-3xl">
+        <h1 className="header-title-text text-center text-bold my-20">
           Tes avantages en tant que entreprise cliente
         </h1>
         <div className="demarche-section w-full flex justify-center">
           <div className="main-indep flex justify-between flex-row-reverse">
             <div className="w-6/12 mt-20">
-              <h2 className="text-3xl font-bold mb-10 leading-relaxed 2lg:text-2xl">
+              <h2 className="text-3xl font-bold mb-10 mr leading-relaxed 2lg:text-2xl">
                 Une démarche
                 <span style={{ color: "#8EBA3A" }} className="ml-2">
                   simplfiée et sans surprise
@@ -44,8 +41,8 @@ export default function EnterprisePage() {
                 établissez les termes du contrat avec l’indépendant.
               </p>
             </div>
-            <div>
-              <Image src="/zen.svg" alt="salarié" width={400} height={250} />
+            <div className="photo-container">
+              <Image src="/zen.svg" alt="salarié" fill />
             </div>
           </div>
         </div>
@@ -70,12 +67,11 @@ export default function EnterprisePage() {
                 de CONNECT au sein de votre entreprise.
               </p>
             </div>
-            <div>
+            <div className="photo-container">
               <Image
                 src="/partner.svg"
                 alt="salarié"
-                width={500}
-                height={250}
+                fill
               />
             </div>
           </div>
@@ -100,19 +96,17 @@ export default function EnterprisePage() {
                 </span>
               </p>
             </div>
-            <div>
+            <div className="photo-container">
               <Image
                 src="/fusee.svg"
                 alt="Application mobile connect"
-                width={500}
-                height={100}
-                className="mr-40 fusee-img 2lg:mr-20"
+                fill
               />
             </div>
           </div>
         </div>
 
-        <div className="flex justify-center mb-10 w-full py-10">
+        <div className="w-full flex justify-center py-10">
           <div className="main-indep flex justify-between">
             <div className="w-6/12 mt-20">
               <h2 className="text-3xl font-bold mb-14 mr leading-relaxed 2lg:text-2xl">
@@ -128,13 +122,11 @@ export default function EnterprisePage() {
                 Trouvez le profil idéal directement via votre smartphone.
               </p>
             </div>
-            <div>
+            <div className="photo-container">
               <Image
                 src="/appli.svg"
                 alt="Application mobile connect"
-                width={300}
-                height={100}
-                className="mr-40 mt-5 2lg:mr-20"
+                fill
               />
             </div>
           </div>

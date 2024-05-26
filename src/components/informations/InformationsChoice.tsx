@@ -27,8 +27,8 @@ const InformationsChoice = ({ email, firstname, lastname, password }) => {
 
     if (type == "client") {
       await createClient(email, firstname, lastname);
-      setIsLoading(false);
       router.push("/client/profil/espace");
+      setIsLoading(false);
     } else {
       await createFreelance(email, firstname, lastname);
       router.push("/freelance/profil");

@@ -6,10 +6,13 @@ export async function createMission(
   context: string,
   goals: string,
   date: Dayjs,
-  price: number,
+  price: string,
   length: string,
   modalities: string,
-  competences: { label: string; level: number }[]
+  competences: { label: string; level: number }[],
+  hiddenCompany: boolean,
+  hiddenMissionPlace: boolean,
+  hiddenTJM: boolean
 ) {
   const response = await fetch("/api/mission", {
     method: "POST",
@@ -22,6 +25,9 @@ export async function createMission(
       length,
       modalities,
       competences,
+      hiddenCompany,
+      hiddenMissionPlace,
+      hiddenTJM,
     }),
     headers: {
       "Content-Type": "application/json",
@@ -98,4 +104,16 @@ export async function updateMissionById(
   }
 
   return data;
+}
+
+export async function deleteMission(slug: string) {
+  const response = await fetch(`${baseUrl}/api/mission/${slug}`, {
+    method: "DELETE",
+  });
+
+  if (!response.ok) {
+    throw new Error("Failed to delete mission");
+  }
+
+  return { message: "Mission deleted successfully" };
 }

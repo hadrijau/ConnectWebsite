@@ -124,9 +124,9 @@ const NavBarProfileClient: React.FC<NavBarProfileClientProps> = ({
         );
       })}
       <div className="flex flex-col justify-end mt-auto absolute delete-account-text">
-      <h5 className="cursor-pointer" onClick={handleClickOpen}>
-        Supprimer mon compte
-      </h5>
+        <h5 className="cursor-pointer" onClick={handleClickOpen}>
+          Supprimer mon compte
+        </h5>
       </div>
 
       <SimpleDialog open={open} onClose={handleClose} />

@@ -26,3 +26,9 @@
 .fusee-img {
     margin-top: -7rem
 }
+
+.photo-container {
+  position: relative;
+  width: 400px;
+  height: 400px;
+}

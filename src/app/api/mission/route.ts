@@ -12,20 +12,26 @@ export async function POST(req: Request) {
       length,
       modalities,
       competences,
+      hiddenCompany,
+      hiddenMissionPlace,
+      hiddenTJM,
     } = await req.json();
 
     const client = await connectToDatabase();
     const db = client.db();
 
     await db.collection("missions").insertOne({
-      title: title,
-      context: context,
-      goals: goals,
-      date: date,
-      price: price,
-      length: length,
-      modalities: modalities,
+      title,
+      context,
+      goals,
+      date,
+      price,
+      length,
+      modalities,
       competences,
+      hiddenCompany,
+      hiddenMissionPlace,
+      hiddenTJM,
     });
 
     return NextResponse.json({ message: "Mission created" }, { status: 201 });

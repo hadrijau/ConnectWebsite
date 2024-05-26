@@ -10,14 +10,12 @@ export default function IndependantPage() {
   return (
     <>
       <Navbar />
-      <div className="flex flex-col items-center justify-between mt-24">
+      <div className="flex flex-col items-center justify-between mt-32">
         <div className="main-indep">
           <IntroSection
             firstTitle="Connect, société de"
             secondTitle="portage pour les indépendants"
             undertitle="Glisse vers toutes les opportunités"
-            image="/sectionIndependant.svg"
-            background="linear-gradient(135deg, #79B3D1 0%, #B9D386 100%)"
           />
         </div>
         <div className="xl:mx-20">

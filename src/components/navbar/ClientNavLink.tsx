@@ -22,7 +22,7 @@ const ClientNavLink: React.FC<ClientNavLinkProps> = ({
       <Link
         href={href}
         {...props}
-        className={path.startsWith(href.toString()) ? "link-active-client" : "nav-link-client"}
+        className={path.startsWith(href.toString()) ? "text-xl text-normal link-active-client xl:text-base 2lg:text-sm" : " text-xl text-normal nav-link-client xl:text-base 2lg:text-sm"}
       >
         {children}
       </Link>

@@ -46,7 +46,6 @@ const SearchBar: React.FC<SearchBarProps> = ({onSelectOption, setSelectedCompete
     }
   };
 
-  // Autosuggest input properties
   const inputProps = {
     placeholder: placeholder,
     value,
@@ -59,7 +58,6 @@ const SearchBar: React.FC<SearchBarProps> = ({onSelectOption, setSelectedCompete
     className: "w-full bg-inherit border-none outline-none",
   };
 
-  // Autosuggest callbacks
   const onSuggestionsFetchRequested = ({ value }: { value: string }): void => {
     setSuggestions(getSuggestions(value));
   };

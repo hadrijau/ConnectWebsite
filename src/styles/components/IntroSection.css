@@ -50,30 +50,17 @@
   left: 5rem;
 }
 
+.display-mobile {
+  display: none;
+}
 
 @media screen and (max-width: 1440px) {
-  .text-container-histoire {
-    top: 7rem;
-    left: 5rem;
-  }
-  .text-container-independant {
-    top: 10rem;
-    left: 5rem;
-  }
   .text-container {
     top: 5rem;
     left: 5rem;
   }
 }
 
-@media screen and (max-width: 1400px) {
-
-  .text-container-independant {
-    top: 8rem;
-    left: 3.5rem;
-  }
-
-}
 
 @media screen and (max-width: 1360px) {
   .text-container {
@@ -81,11 +68,6 @@
     top: 4rem;
     left: 5rem;
   }
-  .text-container-histoire {
-    top: 6rem;
-    left: 4.5rem;
-  }
-
 }
 
 @media screen and (max-width: 1200px) {
@@ -110,40 +92,10 @@
     top: 3.5rem;
     left: 4rem;
   }
-  .text-container-independant {
-    top: 7rem;
-    left: 3.25rem;
-  }
 }
 
-@media screen and (max-width: 1180px) {
-
-  .text-container-histoire {
-    position: absolute;
-    top: 6rem;
-    left: 4rem;
-  }
-}
-
-@media screen and (max-width: 1150px) {
-  .text-container {
-    position: absolute;
-    top: 4rem;
-    left: 4rem;
-  }
-}
 
 @media screen and (max-width: 1100px) {
-  .text-container-histoire {
-    position: absolute;
-    top: 5.5rem;
-    left: 3rem;
-  }
-  .text-container-independant {
-    position: absolute;
-    top: 7rem;
-    left: 3rem;
-  }
   .text-container {
     position: absolute;
     top: 4.5rem;
@@ -157,10 +109,7 @@
     top: 4rem;
     left: 4rem;
   }
-  .text-container-independant {
-    top: 6.5rem;
-    left: 3.25rem;
-  }
+
 }
 
 @media screen and (max-width: 1000px) {
@@ -186,15 +135,6 @@
     top: 3rem;
     left: 3.5rem;
   }
-  .text-container-independant {
-    top: 5.5rem;
-    left: 2.75rem;
-  }
-  .text-container-histoire {
-    position: absolute;
-    top: 4.5rem;
-    left: 3rem;
-  }
 }
 
 @media screen and (max-width: 925px) {
@@ -203,13 +143,20 @@
     top: 2.5rem;
     left: 3rem;
   }
-  .text-container-independant {
-    top: 5rem;
+}
+
+@media screen and (max-width: 825px) {
+  .text-container {
+    position: absolute;
+    top: 2rem;
     left: 2.5rem;
   }
-  .text-container-histoire {
+}
+
+@media screen and (max-width: 775px) {
+  .text-container {
     position: absolute;
-    top: 4rem;
-    left: 3rem;
+    top: 1.75rem;
+    left: 2.5rem;
   }
 }

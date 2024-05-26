@@ -3,48 +3,11 @@ import React from "react";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
-import Dialog, { DialogProps } from "@mui/material/Dialog";
 import "@/styles/Freelance.css";
+import CustomDialog from "../common/CustomDialog";
 
 interface NavBarProfileFreelanceProps {
   className?: string;
-}
-
-export interface SimpleDialogProps {
-  open: boolean;
-  onClose: () => void;
-}
-
-function SimpleDialog(props: SimpleDialogProps) {
-  const { onClose, open } = props;
-
-  const [maxWidth, setMaxWidth] = React.useState<DialogProps["maxWidth"]>("lg");
-
-  const handleClose = () => {
-    onClose();
-  };
-
-  return (
-    <Dialog onClose={handleClose} open={open} maxWidth={maxWidth}>
-      <h2 className="text-normal text-2xl mr-32 ml-10 mt-10">
-        Es-tu sûr(e) de vouloir supprimer ton compte ?
-      </h2>
-      <h5 className="mb-10 ml-10 mt-3">
-        Toutes tes données seront définitivement supprimées
-      </h5>
-      <div className="flex justify-center mb-10">
-        <div className="delete-account-button cursor-pointer rounded-4xl py-3 w-4/12 text-center mr-2">
-          Oui supprimer
-        </div>
-        <div
-          className="delete-account-button cursor-pointer rounded-4xl py-3 w-4/12 text-center ml-2"
-          onClick={handleClose}
-        >
-          Non je change d&apos;avis
-        </div>
-      </div>
-    </Dialog>
-  );
 }
 
 const NavBarProfileFreelance: React.FC<NavBarProfileFreelanceProps> = ({
@@ -142,7 +105,25 @@ const NavBarProfileFreelance: React.FC<NavBarProfileFreelanceProps> = ({
       <h5 className="cursor-pointer mt-20" onClick={handleClickOpen}>
         Supprimer mon compte
       </h5>
-      <SimpleDialog open={open} onClose={handleClose} />
+      <CustomDialog open={open} onClose={handleClose}>
+        <h2 className="text-normal text-2xl mr-32 ml-10 mt-10">
+          Es-tu sûr(e) de vouloir supprimer ton compte ?
+        </h2>
+        <h5 className="mb-10 ml-10 mt-3">
+          Toutes tes données seront définitivement supprimées
+        </h5>
+        <div className="flex justify-center mb-10">
+          <div className="delete-account-button cursor-pointer rounded-4xl py-3 w-4/12 text-center mr-2">
+            Oui supprimer
+          </div>
+          <div
+            className="delete-account-button cursor-pointer rounded-4xl py-3 w-4/12 text-center ml-2"
+            onClick={handleClose}
+          >
+            Non je change d&apos;avis
+          </div>
+        </div>
+      </CustomDialog>
     </div>
   );
 };

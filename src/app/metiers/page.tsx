@@ -9,7 +9,7 @@ const Portage = () => {
   return (
     <>
       <Navbar />
-      <main className="flex flex-col items-center justify-between mt-24">
+      <main className="flex flex-col items-center justify-between mt-32">
         <IntroSection
           firstTitle="La société de portage pour les"
           secondTitle="métiers de service"

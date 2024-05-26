@@ -11,17 +11,17 @@ const ProfileClientPage = async () => {
   return (
     <SessionProvider>
       <div className="flex min-h-screen">
-        <NavBarProfileClient className="w-4/12" />
-        <div className="flex-col w-8/12 ml-20">
+        <NavBarProfileClient className="navbar-container" />
+        <div className="content-container">
           <div className="flex justify-end">
             <h5 className="font-bad-script text-2xl mt-10 mr-10">
               Bienvenue chez nous
             </h5>
           </div>
 
-          <h1 className="font-bold text-3xl font-pink">Mon espace</h1>
+          <h1 className="font-bold text-3xl font-pink">Mon profil</h1>
           <h5 className="font-normal text-xl mt-5">On fait connaissance ?</h5>
-          <CreateProfilClientForm client={user}/>
+          <CreateProfilClientForm client={user} />
         </div>
       </div>
     </SessionProvider>

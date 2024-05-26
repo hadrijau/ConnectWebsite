@@ -1,11 +1,11 @@
-<svg width="1500" height="567" viewBox="0 0 1500 567" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-<path d="M0 185C0 129.772 44.7715 85 100 85H1394C1449.23 85 1494 129.772 1494 185V365C1494 475.457 1404.46 565 1294 565H100C44.7715 565 0 520.228 0 465V185Z" fill="url(#paint0_linear_2802_80928)"/>
-<path d="M914 0H1500V357C1500 472.98 1405.98 567 1290 567H914V0Z" fill="url(#pattern0_2802_80928)"/>
+<svg width="1497" height="523" viewBox="0 0 1497 523" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<path d="M0 143C0 87.7715 44.7715 43 100 43H1394C1449.23 43 1494 87.7715 1494 143V323C1494 433.457 1404.46 523 1294 523H100C44.7715 523 0 478.228 0 423V143Z" fill="url(#paint0_linear_2802_80928)"/>
+<path d="M978 0H1497V317C1497 430.771 1404.77 523 1291 523H978V0Z" fill="url(#pattern0_2802_80928)"/>
 <defs>
 <pattern id="pattern0_2802_80928" patternContentUnits="objectBoundingBox" width="1" height="1">
 <use xlink:href="#image0_2802_80928" transform="matrix(0.00203514 0 0 0.00200436 -0.813993 -0.0336134)"/>
 </pattern>
-<linearGradient id="paint0_linear_2802_80928" x1="0" y1="85" x2="279.575" y2="955.177" gradientUnits="userSpaceOnUse">
+<linearGradient id="paint0_linear_2802_80928" x1="0" y1="43" x2="279.575" y2="913.177" gradientUnits="userSpaceOnUse">
 <stop stop-color="#79B3D1"/>
 <stop offset="1" stop-color="#D892C0"/>
 </linearGradient>

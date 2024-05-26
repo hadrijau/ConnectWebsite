@@ -3,6 +3,13 @@ import { connectToDatabase } from "@/lib/db";
 import NextAuth from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
 
+// Define the shape of your user object
+interface CustomUser {
+  email: string;
+  name: string;
+  type: string; // Add the role property
+}
+
 export const {
   handlers: { GET, POST },
   auth,
@@ -21,7 +28,7 @@ export const {
       },
       async authorize(credentials) {
         if (!credentials) {
-          return;
+          return null;
         }
         const client = await connectToDatabase();
 
@@ -43,11 +50,31 @@ export const {
         if (!isValid) {
           throw new Error("Incorrect credentials");
         }
+
+        console.log("user", user);
+        // Return user object including the role
         return {
           email: user.email,
           name: `${user.firstname} ${user.lastname}`,
-        } as any;
+          type: user.type,
+        } as CustomUser; // Specify the type as CustomUser
       },
     }),
   ],
+  callbacks: {
+    async session({ session, token, user }) {
+      // Add role to session
+      if (token && session.user) {
+        (session.user as CustomUser).type = token.type; // Cast session.user to CustomUser
+      }
+      return session;
+    },
+    async jwt({ token, user }) {
+      // Add role to token
+      if (user) {
+        token.type = (user as CustomUser).type; // Cast user to CustomUser
+      }
+      return token;
+    },
+  },
 });

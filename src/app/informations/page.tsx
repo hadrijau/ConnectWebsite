@@ -11,7 +11,7 @@ const InformationsPage = async ({ searchParams }) => {
   const password = searchParams.email.split("?")[3];
 
   return (
-    <div className="flex h-screen">
+    <div className="flex min-h-screen">
       <div className="w-6/12 flex flex-col join-connect overflow-hidden">
         <h3 className="text-3xl text-normal mt-20 ml-10 mb-20">
           Plutôt team indep ou team client ?

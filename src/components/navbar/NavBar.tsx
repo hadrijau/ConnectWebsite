@@ -5,15 +5,17 @@ import { usePathname, useRouter } from "next/navigation";
 import NavLink from "@/components/navbar/NavLink";
 import { useSession, signOut } from "next-auth/react";
 import "@/styles/components/NavBar.css";
-import { getUserByEmail } from "@/http/user";
 
 const Navbar = () => {
   const { data: session, status } = useSession();
+  const [menuOpen, setMenuOpen] = useState(false);
 
+  let userType = session?.user?.type;
+  console.log("userType", userType);
   const handleSignOut = () => {
     signOut();
     router.push("/");
-  }; 
+  };
 
   const path = usePathname();
   let background;
@@ -58,21 +60,25 @@ const Navbar = () => {
         )}
       </NavLink>
       <div
-        className={`flex ${status === "authenticated" ? "w-9/12" : "w-7/12 "}`}
+        className={`nav-items flex ${
+          status === "authenticated" ? "w-9/12" : "w-7/12 "
+        }`}
       >
         {path.startsWith("/independant") && (
           <div
             style={{ background: "#D892C0" }}
-            className="py-2 px-10 rounded-lg cursor-pointer mr-10  lg:mr-2 lg:px-6"
+            className="py-2 px-10 rounded-lg cursor-pointer mr-10 lg:mr-2 lg:px-6"
             onClick={() => router.push("/entreprise")}
           >
-            <p className="text-white xl:text-base 2lg:text-sm text-normal">Entreprise</p>
+            <p className="text-white xl:text-base 2lg:text-sm text-normal">
+              Entreprise
+            </p>
           </div>
         )}
         {path.startsWith("/entreprise") && (
           <div
             style={{ background: "#B9D386" }}
-            className="py-2 px-6 rounded-lg cursor-pointer  lg:px-6"
+            className="py-2 px-6 rounded-lg cursor-pointer lg:px-6"
             onClick={() => router.push("/independant")}
           >
             <p className="text-white 2lg:text-sm text-normal">Indépendant</p>
@@ -81,12 +87,13 @@ const Navbar = () => {
         {!path.startsWith("/entreprise") && (
           <NavLink
             href="/portage"
-            className={`mt-2 text-normal ${status === "authenticated" ? "mr-10" : "mx-10 2xl:mx-4 lg:mx-2"}`}
+            className={`mt-2 text-normal ${
+              status === "authenticated" ? "mr-10" : "mx-10 2xl:mx-4 lg:mx-2"
+            }`}
           >
             Société de portage
           </NavLink>
         )}
-
         <NavLink href="/metiers" className="mx-10 mt-2 2xl:mx-4 text-normal">
           Métiers
         </NavLink>
@@ -98,14 +105,22 @@ const Navbar = () => {
       {status === "authenticated" ? (
         <div className="flex">
           <Image
-            src="/notifFreelanceNav.svg"
+            src={
+              userType === "client"
+                ? "/clientNotification.svg"
+                : "/notifFreelanceNav.svg"
+            }
             alt="Notifications"
             width={35}
             height={35}
             className="mx-3"
           />
           <Image
-            src="/freelanceProfileNav.svg"
+            src={
+              userType === "client"
+                ? "/clientProfilNav.svg"
+                : "/freelanceProfileNav.svg"
+            }
             alt="Notifications"
             width={60}
             className="mx-3 cursor-pointer relative"
@@ -113,21 +128,45 @@ const Navbar = () => {
             onClick={() => setViewProfilDropdown(!viewProfileDropdown)}
           />
           {viewProfileDropdown && (
-            <div className="flex flex-col p-3 select-profile">
+            <div className={`flex flex-col p-3 select-profile`}>
               <p
-                className="profil-option cursor-pointer py-2 px-3"
-                onClick={() => router.push("/freelance")}
+                className={
+                  userType === "client"
+                    ? "profil-option-client cursor-pointer py-2 px-3"
+                    : "profil-option-indep cursor-pointer py-2 px-3"
+                }
+                onClick={() => {
+                  if (userType === "client") {
+                    router.push("/client");
+                  } else {
+                    router.push("/freelance");
+                  }
+                }}
               >
                 Accueil
               </p>
               <p
-                className="profil-option cursor-pointer py-2 px-3"
-                onClick={() => router.push("/freelance/profil")}
+                className={
+                  userType === "client"
+                    ? "profil-option-client cursor-pointer py-2 px-3"
+                    : "profil-option-indep cursor-pointer py-2 px-3"
+                }
+                onClick={() => {
+                  if (userType === "client") {
+                    router.push("/client/ao");
+                  } else {
+                    router.push("/freelance/profil");
+                  }
+                }}
               >
                 Mon profil
               </p>
               <p
-                className="profil-option cursor-pointer py-2 px-3"
+                className={
+                  userType === "client"
+                    ? "profil-option-client cursor-pointer py-2 px-3"
+                    : "profil-option-indep cursor-pointer py-2 px-3"
+                }
                 onClick={handleSignOut}
               >
                 Déconnexion
@@ -136,8 +175,12 @@ const Navbar = () => {
           )}
         </div>
       ) : (
-        <div className="flex w-4/12 justify-between 2lg:w-5/12">
-          <NavLink href="/signup" background={background} className="mr-5 text-normal">
+        <div className="flex w-4/12 justify-between 2lg:w-5/12 nav-items">
+          <NavLink
+            href="/signup"
+            background={background}
+            className="mr-5 text-normal"
+          >
             Découvrir maintenant
           </NavLink>
           <div
@@ -151,6 +194,81 @@ const Navbar = () => {
           </NavLink>
         </div>
       )}
+
+      {/* Burger Menu for smaller screens */}
+      <div className="burger-menu" onClick={() => setMenuOpen(!menuOpen)}>
+        <div className="burger-line"></div>
+        <div className="burger-line"></div>
+        <div className="burger-line"></div>
+      </div>
+
+      <div className={`menu-items ${menuOpen ? "show" : ""}`}>
+        <NavLink
+          href="/portage"
+          className="text-normal"
+          onClick={() => setMenuOpen(false)}
+        >
+          Société de portage
+        </NavLink>
+        <NavLink
+          href="/metiers"
+          className="text-normal"
+          onClick={() => setMenuOpen(false)}
+        >
+          Métiers
+        </NavLink>
+        <NavLink
+          href="/histoire"
+          className="text-normal"
+          onClick={() => setMenuOpen(false)}
+        >
+          Notre histoire
+        </NavLink>
+        {status === "authenticated" ? (
+          <>
+            <NavLink
+              href="/freelance"
+              className="text-normal"
+              onClick={() => setMenuOpen(false)}
+            >
+              Accueil
+            </NavLink>
+            <NavLink
+              href="/freelance/profil"
+              className="text-normal"
+              onClick={() => setMenuOpen(false)}
+            >
+              Mon profil
+            </NavLink>
+            <p
+              className="text-normal cursor-pointer"
+              onClick={() => {
+                handleSignOut();
+                setMenuOpen(false);
+              }}
+            >
+              Déconnexion
+            </p>
+          </>
+        ) : (
+          <>
+            <NavLink
+              href="/signup"
+              className="text-normal"
+              onClick={() => setMenuOpen(false)}
+            >
+              Découvrir maintenant
+            </NavLink>
+            <NavLink
+              href="/login"
+              className="text-normal"
+              onClick={() => setMenuOpen(false)}
+            >
+              Me connecter
+            </NavLink>
+          </>
+        )}
+      </div>
     </nav>
   );
 };

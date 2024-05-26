@@ -16,18 +16,36 @@ const ClientNavbar = () => {
     await signOut();
     router.push("/");
   };
+  const [logoFullShown, setLogoFullShown] = useState(false);
 
   return (
     <nav className="flex justify-between items-center px-10 pt-4 pb-4">
       <ClientNavLink href="/">
-        <Image src={"/logo.svg"} alt="logo-connect" width={100} height={60} />
+        {logoFullShown ? (
+          <Image
+            src={"/logo_entier.svg"}
+            alt="logo-connect"
+            width={100}
+            height={60}
+            className="logo-full"
+            onMouseLeave={() => setLogoFullShown(false)}
+          />
+        ) : (
+          <Image
+            src={"/logo.svg"}
+            alt="logo-connect"
+            width={100}
+            height={60}
+            onMouseEnter={() => setLogoFullShown(true)}
+            className="logo-connect"
+          />
+        )}
       </ClientNavLink>
 
       <ClientNavLink href="/client/ao">AO</ClientNavLink>
-      <ClientNavLink href="/client/ao">Missions</ClientNavLink>
-      <ClientNavLink href="/client/ao">Mes entretiens</ClientNavLink>
+      <ClientNavLink href="/client/missions">Missions</ClientNavLink>
 
-      <ClientNavLink href="/client/ao" className="text-center">
+      <ClientNavLink href="/client/documents" className="text-center">
         Documents officiels
       </ClientNavLink>
       <div className="flex">
@@ -64,7 +82,7 @@ const ClientNavbar = () => {
             <div className="flex flex-col p-3 select-profile">
               <p
                 className="profil-client-option cursor-pointer py-2 px-3"
-                onClick={() => router.push("/client/ao")}
+                onClick={() => router.push("/client")}
               >
                 Accueil
               </p>
@@ -72,7 +90,7 @@ const ClientNavbar = () => {
                 className="profil-client-option cursor-pointer py-2 px-3"
                 onClick={() => router.push("/client/profil/espace")}
               >
-                Mon espace
+                Mon profil
               </p>
               <p
                 className="profil-client-option cursor-pointer py-2 px-3"

@@ -14,8 +14,6 @@ export default function Home() {
           firstTitle="Nous portons la passion "
           secondTitle="de nos métiers"
           undertitle="Glisse vers toutes les opportunités"
-          image="/sectionHome.svg"
-          background="linear-gradient(135deg, #79B3D1 0%, #D892C0 100%)"
         />
 
         <div className="main-content px-10">
@@ -24,7 +22,7 @@ export default function Home() {
               <h1 className="header-title-text font-bold 2xl:text-center ">
                 Pourquoi Connect et pas une autre ?
               </h1>
-              <h5 className="mt-10 text-2xl 2xl:text-center 2xl:mb-10 ">
+              <h5 className="mt-10 undertitle-text 2xl:text-center 2xl:mb-10 ">
                 Nos valeurs, c&apos;est ce qui nous différencie.
               </h5>
             </div>

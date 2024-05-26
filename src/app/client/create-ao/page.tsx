@@ -6,8 +6,9 @@ import { auth } from "@/auth";
 import Link from "next/link";
 import "@/styles/Client.css";
 import { getClientByEmail } from "@/http/client";
+import ClientIntroSection from "@/components/common/ClientIntroSection";
 
-const ClientPage = async () => {
+const ClientCreateAOPage = async () => {
   const session = await auth();
   const user = await getClientByEmail(session?.user?.email!);
 
@@ -15,20 +16,14 @@ const ClientPage = async () => {
     <>
       <ClientNavbar />
       <main className="flex flex-col items-center justify-between">
-        <FreelanceIntroSection
-          firstTitle="Mon appel d'offres"
-          background="linear-gradient(94deg, rgba(216, 146, 192, 0.65) 0%, rgba(121, 179, 209, 0.65) 99.73%)"
-        />
+        <ClientIntroSection firstTitle="" />
 
-        <div className="flex justify-between w-full px-40 mt-10 flex-col lg:px-10">
-          <Link href="/client/ao">
-            <h5 className="mb-20">&#60;- retour</h5>
-          </Link>
-          <CreateMissionForm user={user}/>
+        <div className="main-content w-full mt-10">
+          <CreateMissionForm user={user} />
         </div>
       </main>
     </>
   );
 };
 
-export default ClientPage;
+export default ClientCreateAOPage;

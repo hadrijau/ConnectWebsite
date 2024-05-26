@@ -74,3 +74,33 @@ export async function PUT(
     return NextResponse.json({ message: "ERROR" }, { status: 500 });
   }
 }
+
+export async function DELETE(
+  request: Request,
+  { params }: { params: { slug: string } }
+) {
+  try {
+    const client = await connectToDatabase();
+    const db = client.db();
+    const objectId = new ObjectId(params.slug);
+
+    const deleteResult = await db
+      .collection("missions")
+      .deleteOne({ _id: objectId });
+
+    if (deleteResult.deletedCount === 0) {
+      return NextResponse.json(
+        { message: "Mission not found" },
+        { status: 404 }
+      );
+    }
+
+    return NextResponse.json(
+      { message: "Mission deleted successfully" },
+      { status: 200 }
+    );
+  } catch (err) {
+    console.error("Error deleting mission:", err);
+    return NextResponse.json({ message: "ERROR" }, { status: 500 });
+  }
+}

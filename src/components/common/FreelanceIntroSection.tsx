@@ -1,47 +1,54 @@
 "use client";
 import React from "react";
 import { usePathname } from "next/navigation";
-import Image from "next/image";
 import "@/styles/components/FreelanceIntroSection.css";
-
+import "@/styles/components/IntroSection.css";
 interface FreelanceIntroSectionProps {
   firstTitle: string;
-  secondTitle?: string;
   undertitle?: string;
   image?: string;
-  background: string;
-  buttonBackground?: string;
 }
 
 const FreelanceIntroSection: React.FC<FreelanceIntroSectionProps> = ({
   firstTitle,
-  secondTitle,
   undertitle,
-  image,
-  background,
 }) => {
   const path = usePathname();
+  let pathImage = "";
+  let pathImageMobile = "";
+
+  if (path.startsWith("/client")) {
+    pathImage = "/clientAccueil.svg";
+    pathImageMobile = "/imgClientTel.svg";
+  } else if (path == "/client/ao") {
+    pathImage = "/clientAO.svg";
+    pathImageMobile = "/imgAccueilTel.svg";
+  } else if (path.startsWith("/client/missions")) {
+    pathImage = "/clientMission.svg";
+    pathImageMobile = "/imgHistoireTel.svg";
+  } else if (path.startsWith("/client/documents")) {
+    pathImage = "/clientOfficialDocuments.svg";
+    pathImageMobile = "/imgIndependantTel.svg";
+  } else if (path.startsWith("/client/create-ao")) {
+    pathImage = "/clientCreateAO.svg";
+    pathImageMobile = "/imgIndependantTel.svg";
+  }
 
   return (
-    <div
-      className="section-freelance-background flex px-20 py-5 justify-between mt-2 leading-relaxed"
-      style={{ background: background }}
-    >
-      <div className="pt-5">
-        <h2 className=" text-6xl text-normal">{firstTitle}</h2>
-        <h2 className=" text-6xl text-normal mt-5">{secondTitle}</h2>
-        <h5 className="my-10 text-xl text-light">{undertitle}</h5>
+    <div>
+      <div className="display-computer">
+        <div className="flex justify-center relative">
+          <img src={pathImage} alt="banner connect"></img>
+          <div className="text-container">
+            <h1 className="header-title-intro-section-text-indep">{firstTitle}</h1>
+            <h5 className="undertitle-text w-8/12 mt-10">{undertitle}</h5>
+          </div>
+        </div>
       </div>
 
-      {image && (
-        <Image
-          src={image}
-          alt="Mission connect"
-          width={0}
-          height={0}
-          className="img-section-freelance"
-        />
-      )}
+      <div className="display-mobile">
+        <img src={pathImageMobile} alt="banner connect"></img>
+      </div>
     </div>
   );
 };

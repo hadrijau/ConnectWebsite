@@ -1,90 +1,30 @@
 import React from "react";
-import FreelanceIntroSection from "@/components/common/FreelanceIntroSection";
-import CardOnGoingMission from "@/components/freelance/CardOnGoingMission";
 import ClientNavbar from "@/components/navbar/ClientNavbar";
-import CardMissionClient from "@/components/freelance/CardMissionClient";
 import { getMissions } from "@/http/mission";
-import ongoingMissions from "@/mockData/ongoingmissions";
 import Link from "next/link";
-import Image from "next/image";
-
 import "@/styles/Client.css";
 import { Mission } from "@/entities/mission";
+import ClientIntroSection from "@/components/common/ClientIntroSection";
 
-const ClientSpacePage = async () => {
+const ClientAOPage = async () => {
   const missions: Mission[] = await getMissions();
   return (
     <>
       <ClientNavbar />
       <main className="flex flex-col items-center justify-between">
-        <FreelanceIntroSection
-          firstTitle="Bienvenue dans"
-          secondTitle="votre espace"
-          undertitle="Le succès n'est pas final, l'échec n'est pas fatal. C'est le courage de continuer qui compte."
-          background="linear-gradient(94deg, rgba(216, 146, 192, 0.65) 0%, rgba(121, 179, 209, 0.65) 99.73%)"
+        <ClientIntroSection
+          firstTitle="Mes appels d'offre"
+          undertitle="Je gère mes appels d’offres en les ajoutant, en les supprimant ou en les modifiant."
         />
 
-        <div className="flex justify-between w-full px-40 mt-10 lg:px-10">
-          <div className="flex-col w-8/12">
-            <div className="flex justify-between w-full">
-              <h1 className="text-semibold header-offres text-2xl">
-                Mes appels d&apos;offres
-              </h1>
-              <Link href="create-ao">+ Ajouter un appel d&apos;offre</Link>
-            </div>
-
-            {missions.map((mission, index: number) => {
-              const {
-                _id,
-                title,
-                price,
-                propositions,
-                date,
-                length,
-              } = mission;
-              return (
-                <CardMissionClient
-                  _id={_id}
-                  key={index}
-                  title={title}
-                  propositions={propositions}
-                  date={date}
-                  companyLogo={"/logoSoge.svg"}
-                  companyName={"Company B"}
-                  price={price}
-                  length={length}
-                />
-              );
-            })}
-          </div>
-
-          <div className="flex flex-col ongoing-mission-container p-10 rounded-3xl w-3/12 items-center">
-            <Image
-              src="/clientMissionSpaceship.svg"
-              width={70}
-              height={70}
-              alt="Missions en cours"
-              className="mb-5"
-            />
-            <h5 className="text-center text-normal text-xl">
-              Les missions en cours...
-            </h5>
-            {ongoingMissions.map((mission, index) => {
-              const { title, company, date } = mission;
-              return (
-                <CardOnGoingMission
-                  key={index}
-                  title={title}
-                  company={company}
-                  date={date}
-                />
-              );
-            })}
-          </div>
+        <div className="flex flex-col justify-between w-full px-40 mt-10 lg:px-10">
+          <Link href="/client/ao">
+            <h5 className="mb-10">&#60;- retour</h5>
+          </Link>
         </div>
       </main>
     </>
   );
 };
 
-export default ClientSpacePage;
+export default ClientAOPage;

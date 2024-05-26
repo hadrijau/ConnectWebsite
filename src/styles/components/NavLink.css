@@ -31,6 +31,10 @@
     color:  #B9D386;
 }
 
+.nav-link-client:hover {
+    color:  #D892C0;
+}
+
 
 .nav-link-freelance, .nav-link-client {
     padding-bottom: 1rem;

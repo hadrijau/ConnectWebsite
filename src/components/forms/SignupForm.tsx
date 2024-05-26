@@ -4,6 +4,7 @@ import Image from "next/image";
 import TextInput from "@/components/common/TextInput";
 import Link from "next/link";
 import * as yup from "yup";
+import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 
 interface SignupFormProps {
   userExists: boolean;
@@ -159,12 +160,7 @@ const SignupForm: React.FC<SignupFormProps> = ({
                 type="submit"
               >
                 <span className="text-white text-sm ml-2 mr-2">Suivant</span>
-                <Image
-                  src="connectionIcon.svg"
-                  width={18}
-                  height={25}
-                  alt="Connection icone"
-                />
+                <ArrowForwardIcon style={{ color: 'white' }}/>
               </button>
             </div>
           </div>

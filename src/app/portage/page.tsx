@@ -30,27 +30,25 @@ const PortagePage = () => {
   return (
     <>
       <Navbar />
-      <main className="flex flex-col items-center justify-between mt-24">
+      <main className="flex flex-col items-center justify-between mt-32">
         <IntroSection
           firstTitle="Connect, la société de portage à"
           secondTitle="taille humaine"
           undertitle="Glisse vers toutes les opportunités"
-          image="/sectionPortage.svg"
-          background="linear-gradient(135deg, #79B3D1 0%, #D892C0 100%)"
         />
 
         <div className="main-content px-10 ">
-          <h1 className="text-4xl text-center mb-20 text-bold mt-20">
+          <h1 className="header-title-text text-center mb-20 text-bold mt-20">
             Tout savoir sur les sociétés de portage salarial
           </h1>
 
           <div className="flex justify-between relative">
             <div className="w-7/12">
               <div className="portage-section" id="section-1">
-                <h1 className="text-2xl portage-title">
+                <h1 className="undertitle-text portage-title">
                   ❓ Qu’est-ce qu’une société de portage ?
                 </h1>
-                <p className="text-xl portage-paragraph">
+                <p className="text-xl portage-paragraph 2lg:text-lg" >
                   Une société de portage est experte dans un ou plusieurs
                   domaines. Connecte jongle entre ses différentes experitises
                   technologiques, banquaires, financiaires et d’assurance.
@@ -64,11 +62,11 @@ const PortagePage = () => {
               </div>
 
               <div className="portage-section py-10" id="section-2">
-                <h1 className="text-2xl portage-title">
+                <h1 className="undertitle-text portage-title">
                   {" "}
                   🦋 Comment fonctionne le statut de portage salarial ?
                 </h1>
-                <p className="text-xl portage-paragraph">
+                <p className="text-xl portage-paragraph 2lg:text-lg">
                   La relation tripartite entre la société de portage, le salarié
                   porté ainsi que le client est simple à comprendre. Pour cela
                   je t’invite à aller voir le schéma représentatif dans la
@@ -81,7 +79,7 @@ const PortagePage = () => {
                   Comment ça marche ?
                 </span>{" "}
                 <br />
-                <p className="text-xl portage-paragraph">
+                <p className="text-xl portage-paragraph 2lg:text-lg">
                   Une entreprise a un besoin en expertise et fait appel à un
                   intervenant. Cet même intervenant convient avec le client de
                   son tarif, le montant des frais, la durée .... La prestation
@@ -102,11 +100,11 @@ const PortagePage = () => {
               </div>
 
               <div className="portage-section py-10" id="section-3">
-                <h1 className="text-2xl portage-title">
+                <h1 className="undertitle-text portage-title">
                   {" "}
                   📌 Quelles étapes pour être salarié porté ?{" "}
                 </h1>
-                <p className="text-xl portage-paragraph">
+                <p className="text-xl portage-paragraph 2lg:text-lg">
                   • Sélectionner l’entreprise de portage : Renseignez vous en
                   amont, faites une simulation, échangez avec le service client
                   si besoin, sélectionnez les entreprises qui vous intéressent.
@@ -114,7 +112,7 @@ const PortagePage = () => {
                   de lui demander de porter votre première mission.{" "}
                 </p>{" "}
                 <br />{" "}
-                <p className="text-xl portage-paragraph">
+                <p className="text-xl portage-paragraph 2lg:text-lg">
                   • Contractualiser la mission : Demandez à l’entreprise de
                   portage un modèle de contrat commercial ou de prestation de
                   services. Vous pourrez ainsi le transmettre à votre client
@@ -127,11 +125,11 @@ const PortagePage = () => {
               </div>
 
               <div className="portage-section py-10" id="section-4">
-                <h1 className="text-2xl portage-title">
+                <h1 className="undertitle-text portage-title">
                   {" "}
                   👍 Quels sont les avantages du portage salarial ?
                 </h1>
-                <p className="text-xl portage-paragraph">
+                <p className="text-xl portage-paragraph 2lg:text-lg">
                   Gain de temps : Que ce soit pour l’entreprise cliente ou le
                   salarié porté, le portage salarial est bénéfique. <br /> La
                   société de portage établit rapidement le contrat de travail et
@@ -140,14 +138,14 @@ const PortagePage = () => {
                   commence à la hâte.{" "}
                 </p>
 
-                <p className="text-xl portage-paragraph mt-6">
+                <p className="text-xl portage-paragraph mt-6 2lg:text-lg">
                   Gain d’argent : En effet, l’expertise se fait rare et elle a
                   un coût. C’est pour cela que la société de portage met à
                   disposition de l’entreprise cliente, un vivier de candidats
                   correspondants aux besoins recherchés. D’autres part, cela
                   diminue le coût de recrutement qu’elle pourrait avoir.
                 </p>
-                <p className="text-xl portage-paragraph mt-6">
+                <p className="text-xl portage-paragraph mt-6 2lg:text-lg">
                   Diverses protections pour le salarié : La société de portage a
                   pour obligation de porter une garantie financière au salarié
                   en cas de défaillance de la société; le salaire sera toujours
@@ -155,7 +153,7 @@ const PortagePage = () => {
                   les avantages salarial tels la mutuelle, la sécurité sociale,
                   chômage, tickets restaurant ...
                 </p>
-                <p className="text-xl portage-paragraph mt-6">
+                <p className="text-xl portage-paragraph mt-6 2lg:text-lg">
                   Revenus stabilisés : Le revenu du salarié porté est choisi en
                   fonction de son volume d’activité. Ainsi, il peut se rémunérer
                   tous les mois en lissant son salaire même lorsqu’il n’est plus
@@ -165,11 +163,11 @@ const PortagePage = () => {
               </div>
 
               <div className="portage-section py-10" id="section-5">
-                <h1 className="text-2xl portage-title">
+                <h1 className="undertitle-text portage-title">
                   {" "}
                   👎 Quels sont les inconvénients du portage salarial ?{" "}
                 </h1>
-                <p className="text-xl portage-paragraph">
+                <p className="text-xl portage-paragraph 2lg:text-lg">
                   L’accessibilité métier : Le portage salarial est accessible
                   uniquement aux métiers de service donc offre un choix
                   restreint. De plus, les métiers de services à la personne ne
@@ -177,11 +175,11 @@ const PortagePage = () => {
                 </p>
               </div>
               <div className="portage-section" id="section-6">
-                <h1 className="text-2xl portage-title">
+                <h1 className="undertitle-text portage-title">
                   {" "}
                   💸 A quel salaire pourrais je prétendre en portage salarial ?
                 </h1>
-                <p className="text-xl portage-paragraph">
+                <p className="text-xl portage-paragraph 2lg:text-lg">
                   Les canaux de communication ne cessent d’évoluer. Vous pensez
                   qu’il suffit de prendre les textes d’une brochure pour
                   alimenter votre site internet par exemple… bien tenté, mais ça
@@ -197,37 +195,37 @@ const PortagePage = () => {
             </div>
             <div className="question-section w-4/12">
               <p
-                className="text-xl my-6 cursor-pointer"
+                className="text-xl my-6 cursor-pointer 2lg:text-lg"
                 onClick={() => handleQuestionClick("section-1")}
               >
                 ❓ Qu’est-ce qu’une société de portage ?
               </p>
               <p
-                className="text-xl my-6 cursor-pointer"
+                className="text-xl my-6 cursor-pointer 2lg:text-lg"
                 onClick={() => handleQuestionClick("section-2")}
               >
                 🦋 Comment fonctionne le statut de portage salarial ?
               </p>
               <p
-                className="text-xl my-6 cursor-pointer"
+                className="text-xl my-6 cursor-pointer 2lg:text-lg"
                 onClick={() => handleQuestionClick("section-3")}
               >
                 📌 Quelles étapes pour être salarié porté ?
               </p>
               <p
-                className="text-xl my-6 cursor-pointer"
+                className="text-xl my-6 cursor-pointer 2lg:text-lg"
                 onClick={() => handleQuestionClick("section-4")}
               >
                 👍 Quels sont les avantages du portage salarial ?
               </p>
               <p
-                className="text-xl my-6 cursor-pointer"
+                className="text-xl my-6 cursor-pointer 2lg:text-lg"
                 onClick={() => handleQuestionClick("section-5")}
               >
                 👎 Quels sont les inconvénients du portage salarial ?
               </p>
               <p
-                className="text-xl my-6 cursor-pointer"
+                className="text-xl my-6 cursor-pointer 2lg:text-lg"
                 onClick={() => handleQuestionClick("section-6")}
               >
                 💸 A quel salaire pourrais je prétendre en portage salarial ?

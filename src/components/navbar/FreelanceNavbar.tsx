@@ -22,12 +22,30 @@ const FreelanceNavBar = () => {
     router.push("/");
   };
 
+  const [logoFullShown, setLogoFullShown] = useState(false);
 
   return (
     <nav className="flex justify-between items-center px-10 pt-4 pb-4 freelance-navbar">
       <FreelanceNavLink href="/">
-        <Image src={"/logo.svg"} alt="logo-connect" width={100} height={60} />
-      </FreelanceNavLink>
+      {logoFullShown ? (
+          <Image
+            src={"/logo_entier.svg"}
+            alt="logo-connect"
+            width={100}
+            height={60}
+            className="logo-full"
+            onMouseLeave={() => setLogoFullShown(false)}
+          />
+        ) : (
+          <Image
+            src={"/logo.svg"}
+            alt="logo-connect"
+            width={100}
+            height={60}
+            onMouseEnter={() => setLogoFullShown(true)}
+            className="logo-connect"
+          />
+        )}      </FreelanceNavLink>
 
       <FreelanceNavLink href="/freelance/entreprise">
         Mon entreprise

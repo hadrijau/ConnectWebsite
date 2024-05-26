@@ -9,23 +9,24 @@ body {
 }
 
 /* Define font weight for bold text */
-b, strong {
+b,
+strong {
   font-weight: 600;
 }
 
 .text-bold {
   font-weight: 600;
-  }
+}
 
-  .font-bold {
-    font-weight: 600;
-  }
+.font-bold {
+  font-weight: 600;
+}
 .text-semibold {
   font-weight: 600;
 }
 
 .text-normal {
-  font-weight: 500
+  font-weight: 500;
 }
 
 .text-light {
@@ -37,11 +38,12 @@ b, strong {
 }
 
 .submit-button {
-  background-color: #79B3D1;
+  background-color: #79b3d1;
 }
 
-.input-grey, .join-connect {
-  background-color: #F0F0F0;
+.input-grey,
+.join-connect {
+  background-color: #f0f0f0;
 }
 
 a {
@@ -49,23 +51,23 @@ a {
 }
 
 .font-green {
-  color: #B9D386;
+  color: #b9d386;
 }
 
 .font-pink {
-  color: #D892C0
+  color: #d892c0;
 }
 
 .color-red {
-  color: red
+  color: red;
 }
 
 .bg-green {
-  background: linear-gradient(0deg, #B9D386, #B9D386);
+  background: linear-gradient(0deg, #b9d386, #b9d386);
 }
 
 .bg-pink {
-  background: linear-gradient(0deg, #D892C0, #D892C0);
+  background: linear-gradient(0deg, #d892c0, #d892c0);
 }
 
 .font-bad-script {
@@ -95,6 +97,12 @@ a {
   font-weight: 600;
 }
 
+.header-title-intro-section-text-indep {
+  font-size: 3rem;
+  line-height: 5rem;
+  font-weight: 500;
+}
+
 .header-title-text {
   font-size: 2.25rem;
 }
@@ -107,7 +115,7 @@ a {
   font-size: 1.25rem;
 }
 
-@media (max-width: 1550px) { 
+@media (max-width: 1550px) {
   main {
     margin-right: 3rem;
     margin-left: 3rem;
@@ -128,6 +136,10 @@ a {
     font-size: 2.25rem;
     line-height: 4rem;
   }
+
+  .header-title-intro-section-text-indep {
+    font-size: 2.25rem;
+  }
   .header-title-text {
     font-size: 1.875rem;
   }
@@ -145,13 +157,30 @@ a {
     font-size: 1.875rem;
     line-height: normal;
   }
+  .header-title-intro-section-text-indep {
+    font-size: 1.875rem;
+  }
   .header-title-text {
-    font-size: 1.5rem;
+    font-size: 1.875rem;
   }
   .undertitle-text {
     font-size: 1.25rem;
   }
   .base-text {
     font-size: 1rem;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .main-indep {
+    margin-right: 2.5rem;
+    margin-left: 2.5rem;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .main-indep {
+    margin-right: 2rem;
+    margin-left: 2rem;
   }
 }
