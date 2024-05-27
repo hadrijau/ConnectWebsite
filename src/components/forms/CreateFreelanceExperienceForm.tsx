@@ -238,7 +238,7 @@ const CreateFreelanceExperienceForm = () => {
           title="OK"
           background="#B9D386"
           textClassName="text-black"
-          handleButtonClick={() => router.push("/freelance/entreprise")}
+          handleButtonClick={() => router.push("/freelance/profil/entreprise")}
         />
       </div>
     </div>

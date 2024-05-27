@@ -52,7 +52,7 @@ const NavBarProfileClient: React.FC<NavBarProfileClientProps> = ({
 }) => {
   const path = usePathname();
   let color: string;
-  if (path.startsWith("/client/profil/espace")) {
+  if (path.startsWith("/client/profil")) {
     color = "#79B3D1";
   } else if (path.startsWith("/client/competences")) {
     color = "#D892C0";
@@ -63,7 +63,7 @@ const NavBarProfileClient: React.FC<NavBarProfileClientProps> = ({
   }
   const welcomeData = [
     {
-      href: "/client/profil/espace",
+      href: "/client/profil",
       title: "Mon profil",
       image: "/welcome4.svg",
     },

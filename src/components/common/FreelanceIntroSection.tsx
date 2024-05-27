@@ -16,22 +16,22 @@ const FreelanceIntroSection: React.FC<FreelanceIntroSectionProps> = ({
   const path = usePathname();
   let pathImage = "";
   let pathImageMobile = "";
-
-  if (path.startsWith("/client")) {
-    pathImage = "/clientAccueil.svg";
-    pathImageMobile = "/imgClientTel.svg";
-  } else if (path == "/client/ao") {
-    pathImage = "/clientAO.svg";
+  
+  if (path == ("/freelance")) {
+    pathImage = "/freelanceAccueil.svg";
+    pathImageMobile = "/imgfreelanceTel.svg";
+  } else if (path.startsWith("/freelance/entreprise")) {
+    pathImage = "/freelanceMyEnterprise.svg";
     pathImageMobile = "/imgAccueilTel.svg";
-  } else if (path.startsWith("/client/missions")) {
-    pathImage = "/clientMission.svg";
+  } else if (path.startsWith("/freelance/missions")) {
+    pathImage = "/freelanceMissions.svg";
     pathImageMobile = "/imgHistoireTel.svg";
-  } else if (path.startsWith("/client/documents")) {
-    pathImage = "/clientOfficialDocuments.svg";
+  } else if (path.startsWith("/freelance/documents")) {
+    pathImage = "/freelanceOfficialDocuments.svg";
     pathImageMobile = "/imgIndependantTel.svg";
-  } else if (path.startsWith("/client/create-ao")) {
-    pathImage = "/clientCreateAO.svg";
-    pathImageMobile = "/imgIndependantTel.svg";
+  } else if (path.startsWith("/freelance/ao")) {
+    pathImage = "/freelanceIntroBg.svg";
+    pathImageMobile = "/imgAccueilTel.svg";
   }
 
   return (

@@ -4,12 +4,17 @@ import Image from "next/image";
 import { usePathname, useRouter } from "next/navigation";
 import FreelanceNavLink from "@/components/navbar/FreelanceNavLink";
 import "@/styles/components/NavBarProfile.css";
-import { signOut } from "next-auth/react";
+import { signOut, useSession } from "next-auth/react";
+import { baseUrl } from "@/lib/baseUrl";
 
 const FreelanceNavBar = () => {
   const path = usePathname();
   const router = useRouter();
+  const { data: session, status } = useSession();
 
+  if (status === "unauthenticated") {
+    router.push("/login")
+  }
   const [openAO, setOpenAO] = useState(false);
   const [openPopupDisconnect, setOpenPopupDisconnect] = useState(false);
 
@@ -17,9 +22,8 @@ const FreelanceNavBar = () => {
     setOpenAO(!openAO);
   };
 
-  const handleSignOut = async () => {
-    await signOut();
-    router.push("/");
+  const handleSignOut = () => {
+    signOut({callbackUrl: `${baseUrl}/login`});
   };
 
   const [logoFullShown, setLogoFullShown] = useState(false);
@@ -27,7 +31,7 @@ const FreelanceNavBar = () => {
   return (
     <nav className="flex justify-between items-center px-10 pt-4 pb-4 freelance-navbar">
       <FreelanceNavLink href="/">
-      {logoFullShown ? (
+        {logoFullShown ? (
           <Image
             src={"/logo_entier.svg"}
             alt="logo-connect"
@@ -45,7 +49,8 @@ const FreelanceNavBar = () => {
             onMouseEnter={() => setLogoFullShown(true)}
             className="logo-connect"
           />
-        )}      </FreelanceNavLink>
+        )}{" "}
+      </FreelanceNavLink>
 
       <FreelanceNavLink href="/freelance/entreprise">
         Mon entreprise
@@ -54,8 +59,8 @@ const FreelanceNavBar = () => {
         <h5
           className={
             path.startsWith("/freelance/ao")
-              ? "cursor-pointer link-active-freelance"
-              : "cursor-pointer nav-link-freelance"
+              ? "cursor-pointer link-active-freelance text-xl text-normal xl:text-base 2lg:text-sm"
+              : "cursor-pointer nav-link-freelance text-xl text-normal xl:text-base 2lg:text-sm"
           }
           onClick={handleOpenAO}
         >

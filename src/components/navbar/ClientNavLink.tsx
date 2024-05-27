@@ -16,13 +16,15 @@ const ClientNavLink: React.FC<ClientNavLinkProps> = ({
 }) => {
   const path = usePathname();
   return (
-    <div
-      className={`${className}`}
-    >
+    <div className={`${className}`}>
       <Link
         href={href}
         {...props}
-        className={path.startsWith(href.toString()) ? "text-xl text-normal link-active-client xl:text-base 2lg:text-sm" : " text-xl text-normal nav-link-client xl:text-base 2lg:text-sm"}
+        className={
+          path.startsWith(href.toString())
+            ? "text-xl text-normal link-active-client xl:text-base 2lg:text-sm"
+            : " text-xl text-normal nav-link-client xl:text-base 2lg:text-sm"
+        }
       >
         {children}
       </Link>

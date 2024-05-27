@@ -11,6 +11,17 @@
     color: #95AA84
 }
 
+.select-profile {
+    border: 1px solid #698754;
+    border-radius: 10px;
+    position: absolute;
+    background-color: white;
+    z-index: 1000;
+    top: 6rem;
+    right: 3rem;
+    width: 180px;
+}
+
 .select-ao {
     border: 1px solid #698754;
     border-radius: 10px;

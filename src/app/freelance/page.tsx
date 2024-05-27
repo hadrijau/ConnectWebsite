@@ -8,7 +8,7 @@ import CardMission from "@/components/freelance/CardMission";
 import ongoingMissions from "@/mockData/ongoingmissions";
 import CardOnGoingMission from "@/components/freelance/CardOnGoingMission";
 import { getMissions } from "@/http/mission";
-import { Mission } from "@/entities/mission";
+import Mission from "@/entities/mission";
 import { auth } from "@/auth";
 import { redirect } from 'next/navigation' 
 
@@ -20,19 +20,17 @@ export default async function FreelancePage() {
     redirect("/")
   }
   
+  console.log("missions", missions)
   return (
     <>
       <FreelanceNavBar />
-      <div className="flex flex-col items-center justify-between mt-32">
+      <main className="flex flex-col items-center justify-between mt-32">
         <FreelanceIntroSection
-          firstTitle="Bienvenue dans"
-          secondTitle="ton espace"
+          firstTitle="Bienvenue dans ton espace"
           undertitle="“Le succès n'est pas final, l'échec n'est pas fatal. C'est le courage de continuer qui compte.”"
-          image="/freelanceIntroSection.svg"
-          background="linear-gradient(94deg, rgba(185, 211, 134, 0.65) 0%, rgba(121, 179, 209, 0.65) 99.73%)"
         />
 
-        <div className="flex justify-between w-full px-40 mt-10 lg:px-20">
+        <div className="flex justify-between w-full mt-10 main-content">
           <div className="flex-col w-7/12 lg:w-8/12">
             <h1 className="text-semibold header-offres text-2xl">
               Les appels d&apos;offre du moment spécialement pour toi
@@ -87,7 +85,7 @@ export default async function FreelancePage() {
             })}
           </div>
         </div>
-      </div>
+      </main>
     </>
   );
 }

@@ -30,6 +30,13 @@ const theme = createTheme({
         }),
       },
     },
+    MuiTableCell: {
+      styleOverrides: {
+        root: {
+          fontFamily: poppins.style.fontFamily,
+        },
+      },
+    },
   },
 });
 

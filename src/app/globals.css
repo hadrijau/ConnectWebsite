@@ -70,6 +70,9 @@ a {
   background: linear-gradient(0deg, #d892c0, #d892c0);
 }
 
+.bg-client {
+  background-color: rgba(235, 202, 224, 1);
+}
 .font-bad-script {
   font-family: var(--font-bad-script);
 }

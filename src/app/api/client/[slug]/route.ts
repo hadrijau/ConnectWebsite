@@ -29,6 +29,8 @@ export async function PUT(
       postalCode,
       city,
       description,
+      sector,
+      lastAOId,
     } = await req.json();
     const client = await connectToDatabase();
     const db = client.db();
@@ -53,6 +55,8 @@ export async function PUT(
           address,
           city,
           description,
+          sector,
+          lastAOId,
         },
       }
     );

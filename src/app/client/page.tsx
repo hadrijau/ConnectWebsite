@@ -2,16 +2,24 @@ import React from "react";
 import CardOnGoingMission from "@/components/freelance/CardOnGoingMission";
 import ClientNavbar from "@/components/navbar/ClientNavbar";
 import CardMissionClient from "@/components/freelance/CardMissionClient";
-import { getMissions } from "@/http/mission";
+import { getMissions, getMissionsByClientId } from "@/http/mission";
 import ongoingMissions from "@/mockData/ongoingmissions";
 import Link from "next/link";
 import Image from "next/image";
 import "@/styles/Client.css";
-import { Mission } from "@/entities/mission";
+import Mission from "@/entities/mission";
 import ClientIntroSection from "@/components/common/ClientIntroSection";
+import { auth } from "@/auth";
+import Loading from "@/app/loading";
 
 const ClientSpacePage = async () => {
-  const missions: Mission[] = await getMissions();
+  const session = await auth();
+
+  if (!session || !session.user || !session.user.id) {
+    return <Loading />
+  }
+  const missions: Mission[] = await getMissionsByClientId(session.user.id);
+
   return (
     <>
       <ClientNavbar />
@@ -27,7 +35,7 @@ const ClientSpacePage = async () => {
               <h1 className="text-semibold header-offres text-2xl">
                 Mes appels d&apos;offres
               </h1>
-              <Link href="/client/create-ao" className="text-normal">+ Ajouter un appel d&apos;offre</Link>
+              <Link href="/client/create-ao" className="text-normal">+ Ajouter un appel d&apos;offres</Link>
             </div>
 
             {missions.map((mission, index: number) => {
@@ -38,6 +46,7 @@ const ClientSpacePage = async () => {
                 propositions,
                 date,
                 length,
+                createdAt
               } = mission;
               return (
                 <CardMissionClient
@@ -50,6 +59,7 @@ const ClientSpacePage = async () => {
                   companyName={"Company B"}
                   price={price}
                   length={length}
+                  createdAt={createdAt}
                 />
               );
             })}

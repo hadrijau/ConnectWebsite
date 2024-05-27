@@ -1,11 +1,11 @@
 "use client";
 import React, { useState } from "react";
-import { createUser, getUserByEmail, updateUser } from "@/http/user";
+import { createUser } from "@/http/user";
 import { useRouter } from "next/navigation";
-import { createFreelance } from "@/http/freelance";
-import { createClient } from "@/http/client";
 import { signIn } from "next-auth/react";
 import CircularProgress from "@mui/material/CircularProgress";
+import Client from "@/entities/client";
+import Freelance from "@/entities/freelance";
 
 //@ts-ignore
 const InformationsChoice = ({ email, firstname, lastname, password }) => {
@@ -14,7 +14,7 @@ const InformationsChoice = ({ email, firstname, lastname, password }) => {
 
   const handleUpdateUser = async (type: string) => {
     setIsLoading(true);
-    await createUser(email, password, firstname, lastname, type);
+    const user = await createUser(email, password, firstname, lastname, type);
 
     const result = await signIn("credentials", {
       redirect: false,
@@ -26,11 +26,38 @@ const InformationsChoice = ({ email, firstname, lastname, password }) => {
     }
 
     if (type == "client") {
-      await createClient(email, firstname, lastname);
-      router.push("/client/profil/espace");
+      const client = new Client({
+        firstname,
+        lastname,
+        email,
+        phoneNumber: "",
+        address: "",
+        postalCode: "",
+        city: "",
+        domainName: "",
+        sector: "",
+        description: "",
+        _id: user._id,
+        lastAOId:  "AO00001"
+      })
+      await client.save();
+      router.push("/client/profil");
       setIsLoading(false);
     } else {
-      await createFreelance(email, firstname, lastname);
+      const freelance = new Freelance({
+        _id: user._id, 
+        title: "",
+        phone: "",
+        firstname,
+        lastname,
+        lastMission: "",
+        lengthMissionWanted: "",
+        descriptionMissionWanted: "",
+        competences: [],
+        profilePicture: "",
+        email,
+      })
+      await freelance.save();
       router.push("/freelance/profil");
       setIsLoading(false);
     }

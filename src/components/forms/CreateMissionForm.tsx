@@ -5,20 +5,18 @@ import Image from "next/image";
 import CustomSelect from "@/components/common/CustomSelect";
 import CustomDateField from "@/components/common/CustomDateField";
 import "@/styles/Client.css";
-import { createMission } from "@/http/mission";
-import FormButton from "@/components/common/FormButton";
 import { useRouter } from "next/navigation";
-import SearchBar from "@/components/common/SearchBar";
-import {
-  lengthOptions,
-  levelOptions,
-  modalitiesOptions,
-} from "@/lib/selectConstants";
-import { Client } from "@/entities/client";
+import { lengthOptions, modalitiesOptions } from "@/lib/selectConstants";
+import Client from "@/entities/client";
 import * as yup from "yup";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import TextInput from "@/components/common/TextInput";
 import LevelSelector from "@/components/common/LevelSelector"; // Import the new component
+import CustomAutocomplete from "../common/CustomAutocomplete";
+import { competences } from "@/lib/competences";
+import Mission from "@/entities/mission";
+import Link from "next/link";
+import { CircularProgress } from "@mui/material";
 
 interface CreateMissionFormProps {
   user: Client;
@@ -29,6 +27,8 @@ const CreateMissionForm: React.FC<CreateMissionFormProps> = ({ user }) => {
   const [hiddenCompany, setHiddenCompany] = useState(false);
   const [hiddenTJM, setHiddenTJM] = useState(false);
   const [hiddenMissionPlace, setHiddenMissionPlace] = useState(false);
+  const [formError, setFormError] = useState<string | null>(null);
+  const [loading, setLoading] = useState(false);
 
   const validationSchema = yup.object({
     title: yup.string().required("Le titre de la mission est obligatoire"),
@@ -36,7 +36,7 @@ const CreateMissionForm: React.FC<CreateMissionFormProps> = ({ user }) => {
     goals: yup.string().required("Les missions et livrables sont obligatoires"),
     date: yup.date().required("La date est obligatoire"),
     price: yup
-      .string()
+      .number()
       .required("Le prix est obligatoire")
       .min(0, "Le prix ne peut pas être négatif"),
     length: yup.number().required("La durée de la mission est obligatoire"),
@@ -46,36 +46,13 @@ const CreateMissionForm: React.FC<CreateMissionFormProps> = ({ user }) => {
     title: "",
     context: "",
     goals: "",
-    date: dayjs("2022-04-17"),
+    date: dayjs(new Date()),
     price: "",
     length: 10,
     modalities: 10,
     hiddenCompany: false,
     hiddenTJM: false,
     hiddenMissionPlace: false,
-  };
-
-  const handleSubmit = async (values: typeof initialValues) => {
-    try {
-      await createMission(
-        values.title,
-        values.context,
-        values.goals,
-        values.date,
-        values.price,
-        lengthOptions.find((option) => option.value === values.length)!.label,
-        modalitiesOptions.find((option) => option.value === values.modalities)!
-          .label,
-        selectedCompetences,
-        values.hiddenCompany,
-        values.hiddenMissionPlace,
-        values.hiddenTJM
-      );
-      router.push("/client/ao");
-      router.refresh();
-    } catch (err) {
-      console.log("Error creating mission", err);
-    }
   };
 
   const [selectedCompetences, setSelectedCompetences] = useState<
@@ -101,21 +78,59 @@ const CreateMissionForm: React.FC<CreateMissionFormProps> = ({ user }) => {
       label: "",
       level: 0,
     },
-    {
-      label: "",
-      level: 0,
-    },
   ]);
 
-  const handleSelectOption = (option: {
-    label: string;
-    level: number;
-  }): void => {
-    setSelectedCompetences([
-      ...selectedCompetences,
-      { label: option.label, level: 0 },
-    ]);
+  const handleFormSubmit = async (values: typeof initialValues) => {
+    try {
+      setLoading(true);
+      const numericPart = parseInt(user.lastAOId.substring(2), 10);
+      const nextNumericPart = numericPart + 1;
+      const newAoId = `AO${nextNumericPart.toString().padStart(5, "0")}`;
+      const client = new Client({
+        firstname: user.firstname,
+        lastname: user.lastname,
+        email: user.email,
+        phoneNumber: user.phoneNumber,
+        address: user.address,
+        postalCode: user.postalCode,
+        city: user.city,
+        sector: user.sector,
+        domainName: user.domainName,
+        description: user.description,
+        _id: user._id,
+        lastAOId: newAoId,
+      });
+      await client.update();
+      const mission = new Mission({
+        clientId: user._id!,
+        title: values.title,
+        context: values.context,
+        goals: values.goals,
+        date: values.date,
+        price: values.price,
+        length: lengthOptions.find((option) => option.value === values.length)!
+          .label,
+        modalities: modalitiesOptions.find(
+          (option) => option.value === values.modalities
+        )!.label,
+        competences: selectedCompetences,
+        hiddenCompany,
+        hiddenMissionPlace,
+        hiddenTJM,
+        aoId: user.lastAOId,
+        postalCode: user.postalCode,
+        city: user.city,
+      });
+      await mission.save();
+      router.push("/client/ao");
+      router.refresh();
+      setLoading(false);
+    } catch (err) {
+      console.log("Error creating mission", err);
+    }
   };
+
+  console.log("selected", selectedCompetences);
 
   const removeCompetence = (option: { label: string; level: number }): void => {
     const updatedOptions = selectedCompetences.filter(
@@ -124,11 +139,29 @@ const CreateMissionForm: React.FC<CreateMissionFormProps> = ({ user }) => {
     setSelectedCompetences(updatedOptions);
   };
 
+  const addCompetence = () => {
+    setSelectedCompetences([...selectedCompetences, { label: "", level: 0 }]);
+  };
+
   return (
     <Formik
       validationSchema={validationSchema}
       initialValues={initialValues}
-      onSubmit={handleSubmit}
+      onSubmit={async (values) => {
+        let error = false;
+        if (selectedCompetences.length == 5) {
+          selectedCompetences.map((competence) => {
+            if (competence.label == "") {
+              error = true;
+              setFormError("Tu dois sélectionner 5 compétences minimum");
+              return;
+            }
+          });
+        }
+        if (!error) {
+          await handleFormSubmit(values);
+        }
+      }}
     >
       {({
         values,
@@ -139,15 +172,19 @@ const CreateMissionForm: React.FC<CreateMissionFormProps> = ({ user }) => {
         errors,
         handleSubmit,
       }) => (
-        <Form className="flex flex-col w-full">
+        <Form className="flex flex-col w-full" onSubmit={handleSubmit}>
+          <Link href="/client/ao" className="w-1/12">
+            <h5 className="mb-10">&#60;- retour</h5>
+          </Link>
           <div className="flex w-full justify-between">
             <div className="flex flex-col w-7/12">
-              <h5 className="text-light mb-3">AO 00002</h5>
+              <h5 className="text-light mb-3">{user.lastAOId}</h5>
               <div className="my-5">
                 <TextInput
                   name="title"
                   type="text"
                   onChange={handleChange}
+                  onBlur={handleBlur}
                   value={values.title}
                   error={touched.title && Boolean(errors.title)}
                   helperText={touched.title && errors.title}
@@ -159,8 +196,9 @@ const CreateMissionForm: React.FC<CreateMissionFormProps> = ({ user }) => {
                   name="context"
                   type="text"
                   multiline
-                  rows={10}
+                  rows={13}
                   onChange={handleChange}
+                  onBlur={handleBlur}
                   value={values.context}
                   error={touched.context && Boolean(errors.context)}
                   helperText={touched.context && errors.context}
@@ -172,7 +210,8 @@ const CreateMissionForm: React.FC<CreateMissionFormProps> = ({ user }) => {
                   name="goals"
                   type="text"
                   multiline
-                  rows={10}
+                  rows={13}
+                  onBlur={handleBlur}
                   onChange={handleChange}
                   value={values.goals}
                   error={touched.goals && Boolean(errors.goals)}
@@ -183,7 +222,9 @@ const CreateMissionForm: React.FC<CreateMissionFormProps> = ({ user }) => {
 
               <div className="flex justify-between mt-5">
                 <div
-                  className="hide-button rounded-2xl w-3/12 p-2"
+                  className={`rounded-2xl cursor-pointer w-3/12 p-2 ${
+                    !hiddenCompany ? `hide-button` : "hide-button-focus"
+                  }`}
                   onClick={() => setHiddenCompany(!hiddenCompany)}
                 >
                   <h5 className="text-normal text-center">
@@ -191,7 +232,9 @@ const CreateMissionForm: React.FC<CreateMissionFormProps> = ({ user }) => {
                   </h5>
                 </div>
                 <div
-                  className="hide-button rounded-2xl w-3/12 p-2"
+                  className={`rounded-2xl cursor-pointer w-3/12 p-2 ${
+                    !hiddenTJM ? `hide-button` : "hide-button-focus"
+                  }`}
                   onClick={() => setHiddenTJM(!hiddenTJM)}
                 >
                   <h5 className="text-normal text-center">
@@ -199,7 +242,9 @@ const CreateMissionForm: React.FC<CreateMissionFormProps> = ({ user }) => {
                   </h5>
                 </div>
                 <div
-                  className="hide-button rounded-2xl w-3/12 p-2"
+                  className={`rounded-2xl cursor-pointer w-3/12 p-2 ${
+                    !hiddenMissionPlace ? `hide-button` : "hide-button-focus"
+                  }`}
                   onClick={() => setHiddenMissionPlace(!hiddenMissionPlace)}
                 >
                   <h5 className="text-normal text-center">
@@ -218,7 +263,7 @@ const CreateMissionForm: React.FC<CreateMissionFormProps> = ({ user }) => {
                   alt="calendrier"
                   className="mr-4"
                 />
-                <div className="w-full">
+                <div className="w-6/12">
                   <Field
                     name="date"
                     component={CustomDateField}
@@ -241,11 +286,12 @@ const CreateMissionForm: React.FC<CreateMissionFormProps> = ({ user }) => {
                   alt="calendrier"
                   className="mr-4"
                 />
-                <div className="w-3/12">
+                <div className="w-4/12">
                   <TextInput
                     name="price"
-                    type="text"
+                    type="number"
                     onChange={handleChange}
+                    onBlur={handleBlur}
                     value={values.price}
                     error={touched.price && Boolean(errors.price)}
                     helperText={touched.price && errors.price}
@@ -306,38 +352,40 @@ const CreateMissionForm: React.FC<CreateMissionFormProps> = ({ user }) => {
                 </p>
               </div>
               <div className="flex my-2 competences-container rounded-2xl p-6 flex-col">
-                <p className="mb-5">
+                <p className=" text-xl text-normal">
                   Compétences requises <span className="color-red">*</span>
                 </p>
-                <SearchBar
-                  createMission={true}
-                  onSelectOption={handleSelectOption}
-                  //@ts-ignore
-                  setSelectedCompetences={setSelectedCompetences}
-                  //@ts-ignore
-                  selectedCompetences={selectedCompetences}
-                  placeholder="Ecriture, UX Design, Communication, Pack Office ..."
-                />
-                {selectedCompetences && (
-                  <div className="flex justify-between mt-5 mb-5">
-                    <p>Compétences</p>
-                    <p>Niveau</p>
-                  </div>
-                )}
+
+                <div className="flex justify-between mt-5 mb-5">
+                  <p>Compétences</p>
+                  <p>Niveau</p>
+                </div>
+
                 {selectedCompetences.map((competence, index) => (
                   <div
-                    key={competence.label}
-                    className="flex flex-row justify-between lg:mx-0"
+                    key={index}
+                    className="flex flex-row justify-between my-1 lg:mx-0"
                   >
-                    <span>
-                      <span
-                        className="mr-3 text-xl cursor-pointer"
+                    {/* {index >= 5 && (
+                      <button
+                        className="mr-2 text-red-500"
                         onClick={() => removeCompetence(competence)}
                       >
                         x
-                      </span>
-                      {competence.label}
-                    </span>
+                      </button>
+                    )} */}
+                    <div className="w-6/12">
+                      <CustomAutocomplete
+                        value={competence.label}
+                        setValue={(newValue) => {
+                          const updatedCompetences = [...selectedCompetences];
+                          updatedCompetences[index].label = newValue || "";
+                          setSelectedCompetences(updatedCompetences);
+                        }}
+                        options={competences}
+                      />
+                    </div>
+
                     <div className="w-5/12 flex justify-center lg:w-7/12">
                       <LevelSelector
                         value={competence.level}
@@ -350,15 +398,30 @@ const CreateMissionForm: React.FC<CreateMissionFormProps> = ({ user }) => {
                     </div>
                   </div>
                 ))}
+
+                <div
+                  className="flex justify-end mt-5 cursor-pointer"
+                  onClick={addCompetence}
+                >
+                  <p className="text-normal">+ Ajoute une compétence</p>
+                </div>
               </div>
+              {formError && <p className="error text-xs">{formError}</p>}
+              {loading ? (
+                <div className="flex justify-center items-center">
+                  <CircularProgress />
+                </div>
+              ) : (
+                <button
+                  className="my-12 py-5 px-10 submit-button rounded-2xl bg-client"
+                  type="submit"
+                >
+                  <span className="text-xl text-semibold ml-2 mr-2">
+                    Publier
+                  </span>
+                </button>
+              )}
             </div>
-          </div>
-          <div className="w-4/12 my-20">
-            <FormButton
-              title="Soumettre la mission"
-              background="#D892C0"
-              handleButtonClick={handleSubmit}
-            />
           </div>
         </Form>
       )}

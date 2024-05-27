@@ -1,24 +1,24 @@
 import React from "react";
 import FreelanceIntroSection from "@/components/common/FreelanceIntroSection";
-import ClientNavbar from "@/components/navbar/ClientNavbar";
 import Link from "next/link";
 
+import "@/styles/Freelance.css";
 import { getMissionById } from "@/http/mission";
 
 import "@/styles/Client.css";
-import DisplayMission from "@/components/freelance/DisplayMission";
+import AnswerMission from "@/components/freelance/AnswerMission";
+import FreelanceNavBar from "@/components/navbar/FreelanceNavbar";
 
 //@ts-ignore
-const FreelanceMissionDetailPage = async ({ params }) => {
+const AnswerMissionPage = async ({ params }) => {
   const mission = await getMissionById(params.slug);
 
   return (
     <>
-      <ClientNavbar />
+      <FreelanceNavBar />
       <main className="flex flex-col items-center justify-between">
         <FreelanceIntroSection
-          firstTitle="Appel d'offre"
-          background="linear-gradient(94deg, rgba(185, 211, 134, 0.65) 0%, rgba(121, 179, 209, 0.65) 99.73%)"
+          firstTitle="Réponse à l'appel d'offres"
 
         />
 
@@ -27,11 +27,11 @@ const FreelanceMissionDetailPage = async ({ params }) => {
             <h5 className="mb-10">&#60;- retour aux appels d&apos;offres</h5>
           </Link>
             
-          <DisplayMission mission={mission} />
+          <AnswerMission mission={mission} />
         </div>
       </main>
     </>
   );
 };
 
-export default FreelanceMissionDetailPage;
+export default AnswerMissionPage;

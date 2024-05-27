@@ -8,6 +8,7 @@ interface CustomUser {
   email: string;
   name: string;
   type: string; // Add the role property
+  id: string; // Add the id property
 }
 
 export const {
@@ -52,27 +53,30 @@ export const {
         }
 
         console.log("user", user);
-        // Return user object including the role
+        // Return user object including the role and id
         return {
           email: user.email,
           name: `${user.firstname} ${user.lastname}`,
+          id: user._id.toString(), // Ensure _id is a string
           type: user.type,
         } as CustomUser; // Specify the type as CustomUser
       },
     }),
   ],
   callbacks: {
-    async session({ session, token, user }) {
-      // Add role to session
+    async session({ session, token }) {
+      // Add id and type to session
       if (token && session.user) {
         (session.user as CustomUser).type = token.type; // Cast session.user to CustomUser
+        (session.user as CustomUser).id = token._id; // Add _id to session
       }
       return session;
     },
     async jwt({ token, user }) {
-      // Add role to token
+      // Add id and type to token
       if (user) {
         token.type = (user as CustomUser).type; // Cast user to CustomUser
+        token._id = (user as CustomUser).id; // Add _id to token
       }
       return token;
     },

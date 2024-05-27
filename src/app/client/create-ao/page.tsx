@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Suspense } from "react";
 import FreelanceIntroSection from "@/components/common/FreelanceIntroSection";
 import ClientNavbar from "@/components/navbar/ClientNavbar";
 import CreateMissionForm from "@/components/forms/CreateMissionForm";
@@ -7,6 +7,7 @@ import Link from "next/link";
 import "@/styles/Client.css";
 import { getClientByEmail } from "@/http/client";
 import ClientIntroSection from "@/components/common/ClientIntroSection";
+import Loading from "@/app/loading";
 
 const ClientCreateAOPage = async () => {
   const session = await auth();
@@ -18,9 +19,11 @@ const ClientCreateAOPage = async () => {
       <main className="flex flex-col items-center justify-between">
         <ClientIntroSection firstTitle="" />
 
-        <div className="main-content w-full mt-10">
-          <CreateMissionForm user={user} />
-        </div>
+        <Suspense fallback={<Loading />}>
+          <div className="main-content w-full mt-10">
+            <CreateMissionForm user={user} />
+          </div>
+        </Suspense>
       </main>
     </>
   );

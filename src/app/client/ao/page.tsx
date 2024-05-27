@@ -1,13 +1,23 @@
 import React from "react";
 import ClientNavbar from "@/components/navbar/ClientNavbar";
-import { getMissions } from "@/http/mission";
+import { getMissions, getMissionsByClientId } from "@/http/mission";
 import Link from "next/link";
 import "@/styles/Client.css";
-import { Mission } from "@/entities/mission";
+import Mission from "@/entities/mission";
 import ClientIntroSection from "@/components/common/ClientIntroSection";
+import Box from "@mui/material/Box";
+import DataGridAO from "@/components/datagrid/DatagridAO";
+import { auth } from "@/auth";
+import Loading from "@/app/loading";
 
 const ClientAOPage = async () => {
-  const missions: Mission[] = await getMissions();
+  const session = await auth();
+
+  if (!session || !session.user || !session.user.id) {
+    return <Loading />
+  }
+  const missions: Mission[] = await getMissionsByClientId(session.user.id);
+
   return (
     <>
       <ClientNavbar />
@@ -17,10 +27,12 @@ const ClientAOPage = async () => {
           undertitle="Je gère mes appels d’offres en les ajoutant, en les supprimant ou en les modifiant."
         />
 
-        <div className="flex flex-col justify-between w-full px-40 mt-10 lg:px-10">
-          <Link href="/client/ao">
-            <h5 className="mb-10">&#60;- retour</h5>
+        <div className="main-content w-full">
+          <Link href="/client/create-ao" className="text-normal text-base ml-5">
+            + Ajouter un appel d&apos;offres
           </Link>
+
+          <DataGridAO missions={missions} />
         </div>
       </main>
     </>

@@ -17,6 +17,7 @@ interface CardMissionClientProps {
   propositions: number;
   date: Date;
   length: string;
+  createdAt: Date;
 }
 
 const CardMissionClient: FC<CardMissionClientProps> = ({
@@ -27,6 +28,7 @@ const CardMissionClient: FC<CardMissionClientProps> = ({
   price,
   propositions,
   date,
+  createdAt,
   length,
 }) => {
   const formattedDate =
@@ -36,6 +38,10 @@ const CardMissionClient: FC<CardMissionClientProps> = ({
 
   const router = useRouter();
   const [open, setOpen] = React.useState(false);
+  const currentDate = new Date();
+  const createdAtDate = new Date(createdAt);
+  const timeDifference = currentDate.getTime() - createdAtDate.getTime();
+  const daysDifference = Math.floor(timeDifference / (1000 * 3600 * 24));
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -47,16 +53,36 @@ const CardMissionClient: FC<CardMissionClientProps> = ({
 
   const handleDelete = async () => {
     await deleteMission(String(_id));
+    handleClose()
     router.refresh();
   };
 
   return (
-    <div className="flex items-center w-full relative">
-      <div className="flex">
-        <Image src="" width={30} height={30} alt="publication AO" />
-      </div>
-      <Link href={`ao/${_id}`} className="w-full">
-        <div className="flex card-mission-container p-4 my-10 w-full">
+    <div className="flex items-center w-full">
+      <Link href={`/client/ao/${_id}`} className="w-full">
+        <div className="flex card-mission-container p-4 my-10 w-full relative">
+          <div className="flex absolute top-2 right-3">
+            <div className="flex items-center">
+              <Image
+                src="/clientMissionModify.svg"
+                width={20}
+                height={20}
+                alt="publication AO"
+              />
+
+              <p className="text-normal text-xs ml-2 mr-4">Publiée il y a {daysDifference} jours</p>
+            </div>
+            <div className="flex items-center">
+              <Image
+                src="/clientHeart.svg"
+                width={30}
+                height={30}
+                alt="publication AO"
+              />
+
+              <p className="text-normal text-xs ml-1">6</p>
+            </div>
+          </div>
           <Image
             src={companyLogo}
             alt="logo"

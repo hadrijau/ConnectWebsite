@@ -1,20 +1,22 @@
 "use client";
 import React, { useState } from "react";
 import Image from "next/image";
-import { usePathname, useRouter } from "next/navigation";
+import { useRouter } from "next/navigation";
 import ClientNavLink from "@/components/navbar/ClientNavLink";
-import { signOut } from "next-auth/react";
+import { useSession, signOut } from "next-auth/react";
 import "@/styles/components/NavBarProfile.css";
+import { baseUrl } from "@/lib/baseUrl";
 
 const ClientNavbar = () => {
-  const path = usePathname();
   const router = useRouter();
-
+  const { data: session, status } = useSession();
   const [openPopupDisconnect, setOpenPopupDisconnect] = useState(false);
 
-  const handleSignOut = async () => {
-    await signOut();
-    router.push("/");
+  if (status === "unauthenticated") {
+    router.push("/login")
+  }
+  const handleSignOut = () => {
+    signOut({callbackUrl: `${baseUrl}/login`});
   };
   const [logoFullShown, setLogoFullShown] = useState(false);
 
@@ -88,13 +90,13 @@ const ClientNavbar = () => {
               </p>
               <p
                 className="profil-client-option cursor-pointer py-2 px-3"
-                onClick={() => router.push("/client/profil/espace")}
+                onClick={() => router.push("/client/profil")}
               >
                 Mon profil
               </p>
               <p
                 className="profil-client-option cursor-pointer py-2 px-3"
-                onClick={() => handleSignOut()}
+                onClick={handleSignOut}
               >
                 Déconnexion
               </p>

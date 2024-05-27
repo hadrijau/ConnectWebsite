@@ -4,13 +4,11 @@ import Image from "next/image";
 import TextInput from "@/components/common/TextInput";
 import FormButton from "@/components/common/FormButton";
 import { Formik, Form, Field, ErrorMessage } from "formik";
-import { updateFreelance } from "@/http/freelance";
 import { useRouter } from "next/navigation";
 import * as yup from "yup";
 import CustomUpload from "../upload/CustomUpload";
-import { Freelance } from "@/entities/freelance";
+import Freelance from "@/entities/freelance";
 import CircularProgress from "@mui/material/CircularProgress";
-import { signOut } from "next-auth/react";
 
 interface CreateProfileFreelanceFormProps {
   user: Freelance;
@@ -54,16 +52,21 @@ const CreateProfileFreelanceForm: React.FC<CreateProfileFreelanceFormProps> = ({
       onSubmit={async (values) => {
         setIsLoading(true);
         try {
-          await updateFreelance(
-            user.email,
-            values.title,
-            values.phone,
-            values.lastMission,
-            values.lengthMissionWanted,
-            values.descriptionMissionWanted,
-            downloadUrl
-          );
-          router.push("/freelance/competences");
+          const updatedFreelance = new Freelance({
+            email: user.email,
+            title: values.title,
+            phone: values.phone,
+            lastMission: values.lastMission,
+            lengthMissionWanted: values.lengthMissionWanted,
+            descriptionMissionWanted: values.descriptionMissionWanted,
+            profilePicture: downloadUrl,
+            competences: user.competences,
+            _id: user._id,
+            lastname: user.lastname,
+            firstname: user.firstname
+          })
+          await updatedFreelance.update()
+          router.push("/freelance/profil/competences");
           setIsLoading(false);
         } catch (err) {
           console.log("err", err);

@@ -40,7 +40,7 @@ const LoginPage = () => {
 
     if (user.type === "client") {
       setIsLoading(false);
-      router.push("/client/ao");
+      router.push("/client");
     } else if (user.type === "freelance") {
       setIsLoading(false);
       router.push("/freelance");

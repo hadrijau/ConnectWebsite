@@ -11,7 +11,7 @@ const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
 
   let userType = session?.user?.type;
-  console.log("userType", userType);
+
   const handleSignOut = () => {
     signOut();
     router.push("/");
@@ -153,7 +153,7 @@ const Navbar = () => {
                 }
                 onClick={() => {
                   if (userType === "client") {
-                    router.push("/client/ao");
+                    router.push("/client/profil");
                   } else {
                     router.push("/freelance/profil");
                   }

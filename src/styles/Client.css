@@ -20,6 +20,10 @@ textarea {
   border-bottom: 1px solid #a9a5a5;
 }
 
+.popup-datagrid {
+  width: 150px;
+}
+
 input:focus-visible {
   outline: none;
 }
@@ -49,9 +53,9 @@ input:focus-visible {
 }
 
 .img-modification {
-  margin-left: 70%;
   margin-bottom: 2rem;
   cursor: pointer;
+  align-self: end;
 }
 
 .delete-account-button {
@@ -106,6 +110,11 @@ input:focus-visible {
 }
 .hide-button {
     border: 5px solid rgba(216, 146, 192, 1);
+}
+.hide-button-focus {
+  border: 5px solid rgba(216, 146, 192, 1);
+  background-color: rgba(216, 146, 192, 1);
+  color: white;
 }
 @media screen and (max-width: 1300px) {
   .nav-profil-img {

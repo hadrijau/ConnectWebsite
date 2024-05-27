@@ -20,7 +20,7 @@ const ClientIntroSection: React.FC<ClientIntroSectionProps> = ({
   if (path == "/client") {
     pathImage = "/clientAccueil.svg";
     pathImageMobile = "/imgClientTel.svg";
-  } else if (path == "/client/ao") {
+  } else if (path.startsWith("/client/ao")) {
     pathImage = "/clientAO.svg";
     pathImageMobile = "/imgAccueilTel.svg";
   } else if (path.startsWith("/client/missions")) {

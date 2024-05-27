@@ -7,7 +7,8 @@ import dayjs from "dayjs";
 import TextInput from "@/components/common/TextInput";
 import CustomUpload from "@/components/upload/CustomUpload";
 import "@/styles/Freelance.css";
-import { Mission } from "@/entities/mission";
+import Mission from "@/entities/mission";
+import CompetencesContainer from "@/components/common/CompetencesContainer";
 
 interface AnswerMissionProps {
   mission: Mission
@@ -130,6 +131,20 @@ const AnswerMission:React.FC<AnswerMissionProps> = ({ mission }) => {
                 className="mr-4"
               />
             </div>
+            <div className="flex my-2">
+                <Image
+                  src="/ImageMap.svg"
+                  height={25}
+                  width={25}
+                  alt="calendrier"
+                  className="mr-4"
+                />
+                <p className="mt-1">
+                  {mission.city}, {mission.postalCode}
+                </p>
+              </div>
+              <CompetencesContainer competences={mission.competences} freelance={true}/>
+
           </div>
         </div>
       </div>

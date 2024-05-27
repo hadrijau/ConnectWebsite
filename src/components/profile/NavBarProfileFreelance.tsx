@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import Image from "next/image";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import Link from "next/link";
 import "@/styles/Freelance.css";
 import CustomDialog from "../common/CustomDialog";
@@ -14,12 +14,13 @@ const NavBarProfileFreelance: React.FC<NavBarProfileFreelanceProps> = ({
   className,
 }) => {
   const path = usePathname();
+  const router = useRouter();
   let color: string;
-  if (path.startsWith("/freelance/profil")) {
+  if (path == ("/freelance/profil")) {
     color = "#79B3D1";
-  } else if (path.startsWith("/freelance/competences")) {
+  } else if (path == ("/freelance/profil/competences")) {
     color = "#D892C0";
-  } else if (path.startsWith("/freelance/experiences")) {
+  } else if (path == ("/freelance/profil/experiences")) {
     color = "#79B3D1";
   } else {
     color = "#D892C0";
@@ -31,17 +32,17 @@ const NavBarProfileFreelance: React.FC<NavBarProfileFreelanceProps> = ({
       image: "/welcome1.svg",
     },
     {
-      href: "/freelance/competences",
+      href: "/freelance/profil/competences",
       title: "Mes compétences",
       image: "/welcome2.svg",
     },
     {
-      href: "/freelance/experiences",
+      href: "/freelance/profil/experiences",
       title: "Mes expériences",
       image: "/welcome3.svg",
     },
     {
-      href: "/freelance/entreprise",
+      href: "/freelance/profil/entreprise",
       title: "Mon entreprise",
       image: "/welcome4.svg",
     },
@@ -57,6 +58,10 @@ const NavBarProfileFreelance: React.FC<NavBarProfileFreelanceProps> = ({
     setOpen(false);
   };
 
+  const handleNavigate = (href: string) => {
+    router.push(href)
+    router.refresh()
+  }
   return (
     <div className={`flex-col bg-green pt-10 px-10 ${className}`}>
       <Link href="/">
@@ -72,13 +77,13 @@ const NavBarProfileFreelance: React.FC<NavBarProfileFreelanceProps> = ({
       {welcomeData.map((data, index) => {
         const { href, title, image } = data;
         return (
-          <Link href={href} key={index} className="flex my-10">
+          <div onClick={() => handleNavigate(href)} key={index} className="flex my-10">
             <div className="bg-white rounded-full overflow-hidden">
               <Image src={image} alt="Mon Profil" width={130} height={130} />
             </div>
             <div
               className={
-                path.startsWith(href.toString())
+                path == href.toString()
                   ? "flex justify-center items-center ml-10 freelance-active"
                   : "flex justify-center items-center ml-10"
               }
@@ -86,7 +91,7 @@ const NavBarProfileFreelance: React.FC<NavBarProfileFreelanceProps> = ({
               <h5
                 className="font-normal text-xl"
                 style={
-                  path.startsWith(href.toString())
+                  path == href.toString()
                     ? {
                         fontWeight: "bold",
                         borderBottom: `5px solid ${color}`,
@@ -98,7 +103,7 @@ const NavBarProfileFreelance: React.FC<NavBarProfileFreelanceProps> = ({
                 {title}
               </h5>
             </div>
-          </Link>
+          </div>
         );
       })}
 

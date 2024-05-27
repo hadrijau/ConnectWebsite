@@ -1,14 +1,17 @@
+"use client"
 import React from "react";
 import Image from "next/image";
 import FormButton from "@/components/common/FormButton";
 import Link from "next/link";
-import { Mission } from "@/entities/mission";
+import Mission from "@/entities/mission";
+import CompetencesContainer from "@/components/common/CompetencesContainer";
 
 interface DisplayMissionProps {
-  mission: Mission
+  mission: Mission;
+  freelance?: boolean;
 }
 
-const DisplayMission:React.FC<DisplayMissionProps> = ({ mission }) => {
+const DisplayMission: React.FC<DisplayMissionProps> = ({ mission, freelance }) => {
   return (
     <div className="flex flex-col w-full">
       <div className="flex flex-col w-full">
@@ -41,6 +44,7 @@ const DisplayMission:React.FC<DisplayMissionProps> = ({ mission }) => {
           </div>
 
           <div className="flex flex-col w-4/12">
+
             <div className="flex my-2">
               <Image
                 src="/freelanceMissionCalendar.svg"
@@ -82,15 +86,28 @@ const DisplayMission:React.FC<DisplayMissionProps> = ({ mission }) => {
                 className="mr-4"
               />
             </div>
+            <div className="flex my-2">
+                <Image
+                  src="/ImageMap.svg"
+                  height={25}
+                  width={25}
+                  alt="calendrier"
+                  className="mr-4"
+                />
+                <p className="mt-1">
+                  {mission.city}, {mission.postalCode}
+                </p>
+              </div>
+              <CompetencesContainer competences={mission.competences} freelance={true}/>
           </div>
         </div>
         <div className=" flex items-center justify-center w-7/12">
-          <div className="w-5/12 my-20">
-            <Link href={`/freelance/mission/answer/${mission._id}`}>
+          <div className="w-5/12 mb-20 mt-5">
+            <Link href={`/freelance/ao/answer/${mission._id}`}>
               <FormButton
                 title="Répondre"
                 background="#B9D38680"
-                textClassName="text-black"
+                textClassName="text-black text-semibold text-xl"
               />
             </Link>
           </div>

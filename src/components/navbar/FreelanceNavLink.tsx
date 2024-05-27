@@ -16,13 +16,15 @@ const FreelanceNavLink: React.FC<FreelanceNavLinkProps> = ({
 }) => {
   const path = usePathname();
   return (
-    <div
-      className={`${className}`}
-    >
+    <div className={`${className}`}>
       <Link
         href={href}
         {...props}
-        className={path.startsWith(href.toString()) ? "link-active-freelance" : "nav-link-freelance"}
+        className={
+          path.startsWith(href.toString())
+            ? "text-xl text-normal link-active-freelance xl:text-base 2lg:text-sm"
+            : " text-xl text-normal nav-link-freelance xl:text-base 2lg:text-sm"
+        }
       >
         {children}
       </Link>

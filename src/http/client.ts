@@ -62,11 +62,10 @@ export async function getClientByEmail(email: string) {
     headers: {
       "Content-Type": "application/json",
     },
-    next: { revalidate: 360000 },
   });
 
   const data = await response.json();
-
+  console.log("data", data);
   if (!response.ok) {
     throw new Error(data.message);
   }

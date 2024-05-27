@@ -31,6 +31,7 @@ export async function POST(req: Request) {
       firstname: firstname,
       lastname: lastname,
       type: type,
+      _id: result.insertedId,
     };
     return NextResponse.json(
       { message: "Created User", user: userData },

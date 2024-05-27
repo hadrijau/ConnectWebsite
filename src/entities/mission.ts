@@ -1,14 +1,161 @@
 import { ObjectId } from "mongodb";
+import dayjs, { Dayjs } from "dayjs";
+import Proposition from "@/entities/proposition";
 
-export interface Mission {
-  _id: ObjectId;
+interface MissionProps {
+  clientId: ObjectId;
   title: string;
   context: string;
   goals: string;
-  date: Date;
-  price: number;
+  date: Dayjs;
+  price: string;
   length: string;
   modalities: string;
-  propositions: number;
   competences: { label: string; level: number }[];
+  hiddenCompany: boolean;
+  hiddenMissionPlace: boolean;
+  hiddenTJM: boolean;
+  aoId: string;
+  city: string;
+  postalCode: string;
+  _id?: ObjectId;
+  propositions?: Proposition[];
 }
+
+class Mission {
+  _id?: ObjectId;
+  propositions?: Proposition[];
+  clientId: ObjectId;
+  title: string;
+  context: string;
+  goals: string;
+  date: Dayjs;
+  price: string;
+  length: string;
+  modalities: string;
+  competences: { label: string; level: number }[];
+  createdAt: Date;
+  hiddenCompany: boolean;
+  hiddenMissionPlace: boolean;
+  hiddenTJM: boolean;
+  aoId: string;
+  city: string;
+  postalCode: string;
+
+  constructor({
+    clientId,
+    title,
+    context,
+    goals,
+    date,
+    price,
+    length,
+    modalities,
+    competences,
+    hiddenCompany,
+    hiddenMissionPlace,
+    hiddenTJM,
+    aoId,
+    city,
+    postalCode,
+    _id,
+    propositions,
+  }: MissionProps) {
+    this.clientId = clientId;
+    this.title = title;
+    this.context = context;
+    this.goals = goals;
+    this.date = date;
+    this.price = price;
+    this.length = length;
+    this.modalities = modalities;
+    this.competences = competences;
+    this.createdAt = new Date();
+    this.hiddenCompany = hiddenCompany;
+    this.hiddenMissionPlace = hiddenMissionPlace;
+    this.hiddenTJM = hiddenTJM;
+    this.aoId = aoId;
+    this.city = city;
+    this.postalCode = postalCode;
+    if (propositions) {
+      this.propositions = propositions;
+    }
+    if (_id) {
+      this._id = _id;
+    }
+  }
+
+  async save() {
+    const response = await fetch("/api/mission", {
+      method: "POST",
+      body: JSON.stringify({
+        clientId: this.clientId,
+        title: this.title,
+        context: this.context,
+        goals: this.goals,
+        date: this.date,
+        price: this.price,
+        length: this.length,
+        modalities: this.modalities,
+        competences: this.competences,
+        createdAt: this.createdAt,
+        hiddenCompany: this.hiddenCompany,
+        hiddenMissionPlace: this.hiddenMissionPlace,
+        hiddenTJM: this.hiddenTJM,
+        aoId: this.aoId,
+        city: this.city,
+        postalCode: this.postalCode,
+      }),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+
+    const data = await response.json();
+
+    if (!response.ok) {
+      throw new Error(data.message);
+    }
+
+    return data;
+  }
+
+  async update() {
+    if (!this._id) {
+      throw new Error("Mission ID (_id) is required for update");
+    }
+
+    const response = await fetch(`/api/mission/${this._id}`, {
+      method: "PUT",
+      body: JSON.stringify({
+        title: this.title,
+        context: this.context,
+        goals: this.goals,
+        date: this.date,
+        price: this.price,
+        length: this.length,
+        modalities: this.modalities,
+        competences: this.competences,
+        hiddenCompany: this.hiddenCompany,
+        hiddenMissionPlace: this.hiddenMissionPlace,
+        hiddenTJM: this.hiddenTJM,
+        aoId: this.aoId,
+        city: this.city,
+        postalCode: this.postalCode,
+      }),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+
+    const data = await response.json();
+
+    if (!response.ok) {
+      throw new Error(data.message);
+    }
+
+    return data;
+  }
+}
+
+export default Mission;

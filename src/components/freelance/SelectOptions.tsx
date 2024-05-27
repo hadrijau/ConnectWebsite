@@ -5,8 +5,7 @@ import Link from "next/link";
 import FormButton from "@/components/common/FormButton";
 import "@/styles/Freelance.css";
 import { useRouter } from "next/navigation";
-import { updateFreelanceCompetences } from "@/http/freelance";
-import { Freelance } from "@/entities/freelance";
+import Freelance from "@/entities/freelance";
 import CircularProgress from "@mui/material/CircularProgress";
 
 interface SelectOptionsProps {
@@ -45,10 +44,24 @@ const SelectOptions: React.FC<SelectOptionsProps> = ({ user }) => {
     setIsLoading(true)
     if (selectedCompetences.length < 5) {
       setError("Sélectionne 5 compétences minimum");
+      setIsLoading(false)
       return;
     }
-    await updateFreelanceCompetences(user.email, selectedCompetences);
-    router.push("/freelance/experiences");
+    const updatedFreelance = new Freelance({
+      email: user.email,
+      title: user.title,
+      phone: user.phone,
+      lastMission: user.lastMission,
+      lengthMissionWanted: user.lengthMissionWanted,
+      descriptionMissionWanted: user.descriptionMissionWanted,
+      profilePicture: user.profilePicture,
+      competences: selectedCompetences,
+      _id: user._id,
+      lastname: user.lastname,
+      firstname: user.firstname
+    })
+    await updatedFreelance.update();
+    router.push("/freelance/profil/experiences");
     setIsLoading(false)
   };
 

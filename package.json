@@ -16,6 +16,7 @@
     "@mui/material": "^5.15.11",
     "@mui/material-nextjs": "^5.15.11",
     "@mui/system": "^5.15.15",
+    "@mui/x-data-grid": "^6.20.0",
     "@mui/x-date-pickers": "^6.19.6",
     "@react-hook/media-query": "^1.1.1",
     "bcryptjs": "^2.4.3",
