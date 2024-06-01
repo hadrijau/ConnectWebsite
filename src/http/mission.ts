@@ -36,7 +36,6 @@ export async function getMissionById(slug: string) {
   }
 
   const data = await res.json();
-  console.log("DATA", data);
   return data;
 }
 

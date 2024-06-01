@@ -28,7 +28,7 @@ const ClientAOPage = async () => {
         />
 
         <div className="main-content w-full">
-          <Link href="/client/create-ao" className="text-normal text-base ml-5">
+          <Link href="/client/ao/create-ao" className="text-normal text-base ml-5">
             + Ajouter un appel d&apos;offres
           </Link>
 

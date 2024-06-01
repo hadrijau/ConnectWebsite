@@ -77,7 +77,7 @@ const NavBarProfileFreelance: React.FC<NavBarProfileFreelanceProps> = ({
       {welcomeData.map((data, index) => {
         const { href, title, image } = data;
         return (
-          <div onClick={() => handleNavigate(href)} key={index} className="flex my-10">
+          <div onClick={() => handleNavigate(href)} key={index} className="flex my-10 cursor-pointer">
             <div className="bg-white rounded-full overflow-hidden">
               <Image src={image} alt="Mon Profil" width={130} height={130} />
             </div>

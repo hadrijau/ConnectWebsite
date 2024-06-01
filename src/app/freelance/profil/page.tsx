@@ -19,7 +19,7 @@ const ProfileFreelancePage = async () => {
           </h5>
         </div>
         <div className="flex-col mt-5 ml-20">
-          <h1 className="font-bold text-3xl font-green">Mon profil</h1>
+          <h1 className="font-semibold text-3xl font-green">Mon profil</h1>
           <h5 className="font-normal text-xl mt-5">On fait connaissance ?</h5>
           <CreateProfileFreelanceForm user={user}/>
         </div>

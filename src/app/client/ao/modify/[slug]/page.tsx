@@ -4,6 +4,7 @@ import ClientNavbar from "@/components/navbar/ClientNavbar";
 import { getMissionById } from "@/http/mission";
 import ModifyMissionForm from "@/components/forms/ModifyMissionForm";
 import "@/styles/Client.css";
+import ClientIntroSection from "@/components/common/ClientIntroSection";
 
 //@ts-ignore
 const ClientAOModifyPage = async ({ params }) => {
@@ -13,7 +14,7 @@ const ClientAOModifyPage = async ({ params }) => {
     <>
       <ClientNavbar />
       <main className="flex flex-col items-center justify-between">
-        <FreelanceIntroSection
+        <ClientIntroSection
           firstTitle="Mes appels d'offres"
           undertitle="Je gère mes appels d’offres en les ajoutant, en les supprimant ou en les modifiant. "
         />

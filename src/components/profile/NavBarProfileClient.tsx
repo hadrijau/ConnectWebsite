@@ -110,7 +110,7 @@ const NavBarProfileClient: React.FC<NavBarProfileClientProps> = ({
                 style={
                   path.startsWith(href.toString())
                     ? {
-                        fontWeight: "bold",
+                        fontWeight: 600,
                         borderBottom: `5px solid ${color}`,
                         paddingBottom: "0.5rem",
                       }

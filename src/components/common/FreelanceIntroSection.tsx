@@ -17,6 +17,7 @@ const FreelanceIntroSection: React.FC<FreelanceIntroSectionProps> = ({
   let pathImage = "";
   let pathImageMobile = "";
   
+  
   if (path == ("/freelance")) {
     pathImage = "/freelanceAccueil.svg";
     pathImageMobile = "/imgfreelanceTel.svg";

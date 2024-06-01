@@ -1,8 +1,12 @@
 import React from "react";
 import NavBarProfile from "@/components/profile/NavBarProfileFreelance";
 import CreateFreelanceExperienceForm from "@/components/forms/CreateFreelanceExperienceForm";
+import { auth } from "@/auth";
+import { getFreelanceByEmail } from "@/http/freelance";
 
-const ExperienceFreelancePage = () => {
+const ExperienceFreelancePage = async () => {
+  const session = await auth();
+  const user = await getFreelanceByEmail(session?.user?.email!);
   return (
     <div className="flex min-h-screen">
       <NavBarProfile className="w-4/12 fixed overflow-y-auto min-h-screen" />
@@ -23,7 +27,7 @@ const ExperienceFreelancePage = () => {
             expériences les plus significatives pour valoriser ton profil.
           </p>
 
-          <CreateFreelanceExperienceForm />
+          <CreateFreelanceExperienceForm user={user} />
         </div>
       </div>
     </div>

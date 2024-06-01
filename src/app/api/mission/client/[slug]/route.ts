@@ -11,13 +11,11 @@ export async function GET(
   try {
     const client = await connectToDatabase();
     const db = client.db();
-    console.log("slug", params.slug);
     const missions = await db
       .collection("missions")
       .find({ clientId: params.slug })
       .toArray();
 
-    console.log("missions", missions);
     return NextResponse.json(missions, { status: 200 });
   } catch (err) {
     return NextResponse.json({ message: "ERROR" }, { status: 500 });

@@ -8,9 +8,7 @@ export async function GET(
   try {
     const client = await connectToDatabase();
     const db = client.db();
-    console.log("prams", params.slug);
     const user = await db.collection("users").findOne({ email: params.slug });
-    console.log("user", user);
     return NextResponse.json(user, { status: 200 });
   } catch (err) {
     return NextResponse.json({ message: "ERROR" }, { status: 500 });

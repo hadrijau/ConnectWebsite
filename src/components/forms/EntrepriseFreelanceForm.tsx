@@ -6,7 +6,6 @@ import CustomSelect from "@/components/common/CustomSelect";
 import CustomDatePicker from "@/components/common/CustomDatePicker";
 import dayjs, { Dayjs } from "dayjs";
 import Link from "next/link";
-
 import "@/styles/Freelance.css";
 import { typeOfContractOptions } from "@/lib/selectConstants";
 import { useRouter } from "next/navigation";

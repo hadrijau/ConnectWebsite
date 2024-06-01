@@ -1,247 +1,261 @@
 "use client";
-import React, { useState } from "react";
+import React, { use, useState } from "react";
 import TextInput from "@/components/common/TextInput";
 import FormButton from "@/components/common/FormButton";
 import CustomSelect from "@/components/common/CustomSelect";
 import CustomDatePicker from "@/components/common/CustomDatePicker";
 import dayjs, { Dayjs } from "dayjs";
 import { v4 as uuidv4 } from "uuid";
-
 import "@/styles/Freelance.css";
 import CustomUpload from "../upload/CustomUpload";
 import { typeOfContractOptions } from "@/lib/selectConstants";
 import { useRouter } from "next/navigation";
+import Freelance, { Experience } from "@/entities/freelance";
+import { Field, Form, Formik } from "formik";
+import CircularProgress from "@mui/material/CircularProgress";
+import * as yup from "yup";
+import CustomDateField from "../common/CustomDateField";
 
-interface Experience {
-  id: any;
-  jobTitle: string;
-  company: string;
-  typeOfContract: string;
-  beginningDate: Dayjs;
-  endDate: Dayjs;
-  formattedBeginningDate: string;
-  formattedEndDate: string;
+interface CreateFreelanceExperienceFormProps {
+  user: Freelance;
 }
 
-const CreateFreelanceExperienceForm = () => {
-
+const CreateFreelanceExperienceForm: React.FC<
+  CreateFreelanceExperienceFormProps
+> = ({ user }) => {
   const router = useRouter();
-  const [experiences, setExperiences] = useState<Experience[]>([
-    {
-      id: uuidv4(),
-      jobTitle: "",
-      company: "",
-      typeOfContract: "",
-      beginningDate: dayjs("2022-04-17"),
-      endDate: dayjs("2022-04-17"),
-      formattedBeginningDate: "",
-      formattedEndDate: "",
-    },
-  ]);
+  const userExperiences = user.experiences;
 
   const [downloadUrl, setDownloadUrl] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
 
-  const sanitizeDates = () => {
-    for (let experience of experiences) {
-      experience.formattedBeginningDate = dayjs(
-        experience.beginningDate
-      ).format("DD-MM-YYYY");
-      experience.formattedEndDate = dayjs(experience.endDate).format(
-        "DD-MM-YYYY"
-      );
-    }
+  const [isLoadingAddExperience, setIsLoadingAddExperience] = useState(false);
+
+  const initialValues = {
+    jobTitle: "",
+    company: "",
+    typeOfContract: 20,
+    beginningDate: dayjs(new Date()),
+    endDate: dayjs(new Date()),
+    formattedBeginningDate: "",
+    formattedEndDate: "",
   };
 
-  const addExperience = () => {
-    console.log("down", downloadUrl);
-    sanitizeDates();
-    const newExperience = {
-      id: uuidv4(),
-      jobTitle: "",
-      company: "",
-      typeOfContract: "",
-      beginningDate: dayjs("2022-04-17"),
-      endDate: dayjs("2022-04-17"),
-      formattedBeginningDate: "",
-      formattedEndDate: "",
-    };
-    setExperiences((prevExperiences) => [...prevExperiences, newExperience]);
-  };
-
-  const handleJobTitleChange = (index: number, value: string) => {
-    setExperiences((prevExperiences) => {
-      const updatedExperiences = [...prevExperiences];
-      updatedExperiences[index].jobTitle = value;
-      return updatedExperiences;
-    });
-  };
-
-  const handleCompanyChange = (index: number, value: string) => {
-    setExperiences((prevExperiences) => {
-      const updatedExperiences = [...prevExperiences];
-      updatedExperiences[index].company = value;
-      return updatedExperiences;
-    });
-  };
-
-  const handleSelectChange = (index: number, value: string) => {
-    setExperiences((prevExperiences) => {
-      const updatedExperiences = [...prevExperiences];
-      updatedExperiences[index].typeOfContract = value;
-      return updatedExperiences;
-    });
-  };
-
-  const handleBeginningDateChange = (index: number, value: Dayjs) => {
-    setExperiences((prevExperiences) => {
-      const updatedExperiences = [...prevExperiences];
-      updatedExperiences[index].beginningDate = value;
-      return updatedExperiences;
-    });
-  };
-
-  const handleEndDateChange = (index: number, value: Dayjs) => {
-    setExperiences((prevExperiences) => {
-      const updatedExperiences = [...prevExperiences];
-      updatedExperiences[index].endDate = value;
-      return updatedExperiences;
-    });
-  };
-
-  const handleDelete = (idToDelete: any) => {
-    setExperiences((prevExperiences) =>
-      prevExperiences.filter((experience) => experience.id !== idToDelete)
-    );
-  };
+  const validationSchema = yup.object({
+    jobTitle: yup.string().required("Champ obligatoire"),
+    company: yup.string().required("Champ obligatoire"),
+    typeOfContract: yup.string().required("Champ obligatoire"),
+    beginningDate: yup.string().required("Champ obligatoire"),
+    endDate: yup.string().required("Champ obligatoire"),
+  });
 
   return (
-    <div className="flex flex-col">
-      {experiences.map((experience, index) => {
-        return (
-          <div key={experience.id}>
-            <div className="flex mb-6 mt-6">
-              <h5 className="text-bold text-2xl ">Expérience {index + 1}</h5>
-              {index != 0 && (
-                <span
-                  className="text-bold text-2xl ml-5 cursor-pointer"
-                  onClick={() => handleDelete(experience.id)}
-                >
-                  x
-                </span>
-              )}
+    <Formik
+      initialValues={initialValues}
+      validationSchema={validationSchema}
+      onSubmit={async (values) => {
+        setIsLoadingAddExperience(true);
+        console.log("values", values);
+        const experience: Experience = {
+          jobTitle: values.jobTitle,
+          company: values.company,
+          typeOfContract: typeOfContractOptions.find(
+            (option) => option.value === values.typeOfContract
+          )!.label,
+          beginningDate: values.beginningDate,
+          endDate: values.endDate,
+          formattedBeginningDate: dayjs(values.beginningDate).format(
+            "DD-MM-YYYY"
+          ),
+          formattedEndDate: dayjs(values.endDate).format("DD-MM-YYYY"),
+        };
+        console.log("exp", experience)
+        let updatedExperiences = user.experiences;
+        updatedExperiences.push(experience);
+        console.log('updated', updatedExperiences)
+        try {
+          const freelance = new Freelance({
+            _id: user._id,
+            title: user.title,
+            phone: user.phone,
+            firstname: user.firstname,
+            lastname: user.lastname,
+            email: user.email,
+            lastMission: user.lastMission,
+            lengthMissionWanted: user.lengthMissionWanted,
+            descriptionMissionWanted: user.descriptionMissionWanted,
+            competences: user.competences,
+            enterprise: user.enterprise,
+            profilePicture: user.profilePicture,
+            experiences: updatedExperiences,
+          });
+          await freelance.update();
+          router.refresh();
+          setIsLoading(false);
+        } catch (err) {
+          console.log("err", err);
+        }
+      }}
+    >
+      {({
+        values,
+        handleChange,
+        handleBlur,
+        setFieldValue,
+        touched,
+        errors,
+        handleSubmit,
+      }) => (
+        <Form
+          className="flex-col mt-5 w-8/12 2xl:w-9/12 2lg:w-10/12"
+          onSubmit={handleSubmit}
+        >
+          {userExperiences && userExperiences.length != 0 && (
+            <div>
+              {user.experiences.map((experience, index) => {
+                return (
+                  <div className="flex" key={index}>
+                    <p>{experience.company}</p>
+                  </div>
+                );
+              })}
             </div>
+          )}
 
-            <div className="flex justify-between w-10/12">
+          <div>
+            <div className="flex justify-between">
               <div className="flex flex-col w-5/12">
-                <p className="mb-2">Intitulé du poste*</p>
                 <TextInput
-                  name="job"
-                  placeholder="Intitulé du poste"
-                  id="job"
+                  name="jobTitle"
                   type="text"
-                  onChange={(e) => handleJobTitleChange(index, e.target.value)}
-                  className="w-full rounded-2xl py-4"
+                  value={values.jobTitle}
+                  error={touched.jobTitle! && Boolean(errors.jobTitle)}
+                  onChange={handleChange}
+                  onBlur={handleBlur}
+                  helperText={touched.jobTitle && errors.jobTitle}
+                  placeholder="Intitulé du poste*"
+                  className="rounded-full my-4 w-10/12"
                 />
               </div>
               <div className="flex flex-col w-5/12">
-                <p className="mb-2">Entreprise</p>
                 <TextInput
-                  name="job"
-                  placeholder="Intitulé du poste"
-                  id="job"
+                  name="company"
                   type="text"
-                  onChange={(e) => handleCompanyChange(index, e.target.value)}
-                  className="w-full rounded-2xl py-4"
+                  value={values.company}
+                  error={touched.company! && Boolean(errors.company)}
+                  onChange={handleChange}
+                  onBlur={handleBlur}
+                  helperText={touched.company && errors.company}
+                  placeholder="Entreprise*"
+                  className="rounded-full my-4 w-10/12"
                 />
               </div>
             </div>
 
-            <div className="flex justify-between w-10/12 mt-10">
-              <div className="flex flex-col w-full">
-                <p className="mb-2">Type de contrat</p>
-                <div className="w-full picker-container rounded-full px-4 py-2 my-4">
-                  <CustomSelect
-                    value={experience.typeOfContract}
-                    //@ts-ignore
-                    setValue={(value: string) =>
-                      handleSelectChange(index, value)
-                    }
-                    options={typeOfContractOptions}
-                    label="Sélectionne le type de contrat"
-                  />
-                </div>
+            <div className="flex justify-between mt-10">
+              <div className="w-full rounded-full py-2">
+                <CustomSelect
+                  name="typeOfContract"
+                  value={values.typeOfContract}
+                  onChange={(e) =>
+                    setFieldValue("typeOfContract", e.target.value)
+                  }
+                  onBlur={handleBlur}
+                  options={typeOfContractOptions}
+                  placeholder="Choisis ton type de contrat*"
+                />
               </div>
             </div>
 
-            <div className="flex justify-between w-10/12 mt-10">
+            <div className="flex justify-between mt-10">
               <div className="flex flex-col w-5/12">
-                <p className="mb-2">Date de début*</p>
-                <div className="picker-container pl-4">
-                  <CustomDatePicker
-                    //@ts-ignore
-                    value={experience.beginningDate}
-                    //@ts-ignore
-                    setValue={(newDate: Dayjs) =>
-                      handleBeginningDateChange(index, newDate)
-                    }
-                  />
-                </div>
+                <Field
+                  name="beginningDate"
+                  component={CustomDateField}
+                  value={values.beginningDate}
+                  onChange={(value: Dayjs | null) =>
+                    setFieldValue("beginningDate", value)
+                  }
+                  onBlur={handleBlur}
+                  error={touched.beginningDate && Boolean(errors.beginningDate)}
+                  helperText={touched.beginningDate && errors.beginningDate}
+                  placeholder="Sélectionner la date de début*"
+                />
               </div>
 
-              <div className="flex flex-col w-5/12">
-                <p className="mb-2">Date de fin*</p>
-                <div className="picker-container pl-4">
-                  <CustomDatePicker
-                    //@ts-ignore
-                    value={experience.endDate}
-                    //@ts-ignore
-                    setValue={(newDate: Dayjs) =>
-                      handleEndDateChange(index, newDate)
-                    }
-                  />
-                </div>
+              <div className="flex flex-col  w-5/12">
+                <Field
+                  name="endDate"
+                  component={CustomDateField}
+                  value={values.endDate}
+                  onChange={(value: Dayjs | null) =>
+                    setFieldValue("endDate", value)
+                  }
+                  onBlur={handleBlur}
+                  error={touched.endDate && Boolean(errors.endDate)}
+                  helperText={touched.endDate && errors.endDate}
+                  placeholder="Sélectionner la date de fin*"
+                />
               </div>
             </div>
           </div>
-        );
-      })}
 
-      <div
-        className="flex items-center justify-center mt-20 w-10/12 cursor-pointer"
-        onClick={addExperience}
-      >
-        <span className="font-green text-4xl">+</span>
-        <p>Ajoute une expérience</p>
-      </div>
-
-      <div className="flex justify-center items-center w-10/12 mt-6">
-        <div className="w-3/12 lg:w-5/12">
-          {!downloadUrl ? (
-            <CustomUpload setDownloadUrl={setDownloadUrl} accept="application/pdf">
-              <FormButton
-                title="Télécharge ton CV ici"
-                background="#B9D386"
-                textClassName="text-black"
-                className="w-3/12"
-              />
-            </CustomUpload>
-          ) : (
-            <div className="flex items-center justify-center mt-5 w-10/12 cursor-pointer mb-10">
-              <p>CV uploadé !</p>
+          {isLoadingAddExperience ? (
+            <div className="flex justify-center items-center">
+              <CircularProgress />
             </div>
+          ) : (
+            <button
+              className="flex items-center justify-center mt-20 w-10/12 cursor-pointer"
+              type="submit"
+            >
+              <span className="font-green text-4xl">+</span>
+              <p>Ajoute une expérience</p>
+            </button>
           )}
-        </div>
-      </div>
 
-      <div className="w-2/12 self-end lg:w-4/12 mr-10">
-        <FormButton
-          title="OK"
-          background="#B9D386"
-          textClassName="text-black"
-          handleButtonClick={() => router.push("/freelance/profil/entreprise")}
-        />
-      </div>
-    </div>
+          <div className="flex justify-center items-center w-10/12 mt-6">
+            <div>
+              {!downloadUrl ? (
+                <CustomUpload
+                  setDownloadUrl={setDownloadUrl}
+                  accept="application/pdf"
+                >
+                  <button
+                    type="submit"
+                    onClick={() => router.push("/freelance/profil/entreprise")}
+                    title="Sauvegarder"
+                    className={` text-center rounded-2xl py-3 cursor-pointer px-8 font-normal`}
+                    style={{ background: "rgba(185, 211, 134, 0.5)" }}
+                  >
+                    Télécharge ton CV ici
+                  </button>
+                </CustomUpload>
+              ) : (
+                <div className="flex items-center justify-center mt-5 w-10/12 cursor-pointer mb-10">
+                  <p>CV uploadé !</p>
+                </div>
+              )}
+            </div>
+          </div>
+
+          <div className="flex justify-end mt-10">
+            {isLoading ? (
+              <CircularProgress size={20} />
+            ) : (
+              <button
+                onClick={() => router.push("/freelance/profil/entreprise")}
+                title="Sauvegarder"
+                className={` text-center rounded-2xl py-3 cursor-pointer px-8 font-semibold`}
+                style={{ background: "rgba(185, 211, 134, 0.5)" }}
+              >
+                OK
+              </button>
+            )}
+          </div>
+        </Form>
+      )}
+    </Formik>
   );
 };
 

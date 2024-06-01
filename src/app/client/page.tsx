@@ -35,7 +35,7 @@ const ClientSpacePage = async () => {
               <h1 className="text-semibold header-offres text-2xl">
                 Mes appels d&apos;offres
               </h1>
-              <Link href="/client/create-ao" className="text-normal">+ Ajouter un appel d&apos;offres</Link>
+              <Link href="/client/ao/create-ao" className="text-normal">+ Ajouter un appel d&apos;offres</Link>
             </div>
 
             {missions.map((mission, index: number) => {

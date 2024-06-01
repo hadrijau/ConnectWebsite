@@ -25,7 +25,6 @@ const CreateProfilClientForm: React.FC<CreateProfilClientFormProps> = ({
   const phoneRegExp =
     /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/;
 
-  console.log("client", client)
   const initialValues = {
     domainName: client.domainName || "",
     phoneNumber: client.phoneNumber || "",
@@ -61,7 +60,6 @@ const CreateProfilClientForm: React.FC<CreateProfilClientFormProps> = ({
   }) => {
     try {
       setLoading(true);
-      console.log("Submitting values:", values);
       const updatedClient = new Client({
         firstname: client.firstname,
         lastname: client.lastname,
@@ -102,7 +100,6 @@ const CreateProfilClientForm: React.FC<CreateProfilClientFormProps> = ({
         errors,
         handleSubmit,
       }) => {
-        console.log("Form values:", values); // Check form values here
         return (
           <Form
             className="flex-col mt-5 w-8/12 2xl:w-9/12 2lg:w-10/12"

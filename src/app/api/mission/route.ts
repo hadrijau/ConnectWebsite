@@ -57,9 +57,7 @@ export async function GET() {
   try {
     const client = await connectToDatabase();
     const db = client.db();
-    console.log("HERRRRRE");
     const missions = await db.collection("missions").find().toArray();
-    console.log("DAATTTA", missions);
     return NextResponse.json(missions, { status: 200 });
   } catch (err) {
     return NextResponse.json({ message: "ERROR" }, { status: 500 });

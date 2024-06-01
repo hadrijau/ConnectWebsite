@@ -33,6 +33,7 @@ export async function PUT(
       descriptionMissionWanted,
       competences,
       profilePicture,
+      experiences,
     } = await req.json();
     const client = await connectToDatabase();
     const db = client.db();
@@ -45,7 +46,6 @@ export async function PUT(
       return NextResponse.json({ message: "User not found" }, { status: 404 });
     }
 
-    console.log("params", params.slug);
     await db.collection("freelance").updateOne(
       { email: params.slug },
       {
@@ -60,6 +60,7 @@ export async function PUT(
           descriptionMissionWanted,
           competences,
           profilePicture,
+          experiences,
         },
       }
     );

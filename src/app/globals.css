@@ -73,6 +73,10 @@ a {
 .bg-client {
   background-color: rgba(235, 202, 224, 1);
 }
+
+.bg-freelance {
+  background-color: rgba(220, 233, 194, 1);
+}
 .font-bad-script {
   font-family: var(--font-bad-script);
 }

@@ -1,9 +1,7 @@
 import React, { Suspense } from "react";
-import FreelanceIntroSection from "@/components/common/FreelanceIntroSection";
 import ClientNavbar from "@/components/navbar/ClientNavbar";
 import CreateMissionForm from "@/components/forms/CreateMissionForm";
 import { auth } from "@/auth";
-import Link from "next/link";
 import "@/styles/Client.css";
 import { getClientByEmail } from "@/http/client";
 import ClientIntroSection from "@/components/common/ClientIntroSection";
@@ -17,10 +15,13 @@ const ClientCreateAOPage = async () => {
     <>
       <ClientNavbar />
       <main className="flex flex-col items-center justify-between">
-        <ClientIntroSection firstTitle="" />
+        <ClientIntroSection
+          firstTitle="Mes appels d'offre"
+          undertitle="Je gère mes appels d’offres en les ajoutant, en les supprimant ou en les modifiant."
+        />
 
         <Suspense fallback={<Loading />}>
-          <div className="main-content w-full mt-10">
+          <div className="main-content w-full">
             <CreateMissionForm user={user} />
           </div>
         </Suspense>

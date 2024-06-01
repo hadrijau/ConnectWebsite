@@ -10,7 +10,6 @@ export async function GET(
     const client = await connectToDatabase();
     const db = client.db();
     const objectId = new ObjectId(params.slug);
-    console.log("OBJECTID", objectId);
     const mission = await db.collection("missions").findOne({ _id: objectId });
 
     return NextResponse.json(mission, { status: 200 });

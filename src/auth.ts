@@ -52,7 +52,6 @@ export const {
           throw new Error("Incorrect credentials");
         }
 
-        console.log("user", user);
         // Return user object including the role and id
         return {
           email: user.email,

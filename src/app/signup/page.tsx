@@ -24,9 +24,7 @@ const SignupPage = () => {
     accept: boolean;
   }) => {
     try {
-      console.log("values", values);
       const result = await getUserByEmail(values.email);
-      console.log("result", result);
       if (result) {
         setUserExists(true);
       } else {

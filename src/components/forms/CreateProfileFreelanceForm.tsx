@@ -60,10 +60,12 @@ const CreateProfileFreelanceForm: React.FC<CreateProfileFreelanceFormProps> = ({
             lengthMissionWanted: values.lengthMissionWanted,
             descriptionMissionWanted: values.descriptionMissionWanted,
             profilePicture: downloadUrl,
+            enterprise: user.enterprise,
             competences: user.competences,
             _id: user._id,
             lastname: user.lastname,
-            firstname: user.firstname
+            firstname: user.firstname,
+            experiences: user.experiences
           })
           await updatedFreelance.update()
           router.push("/freelance/profil/competences");

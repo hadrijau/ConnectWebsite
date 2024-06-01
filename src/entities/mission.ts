@@ -19,7 +19,7 @@ interface MissionProps {
   city: string;
   postalCode: string;
   _id?: ObjectId;
-  propositions?: Proposition[];
+  propositions: Proposition[];
 }
 
 class Mission {

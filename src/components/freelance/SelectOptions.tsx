@@ -1,13 +1,11 @@
 "use client";
 import React, { useState } from "react";
 import SearchBar from "@/components/common/SearchBar";
-import Link from "next/link";
-import FormButton from "@/components/common/FormButton";
 import "@/styles/Freelance.css";
 import { useRouter } from "next/navigation";
 import Freelance from "@/entities/freelance";
 import CircularProgress from "@mui/material/CircularProgress";
-
+import "@/styles/components/SelectOptions.css";
 interface SelectOptionsProps {
   user: Freelance;
 }
@@ -16,17 +14,22 @@ const SelectOptions: React.FC<SelectOptionsProps> = ({ user }) => {
   const router = useRouter();
   let competences: { label: string; level: number }[];
   if (user.competences) {
-    competences = user.competences
+    competences = user.competences;
   } else {
-    competences = []
+    competences = [];
   }
 
-  const [selectedCompetences, setSelectedCompetences] = useState<{ label: string; level: number }[]>(
-    competences
-  );
+  const [selectedCompetences, setSelectedCompetences] =
+    useState<{ label: string; level: number }[]>(competences);
 
-  const handleSelectOption = (option: { label: string; level: number }): void => {
-    setSelectedCompetences([...selectedCompetences, {label: option.label, level: 0}]);
+  const handleSelectOption = (option: {
+    label: string;
+    level: number;
+  }): void => {
+    setSelectedCompetences([
+      ...selectedCompetences,
+      { label: option.label, level: 0 },
+    ]);
   };
 
   const removeCompetence = (option: { label: string; level: number }): void => {
@@ -41,10 +44,10 @@ const SelectOptions: React.FC<SelectOptionsProps> = ({ user }) => {
   const [error, setError] = useState("");
 
   const handleCompetencesSubmit = async () => {
-    setIsLoading(true)
+    setIsLoading(true);
     if (selectedCompetences.length < 5) {
       setError("Sélectionne 5 compétences minimum");
-      setIsLoading(false)
+      setIsLoading(false);
       return;
     }
     const updatedFreelance = new Freelance({
@@ -55,14 +58,16 @@ const SelectOptions: React.FC<SelectOptionsProps> = ({ user }) => {
       lengthMissionWanted: user.lengthMissionWanted,
       descriptionMissionWanted: user.descriptionMissionWanted,
       profilePicture: user.profilePicture,
+      enterprise: user.enterprise,
       competences: selectedCompetences,
       _id: user._id,
       lastname: user.lastname,
-      firstname: user.firstname
-    })
+      firstname: user.firstname,
+      experiences: user.experiences
+    });
     await updatedFreelance.update();
     router.push("/freelance/profil/experiences");
-    setIsLoading(false)
+    setIsLoading(false);
   };
 
   return (
@@ -93,24 +98,25 @@ const SelectOptions: React.FC<SelectOptionsProps> = ({ user }) => {
 
         {error && <p className="error">{error}</p>}
 
-        {selectedCompetences.map((competence) => (
-          <div
-            key={competence.label}
-            className="competence-container rounded-xl px-5 py-2 flex flex-row mt-5 mx-3"
-          >
-            <span>
-              <span
-                className="mr-3 text-xl cursor-pointer"
-                onClick={() => removeCompetence(competence)}
-              >
-                x
+        <div className="flex-col flex">
+          {selectedCompetences.map((competence) => (
+            <div
+              key={competence.label}
+              className="competence-select-container rounded-xl px-5 py-2 flex-row mt-5 mx-3 inline w-5/12"
+            >
+              <span>
+                <span
+                  className="mr-3 text-xl cursor-pointer"
+                  onClick={() => removeCompetence(competence)}
+                >
+                  x
+                </span>
+                {competence.label}
               </span>
-              {competence.label}
-            </span>
-          </div>
-        ))}
+            </div>
+          ))}
+        </div>
 
-        <div style={{ height: "20rem" }}></div>
         <div className="flex justify-end mt-10">
           {isLoading ? (
             <CircularProgress size={20} />

@@ -1,9 +1,16 @@
 import { ObjectId } from "mongodb";
 import dayjs, { Dayjs } from "dayjs";
 
+export enum Statut {
+  UNOPENED = "Non ouvert",
+  OPENED = "Ouvert"
+}
 interface PropositionProps {
   missionId: ObjectId;
-  statut: string;
+  freelanceId: ObjectId;
+  statut: Statut;
+  cv: string;
+  whyMe: string;
   freelance: string;
   freelanceEnterprise: string;
   disponibility: Dayjs;
@@ -13,6 +20,8 @@ interface PropositionProps {
 
 class Proposition {
   missionId: ObjectId;
+  freelanceId: ObjectId;
+  cv: string;
   statut: string;
   freelance: string;
   freelanceEnterprise: string;
@@ -22,6 +31,8 @@ class Proposition {
 
   constructor({
     missionId,
+    freelanceId,
+    cv,
     statut,
     freelance,
     freelanceEnterprise,
@@ -29,7 +40,9 @@ class Proposition {
     city,
     proposedPrice,
   }: PropositionProps) {
+    this.cv = cv;
     this.missionId = missionId;
+    this.freelanceId = freelanceId;
     this.statut = statut;
     this.freelance = freelance;
     this.freelanceEnterprise = freelanceEnterprise;

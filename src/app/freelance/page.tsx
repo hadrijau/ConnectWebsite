@@ -17,10 +17,9 @@ export default async function FreelancePage() {
 
   const session = await auth();
   if (!session) {
-    redirect("/")
+    redirect("/login")
   }
   
-  console.log("missions", missions)
   return (
     <>
       <FreelanceNavBar />

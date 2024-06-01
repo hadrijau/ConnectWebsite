@@ -22,6 +22,17 @@
     width: 180px;
 }
 
+.select-profile-client {
+    border: 1px solid rgba(201, 105, 168, 1);
+    border-radius: 10px;
+    position: absolute;
+    background-color: white;
+    z-index: 1000;
+    top: 6rem;
+    right: 3rem;
+    width: 180px;
+}
+
 .select-ao {
     border: 1px solid #698754;
     border-radius: 10px;
@@ -48,15 +59,4 @@
     background: rgba(216, 146, 192, 0.24);
     border-radius: 5px;
     font-weight: 600;
-}
-
-
-.select-profile {
-    border: 1px solid #698754;
-    border-radius: 10px;
-    position: absolute;
-    background-color: white;
-    z-index: 1000;
-    top: 6rem;
-    right: 3rem;
 }

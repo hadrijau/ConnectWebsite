@@ -108,6 +108,7 @@ const ModifyMissionForm: React.FC<ModifyMissionFormProps> = ({
         postalCode,
         city,
         aoId,
+        propositions: [],
         _id,
       });
       await updatedMission.update();
@@ -160,7 +161,7 @@ const ModifyMissionForm: React.FC<ModifyMissionFormProps> = ({
       }) => {
         return (
           <Form className="flex flex-col w-full" onSubmit={handleSubmit}>
-            <h5 className="mb-10 cursor-pointer" onClick={handleClickOpen}>
+            <h5 className="mb-10 cursor-pointer back-button" onClick={handleClickOpen}>
               &#60;- retour aux appels d&apos;offres
             </h5>
 
@@ -417,7 +418,7 @@ const ModifyMissionForm: React.FC<ModifyMissionFormProps> = ({
                     ⚠️ ATTEND ! Tu as oublié d’enregistrer ! ⚠️
                   </h2>
                   <h5 className="ml-20 text-normal mt-10">
-                    Veux-tu finir tes modifications ?
+                    Veux-tu continuer tes modifications ?
                   </h5>
                   <div className="flex my-10 ml-10 w-9/12 justify-between">
                     <button
@@ -425,7 +426,7 @@ const ModifyMissionForm: React.FC<ModifyMissionFormProps> = ({
                       onClick={handleClose}
                     >
                       <h5 className="text-normal text-center">
-                        Oui, j&apos;avais oublié
+                        Oui, je continue
                       </h5>
                     </button>
                     <button

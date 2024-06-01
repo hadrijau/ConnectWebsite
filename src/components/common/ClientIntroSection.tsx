@@ -29,9 +29,6 @@ const ClientIntroSection: React.FC<ClientIntroSectionProps> = ({
   } else if (path.startsWith("/client/documents")) {
     pathImage = "/clientOfficialDocuments.svg";
     pathImageMobile = "/imgIndependantTel.svg";
-  } else if (path.startsWith("/client/create-ao")) {
-    pathImage = "/clientCreateAO.svg";
-    pathImageMobile = "/imgIndependantTel.svg";
   }
 
   return (

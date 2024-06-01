@@ -81,7 +81,7 @@ const ClientNavbar = () => {
             onClick={() => setOpenPopupDisconnect(!openPopupDisconnect)}
           />
           {openPopupDisconnect && (
-            <div className="flex flex-col p-3 select-profile">
+            <div className="flex flex-col p-3 select-profile-client">
               <p
                 className="profil-client-option cursor-pointer py-2 px-3"
                 onClick={() => router.push("/client")}

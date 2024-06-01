@@ -50,10 +50,12 @@ const InformationsChoice = ({ email, firstname, lastname, password }) => {
         phone: "",
         firstname,
         lastname,
+        enterprise: "",
         lastMission: "",
         lengthMissionWanted: "",
         descriptionMissionWanted: "",
         competences: [],
+        experiences: [],
         profilePicture: "",
         email,
       })

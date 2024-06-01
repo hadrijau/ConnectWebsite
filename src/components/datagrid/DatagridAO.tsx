@@ -22,7 +22,6 @@ const DataGridAO: React.FC<DataGridAOProps> = ({ missions }) => {
     return dayjs(params.value).format("DD.MM.YYYY");
   };
 
-  console.log("missions", missions)
   const [openPopupId, setOpenPopupId] = useState<string | null>(null);
   const [popupPosition, setPopupPosition] = useState<{
     top: number;
@@ -197,6 +196,7 @@ const DataGridAO: React.FC<DataGridAOProps> = ({ missions }) => {
       hiddenTJM: mission.hiddenTJM,
       aoId: mission.aoId,
       city: mission.city,
+      propositions: mission.propositions!,
       postalCode: mission.postalCode
     }
 

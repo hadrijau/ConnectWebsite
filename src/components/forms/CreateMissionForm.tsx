@@ -120,6 +120,7 @@ const CreateMissionForm: React.FC<CreateMissionFormProps> = ({ user }) => {
         aoId: user.lastAOId,
         postalCode: user.postalCode,
         city: user.city,
+        propositions: []
       });
       await mission.save();
       router.push("/client/ao");
@@ -129,8 +130,6 @@ const CreateMissionForm: React.FC<CreateMissionFormProps> = ({ user }) => {
       console.log("Error creating mission", err);
     }
   };
-
-  console.log("selected", selectedCompetences);
 
   const removeCompetence = (option: { label: string; level: number }): void => {
     const updatedOptions = selectedCompetences.filter(

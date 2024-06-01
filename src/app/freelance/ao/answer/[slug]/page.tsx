@@ -8,10 +8,19 @@ import { getMissionById } from "@/http/mission";
 import "@/styles/Client.css";
 import AnswerMission from "@/components/freelance/AnswerMission";
 import FreelanceNavBar from "@/components/navbar/FreelanceNavbar";
-
+import { auth } from "@/auth";
+import { redirect } from 'next/navigation' 
+import { getFreelanceByEmail } from "@/http/freelance";
 //@ts-ignore
 const AnswerMissionPage = async ({ params }) => {
   const mission = await getMissionById(params.slug);
+
+  const session = await auth();
+  if (!session || !session.user || !session.user.email) {
+    redirect("/login")
+  }
+
+  const freelance = getFreelanceByEmail(session.user.email)
 
   return (
     <>
@@ -27,7 +36,7 @@ const AnswerMissionPage = async ({ params }) => {
             <h5 className="mb-10">&#60;- retour aux appels d&apos;offres</h5>
           </Link>
             
-          <AnswerMission mission={mission} />
+          <AnswerMission mission={mission} freelance={freelance}/>
         </div>
       </main>
     </>

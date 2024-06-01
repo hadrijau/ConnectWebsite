@@ -28,6 +28,11 @@ const FreelanceNavBar = () => {
 
   const [logoFullShown, setLogoFullShown] = useState(false);
 
+  const handleNavigate = (href: string) => {
+    router.push(href);
+    router.refresh()
+  }
+  
   return (
     <nav className="flex justify-between items-center px-10 pt-4 pb-4 freelance-navbar">
       <FreelanceNavLink href="/">
@@ -174,7 +179,7 @@ const FreelanceNavBar = () => {
             <div className="flex flex-col p-3 select-profile">
               <p
                 className="profil-option cursor-pointer py-2 px-3"
-                onClick={() => router.push("/freelance")}
+                onClick={() => handleNavigate("/freelance")}
               >
                 Accueil
               </p>
