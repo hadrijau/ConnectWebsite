@@ -63,7 +63,8 @@ const SelectOptions: React.FC<SelectOptionsProps> = ({ user }) => {
       _id: user._id,
       lastname: user.lastname,
       firstname: user.firstname,
-      experiences: user.experiences
+      experiences: user.experiences,
+      cv: user.cv
     });
     await updatedFreelance.update();
     router.push("/freelance/profil/experiences");

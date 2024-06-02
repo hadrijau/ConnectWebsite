@@ -15,6 +15,7 @@ import { Field, Form, Formik } from "formik";
 import CircularProgress from "@mui/material/CircularProgress";
 import * as yup from "yup";
 import CustomDateField from "../common/CustomDateField";
+import CVUpload from "../upload/CVUpload";
 
 interface CreateFreelanceExperienceFormProps {
   user: Freelance;
@@ -25,9 +26,6 @@ const CreateFreelanceExperienceForm: React.FC<
 > = ({ user }) => {
   const router = useRouter();
   const userExperiences = user.experiences;
-
-  const [downloadUrl, setDownloadUrl] = useState("");
-  const [isLoading, setIsLoading] = useState(false);
 
   const [isLoadingAddExperience, setIsLoadingAddExperience] = useState(false);
 
@@ -49,13 +47,32 @@ const CreateFreelanceExperienceForm: React.FC<
     endDate: yup.string().required("Champ obligatoire"),
   });
 
+  const handleDeleteExperience = async (index: number) => {
+    const updatedExperiences = user.experiences.filter((_, i) => i !== index);
+    const updatedFreelance = new Freelance({
+      _id: user._id,
+      title: user.title,
+      phone: user.phone,
+      firstname: user.firstname,
+      lastname: user.lastname,
+      email: user.email,
+      lastMission: user.lastMission,
+      lengthMissionWanted: user.lengthMissionWanted,
+      descriptionMissionWanted: user.descriptionMissionWanted,
+      competences: user.competences,
+      enterprise: user.enterprise,
+      profilePicture: user.profilePicture,
+      experiences: updatedExperiences,
+      cv: user.cv,
+    });
+    await updatedFreelance.update();
+    router.refresh();
+  };
   return (
     <Formik
       initialValues={initialValues}
       validationSchema={validationSchema}
-      onSubmit={async (values) => {
-        setIsLoadingAddExperience(true);
-        console.log("values", values);
+      onSubmit={async (values, { resetForm }) => {
         const experience: Experience = {
           jobTitle: values.jobTitle,
           company: values.company,
@@ -69,12 +86,10 @@ const CreateFreelanceExperienceForm: React.FC<
           ),
           formattedEndDate: dayjs(values.endDate).format("DD-MM-YYYY"),
         };
-        console.log("exp", experience)
         let updatedExperiences = user.experiences;
         updatedExperiences.push(experience);
-        console.log('updated', updatedExperiences)
         try {
-          const freelance = new Freelance({
+          const updatedFreelance = new Freelance({
             _id: user._id,
             title: user.title,
             phone: user.phone,
@@ -88,10 +103,12 @@ const CreateFreelanceExperienceForm: React.FC<
             enterprise: user.enterprise,
             profilePicture: user.profilePicture,
             experiences: updatedExperiences,
+            cv: user.cv,
           });
-          await freelance.update();
+          await updatedFreelance.update();
           router.refresh();
-          setIsLoading(false);
+          resetForm();
+          setIsLoadingAddExperience(false);
         } catch (err) {
           console.log("err", err);
         }
@@ -110,20 +127,33 @@ const CreateFreelanceExperienceForm: React.FC<
           className="flex-col mt-5 w-8/12 2xl:w-9/12 2lg:w-10/12"
           onSubmit={handleSubmit}
         >
-          {userExperiences && userExperiences.length != 0 && (
-            <div>
-              {user.experiences.map((experience, index) => {
-                return (
-                  <div className="flex" key={index}>
-                    <p>{experience.company}</p>
-                  </div>
-                );
-              })}
-            </div>
-          )}
+          <div className="overflow-auto max-h-96 ">
+            {userExperiences && userExperiences.length != 0 && (
+              <div>
+                {user.experiences.map((experience, index) => {
+                  return (
+                    <div
+                      className="flex bg-lightgrey py-2 px-3 my-2 rounded justify-between"
+                      key={index}
+                    >
+                      <p className="text-normal">
+                        {experience.jobTitle} de{" "}
+                        {experience.formattedBeginningDate} à{" "}
+                        {experience.formattedEndDate}
+                      </p>
+                      <p
+                        className="font-semibold cursor-pointer"
+                        onClick={() => handleDeleteExperience(index)}
+                      >
+                        x
+                      </p>
+                    </div>
+                  );
+                })}
+              </div>
+            )}
 
-          <div>
-            <div className="flex justify-between">
+            <div className="flex justify-between mt-10">
               <div className="flex flex-col w-5/12">
                 <TextInput
                   name="jobTitle"
@@ -206,52 +236,27 @@ const CreateFreelanceExperienceForm: React.FC<
             </div>
           ) : (
             <button
-              className="flex items-center justify-center mt-20 w-10/12 cursor-pointer"
+              className="flex items-center justify-center w-10/12 cursor-pointer mt-10"
               type="submit"
             >
               <span className="font-green text-4xl">+</span>
-              <p>Ajoute une expérience</p>
+              <p>Ajoute cette expérience</p>
             </button>
           )}
 
           <div className="flex justify-center items-center w-10/12 mt-6">
-            <div>
-              {!downloadUrl ? (
-                <CustomUpload
-                  setDownloadUrl={setDownloadUrl}
-                  accept="application/pdf"
-                >
-                  <button
-                    type="submit"
-                    onClick={() => router.push("/freelance/profil/entreprise")}
-                    title="Sauvegarder"
-                    className={` text-center rounded-2xl py-3 cursor-pointer px-8 font-normal`}
-                    style={{ background: "rgba(185, 211, 134, 0.5)" }}
-                  >
-                    Télécharge ton CV ici
-                  </button>
-                </CustomUpload>
-              ) : (
-                <div className="flex items-center justify-center mt-5 w-10/12 cursor-pointer mb-10">
-                  <p>CV uploadé !</p>
-                </div>
-              )}
-            </div>
+            <CVUpload freelance={user}/>
           </div>
 
-          <div className="flex justify-end mt-10">
-            {isLoading ? (
-              <CircularProgress size={20} />
-            ) : (
-              <button
-                onClick={() => router.push("/freelance/profil/entreprise")}
-                title="Sauvegarder"
-                className={` text-center rounded-2xl py-3 cursor-pointer px-8 font-semibold`}
-                style={{ background: "rgba(185, 211, 134, 0.5)" }}
-              >
-                OK
-              </button>
-            )}
+          <div className="flex justify-end">
+            <div
+              onClick={() => router.push("/freelance/profil/entreprise")}
+              title="Sauvegarder"
+              className={` text-center rounded-2xl py-3 cursor-pointer px-8 font-semibold`}
+              style={{ background: "rgba(185, 211, 134, 0.5)" }}
+            >
+              OK
+            </div>
           </div>
         </Form>
       )}

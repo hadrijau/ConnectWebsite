@@ -35,6 +35,7 @@ export async function PUT(
       hiddenCompany,
       hiddenMissionPlace,
       hiddenTJM,
+      companyName,
     } = await req.json();
 
     const client = await connectToDatabase();
@@ -65,6 +66,7 @@ export async function PUT(
           hiddenCompany,
           hiddenMissionPlace,
           hiddenTJM,
+          companyName,
         },
       }
     );

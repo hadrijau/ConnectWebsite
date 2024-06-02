@@ -9,6 +9,7 @@ import * as yup from "yup";
 import CustomUpload from "../upload/CustomUpload";
 import Freelance from "@/entities/freelance";
 import CircularProgress from "@mui/material/CircularProgress";
+import FreelanceProfilPictureUpload from "../upload/FreelanceProfilPictureUpload";
 
 interface CreateProfileFreelanceFormProps {
   user: Freelance;
@@ -43,8 +44,6 @@ const CreateProfileFreelanceForm: React.FC<CreateProfileFreelanceFormProps> = ({
     lastMission: yup.string().required("Champ obligatoire"),
   });
 
-  const [downloadUrl, setDownloadUrl] = useState("");
-
   return (
     <Formik
       initialValues={initialValues}
@@ -59,13 +58,14 @@ const CreateProfileFreelanceForm: React.FC<CreateProfileFreelanceFormProps> = ({
             lastMission: values.lastMission,
             lengthMissionWanted: values.lengthMissionWanted,
             descriptionMissionWanted: values.descriptionMissionWanted,
-            profilePicture: downloadUrl,
+            profilePicture: user.profilePicture,
             enterprise: user.enterprise,
             competences: user.competences,
             _id: user._id,
             lastname: user.lastname,
             firstname: user.firstname,
-            experiences: user.experiences
+            experiences: user.experiences,
+            cv: user.cv
           })
           await updatedFreelance.update()
           router.push("/freelance/profil/competences");
@@ -88,26 +88,7 @@ const CreateProfileFreelanceForm: React.FC<CreateProfileFreelanceFormProps> = ({
           onSubmit={handleSubmit}
         >
           <div className="flex my-5">
-            {user.profilePicture || downloadUrl ? (
-              <img
-                src={downloadUrl || user.profilePicture}
-                alt="photo de profil"
-                width={150}
-                height={150}
-              />
-            ) : (
-              <CustomUpload
-                setDownloadUrl={setDownloadUrl}
-                accept="image/png, image/jpeg, image/jpg"
-              >
-                <Image
-                  src="/upload_profil.svg"
-                  width={150}
-                  height={150}
-                  alt="Photo de profil"
-                />
-              </CustomUpload>
-            )}
+            <FreelanceProfilPictureUpload freelance={user}/>
 
             <div className="flex-col mt-10 ml-10">
               <h5 className="font-normal text-xl">

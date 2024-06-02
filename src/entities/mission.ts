@@ -1,5 +1,5 @@
 import { ObjectId } from "mongodb";
-import dayjs, { Dayjs } from "dayjs";
+import { Dayjs } from "dayjs";
 import Proposition from "@/entities/proposition";
 
 interface MissionProps {
@@ -12,6 +12,7 @@ interface MissionProps {
   length: string;
   modalities: string;
   competences: { label: string; level: number }[];
+  companyName: string;
   hiddenCompany: boolean;
   hiddenMissionPlace: boolean;
   hiddenTJM: boolean;
@@ -29,6 +30,7 @@ class Mission {
   title: string;
   context: string;
   goals: string;
+  companyName: string;
   date: Dayjs;
   price: string;
   length: string;
@@ -51,6 +53,7 @@ class Mission {
     price,
     length,
     modalities,
+    companyName,
     competences,
     hiddenCompany,
     hiddenMissionPlace,
@@ -67,6 +70,7 @@ class Mission {
     this.goals = goals;
     this.date = date;
     this.price = price;
+    this.companyName = companyName;
     this.length = length;
     this.modalities = modalities;
     this.competences = competences;
@@ -99,6 +103,7 @@ class Mission {
         modalities: this.modalities,
         competences: this.competences,
         createdAt: this.createdAt,
+        companyName: this.companyName,
         hiddenCompany: this.hiddenCompany,
         hiddenMissionPlace: this.hiddenMissionPlace,
         hiddenTJM: this.hiddenTJM,
@@ -135,6 +140,7 @@ class Mission {
         price: this.price,
         length: this.length,
         modalities: this.modalities,
+        companyName: this.companyName,
         competences: this.competences,
         hiddenCompany: this.hiddenCompany,
         hiddenMissionPlace: this.hiddenMissionPlace,

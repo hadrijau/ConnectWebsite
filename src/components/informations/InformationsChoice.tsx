@@ -58,6 +58,7 @@ const InformationsChoice = ({ email, firstname, lastname, password }) => {
         experiences: [],
         profilePicture: "",
         email,
+        cv: ""
       })
       await freelance.save();
       router.push("/freelance/profil");

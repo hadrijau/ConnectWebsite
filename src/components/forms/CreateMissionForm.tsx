@@ -117,6 +117,7 @@ const CreateMissionForm: React.FC<CreateMissionFormProps> = ({ user }) => {
         hiddenCompany,
         hiddenMissionPlace,
         hiddenTJM,
+        companyName: "Société Générale",
         aoId: user.lastAOId,
         postalCode: user.postalCode,
         city: user.city,

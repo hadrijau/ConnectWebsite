@@ -11,17 +11,20 @@ import CompetencesContainer from "@/components/common/CompetencesContainer";
 import * as yup from "yup";
 import CustomDateField from "../common/CustomDateField";
 import { Formik, Form, Field, ErrorMessage } from "formik";
-import Proposition, { Statut } from "@/entities/proposition";
+import Proposition, { ClientStatus, FreelanceStatus } from "@/entities/proposition";
 import { useSession } from "next-auth/react";
 import { ObjectId } from "mongodb";
 import Freelance from "@/entities/freelance";
+import CVUpload from "../upload/CVUpload";
 interface AnswerMissionProps {
   mission: Mission;
   freelance: Freelance;
 }
 
-const AnswerMission: React.FC<AnswerMissionProps> = ({ mission, freelance }) => {
-  const [date, setDate] = useState(dayjs("2022-04-17"));
+const AnswerMission: React.FC<AnswerMissionProps> = ({
+  mission,
+  freelance,
+}) => {
   const [downloadUrl, setDownloadUrl] = useState("");
 
   const validationSchema = yup.object({
@@ -40,18 +43,23 @@ const AnswerMission: React.FC<AnswerMissionProps> = ({ mission, freelance }) => 
   };
 
   const handleFormSubmit = async (values: typeof initialValues) => {
-    // const proposition = new Proposition({
-    //   missionId: mission._id!,
-    //   freelanceId: new ObjectId(freelance._id),
-    //   statut: Statut.UNOPENED,
-    //   cv: downloadUrl,
-    //   whyMe: values.whyMe,
-    //   freelance: `${freelance.firstname} ${freelance.lastname}`,
-    //   freelanceEnterprise: freelance.enterprise,
-    //   disponibility: values.disponiblity,
-    //   city: mission.city,
-    //   proposedPrice: values.proposedPrice
-    // })
+    const proposition = new Proposition({
+      missionId: mission._id!,
+      freelanceId: freelance._id,
+      clientStatus: ClientStatus.UNOPENED,
+      cv: downloadUrl,
+      whyMe: values.whyMe,
+      freelance: `${freelance.firstname} ${freelance.lastname}`,
+      freelanceEnterprise: freelance.enterprise,
+      freelanceDisponibility: values.disponiblity,
+      clientDisponibility: mission.date,
+      city: mission.city,
+      clientProposedPrice: mission.price,
+      freelanceProposedPrice: values.proposedPrice,
+      modalities: mission.modalities,
+
+    });
+    await proposition.save();
   };
   return (
     <Formik
@@ -155,21 +163,7 @@ const AnswerMission: React.FC<AnswerMissionProps> = ({ mission, freelance }) => 
                   </div>
 
                   <div className="w-5/12 mt-12">
-                    {!downloadUrl ? (
-                      <CustomUpload
-                        setDownloadUrl={setDownloadUrl}
-                        accept="application/pdf"
-                      >
-                        <FormButton
-                          title="J'ajoute mon CV"
-                          background="#B9D386"
-                          textClassName="text-black"
-                          className="w-3/12 "
-                        />
-                      </CustomUpload>
-                    ) : (
-                      <h5>Ton CV a été soumis !</h5>
-                    )}
+                    <CVUpload freelance={freelance} />
                   </div>
                 </div>
               </div>

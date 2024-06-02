@@ -34,10 +34,11 @@ export async function PUT(
       competences,
       profilePicture,
       experiences,
+      cv,
     } = await req.json();
     const client = await connectToDatabase();
     const db = client.db();
-
+    console.log("HERRRE");
     const user = await db
       .collection("freelance")
       .findOne({ email: params.slug });
@@ -61,6 +62,7 @@ export async function PUT(
           competences,
           profilePicture,
           experiences,
+          cv,
         },
       }
     );

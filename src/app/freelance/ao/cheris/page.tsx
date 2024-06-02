@@ -12,7 +12,7 @@ import { redirect } from "next/navigation";
 import Image from "next/image";
 import ongoingMissions from "@/mockData/ongoingmissions";
 import FreelanceAoNavbar from "@/components/freelance/FreelanceAoNavbar";
-export default async function RechercheAOPage() {
+export default async function AOCherisPage() {
   const missions: Mission[] = await getMissions();
 
   const session = await auth();

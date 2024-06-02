@@ -1,8 +1,14 @@
 import React from "react";
 import NavBarProfile from "@/components/profile/NavBarProfileFreelance";
 import EntrepriseFreelanceForm from "@/components/forms/EntrepriseFreelanceForm";
+import { auth } from "@/auth";
+import { getFreelanceByEmail } from "@/http/freelance";
 
-const EntrepriseFreelancePage = () => {
+const EntrepriseFreelancePage = async () => {
+
+  const session = await auth();
+  const user = await getFreelanceByEmail(session?.user?.email!);
+
   return (
     <div className="flex min-h-screen">
       <NavBarProfile className="w-4/12" />
@@ -22,7 +28,7 @@ const EntrepriseFreelancePage = () => {
             <span className="font-bold">Tu es déjà dans une entreprise ? Indique nous laquelle ! </span>
           </p>
 
-          <EntrepriseFreelanceForm />
+          <EntrepriseFreelanceForm user={user}/>
         </div>
       </div>
     </div>

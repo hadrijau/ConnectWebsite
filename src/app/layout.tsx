@@ -1,12 +1,14 @@
 import type { Metadata } from "next";
 import { Poppins, Bad_Script } from "next/font/google";
 import { AppRouterCacheProvider } from "@mui/material-nextjs/v13-appRouter";
-import { ThemeProvider } from '@mui/material/styles';
-import CssBaseline from '@mui/material/CssBaseline';
-import theme from '@/theme';
+import { ThemeProvider } from "@mui/material/styles";
+import CssBaseline from "@mui/material/CssBaseline";
+import theme from "@/theme";
 import { SessionProvider } from "next-auth/react";
 
 import "./globals.css";
+import Loading from "./loading";
+import { Suspense } from "react";
 
 const bad_script = Bad_Script({
   weight: ["400"],
@@ -32,14 +34,14 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${poppins.variable} ${bad_script.variable}`}>
-      <SessionProvider>
-      <AppRouterCacheProvider>
-          <ThemeProvider theme={theme}>
-            {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
-            <CssBaseline />
-            {children}
-          </ThemeProvider>
-        </AppRouterCacheProvider>
+        <SessionProvider>
+          <AppRouterCacheProvider>
+            <ThemeProvider theme={theme}>
+              {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
+              <CssBaseline />
+              <Suspense fallback={<Loading />}>{children}</Suspense>
+            </ThemeProvider>
+          </AppRouterCacheProvider>
         </SessionProvider>
       </body>
     </html>

@@ -29,7 +29,7 @@ const CardMission: FC<CardMissionProps> = ({
       : date.toLocaleDateString("fr-FR").replaceAll("/", ".");
 
   return (
-    <Link href={`freelance/ao/${_id}`}>
+    <Link href={`/freelance/ao/${_id}`}>
       <div className="flex card-mission-container p-4 my-10 w-full">
         <Image
           src={companyLogo}

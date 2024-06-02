@@ -188,6 +188,7 @@ const DataGridAO: React.FC<DataGridAOProps> = ({ missions }) => {
       goals: mission.goals,
       date: mission.date,
       price: mission.price,
+      companyName: mission.companyName,
       length: mission.length,
       modalities: mission.modalities,
       competences: mission.competences,

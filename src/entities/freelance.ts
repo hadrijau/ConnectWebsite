@@ -26,6 +26,7 @@ interface FreelanceProps {
   competences: { label: string; level: number }[];
   profilePicture: string;
   experiences: Experience[];
+  cv: string;
 }
 
 class Freelance {
@@ -42,6 +43,7 @@ class Freelance {
   competences: { label: string; level: number }[];
   profilePicture: string;
   experiences: Experience[];
+  cv: string;
 
   constructor({
     _id,
@@ -57,6 +59,7 @@ class Freelance {
     competences,
     profilePicture,
     experiences,
+    cv,
   }: FreelanceProps) {
     this._id = _id;
     this.title = title;
@@ -71,6 +74,7 @@ class Freelance {
     this.competences = competences;
     this.profilePicture = profilePicture;
     this.experiences = experiences;
+    this.cv = cv;
   }
 
   async save() {
@@ -89,6 +93,7 @@ class Freelance {
         competences: this.competences,
         profilePicture: this.profilePicture,
         experiences: this.experiences,
+        cv: this.cv,
       }),
       headers: {
         "Content-Type": "application/json",
@@ -109,6 +114,7 @@ class Freelance {
       method: "PUT",
       body: JSON.stringify({
         _id: this._id,
+        phone: this.phone,
         email: this.email,
         firstname: this.firstname,
         lastname: this.lastname,
@@ -119,6 +125,7 @@ class Freelance {
         competences: this.competences,
         profilePicture: this.profilePicture,
         experiences: this.experiences,
+        cv: this.cv,
       }),
       headers: {
         "Content-Type": "application/json",

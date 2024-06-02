@@ -28,6 +28,14 @@
     margin-left: 33%;
 }
 
+.photo-freelance-container {
+    max-width: 155px;
+    max-height: 155px;
+    width: 155px;
+    height: 155px;
+    position: relative;
+}
+
 .why-me-text {
     background: linear-gradient(90deg, #79B3D1 0%, #9ABF7A 93.91%);
     -webkit-text-fill-color: transparent;

@@ -11,8 +11,8 @@ import FreelanceNavBar from "@/components/navbar/FreelanceNavbar";
 import { auth } from "@/auth";
 import { redirect } from 'next/navigation' 
 import { getFreelanceByEmail } from "@/http/freelance";
-//@ts-ignore
-const AnswerMissionPage = async ({ params }) => {
+
+const AnswerMissionPage = async ({ params }: { params: { slug: string } }) => {
   const mission = await getMissionById(params.slug);
 
   const session = await auth();
@@ -20,18 +20,18 @@ const AnswerMissionPage = async ({ params }) => {
     redirect("/login")
   }
 
-  const freelance = getFreelanceByEmail(session.user.email)
+  const freelance = await getFreelanceByEmail(session.user.email)
 
   return (
     <>
       <FreelanceNavBar />
-      <main className="flex flex-col items-center justify-between">
+      <main className="flex flex-col items-center justify-between  mt-32">
         <FreelanceIntroSection
-          firstTitle="Réponse à l'appel d'offres"
+          firstTitle="Appel d'offres"
 
         />
 
-        <div className="flex flex-col justify-between w-full px-40 mt-10 lg:px-10">
+        <div className="flex flex-col justify-between w-full mt-10 main-content">
           <Link href="/client/ao">
             <h5 className="mb-10">&#60;- retour aux appels d&apos;offres</h5>
           </Link>

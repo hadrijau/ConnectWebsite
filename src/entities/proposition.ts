@@ -1,54 +1,109 @@
 import { ObjectId } from "mongodb";
 import dayjs, { Dayjs } from "dayjs";
 
-export enum Statut {
+export enum ClientStatus {
   UNOPENED = "Non ouvert",
-  OPENED = "Ouvert"
+  OPENED = "Ouvert",
 }
+
+export enum FreelanceStatus {
+  ONGOING = "En cours",
+  WON = "Gagné",
+  LOST = "Perdu",
+}
+
 interface PropositionProps {
   missionId: ObjectId;
   freelanceId: ObjectId;
-  statut: Statut;
+  clientStatus: ClientStatus;
+  freelanceStatus: FreelanceStatus;
   cv: string;
   whyMe: string;
   freelance: string;
   freelanceEnterprise: string;
-  disponibility: Dayjs;
+  clientDisponibility: Dayjs;
+  freelanceDisponibility: Dayjs;
   city: string;
-  proposedPrice: string;
+  clientProposedPrice: string;
+  freelanceProposedPrice: string;
+  modalities: string;
 }
 
 class Proposition {
   missionId: ObjectId;
   freelanceId: ObjectId;
   cv: string;
-  statut: string;
+  clientStatus: ClientStatus;
+  freelanceStatus: FreelanceStatus;
   freelance: string;
   freelanceEnterprise: string;
-  disponibility: Dayjs;
+  clientDisponibility: Dayjs;
+  freelanceDisponibility: Dayjs;
   city: string;
-  proposedPrice: string;
+  clientProposedPrice: string;
+  freelanceProposedPrice: string;
+  modalities: string;
 
   constructor({
     missionId,
     freelanceId,
     cv,
-    statut,
+    clientStatus,
+    freelanceStatus,
     freelance,
     freelanceEnterprise,
-    disponibility,
+    clientDisponibility,
+    freelanceDisponibility,
     city,
-    proposedPrice,
+    freelanceProposedPrice,
+    clientProposedPrice,
+    modalities,
   }: PropositionProps) {
     this.cv = cv;
     this.missionId = missionId;
     this.freelanceId = freelanceId;
-    this.statut = statut;
+    this.clientStatus = clientStatus;
+    this.freelanceStatus = freelanceStatus;
     this.freelance = freelance;
     this.freelanceEnterprise = freelanceEnterprise;
-    this.disponibility = disponibility;
+    this.clientDisponibility = clientDisponibility;
+    this.freelanceDisponibility = freelanceDisponibility;
     this.city = city;
-    this.proposedPrice = proposedPrice;
+    this.freelanceProposedPrice = freelanceProposedPrice;
+    this.clientProposedPrice = clientProposedPrice;
+    this.modalities = modalities;
+  }
+
+  async save() {
+    const response = await fetch("/api/proposition", {
+      method: "POST",
+      body: JSON.stringify({
+        cv: this.cv,
+        missionId: this.missionId,
+        freelanceId: this.freelanceId,
+        freelanceStatus: this.freelanceStatus,
+        clientDisponibility: this.clientDisponibility,
+        freelanceDisponibility: this.freelanceDisponibility,
+        clientStatus: this.clientStatus,
+        freelance: this.freelance,
+        freelanceEnterprise: this.freelanceEnterprise,
+        city: this.city,
+        freelanceProposedPrice: this.freelanceProposedPrice,
+        clientProposedPrice: this.clientProposedPrice,
+        modalities: this.modalities,
+      }),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+
+    const data = await response.json();
+
+    if (!response.ok) {
+      throw new Error(data.message);
+    }
+
+    return data;
   }
 }
 

@@ -9,6 +9,7 @@ import Link from "next/link";
 import "@/styles/Freelance.css";
 import { typeOfContractOptions } from "@/lib/selectConstants";
 import { useRouter } from "next/navigation";
+import Freelance from "@/entities/freelance";
 
 interface Experience {
   typeOfContract: string;
@@ -18,7 +19,11 @@ interface Experience {
   formattedEndDate: string;
 }
 
-const EntrepriseFreelanceForm = () => {
+interface EntrepriseFreelanceFormProps {
+  user: Freelance;
+}
+
+const EntrepriseFreelanceForm = ({user}) => {
   const [experience, setExperience] = useState<Experience>({
     typeOfContract: "",
     beginningDate: dayjs("2022-04-17"),

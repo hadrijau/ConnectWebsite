@@ -7,49 +7,44 @@ import { NextResponse } from "next/server";
 export async function POST(req: Request) {
   try {
     const {
-      clientId,
-      title,
-      context,
-      goals,
-      date,
-      price,
-      length,
-      modalities,
-      competences,
-      hiddenCompany,
-      createdAt,
-      hiddenMissionPlace,
-      hiddenTJM,
-      aoId,
+      missionId,
+      freelanceId,
+      cv,
+      clientStatus,
+      freelanceStatus,
+      freelance,
+      freelanceEnterprise,
+      clientDisponibility,
+      freelanceDisponibility,
       city,
-      postalCode,
-      companyName,
+      freelanceProposedPrice,
+      clientProposedPrice,
+      modalities,
     } = await req.json();
 
     const client = await connectToDatabase();
     const db = client.db();
 
-    await db.collection("missions").insertOne({
-      clientId,
-      title,
-      context,
-      goals,
-      date,
-      price,
-      length,
-      modalities,
-      competences,
-      hiddenCompany,
-      hiddenMissionPlace,
-      hiddenTJM,
-      createdAt,
-      aoId,
+    await db.collection("propositions").insertOne({
+      missionId,
+      freelanceId,
+      cv,
+      clientStatus,
+      freelanceStatus,
+      freelance,
+      freelanceEnterprise,
+      clientDisponibility,
+      freelanceDisponibility,
       city,
-      postalCode,
-      companyName,
+      freelanceProposedPrice,
+      clientProposedPrice,
+      modalities,
     });
 
-    return NextResponse.json({ message: "Mission created" }, { status: 201 });
+    return NextResponse.json(
+      { message: "Proposition created" },
+      { status: 201 }
+    );
   } catch (err) {
     return NextResponse.json({ message: "ERROR" }, { status: 500 });
   }
@@ -59,7 +54,7 @@ export async function GET() {
   try {
     const client = await connectToDatabase();
     const db = client.db();
-    const missions = await db.collection("missions").find().toArray();
+    const missions = await db.collection("propositions").find().toArray();
     return NextResponse.json(missions, { status: 200 });
   } catch (err) {
     return NextResponse.json({ message: "ERROR" }, { status: 500 });

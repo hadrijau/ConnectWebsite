@@ -1,4 +1,4 @@
-import React, { useState, ChangeEvent, useRef, ReactNode } from "react";
+import React, { ChangeEvent, useRef, ReactNode } from "react";
 import { storage } from "@/firebase";
 import {
   getDownloadURL,
@@ -11,12 +11,14 @@ interface CustomUploadProps {
   setDownloadUrl: React.Dispatch<React.SetStateAction<string>>;
   accept: string;
   children?: ReactNode;
+  updateDB: (downloadUrl: string) =>  Promise<void>;
 }
 
 const CustomUpload: React.FC<CustomUploadProps> = ({
   setDownloadUrl,
   accept,
-  children
+  children,
+  updateDB
 }) => {
   const fileInputRef = useRef<HTMLInputElement | null>(null);
 
@@ -52,6 +54,8 @@ const CustomUpload: React.FC<CustomUploadProps> = ({
         async () => {
           const downloadUrl = await getDownloadURL(storageRef);
           setDownloadUrl(downloadUrl);
+          await updateDB(downloadUrl);
+
           console.log("Upload completed");
         }
       );
