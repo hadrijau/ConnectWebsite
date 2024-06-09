@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Suspense } from "react";
 import FreelanceIntroSection from "@/components/common/FreelanceIntroSection";
 import Link from "next/link";
 
@@ -11,6 +11,7 @@ import FreelanceNavBar from "@/components/navbar/FreelanceNavbar";
 import { auth } from "@/auth";
 import { redirect } from 'next/navigation' 
 import { getFreelanceByEmail } from "@/http/freelance";
+import Loading from "@/app/loading";
 
 const AnswerMissionPage = async ({ params }: { params: { slug: string } }) => {
   const mission = await getMissionById(params.slug);
@@ -23,7 +24,7 @@ const AnswerMissionPage = async ({ params }: { params: { slug: string } }) => {
   const freelance = await getFreelanceByEmail(session.user.email)
 
   return (
-    <>
+    <Suspense fallback={<Loading />}>
       <FreelanceNavBar />
       <main className="flex flex-col items-center justify-between  mt-32">
         <FreelanceIntroSection
@@ -39,8 +40,9 @@ const AnswerMissionPage = async ({ params }: { params: { slug: string } }) => {
           <AnswerMission mission={mission} freelance={freelance}/>
         </div>
       </main>
-    </>
-  );
+    </Suspense>
+
+  )
 };
 
 export default AnswerMissionPage;

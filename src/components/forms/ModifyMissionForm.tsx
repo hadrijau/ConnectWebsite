@@ -38,6 +38,8 @@ const ModifyMissionForm: React.FC<ModifyMissionFormProps> = ({
     postalCode,
     city,
     clientId,
+    status,
+    companyName,
   },
 }) => {
   const router = useRouter();
@@ -108,6 +110,8 @@ const ModifyMissionForm: React.FC<ModifyMissionFormProps> = ({
         postalCode,
         city,
         aoId,
+        status,
+        companyName,
         propositions: [],
         _id,
       });

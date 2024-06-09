@@ -66,7 +66,9 @@ export const {
     async session({ session, token }) {
       // Add id and type to session
       if (token && session.user) {
+        //@ts-ignore
         (session.user as CustomUser).type = token.type; // Cast session.user to CustomUser
+        //@ts-ignore
         (session.user as CustomUser).id = token._id; // Add _id to session
       }
       return session;

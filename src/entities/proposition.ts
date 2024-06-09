@@ -1,5 +1,6 @@
 import { ObjectId } from "mongodb";
 import dayjs, { Dayjs } from "dayjs";
+import { Enterprise } from "./freelance";
 
 export enum ClientStatus {
   UNOPENED = "Non ouvert",
@@ -13,41 +14,53 @@ export enum FreelanceStatus {
 }
 
 interface PropositionProps {
-  missionId: ObjectId;
-  freelanceId: ObjectId;
+  _id?: ObjectId;
+  missionId: string;
+  title: string;
+  companyName: string;
+  freelanceId: string;
   clientStatus: ClientStatus;
   freelanceStatus: FreelanceStatus;
   cv: string;
   whyMe: string;
   freelance: string;
-  freelanceEnterprise: string;
+  freelanceEnterprise: Enterprise;
   clientDisponibility: Dayjs;
   freelanceDisponibility: Dayjs;
   city: string;
-  clientProposedPrice: string;
-  freelanceProposedPrice: string;
+  clientProposedPrice: number;
+  freelanceProposedPrice: number;
   modalities: string;
+  length: string;
 }
 
 class Proposition {
-  missionId: ObjectId;
-  freelanceId: ObjectId;
+  _id?: ObjectId;
+  missionId: string;
+  freelanceId: string;
+  title: string;
+  companyName: string;
   cv: string;
   clientStatus: ClientStatus;
   freelanceStatus: FreelanceStatus;
   freelance: string;
-  freelanceEnterprise: string;
+  freelanceEnterprise: Enterprise;
   clientDisponibility: Dayjs;
   freelanceDisponibility: Dayjs;
   city: string;
-  clientProposedPrice: string;
-  freelanceProposedPrice: string;
+  clientProposedPrice: number;
+  freelanceProposedPrice: number;
   modalities: string;
+  length: string;
+  whyMe: string;
 
   constructor({
     missionId,
     freelanceId,
     cv,
+    title,
+    length,
+    companyName,
     clientStatus,
     freelanceStatus,
     freelance,
@@ -55,16 +68,21 @@ class Proposition {
     clientDisponibility,
     freelanceDisponibility,
     city,
+    whyMe,
     freelanceProposedPrice,
     clientProposedPrice,
     modalities,
   }: PropositionProps) {
     this.cv = cv;
+    this.title = title;
+    this.length = length;
+    this.companyName = companyName;
     this.missionId = missionId;
     this.freelanceId = freelanceId;
     this.clientStatus = clientStatus;
     this.freelanceStatus = freelanceStatus;
     this.freelance = freelance;
+    this.whyMe = whyMe;
     this.freelanceEnterprise = freelanceEnterprise;
     this.clientDisponibility = clientDisponibility;
     this.freelanceDisponibility = freelanceDisponibility;
@@ -79,6 +97,9 @@ class Proposition {
       method: "POST",
       body: JSON.stringify({
         cv: this.cv,
+        title: this.title,
+        length: this.length,
+        companyName: this.companyName,
         missionId: this.missionId,
         freelanceId: this.freelanceId,
         freelanceStatus: this.freelanceStatus,
@@ -91,6 +112,7 @@ class Proposition {
         freelanceProposedPrice: this.freelanceProposedPrice,
         clientProposedPrice: this.clientProposedPrice,
         modalities: this.modalities,
+        whyMe: this.whyMe,
       }),
       headers: {
         "Content-Type": "application/json",

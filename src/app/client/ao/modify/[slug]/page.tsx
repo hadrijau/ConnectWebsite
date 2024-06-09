@@ -6,8 +6,7 @@ import ModifyMissionForm from "@/components/forms/ModifyMissionForm";
 import "@/styles/Client.css";
 import ClientIntroSection from "@/components/common/ClientIntroSection";
 
-//@ts-ignore
-const ClientAOModifyPage = async ({ params }) => {
+const ClientAOModifyPage = async ({ params }: { params: { slug: string } }) => {
   const mission = await getMissionById(params.slug);
 
   return (

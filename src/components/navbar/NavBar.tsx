@@ -9,15 +9,24 @@ import "@/styles/components/NavBar.css";
 const Navbar = () => {
   const { data: session, status } = useSession();
   const [menuOpen, setMenuOpen] = useState(false);
+  const router = useRouter();
+  const path = usePathname();
+  const [viewProfileDropdown, setViewProfilDropdown] = useState(false);
 
-  let userType = session?.user?.type;
+  const [logoFullShown, setLogoFullShown] = useState(false);
+  if (!session || !session.user) {
+    router.push("/login");
+    return
+  }
+  //@ts-ignore
+  let userType = session.user?.type;
 
   const handleSignOut = () => {
     signOut();
     router.push("/");
   };
 
-  const path = usePathname();
+
   let background;
   if (path.startsWith("/independant")) {
     background =
@@ -29,12 +38,6 @@ const Navbar = () => {
     background =
       "linear-gradient(91.53deg, rgba(216, 146, 192, 0.6) 3.67%, rgba(58, 142, 186, 0.6) 100%)";
   }
-
-  const router = useRouter();
-
-  const [viewProfileDropdown, setViewProfilDropdown] = useState(false);
-
-  const [logoFullShown, setLogoFullShown] = useState(false);
 
   return (
     <nav className="flex justify-between items-center px-10 pt-4 static-navbar pb-4">

@@ -12,6 +12,15 @@ export interface Experience {
   formattedEndDate: string;
 }
 
+export interface Enterprise {
+  name: string;
+  address: string;
+  city: string;
+  postalCode: string;
+  siret: string;
+  hasTVA: boolean;
+}
+
 interface FreelanceProps {
   _id: ObjectId;
   title: string;
@@ -20,12 +29,12 @@ interface FreelanceProps {
   lastname: string;
   email: string;
   lastMission: string;
-  enterprise: string;
   lengthMissionWanted: string;
   descriptionMissionWanted: string;
   competences: { label: string; level: number }[];
   profilePicture: string;
   experiences: Experience[];
+  enterprise: Enterprise;
   cv: string;
 }
 
@@ -33,7 +42,7 @@ class Freelance {
   _id: ObjectId;
   title: string;
   phone: string;
-  enterprise: string;
+  enterprise: Enterprise;
   firstname: string;
   lastname: string;
   email: string;
@@ -110,27 +119,30 @@ class Freelance {
   }
 
   async update() {
-    const response = await fetch(`${baseUrl}/api/freelance/${this.email}`, {
-      method: "PUT",
-      body: JSON.stringify({
-        _id: this._id,
-        phone: this.phone,
-        email: this.email,
-        firstname: this.firstname,
-        lastname: this.lastname,
-        title: this.title,
-        lastMission: this.lastMission,
-        lengthMissionWanted: this.lengthMissionWanted,
-        descriptionMissionWanted: this.descriptionMissionWanted,
-        competences: this.competences,
-        profilePicture: this.profilePicture,
-        experiences: this.experiences,
-        cv: this.cv,
-      }),
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
+    const response = await fetch(
+      `${baseUrl}/api/freelance/email/${this.email}`,
+      {
+        method: "PUT",
+        body: JSON.stringify({
+          _id: this._id,
+          phone: this.phone,
+          email: this.email,
+          firstname: this.firstname,
+          lastname: this.lastname,
+          title: this.title,
+          lastMission: this.lastMission,
+          lengthMissionWanted: this.lengthMissionWanted,
+          descriptionMissionWanted: this.descriptionMissionWanted,
+          competences: this.competences,
+          profilePicture: this.profilePicture,
+          experiences: this.experiences,
+          cv: this.cv,
+        }),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    );
 
     const data = await response.json();
     if (!response.ok) {

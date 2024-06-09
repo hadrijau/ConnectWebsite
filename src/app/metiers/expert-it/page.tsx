@@ -14,8 +14,6 @@ const ExpertITPage = () => {
           firstTitle="La société de portage pour les"
           secondTitle="métiers de service"
           undertitle="Découvre les métiers éligibles au portage"
-          image="/sectionMetiers.svg"
-          background="linear-gradient(135deg, #79B3D1 0%, #D892C0 100%)"
         />
         <div className="px-20">
           <h1 className="text-semibold text-7xl mt-20 mb-10">Expert en IT</h1>

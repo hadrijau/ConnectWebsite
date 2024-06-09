@@ -1,5 +1,4 @@
 import { connectToDatabase } from "@/lib/db";
-import { ObjectId } from "mongodb";
 import { NextResponse } from "next/server";
 
 export async function GET(
@@ -9,10 +8,13 @@ export async function GET(
   try {
     const client = await connectToDatabase();
     const db = client.db();
-    const _id = new ObjectId(params.slug);
-    const user = await db.collection("freelance").findOne({ _id });
-    return NextResponse.json(user, { status: 200 });
+    const propositions = await db
+      .collection("propositions")
+      .find({ missionId: params.slug })
+      .toArray();
+
+    return NextResponse.json(propositions, { status: 200 });
   } catch (err) {
-    return NextResponse.json({ message: "ERROR" }, { status: 500 });
+    return NextResponse.json({ message: err }, { status: 500 });
   }
 }

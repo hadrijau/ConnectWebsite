@@ -10,16 +10,23 @@ import CardOnGoingMission from "@/components/freelance/CardOnGoingMission";
 import { getMissions } from "@/http/mission";
 import Mission from "@/entities/mission";
 import { auth } from "@/auth";
-import { redirect } from 'next/navigation' 
+import { redirect } from "next/navigation";
 
 export default async function FreelancePage() {
   const missions: Mission[] = await getMissions();
 
   const session = await auth();
   if (!session) {
-    redirect("/login")
+    redirect("/login");
   }
-  
+
+  const recentMissions = missions
+    .sort(
+      (a, b) =>
+        new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()
+    )
+    .slice(0, 5);
+
   return (
     <>
       <FreelanceNavBar />
@@ -36,21 +43,18 @@ export default async function FreelancePage() {
               Les appels d&apos;offre du moment spécialement pour toi
             </h1>
 
-            {missions.map((mission, index) => {
-              const {
-                _id,
-                title,
-                price,
-                propositions,
-                date,
-                length,
-              } = mission;
+            {recentMissions.map((mission, index) => {
+              const { _id, title, price, propositions, date, length } = mission;
+              let propositionsLength = 0;
+              if (propositions && propositions.length != 0) {
+                propositionsLength = propositionsLength
+              }
               return (
                 <CardMission
                   key={index}
-                  _id={_id}
+                  _id={_id!}
                   title={title}
-                  propositions={propositions}
+                  propositions={propositionsLength}
                   date={date}
                   companyLogo={"/logoSoge.svg"}
                   companyName={"Company B"}

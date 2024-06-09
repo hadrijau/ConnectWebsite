@@ -12,8 +12,6 @@ const HistoirePage = () => {
           firstTitle="Ne cherche plus, il y a"
           secondTitle=" CONNECT, nous faisons le reste"
           undertitle="Il était une fois... notre histoire"
-          image="/sectionHistoire.svg"
-          background="linear-gradient(135deg, #79B3D1 0%, #D892C0 100%)"
         />
         <div className="main-content">
           <h1 className="text-4xl mb-20 text-semibold mt-20 px-10 2lg:text-3xl">

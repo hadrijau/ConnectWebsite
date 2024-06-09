@@ -5,13 +5,15 @@ import FormButton from "@/components/common/FormButton";
 import Link from "next/link";
 import Mission from "@/entities/mission";
 import CompetencesContainer from "@/components/common/CompetencesContainer";
-
+import dayjs from "dayjs";
 interface DisplayMissionProps {
   mission: Mission;
   freelance?: boolean;
 }
 
 const DisplayMission: React.FC<DisplayMissionProps> = ({ mission, freelance }) => {
+  
+  const missionDate = dayjs(mission.date).toDate();
   return (
     <div className="flex flex-col w-full">
       <div className="flex flex-col w-full">
@@ -53,7 +55,7 @@ const DisplayMission: React.FC<DisplayMissionProps> = ({ mission, freelance }) =
                 alt="calendrier"
                 className="mr-4"
               />
-              {new Date(mission.date)
+              {missionDate
                 .toLocaleDateString("fr-FR")
                 .replaceAll("/", ".")}
             </div>

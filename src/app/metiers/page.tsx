@@ -14,8 +14,6 @@ const Portage = () => {
           firstTitle="La société de portage pour les"
           secondTitle="métiers de service"
           undertitle="Découvre les métiers éligibles au portage"
-          image="/sectionMetiers.svg"
-          background="linear-gradient(135deg, #79B3D1 0%, #D892C0 100%)"
         />
 
         <div className="main-content px-10">

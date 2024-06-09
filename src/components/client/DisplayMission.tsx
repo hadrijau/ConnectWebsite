@@ -5,13 +5,16 @@ import Mission from "@/entities/mission";
 import CompetencesContainer from "../common/CompetencesContainer";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+import dayjs from "dayjs";
 interface DisplayMissionProps {
   mission: Mission;
 }
 
 const DisplayMission: React.FC<DisplayMissionProps> = ({ mission }) => {
   const [modify, setModify] = useState(false);
-  const router = useRouter()
+  const router = useRouter();
+
+  const missionDate = dayjs(mission.date).toDate();
   return (
     <div className="flex flex-col w-full">
       <div className="flex flex-col w-full">
@@ -74,7 +77,7 @@ const DisplayMission: React.FC<DisplayMissionProps> = ({ mission }) => {
                 alt="calendrier"
                 className="mr-4"
               />
-              {new Date(mission.date)
+              {missionDate
                 .toLocaleDateString("fr-FR")
                 .replaceAll("/", ".")}
             </div>

@@ -2,14 +2,15 @@ import React, { FC } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { ObjectId } from "mongodb";
+import dayjs, { Dayjs } from "dayjs";
 interface CardMissionProps {
   _id: ObjectId;
   title: string;
   companyName: string;
   companyLogo: string;
-  price: number;
+  price: string;
   propositions: number;
-  date: Date;
+  date: Dayjs;
   length: string;
 }
 
@@ -23,10 +24,7 @@ const CardMission: FC<CardMissionProps> = ({
   date,
   length,
 }) => {
-  const formattedDate =
-    typeof date === "string"
-      ? new Date(date).toLocaleDateString("fr-FR").replaceAll("/", ".")
-      : date.toLocaleDateString("fr-FR").replaceAll("/", ".");
+  const formattedDate = dayjs(date).format("DD.MM.YYYY");
 
   return (
     <Link href={`/freelance/ao/${_id}`}>

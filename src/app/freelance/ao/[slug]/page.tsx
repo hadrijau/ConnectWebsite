@@ -8,14 +8,13 @@ import "@/styles/Client.css";
 import DisplayMission from "@/components/freelance/DisplayMission";
 import FreelanceNavBar from "@/components/navbar/FreelanceNavbar";
 
-//@ts-ignore
-const FreelanceMissionDetailPage = async ({ params }) => {
+const FreelanceMissionDetailPage = async ({ params }: { params: { slug: string } }) => {
   const mission = await getMissionById(params.slug);
 
   return (
     <>
       <FreelanceNavBar />
-      <main className="flex flex-col items-center justify-between">
+      <main className="flex flex-col items-center justify-between mt-32">
         <FreelanceIntroSection firstTitle="Appel d'offre" />
 
         <div className="flex flex-col justify-between w-full mt-10 main-content">

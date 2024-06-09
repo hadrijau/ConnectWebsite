@@ -1,7 +1,4 @@
-import Client from "@/entities/client";
-import Mission from "@/entities/mission";
 import { connectToDatabase } from "@/lib/db";
-import { Db, ObjectId } from "mongodb";
 import { NextResponse } from "next/server";
 
 export async function POST(req: Request) {
@@ -20,6 +17,10 @@ export async function POST(req: Request) {
       freelanceProposedPrice,
       clientProposedPrice,
       modalities,
+      title,
+      companyName,
+      length,
+      whyMe,
     } = await req.json();
 
     const client = await connectToDatabase();
@@ -39,6 +40,10 @@ export async function POST(req: Request) {
       freelanceProposedPrice,
       clientProposedPrice,
       modalities,
+      title,
+      whyMe,
+      companyName,
+      length,
     });
 
     return NextResponse.json(

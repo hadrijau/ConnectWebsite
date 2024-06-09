@@ -1,23 +1,21 @@
 import "@/styles/Freelance.css";
 import FreelanceNavBar from "@/components/navbar/FreelanceNavbar";
-import UploadFreelanceDocumentForm from "@/components/forms/UploadFreelanceDocumentForm";
-import FreelanceIntroSectionWithoutImage from "@/components/common/FreelanceIntroSectionWithoutImage";
 import FreelanceIntroSection from "@/components/common/FreelanceIntroSection";
-import CardOnGoingMission from "@/components/freelance/CardOnGoingMission";
-import { getMissions } from "@/http/mission";
-import Mission from "@/entities/mission";
 import { auth } from "@/auth";
-import CardMission from "@/components/freelance/CardMission";
 import { redirect } from "next/navigation";
 import AODisplay from "@/components/freelance/AODisplay";
+import Proposition from "@/entities/proposition";
+import { getPropositionsByFreelanceId } from "@/http/propositions";
 
 export default async function AOPropositionsPage() {
-  const missions: Mission[] = await getMissions();
-
   const session = await auth();
-  if (!session) {
+  if (!session || !session.user || !session.user.id) {
     redirect("/login");
   }
+
+  const propositions: Proposition[] = await getPropositionsByFreelanceId(
+    session?.user?.id
+  );
 
   return (
     <>
@@ -29,7 +27,7 @@ export default async function AOPropositionsPage() {
         />
 
         <div className="flex justify-between w-full main-content flex-col">
-          <AODisplay missions={missions} />
+          <AODisplay propositions={propositions} />
         </div>
       </main>
     </>

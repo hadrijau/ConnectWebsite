@@ -164,7 +164,7 @@ const CreateFreelanceExperienceForm: React.FC<
                   onBlur={handleBlur}
                   helperText={touched.jobTitle && errors.jobTitle}
                   placeholder="Intitulé du poste*"
-                  className="rounded-full my-4 w-10/12"
+                  className="my-4 w-10/12"
                 />
               </div>
               <div className="flex flex-col w-5/12">
@@ -177,7 +177,7 @@ const CreateFreelanceExperienceForm: React.FC<
                   onBlur={handleBlur}
                   helperText={touched.company && errors.company}
                   placeholder="Entreprise*"
-                  className="rounded-full my-4 w-10/12"
+                  className="my-4 w-10/12"
                 />
               </div>
             </div>

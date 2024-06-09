@@ -14,7 +14,7 @@ import TextInput from "@/components/common/TextInput";
 import LevelSelector from "@/components/common/LevelSelector"; // Import the new component
 import CustomAutocomplete from "../common/CustomAutocomplete";
 import { competences } from "@/lib/competences";
-import Mission from "@/entities/mission";
+import Mission, { MissionStatus } from "@/entities/mission";
 import Link from "next/link";
 import { CircularProgress } from "@mui/material";
 
@@ -117,6 +117,7 @@ const CreateMissionForm: React.FC<CreateMissionFormProps> = ({ user }) => {
         hiddenCompany,
         hiddenMissionPlace,
         hiddenTJM,
+        status: MissionStatus.PUBLISHED,
         companyName: "Société Générale",
         aoId: user.lastAOId,
         postalCode: user.postalCode,

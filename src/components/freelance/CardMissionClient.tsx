@@ -7,15 +7,16 @@ import "@/styles/Client.css";
 import CustomDialog from "@/components/common/CustomDialog";
 import { deleteMission } from "@/http/mission";
 import { useRouter } from "next/navigation";
+import dayjs, { Dayjs } from "dayjs";
 
 interface CardMissionClientProps {
   _id: ObjectId;
   title: string;
   companyName: string;
   companyLogo: string;
-  price: number;
+  price: string;
   propositions: number;
-  date: Date;
+  date: Dayjs;
   length: string;
   createdAt: Date;
 }
@@ -31,10 +32,7 @@ const CardMissionClient: FC<CardMissionClientProps> = ({
   createdAt,
   length,
 }) => {
-  const formattedDate =
-    typeof date === "string"
-      ? new Date(date).toLocaleDateString("fr-FR").replaceAll("/", ".")
-      : date.toLocaleDateString("fr-FR").replaceAll("/", ".");
+  const formattedDate = dayjs(date).format("DD.MM.YYYY");
 
   const router = useRouter();
   const [open, setOpen] = React.useState(false);
@@ -53,7 +51,7 @@ const CardMissionClient: FC<CardMissionClientProps> = ({
 
   const handleDelete = async () => {
     await deleteMission(String(_id));
-    handleClose()
+    handleClose();
     router.refresh();
   };
 
@@ -70,7 +68,9 @@ const CardMissionClient: FC<CardMissionClientProps> = ({
                 alt="publication AO"
               />
 
-              <p className="text-normal text-xs ml-2 mr-4">Publiée il y a {daysDifference} jours</p>
+              <p className="text-normal text-xs ml-2 mr-4">
+                Publiée il y a {daysDifference} jours
+              </p>
             </div>
             <div className="flex items-center">
               <Image

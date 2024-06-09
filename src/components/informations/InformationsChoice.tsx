@@ -5,10 +5,11 @@ import { useRouter } from "next/navigation";
 import { signIn } from "next-auth/react";
 import CircularProgress from "@mui/material/CircularProgress";
 import Client from "@/entities/client";
-import Freelance from "@/entities/freelance";
+import Freelance, { Enterprise } from "@/entities/freelance";
 
 //@ts-ignore
 const InformationsChoice = ({ email, firstname, lastname, password }) => {
+  
   const router = useRouter();
   const [isLoading, setIsLoading] = useState(false);
 
@@ -38,19 +39,27 @@ const InformationsChoice = ({ email, firstname, lastname, password }) => {
         sector: "",
         description: "",
         _id: user._id,
-        lastAOId:  "AO00001"
-      })
+        lastAOId: "AO00001",
+      });
       await client.save();
       router.push("/client/profil");
       setIsLoading(false);
     } else {
+      const freelanceEnterpise: Enterprise = {
+        name: "",
+        address: "",
+        city: "",
+        postalCode: "",
+        siret: "",
+        hasTVA: false,
+      };
       const freelance = new Freelance({
-        _id: user._id, 
+        _id: user._id,
         title: "",
         phone: "",
         firstname,
         lastname,
-        enterprise: "",
+        enterprise: freelanceEnterpise,
         lastMission: "",
         lengthMissionWanted: "",
         descriptionMissionWanted: "",
@@ -58,8 +67,8 @@ const InformationsChoice = ({ email, firstname, lastname, password }) => {
         experiences: [],
         profilePicture: "",
         email,
-        cv: ""
-      })
+        cv: "",
+      });
       await freelance.save();
       router.push("/freelance/profil");
       setIsLoading(false);

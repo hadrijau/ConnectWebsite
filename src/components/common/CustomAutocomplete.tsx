@@ -38,6 +38,7 @@ const CustomAutocomplete: React.FC<CustomAutocompleteProps> = ({
   return (
     <StyledAutocomplete
       value={value}
+      //@ts-ignore
       onChange={(event: any, newValue: string | null) => {
         setValue(newValue);
       }}

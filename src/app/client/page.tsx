@@ -48,12 +48,16 @@ const ClientSpacePage = async () => {
                 length,
                 createdAt
               } = mission;
+              let propositionsLength = 0;
+              if (propositions && propositions.length != 0) {
+                propositionsLength = propositionsLength
+              }
               return (
                 <CardMissionClient
-                  _id={_id}
+                  _id={_id!}
                   key={index}
                   title={title}
-                  propositions={propositions}
+                  propositions={propositionsLength}
                   date={date}
                   companyLogo={"/logoSoge.svg"}
                   companyName={"Company B"}

@@ -1,16 +1,12 @@
 import "@/styles/Freelance.css";
 import FreelanceNavBar from "@/components/navbar/FreelanceNavbar";
-import UploadFreelanceDocumentForm from "@/components/forms/UploadFreelanceDocumentForm";
-import FreelanceIntroSectionWithoutImage from "@/components/common/FreelanceIntroSectionWithoutImage";
 import FreelanceIntroSection from "@/components/common/FreelanceIntroSection";
-import CardOnGoingMission from "@/components/freelance/CardOnGoingMission";
 import { getMissions } from "@/http/mission";
 import Mission from "@/entities/mission";
 import { auth } from "@/auth";
 import CardMission from "@/components/freelance/CardMission";
 import { redirect } from "next/navigation";
 import Image from "next/image";
-import ongoingMissions from "@/mockData/ongoingmissions";
 import FreelanceAoNavbar from "@/components/freelance/FreelanceAoNavbar";
 export default async function RechercheAOPage() {
   const missions: Mission[] = await getMissions();
@@ -35,12 +31,16 @@ export default async function RechercheAOPage() {
               {missions.map((mission, index) => {
                 const { _id, title, price, propositions, date, length } =
                   mission;
+                  let propositionsLength = 0;
+                  if (propositions && propositions.length != 0) {
+                    propositionsLength = propositionsLength
+                  }
                 return (
                   <CardMission
                     key={index}
-                    _id={_id}
+                    _id={_id!}
                     title={title}
-                    propositions={propositions}
+                    propositions={propositionsLength}
                     date={date}
                     companyLogo={"/logoSoge.svg"}
                     companyName={"Company B"}

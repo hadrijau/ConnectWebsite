@@ -24,6 +24,7 @@ export async function POST(req: Request) {
       city,
       postalCode,
       companyName,
+      status,
     } = await req.json();
 
     const client = await connectToDatabase();
@@ -47,6 +48,7 @@ export async function POST(req: Request) {
       city,
       postalCode,
       companyName,
+      status,
     });
 
     return NextResponse.json({ message: "Mission created" }, { status: 201 });

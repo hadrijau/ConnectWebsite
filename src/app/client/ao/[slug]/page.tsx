@@ -11,8 +11,7 @@ import "@/styles/Client.css";
 import DisplayMission from "@/components/client/DisplayMission";
 import ClientIntroSection from "@/components/common/ClientIntroSection";
 
-//@ts-ignore
-const ClientAODetailPage = async ({ params }) => {
+const ClientAODetailPage = async ({ params }: { params: { slug: string } }) => {
   const mission = await getMissionById(params.slug);
 
   return (

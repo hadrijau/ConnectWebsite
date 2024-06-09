@@ -1,12 +1,9 @@
 "use client";
 import React, { useState } from "react";
-import Image from "next/image";
 import TextInput from "@/components/common/TextInput";
-import FormButton from "@/components/common/FormButton";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import { useRouter } from "next/navigation";
 import * as yup from "yup";
-import CustomUpload from "../upload/CustomUpload";
 import Freelance from "@/entities/freelance";
 import CircularProgress from "@mui/material/CircularProgress";
 import FreelanceProfilPictureUpload from "../upload/FreelanceProfilPictureUpload";

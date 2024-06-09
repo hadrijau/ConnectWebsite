@@ -1,4 +1,4 @@
-import React, { ChangeEvent, useRef, ReactNode } from "react";
+import React, { ChangeEvent, useRef, ReactNode, RefObject } from "react";
 import { storage } from "@/firebase";
 import {
   getDownloadURL,
@@ -11,16 +11,16 @@ interface CustomUploadProps {
   setDownloadUrl: React.Dispatch<React.SetStateAction<string>>;
   accept: string;
   children?: ReactNode;
-  updateDB: (downloadUrl: string) =>  Promise<void>;
+  updateDB: (downloadUrl: string) => Promise<void>;
 }
 
 const CustomUpload: React.FC<CustomUploadProps> = ({
   setDownloadUrl,
   accept,
   children,
-  updateDB
+  updateDB,
 }) => {
-  const fileInputRef = useRef<HTMLInputElement | null>(null);
+  const fileInputRef = useRef<HTMLInputElement>(null);
 
   const handleClick = () => {
     if (fileInputRef.current) {
@@ -69,11 +69,9 @@ const CustomUpload: React.FC<CustomUploadProps> = ({
         accept={accept}
         onChange={handleChange}
         style={{ display: "none" }}
-        ref={(input) => (fileInputRef.current = input)}
+        ref={fileInputRef}
       />
-      <div onClick={handleClick}>   
-            {children}
-      </div>
+      <div onClick={handleClick}>{children}</div>
     </div>
   );
 };

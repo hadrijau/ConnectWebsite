@@ -9,15 +9,16 @@ import Image from "next/image";
 import { useRouter } from "next/navigation";
 import "@/styles/Client.css";
 import { deleteMission, getMissionById } from "@/http/mission";
-import { ObjectId } from "mongodb";
 import CustomDialog from "@/components/common/CustomDialog";
 import Loading from "@/app/loading";
+import Client from "@/entities/client";
 
 interface DataGridAOProps {
   missions: Mission[];
+  user: Client;
 }
 
-const DataGridAO: React.FC<DataGridAOProps> = ({ missions }) => {
+const DataGridAO: React.FC<DataGridAOProps> = ({ missions, user }) => {
   const dateFormatter = (params: { value: string | Date }) => {
     return dayjs(params.value).format("DD.MM.YYYY");
   };
@@ -68,7 +69,7 @@ const DataGridAO: React.FC<DataGridAOProps> = ({ missions }) => {
       editable: false,
     },
     {
-      field: "statut",
+      field: "status",
       headerName: "Statut",
       flex: 1,
       minWidth: 150,
@@ -128,7 +129,7 @@ const DataGridAO: React.FC<DataGridAOProps> = ({ missions }) => {
                   </p>
                   <p
                     className="profil-client-option cursor-pointer py-2 px-3 text-left font-medium"
-                    onClick={() => router.push("/client/profil")}
+                    onClick={() => router.push(`/client/ao/propositions/${params.row.id}`)}
                   >
                     Propositions
                   </p>
@@ -168,6 +169,7 @@ const DataGridAO: React.FC<DataGridAOProps> = ({ missions }) => {
       aoId: mission.aoId,
       title: mission.title,
       length: mission.length,
+      status: mission.status,
     };
   });
 
@@ -178,33 +180,57 @@ const DataGridAO: React.FC<DataGridAOProps> = ({ missions }) => {
   const [idAO, setIdAO] = useState("");
 
   const handleDuplicate = async (idAO: string) => {
-    setLoading(true);
-    setOpenThreeDotsMenu(false)
-    const mission: Mission = await getMissionById(idAO);
-    const missionDuplicate = new Mission({
-      clientId: mission.clientId,
-      title: mission.title,
-      context: mission.context,
-      goals: mission.goals,
-      date: mission.date,
-      price: mission.price,
-      companyName: mission.companyName,
-      length: mission.length,
-      modalities: mission.modalities,
-      competences: mission.competences,
-      hiddenCompany: mission.hiddenCompany,
-      hiddenMissionPlace: mission.hiddenMissionPlace,
-      hiddenTJM: mission.hiddenTJM,
-      aoId: mission.aoId,
-      city: mission.city,
-      propositions: mission.propositions!,
-      postalCode: mission.postalCode
+    try {
+      setLoading(true);
+      setOpenThreeDotsMenu(false);
+      console.log("user", user)
+      const numericPart = parseInt(user.lastAOId.substring(2), 10);
+      const nextNumericPart = numericPart + 1;
+      const newAoId = `AO${nextNumericPart.toString().padStart(5, "0")}`;
+      const client = new Client({
+        firstname: user.firstname,
+        lastname: user.lastname,
+        email: user.email,
+        phoneNumber: user.phoneNumber,
+        address: user.address,
+        postalCode: user.postalCode,
+        city: user.city,
+        sector: user.sector,
+        domainName: user.domainName,
+        description: user.description,
+        _id: user._id,
+        lastAOId: newAoId,
+      });
+      await client.update();
+      const mission: Mission = await getMissionById(idAO);
+      const missionDuplicate = new Mission({
+        clientId: mission.clientId,
+        title: mission.title,
+        context: mission.context,
+        goals: mission.goals,
+        date: mission.date,
+        price: mission.price,
+        companyName: mission.companyName,
+        length: mission.length,
+        modalities: mission.modalities,
+        competences: mission.competences,
+        hiddenCompany: mission.hiddenCompany,
+        hiddenMissionPlace: mission.hiddenMissionPlace,
+        hiddenTJM: mission.hiddenTJM,
+        aoId: newAoId,
+        city: mission.city,
+        status: mission.status,
+        propositions: mission.propositions!,
+        postalCode: mission.postalCode,
+      });
+      await missionDuplicate.save();
+      setLoading(false);
+      router.refresh();
+    } catch (err) {
+      setLoading(false)
+      console.log("err", err)
     }
 
-    );
-    await missionDuplicate.save();
-    setLoading(false)
-    router.refresh();
   };
   const handleClickOpen = (idAO: string) => {
     setIdAO(idAO);

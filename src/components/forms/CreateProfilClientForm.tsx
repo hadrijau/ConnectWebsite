@@ -205,6 +205,8 @@ const CreateProfilClientForm: React.FC<CreateProfilClientFormProps> = ({
                 value={values.description}
                 multiline
                 rows={6}
+                onChange={handleChange}
+                onBlur={handleBlur}
                 placeholder="Description..."
                 className="w-8/12 rounded-3xl select-profil-container my-5 h-48 lg:w-11/12"
               />

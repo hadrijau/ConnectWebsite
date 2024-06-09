@@ -37,14 +37,14 @@ const FreelanceProfilPictureUpload: React.FC<
 
   if (freelance.profilePicture) {
     return (
-      <div>
+      <div className="relative">
         <div className="photo-freelance-container">
-        <Image
-          src={freelance.profilePicture}
-          alt="photo de profil"
-          fill
-          className="rounded-full"
-        />
+          <Image
+            src={freelance.profilePicture}
+            alt="photo de profil"
+            fill
+            className="rounded-full"
+          />
         </div>
 
         <CustomUpload
@@ -52,13 +52,13 @@ const FreelanceProfilPictureUpload: React.FC<
           updateDB={updateFreelance}
           setDownloadUrl={setDownloadUrl}
         >
-          <div
-            title="Sauvegarder"
-            className={` text-center rounded-2xl py-3 cursor-pointer px-8 font-normal`}
-            style={{ background: "rgba(185, 211, 134, 0.5)" }}
-          >
-            Change ta photo de profil
-          </div>
+          <Image
+            src="/crayon_indep.svg"
+            width={30}
+            height={30}
+            alt="Modifier photo de profil"
+            className="absolute bottom-1 right-1"
+          />
         </CustomUpload>
       </div>
     );

@@ -1,21 +1,25 @@
 "use client";
 import React, { useState } from "react";
 import Image from "next/image";
-import FormButton from "@/components/common/FormButton";
 import dayjs from "dayjs";
 import TextInput from "@/components/common/TextInput";
-import CustomUpload from "@/components/upload/CustomUpload";
 import "@/styles/Freelance.css";
 import Mission from "@/entities/mission";
 import CompetencesContainer from "@/components/common/CompetencesContainer";
 import * as yup from "yup";
 import CustomDateField from "../common/CustomDateField";
 import { Formik, Form, Field, ErrorMessage } from "formik";
-import Proposition, { ClientStatus, FreelanceStatus } from "@/entities/proposition";
+import Proposition, {
+  ClientStatus,
+  FreelanceStatus,
+} from "@/entities/proposition";
 import { useSession } from "next-auth/react";
 import { ObjectId } from "mongodb";
 import Freelance from "@/entities/freelance";
 import CVUpload from "../upload/CVUpload";
+import { useRouter } from "next/navigation";
+import { CircularProgress } from "@mui/material";
+import { Dayjs } from "dayjs";
 interface AnswerMissionProps {
   mission: Mission;
   freelance: Freelance;
@@ -26,11 +30,14 @@ const AnswerMission: React.FC<AnswerMissionProps> = ({
   freelance,
 }) => {
   const [downloadUrl, setDownloadUrl] = useState("");
+  const router = useRouter();
 
+  const missionDate = dayjs(mission.date).toDate();
+  const [isLoading, setIsLoading] = useState(false);
   const validationSchema = yup.object({
     whyMe: yup.string().required("Ce champ est obligatoire"),
     disponiblity: yup.string().required("Tes dispobilités sont obligatoires"),
-    proposedPrice: yup
+    freelanceProposedPrice: yup
       .number()
       .required("Le prix est obligatoire")
       .min(0, "Le prix ne peut pas être négatif"),
@@ -39,27 +46,32 @@ const AnswerMission: React.FC<AnswerMissionProps> = ({
   const initialValues = {
     whyMe: "",
     disponiblity: dayjs(new Date()),
-    proposedPrice: "",
+    freelanceProposedPrice: "",
   };
 
   const handleFormSubmit = async (values: typeof initialValues) => {
+    setIsLoading(true);
     const proposition = new Proposition({
-      missionId: mission._id!,
-      freelanceId: freelance._id,
+      missionId: String(mission._id!),
+      freelanceId: String(freelance._id),
       clientStatus: ClientStatus.UNOPENED,
-      cv: downloadUrl,
+      freelanceStatus: FreelanceStatus.ONGOING,
+      cv: freelance.cv,
       whyMe: values.whyMe,
       freelance: `${freelance.firstname} ${freelance.lastname}`,
       freelanceEnterprise: freelance.enterprise,
       freelanceDisponibility: values.disponiblity,
       clientDisponibility: mission.date,
       city: mission.city,
-      clientProposedPrice: mission.price,
-      freelanceProposedPrice: values.proposedPrice,
+      clientProposedPrice: Number(mission.price),
+      freelanceProposedPrice: Number(values.freelanceProposedPrice),
       modalities: mission.modalities,
-
+      title: mission.title,
+      companyName: mission.companyName,
+      length: mission.length,
     });
     await proposition.save();
+    router.push("/freelance/ao/propositions");
   };
   return (
     <Formik
@@ -78,7 +90,7 @@ const AnswerMission: React.FC<AnswerMissionProps> = ({
         errors,
         handleSubmit,
       }) => (
-        <Form className="flex flex-col w-full">
+        <Form className="flex flex-col w-full" onSubmit={handleSubmit}>
           <div className="flex flex-col w-full">
             <div className="flex w-full justify-between">
               <div className="flex-col w-7/12">
@@ -149,10 +161,20 @@ const AnswerMission: React.FC<AnswerMissionProps> = ({
                       <div className="flex items-center my-5">
                         <div className="w-12/12">
                           <TextInput
-                            name="price"
-                            id="price"
+                            name="freelanceProposedPrice"
                             placeholder=""
                             type="number"
+                            error={
+                              touched.freelanceProposedPrice &&
+                              Boolean(errors.freelanceProposedPrice)
+                            }
+                            helperText={
+                              touched.freelanceProposedPrice &&
+                              errors.freelanceProposedPrice
+                            }
+                            value={values.freelanceProposedPrice}
+                            onChange={handleChange}
+                            onBlur={handleBlur}
                             className="rounded-2xl mr-5"
                           />
                         </div>
@@ -177,7 +199,7 @@ const AnswerMission: React.FC<AnswerMissionProps> = ({
                     alt="calendrier"
                     className="mr-4"
                   />
-                  {new Date(mission.date)
+                  {missionDate
                     .toLocaleDateString("fr-FR")
                     .replaceAll("/", ".")}
                 </div>
@@ -228,14 +250,17 @@ const AnswerMission: React.FC<AnswerMissionProps> = ({
                 />
 
                 <div className="flex my-10 items-center justify-center">
-                  <button
-                    className="my-12 py-5 px-10 rounded-2xl bg-freelance"
-                    type="submit"
-                  >
-                    <span className="text-xl text-semibold ml-2 mr-2">
+                  {isLoading ? (
+                    <CircularProgress size={40} />
+                  ) : (
+                    <button
+                      className="my-12 py-5 px-10 rounded-2xl bg-freelance text-xl text-semibold ml-2 mr-2"
+                      type="submit"
+                    >
                       Envoyer
-                    </span>
-                  </button>
+                    </button>
+                  )}
+
                   <Image
                     src="/freelanceSendMission.svg"
                     height={200}

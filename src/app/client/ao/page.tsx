@@ -9,15 +9,17 @@ import Box from "@mui/material/Box";
 import DataGridAO from "@/components/datagrid/DatagridAO";
 import { auth } from "@/auth";
 import Loading from "@/app/loading";
+import { getClientByEmail } from "@/http/client";
 
 const ClientAOPage = async () => {
   const session = await auth();
 
-  if (!session || !session.user || !session.user.id) {
+  if (!session || !session.user || !session.user.id || !session.user.email) {
     return <Loading />
   }
   const missions: Mission[] = await getMissionsByClientId(session.user.id);
 
+  const client = await getClientByEmail(session.user.email);
   return (
     <>
       <ClientNavbar />
@@ -32,7 +34,7 @@ const ClientAOPage = async () => {
             + Ajouter un appel d&apos;offres
           </Link>
 
-          <DataGridAO missions={missions} />
+          <DataGridAO missions={missions} user={client}/>
         </div>
       </main>
     </>

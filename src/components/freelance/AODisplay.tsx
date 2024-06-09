@@ -1,30 +1,48 @@
-"use client"
-import React from "react";
+"use client";
+import React, { useState } from "react";
 import FreelanceAoNavbar from "@/components/freelance/FreelanceAoNavbar";
 import PropositionsNavBar from "@/components/freelance/PropositionsNavBar";
-import CardMission from "@/components/freelance/CardMission";
+import AOFreelanceCard from "@/components/freelance/AOFreelanceCard";
+import Proposition, { FreelanceStatus } from "@/entities/proposition";
 
-const AODisplay = ({missions}) => {
+interface AODisplayProps {
+  propositions: Proposition[];
+}
+
+const AODisplay: React.FC<AODisplayProps> = ({ propositions }) => {
+
+  const [status, setStatus] = useState(FreelanceStatus.ONGOING);
+
   return (
     <div>
       <FreelanceAoNavbar />
       <div className="flex justify-center">
-        <PropositionsNavBar />
+        <PropositionsNavBar status={status} setStatus={setStatus}/>
       </div>
       <div className="flex justify-between w-full mt-10">
-        <div className="flex-col w-7/12 lg:w-8/12">
-          {missions.map((mission, index) => {
-            const { _id, title, price, propositions, date, length } = mission;
+        <div className="flex-col w-full">
+          {propositions.map((proposition, index) => {
+            const {
+              freelanceId,
+              clientProposedPrice,
+              freelanceProposedPrice,
+              title,
+              clientDisponibility,
+              length,
+              city,
+              modalities,
+            } = proposition;
             return (
-              <CardMission
+              <AOFreelanceCard
                 key={index}
-                _id={_id}
+                clientProposedPrice={clientProposedPrice}
+                freelanceProposedPrice={freelanceProposedPrice}
                 title={title}
-                propositions={propositions}
-                date={date}
+                city={city}
+                modalities={modalities}
+                date={clientDisponibility}
                 companyLogo={"/logoSoge.svg"}
                 companyName={"Company B"}
-                price={price}
                 length={length}
               />
             );

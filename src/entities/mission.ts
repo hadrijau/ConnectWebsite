@@ -2,6 +2,10 @@ import { ObjectId } from "mongodb";
 import { Dayjs } from "dayjs";
 import Proposition from "@/entities/proposition";
 
+export enum MissionStatus {
+  PUBLISHED = "Publié",
+  STARTED = "Commencé",
+}
 interface MissionProps {
   clientId: ObjectId;
   title: string;
@@ -19,6 +23,7 @@ interface MissionProps {
   aoId: string;
   city: string;
   postalCode: string;
+  status: MissionStatus;
   _id?: ObjectId;
   propositions: Proposition[];
 }
@@ -35,6 +40,7 @@ class Mission {
   price: string;
   length: string;
   modalities: string;
+  status: MissionStatus;
   competences: { label: string; level: number }[];
   createdAt: Date;
   hiddenCompany: boolean;
@@ -60,6 +66,7 @@ class Mission {
     hiddenTJM,
     aoId,
     city,
+    status,
     postalCode,
     _id,
     propositions,
@@ -68,6 +75,7 @@ class Mission {
     this.title = title;
     this.context = context;
     this.goals = goals;
+    this.status = status;
     this.date = date;
     this.price = price;
     this.companyName = companyName;
@@ -100,6 +108,7 @@ class Mission {
         date: this.date,
         price: this.price,
         length: this.length,
+        status: this.status,
         modalities: this.modalities,
         competences: this.competences,
         createdAt: this.createdAt,
@@ -137,6 +146,7 @@ class Mission {
         context: this.context,
         goals: this.goals,
         date: this.date,
+        status: this.status,
         price: this.price,
         length: this.length,
         modalities: this.modalities,
