@@ -45,6 +45,7 @@ const CustomSelect: React.FC<CustomSelectProps> = ({
           id={name}
           name={name}
           value={value}
+          className="px-2"
           onChange={onChange}
           onBlur={onBlur}
           input={<OutlinedInput label={placeholder} />}

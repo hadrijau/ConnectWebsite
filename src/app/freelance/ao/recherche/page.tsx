@@ -15,6 +15,12 @@ export default async function RechercheAOPage() {
   if (!session) {
     redirect("/login");
   }
+
+  const recentMissions = missions
+  .sort(
+    (a, b) =>
+      new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()
+  )
   return (
     <>
       <FreelanceNavBar />
@@ -28,7 +34,7 @@ export default async function RechercheAOPage() {
           <FreelanceAoNavbar />
           <div className="flex justify-between w-full mt-10">
             <div className="flex-col w-7/12 lg:w-8/12">
-              {missions.map((mission, index) => {
+              {recentMissions.map((mission, index) => {
                 const { _id, title, price, propositions, date, length } =
                   mission;
                   let propositionsLength = 0;
@@ -51,7 +57,7 @@ export default async function RechercheAOPage() {
               })}
             </div>
 
-            <div className="flex flex-col ongoing-mission-container p-10 rounded-3xl w-1/5 items-center">
+            <div className="flex flex-col ongoing-mission-container-freelance p-10 rounded-3xl w-1/5 items-center">
               <h3 className="text-2xl text-semibold mb-6">CONNECT</h3>
               <h5 className="text-center text-normal text-base">
                 t’accompagne dans ta recherche d’appel d’offres. Tu trouveras

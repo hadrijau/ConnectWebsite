@@ -51,7 +51,7 @@ export default async function AOCherisPage() {
               })}
             </div>
 
-            <div className="flex flex-col ongoing-mission-container p-10 rounded-3xl w-1/5 items-center">
+            <div className="flex flex-col ongoing-mission-container-freelance p-10 rounded-3xl w-1/5 items-center">
               <h3 className="text-2xl text-semibold mb-6">CONNECT</h3>
               <h5 className="text-center text-normal text-base">
                 t’accompagne dans ta recherche d’appel d’offres. Tu trouveras

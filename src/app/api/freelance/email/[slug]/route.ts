@@ -34,6 +34,7 @@ export async function PUT(
       competences,
       profilePicture,
       experiences,
+      enterprise,
       cv,
     } = await req.json();
     const client = await connectToDatabase();
@@ -60,6 +61,7 @@ export async function PUT(
           descriptionMissionWanted,
           competences,
           profilePicture,
+          enterprise,
           experiences,
           cv,
         },

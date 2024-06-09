@@ -32,11 +32,11 @@ input:focus-visible {
   background-color: rgba(235, 200, 223, 1);
 }
 
-.ongoing-mission-container {
+.ongoing-mission-container-client {
   background: #d892c047;
 }
 
-.header-offres {
+.header-offres-client {
   color: #d892c0;
 }
 

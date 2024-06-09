@@ -32,7 +32,7 @@ const ClientSpacePage = async () => {
         <div className="flex justify-between w-full mt-10 main-content">
           <div className="flex-col w-8/12">
             <div className="flex justify-between w-full">
-              <h1 className="text-semibold header-offres text-2xl">
+              <h1 className="text-semibold header-offres-client text-2xl">
                 Mes appels d&apos;offres
               </h1>
               <Link href="/client/ao/create-ao" className="text-normal">+ Ajouter un appel d&apos;offres</Link>
@@ -69,7 +69,7 @@ const ClientSpacePage = async () => {
             })}
           </div>
 
-          <div className="flex flex-col ongoing-mission-container p-10 rounded-3xl w-3/12 items-center">
+          <div className="flex flex-col ongoing-mission-container-client p-10 rounded-3xl w-3/12 items-center">
             <Image
               src="/clientMissionSpaceship.svg"
               width={70}

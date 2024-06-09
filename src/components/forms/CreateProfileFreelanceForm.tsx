@@ -17,7 +17,7 @@ const CreateProfileFreelanceForm: React.FC<CreateProfileFreelanceFormProps> = ({
 }) => {
   const router = useRouter();
   if (!user) {
-    router.push("/")
+    router.push("/");
   }
   const initialValues = {
     title: user.title || "",
@@ -62,9 +62,9 @@ const CreateProfileFreelanceForm: React.FC<CreateProfileFreelanceFormProps> = ({
             lastname: user.lastname,
             firstname: user.firstname,
             experiences: user.experiences,
-            cv: user.cv
-          })
-          await updatedFreelance.update()
+            cv: user.cv,
+          });
+          await updatedFreelance.update();
           router.push("/freelance/profil/competences");
           setIsLoading(false);
         } catch (err) {
@@ -85,7 +85,7 @@ const CreateProfileFreelanceForm: React.FC<CreateProfileFreelanceFormProps> = ({
           onSubmit={handleSubmit}
         >
           <div className="flex my-5">
-            <FreelanceProfilPictureUpload freelance={user}/>
+            <FreelanceProfilPictureUpload freelance={user} />
 
             <div className="flex-col mt-10 ml-10">
               <h5 className="font-normal text-xl">
@@ -166,19 +166,27 @@ const CreateProfileFreelanceForm: React.FC<CreateProfileFreelanceFormProps> = ({
               className="h-40 rounded-3xl w-10/12"
             />
           </div>
-          <div className="flex justify-end mt-10">
-            {isLoading ? (
-              <CircularProgress size={20} />
-            ) : (
-              <button
-                type="submit"
-                title="Sauvegarder"
-                className={` text-center rounded-2xl py-3 cursor-pointer px-8 font-semibold`}
-                style={{ background: "rgba(185, 211, 134, 0.5)" }}
-              >
-                OK
-              </button>
-            )}
+          <div className="flex justify-between mt-10">
+            <p
+              onClick={() => router.push("/freelance")}
+              className="cursor-pointer mt-5"
+            >
+              &#60;- retour à l&apos;accueil
+            </p>
+            <div className="flex justify-end">
+              {isLoading ? (
+                <CircularProgress size={20} />
+              ) : (
+                <button
+                  type="submit"
+                  title="Sauvegarder"
+                  className={` text-center rounded-2xl py-3 cursor-pointer px-8 font-semibold`}
+                  style={{ background: "rgba(185, 211, 134, 0.5)" }}
+                >
+                  OK
+                </button>
+              )}
+            </div>
           </div>
         </Form>
       )}

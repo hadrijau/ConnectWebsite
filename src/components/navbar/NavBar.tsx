@@ -14,12 +14,9 @@ const Navbar = () => {
   const [viewProfileDropdown, setViewProfilDropdown] = useState(false);
 
   const [logoFullShown, setLogoFullShown] = useState(false);
-  if (!session || !session.user) {
-    router.push("/login");
-    return
-  }
+
   //@ts-ignore
-  let userType = session.user?.type;
+  let userType = session?.user?.type;
 
   const handleSignOut = () => {
     signOut();

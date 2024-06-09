@@ -19,33 +19,35 @@ const EntrepriseFreelanceForm: React.FC<EntrepriseFreelanceFormProps> = ({
   if (!user) {
     router.push("/");
   }
+
+  const tvaOptions = [
+    {
+      value: 10,
+      label: "Oui",
+    },
+    {
+      value: 20,
+      label: "Non",
+    },
+  ];
   const initialValues = {
     name: user.enterprise.name || "",
     address: user.enterprise.address || "",
     city: user.enterprise.city || "",
     postalCode: user.enterprise.postalCode || "",
     siret: user.enterprise.siret || "",
-    hasTVA: String(user.enterprise.hasTVA) || "",
+    hasTVA:
+      tvaOptions.find((option) => option.label === user.enterprise.hasTVA)
+        ?.value || "",
   };
   const [isLoading, setIsLoading] = useState(false);
-  const [typeOfContract, setTypeOfContract] = useState(10);
-
-  const tvaOptions = [
-    {
-      value: 10,
-      label: "True",
-    },
-    {
-      value: 20,
-      label: "False",
-    },
-  ];
 
   return (
     <Formik
       initialValues={initialValues}
       onSubmit={async (values) => {
         setIsLoading(true);
+        console.log("values", values.hasTVA);
         try {
           const enterprise: Enterprise = {
             name: values.name,
@@ -53,7 +55,8 @@ const EntrepriseFreelanceForm: React.FC<EntrepriseFreelanceFormProps> = ({
             city: values.city,
             postalCode: values.postalCode,
             siret: values.siret,
-            hasTVA: values.hasTVA === "True",
+            hasTVA: tvaOptions.find((option) => option.value === values.hasTVA)!
+              .label,
           };
           const updatedFreelance = new Freelance({
             email: user.email,
@@ -107,7 +110,7 @@ const EntrepriseFreelanceForm: React.FC<EntrepriseFreelanceFormProps> = ({
 
           <div className="mt-10">
             <TextInput
-              name="phone"
+              name="address"
               type="text"
               value={values.address}
               onChange={handleChange}
@@ -171,8 +174,18 @@ const EntrepriseFreelanceForm: React.FC<EntrepriseFreelanceFormProps> = ({
           </div>
           <div className="flex justify-between mt-10">
             <div className="flex flex-col">
-              <p onClick={() => router.push("/freelance")} className="cursor-pointer">retour &#60;- à l&apos;accueil</p>
-              <p className="mt-3 cursor-pointer" onClick={() => router.push("/freelance")} >Je passe cette étape</p>
+              <p
+                onClick={() => router.push("/freelance")}
+                className="cursor-pointer"
+              >
+                &#60;- retour à l&apos;accueil
+              </p>
+              <p
+                className="mt-3 cursor-pointer"
+                onClick={() => router.push("/freelance")}
+              >
+                Je passe cette étape
+              </p>
             </div>
 
             <div className="flex justify-end ">

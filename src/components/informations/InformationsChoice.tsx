@@ -51,7 +51,7 @@ const InformationsChoice = ({ email, firstname, lastname, password }) => {
         city: "",
         postalCode: "",
         siret: "",
-        hasTVA: false,
+        hasTVA: "",
       };
       const freelance = new Freelance({
         _id: user._id,

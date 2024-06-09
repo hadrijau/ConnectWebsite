@@ -18,7 +18,7 @@ export interface Enterprise {
   city: string;
   postalCode: string;
   siret: string;
-  hasTVA: boolean;
+  hasTVA: string;
 }
 
 interface FreelanceProps {
@@ -130,6 +130,7 @@ class Freelance {
           firstname: this.firstname,
           lastname: this.lastname,
           title: this.title,
+          enterprise: this.enterprise,
           lastMission: this.lastMission,
           lengthMissionWanted: this.lengthMissionWanted,
           descriptionMissionWanted: this.descriptionMissionWanted,

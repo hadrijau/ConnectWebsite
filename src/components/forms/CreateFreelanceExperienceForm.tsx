@@ -245,17 +245,25 @@ const CreateFreelanceExperienceForm: React.FC<
           )}
 
           <div className="flex justify-center items-center w-10/12 mt-6">
-            <CVUpload freelance={user}/>
+            <CVUpload freelance={user} />
           </div>
 
-          <div className="flex justify-end">
-            <div
-              onClick={() => router.push("/freelance/profil/entreprise")}
-              title="Sauvegarder"
-              className={` text-center rounded-2xl py-3 cursor-pointer px-8 font-semibold`}
-              style={{ background: "rgba(185, 211, 134, 0.5)" }}
+          <div className="flex justify-between mt-10">
+            <p
+              onClick={() => router.push("/freelance")}
+              className="cursor-pointer mt-5"
             >
-              OK
+              &#60;- retour à l&apos;accueil
+            </p>
+            <div className="flex justify-end">
+              <div
+                onClick={() => router.push("/freelance/profil/entreprise")}
+                title="Sauvegarder"
+                className={` text-center rounded-2xl py-3 cursor-pointer px-8 font-semibold`}
+                style={{ background: "rgba(185, 211, 134, 0.5)" }}
+              >
+                OK
+              </div>
             </div>
           </div>
         </Form>

@@ -39,7 +39,7 @@ export default async function FreelancePage() {
 
         <div className="flex justify-between w-full mt-10 main-content">
           <div className="flex-col w-7/12 lg:w-8/12">
-            <h1 className="text-semibold header-offres text-2xl">
+            <h1 className="text-semibold header-offres-freelance text-2xl">
               Les appels d&apos;offre du moment spécialement pour toi
             </h1>
 
@@ -65,7 +65,7 @@ export default async function FreelancePage() {
             })}
           </div>
 
-          <div className="flex flex-col ongoing-mission-container p-10 rounded-3xl w-3/12 items-center">
+          <div className="flex flex-col ongoing-mission-container-freelance p-10 rounded-3xl w-3/12 items-center">
             <Image
               src="/freelanceMissionSpaceship.svg"
               width={70}
