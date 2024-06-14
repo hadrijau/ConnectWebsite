@@ -94,7 +94,7 @@ const Portage = () => {
               <div className="flex flex-col items-center justify-center">
                 <LongButton
                   title="Découvrir le métier"
-                  href="/expert-it"
+                  href="/metiers/expert-rh"
                   textClassName="text-black font-bold text-xl 2lg:text-base"
                   background="#D892C0C7"
                   className="self-center"

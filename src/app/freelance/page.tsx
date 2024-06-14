@@ -44,7 +44,7 @@ export default async function FreelancePage() {
             </h1>
 
             {recentMissions.map((mission, index) => {
-              const { _id, title, price, propositions, date, length } = mission;
+              const { _id, title, price, propositions, date, length, companyName } = mission;
               let propositionsLength = 0;
               if (propositions && propositions.length != 0) {
                 propositionsLength = propositionsLength
@@ -57,7 +57,7 @@ export default async function FreelancePage() {
                   propositions={propositionsLength}
                   date={date}
                   companyLogo={"/logoSoge.svg"}
-                  companyName={"Company B"}
+                  companyName={companyName}
                   price={price}
                   length={length}
                 />

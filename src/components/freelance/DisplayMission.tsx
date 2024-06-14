@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import Image from "next/image";
 import FormButton from "@/components/common/FormButton";
 import Link from "next/link";
@@ -22,17 +22,23 @@ const DisplayMission: React.FC<DisplayMissionProps> = ({
   const missionDate = dayjs(mission.date).toDate();
   const router = useRouter();
   const [error, setError] = useState(false);
-
+  const scrollRef = useRef<HTMLHeadingElement>(null);
   const handleAnswer = () => {
-    console.log("herrre")
     if (user.competences.length == 0 || user.experiences.length == 0) {
       setError(true);
     } else {
       router.push(`/freelance/ao/answer/${mission._id}`);
     }
   };
+
+  useEffect(() => {
+    if (scrollRef.current) {
+      scrollRef.current.scrollIntoView({ behavior: "smooth" });
+    }
+  }, []);
+
   return (
-    <div className="flex flex-col w-full">
+    <div className="flex flex-col w-full" ref={scrollRef}>
       <div className="flex flex-col w-full">
         <div className="flex w-full justify-between">
           <div className="flex-col w-7/12">
@@ -132,7 +138,12 @@ const DisplayMission: React.FC<DisplayMissionProps> = ({
           {error && (
             <p className="error mt-5">
               Veuillez remplir d&apos;abord compléter{" "}
-              <Link href="/freelance/profil/competences" className="font-semibold">votre profil</Link>
+              <Link
+                href="/freelance/profil/competences"
+                className="font-semibold"
+              >
+                votre profil
+              </Link>
             </p>
           )}
         </div>

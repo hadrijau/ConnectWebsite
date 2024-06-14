@@ -6,7 +6,7 @@ import Image from "next/image";
 import Navbar from "@/components/navbar/NavBar";
 import LongButton from "@/components/common/LongButton";
 
-const ExpertITPage = () => {
+const ExpertRHPage = () => {
 
   const expertITRef = useRef<HTMLHeadingElement>(null);
 
@@ -28,7 +28,7 @@ const ExpertITPage = () => {
           undertitle="Découvre les métiers éligibles au portage"
         />
         <div className="px-20">
-          <h1 className="text-semibold text-7xl mt-20 mb-10" ref={expertITRef}>Expert en IT</h1>
+          <h1 className="text-semibold text-7xl mt-20 mb-10" ref={expertITRef}>Expert RH</h1>
           <h5 className="text-light text-xl mb-5">
             Le marché de l’IT et du multimédia est en pleine évolution et se
             spécialise. En effet, ce secteur, qui comprend les technologies de
@@ -92,8 +92,8 @@ const ExpertITPage = () => {
 
             <div className="expert-it-img-container">
               <Image
-                src="/expert_IT.svg"
-                alt="Expert IT"
+                src="/expert_RH.svg"
+                alt="Expert RH"
                 width={700}
                 height={100}
                 className="it-img"
@@ -116,4 +116,4 @@ const ExpertITPage = () => {
   );
 };
 
-export default ExpertITPage;
+export default ExpertRHPage;

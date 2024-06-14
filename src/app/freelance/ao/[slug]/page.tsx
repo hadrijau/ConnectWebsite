@@ -21,7 +21,7 @@ const FreelanceMissionDetailPage = async ({ params }: { params: { slug: string }
         <FreelanceIntroSection firstTitle="Appel d'offre" />
 
         <div className="flex flex-col justify-between w-full mt-10 main-content">
-          <Link href="/client/ao">
+          <Link href="/freelance">
             <h5 className="mb-10">&#60;- retour aux appels d&apos;offres</h5>
           </Link>
 

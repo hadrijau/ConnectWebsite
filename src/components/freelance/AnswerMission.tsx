@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import dayjs from "dayjs";
 import TextInput from "@/components/common/TextInput";
@@ -73,6 +73,15 @@ const AnswerMission: React.FC<AnswerMissionProps> = ({
     await proposition.save();
     router.push("/freelance/ao/propositions");
   };
+
+  const scrollRef = useRef<HTMLFormElement>(null);
+
+  useEffect(() => {
+    if (scrollRef.current) {
+      scrollRef.current.scrollIntoView({ behavior: "smooth" });
+    }
+  }, []);
+
   return (
     <Formik
       validationSchema={validationSchema}
@@ -90,7 +99,7 @@ const AnswerMission: React.FC<AnswerMissionProps> = ({
         errors,
         handleSubmit,
       }) => (
-        <Form className="flex flex-col w-full" onSubmit={handleSubmit}>
+        <Form className="flex flex-col w-full" onSubmit={handleSubmit} ref={scrollRef}>
           <div className="flex flex-col w-full">
             <div className="flex w-full justify-between">
               <div className="flex-col w-7/12">
