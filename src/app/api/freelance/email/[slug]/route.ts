@@ -72,3 +72,30 @@ export async function PUT(
     return NextResponse.json({ message: err }, { status: 500 });
   }
 }
+
+export async function DELETE(
+  req: Request,
+  { params }: { params: { slug: string } }
+) {
+  try {
+    const client = await connectToDatabase();
+    const db = client.db();
+    const result = await db
+      .collection("freelance")
+      .deleteOne({ email: params.slug });
+
+    if (result.deletedCount === 0) {
+      return NextResponse.json(
+        { message: "Freelance not found" },
+        { status: 404 }
+      );
+    }
+
+    return NextResponse.json(
+      { message: "Freelance deleted successfully" },
+      { status: 200 }
+    );
+  } catch (err) {
+    return NextResponse.json({ message: err }, { status: 500 });
+  }
+}

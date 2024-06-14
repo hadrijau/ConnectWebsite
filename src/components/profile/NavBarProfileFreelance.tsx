@@ -5,22 +5,27 @@ import { usePathname, useRouter } from "next/navigation";
 import Link from "next/link";
 import "@/styles/Freelance.css";
 import CustomDialog from "../common/CustomDialog";
+import Freelance from "@/entities/freelance";
+import { deleteUser } from "@/http/user";
+import { signOut } from "next-auth/react";
 
 interface NavBarProfileFreelanceProps {
   className?: string;
+  user: Freelance;
 }
 
 const NavBarProfileFreelance: React.FC<NavBarProfileFreelanceProps> = ({
   className,
+  user,
 }) => {
   const path = usePathname();
   const router = useRouter();
   let color: string;
-  if (path == ("/freelance/profil")) {
+  if (path == "/freelance/profil") {
     color = "#79B3D1";
-  } else if (path == ("/freelance/profil/competences")) {
+  } else if (path == "/freelance/profil/competences") {
     color = "#D892C0";
-  } else if (path == ("/freelance/profil/experiences")) {
+  } else if (path == "/freelance/profil/experiences") {
     color = "#79B3D1";
   } else {
     color = "#D892C0";
@@ -59,9 +64,32 @@ const NavBarProfileFreelance: React.FC<NavBarProfileFreelanceProps> = ({
   };
 
   const handleNavigate = (href: string) => {
-    router.push(href)
-    router.refresh()
-  }
+    router.push(href);
+    router.refresh();
+  };
+
+  const handleDeleteFreelance = async () => {
+    const freelance = new Freelance({
+      _id: user._id,
+      title: user.title,
+      phone: user.phone,
+      firstname: user.firstname,
+      lastname: user.lastname,
+      enterprise: user.enterprise,
+      lastMission: user.lastMission,
+      lengthMissionWanted: "",
+      descriptionMissionWanted: "",
+      competences: [],
+      experiences: [],
+      profilePicture: "",
+      email: user.email,
+      cv: "",
+    });
+    router.push("/");
+    await freelance.delete();
+    await deleteUser(user.email);
+    signOut();
+  };
   return (
     <div className={`flex-col bg-green pt-10 px-10 ${className}`}>
       <Link href="/">
@@ -77,17 +105,15 @@ const NavBarProfileFreelance: React.FC<NavBarProfileFreelanceProps> = ({
       {welcomeData.map((data, index) => {
         const { href, title, image } = data;
         return (
-          <div onClick={() => handleNavigate(href)} key={index} className="flex my-10 cursor-pointer">
-            <div className="bg-white rounded-full overflow-hidden">
+          <div
+            onClick={() => handleNavigate(href)}
+            key={index}
+            className="flex my-10 cursor-pointer"
+          >
+            <div className="bg-white rounded-full overflow-hidden mr-10">
               <Image src={image} alt="Mon Profil" width={130} height={130} />
             </div>
-            <div
-              className={
-                path == href.toString()
-                  ? "flex justify-center items-center ml-10 freelance-active"
-                  : "flex justify-center items-center ml-10"
-              }
-            >
+            <div className="flex justify-center items-center">
               <h5
                 className="font-normal text-xl"
                 style={
@@ -118,11 +144,14 @@ const NavBarProfileFreelance: React.FC<NavBarProfileFreelanceProps> = ({
           Toutes tes données seront définitivement supprimées
         </h5>
         <div className="flex justify-center mb-10">
-          <div className="delete-account-button cursor-pointer rounded-4xl py-3 w-4/12 text-center mr-2">
+          <div
+            className="delete-account-button-freelance cursor-pointer rounded-4xl py-3 w-4/12 text-center mr-2"
+            onClick={handleDeleteFreelance}
+          >
             Oui supprimer
           </div>
           <div
-            className="delete-account-button cursor-pointer rounded-4xl py-3 w-4/12 text-center ml-2"
+            className="delete-account-button-freelance cursor-pointer rounded-4xl py-3 w-4/12 text-center ml-2"
             onClick={handleClose}
           >
             Non je change d&apos;avis

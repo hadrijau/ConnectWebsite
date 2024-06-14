@@ -11,7 +11,7 @@ const ProfileFreelancePage = async () => {
 
   return (
     <div className="flex min-h-screen">
-      <NavBarProfile className="w-4/12" />
+      <NavBarProfile className="w-4/12" user={user}/>
       <div className="flex-col w-8/12">
         <div className="flex justify-end">
           <h5 className="font-bad-script text-2xl mt-10 mr-10">

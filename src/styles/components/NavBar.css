@@ -19,7 +19,7 @@
 }
 
 .select-profile-client {
-  border: 1px solid #698754;
+  border: 1px solid rgba(216, 146, 192, 1);
   border-radius: 10px;
   position: absolute;
   background-color: white;

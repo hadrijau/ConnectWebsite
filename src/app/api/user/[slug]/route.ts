@@ -43,3 +43,27 @@ export async function PUT(
     return NextResponse.json({ message: "ERROR" }, { status: 500 });
   }
 }
+
+export async function DELETE(
+  req: Request,
+  { params }: { params: { slug: string } }
+) {
+  try {
+    const client = await connectToDatabase();
+    const db = client.db();
+    const result = await db
+      .collection("users")
+      .deleteOne({ email: params.slug });
+
+    if (result.deletedCount === 0) {
+      return NextResponse.json({ message: "User not found" }, { status: 404 });
+    }
+
+    return NextResponse.json(
+      { message: "User deleted successfully" },
+      { status: 200 }
+    );
+  } catch (err) {
+    return NextResponse.json({ message: err }, { status: 500 });
+  }
+}

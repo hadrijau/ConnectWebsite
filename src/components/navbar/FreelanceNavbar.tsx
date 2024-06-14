@@ -13,7 +13,7 @@ const FreelanceNavBar = () => {
   const { data: session, status } = useSession();
 
   if (status === "unauthenticated") {
-    router.push("/login")
+    router.push("/login");
   }
   const [openAO, setOpenAO] = useState(false);
   const [openPopupDisconnect, setOpenPopupDisconnect] = useState(false);
@@ -23,16 +23,16 @@ const FreelanceNavBar = () => {
   };
 
   const handleSignOut = () => {
-    signOut({callbackUrl: `${baseUrl}/login`});
+    signOut({ callbackUrl: `${baseUrl}/login` });
   };
 
   const [logoFullShown, setLogoFullShown] = useState(false);
 
   const handleNavigate = (href: string) => {
     router.push(href);
-    router.refresh()
-  }
-  
+    router.refresh();
+  };
+
   return (
     <nav className="flex justify-between items-center px-10 pt-4 pb-4 freelance-navbar">
       <FreelanceNavLink href="/">
@@ -111,7 +111,10 @@ const FreelanceNavBar = () => {
                 </p>
               </div>
             </div>
-            <div className="flex cursor-pointer ao-option p-2">
+            <div
+              className="flex cursor-pointer ao-option p-2"
+              onClick={() => router.push("/freelance/ao/cheris")}
+            >
               <Image
                 src="/AO_cheris.svg"
                 width={40}
@@ -127,11 +130,17 @@ const FreelanceNavBar = () => {
               </div>
             </div>
 
-            <div className="flex flex-col ao-option p-2 cursor-pointer">
+            <div
+              className="flex flex-col ao-option p-2 cursor-pointer"
+              onClick={() => router.push("/freelance/ao/propositions")}
+            >
               <h5>Propositions</h5>
               <p className="text-xs undertitle-select">Ai-je été choisi ?</p>
             </div>
-            <div className="flex flex-col ao-option p-2 cursor-pointer">
+            <div
+              className="flex flex-col ao-option p-2 cursor-pointer"
+              onClick={() => router.push("/freelance/ao/prolongements")}
+            >
               <h5>Prolongements</h5>
               <p className="text-xs undertitle-select">Et zé partiiiiii !</p>
             </div>
@@ -188,6 +197,12 @@ const FreelanceNavBar = () => {
                 onClick={() => router.push("/freelance/profil")}
               >
                 Mon espace
+              </p>
+              <p
+                className="profil-option cursor-pointer py-2 px-3"
+                onClick={() => router.push("/freelance/settings")}
+              >
+                Paramètres
               </p>
               <p
                 className="profil-option cursor-pointer py-2 px-3"

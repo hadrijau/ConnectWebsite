@@ -23,7 +23,6 @@ const Navbar = () => {
     router.push("/");
   };
 
-
   let background;
   if (path.startsWith("/independant")) {
     background =
@@ -128,7 +127,13 @@ const Navbar = () => {
             onClick={() => setViewProfilDropdown(!viewProfileDropdown)}
           />
           {viewProfileDropdown && (
-            <div className={`flex flex-col p-3 select-profile`}>
+            <div
+              className={`flex flex-col p-3 ${
+                userType === "client"
+                  ? "select-profile-client"
+                  : "select-profile"
+              }`}
+            >
               <p
                 className={
                   userType === "client"

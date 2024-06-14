@@ -1,21 +1,21 @@
 import "@/styles/Freelance.css";
 import FreelanceNavBar from "@/components/navbar/FreelanceNavbar";
 import FreelanceIntroSection from "@/components/common/FreelanceIntroSection";
-import { getMissions } from "@/http/mission";
-import Mission from "@/entities/mission";
 import { auth } from "@/auth";
 import { redirect } from "next/navigation";
-import FreelanceAoNavbar from "@/components/freelance/FreelanceAoNavbar";
-import RechercheDisplay from "@/components/freelance/ao/RechercheDisplay";
+import AODisplay from "@/components/freelance/AODisplay";
+import Proposition from "@/entities/proposition";
+import { getPropositionsByFreelanceId } from "@/http/propositions";
 
-export default async function RechercheAOPage() {
-  const missions: Mission[] = await getMissions();
-
+export default async function AOPropositionsPage() {
   const session = await auth();
-  if (!session) {
+  if (!session || !session.user || !session.user.id) {
     redirect("/login");
   }
 
+  const propositions: Proposition[] = await getPropositionsByFreelanceId(
+    session?.user?.id
+  );
 
   return (
     <>
@@ -27,8 +27,7 @@ export default async function RechercheAOPage() {
         />
 
         <div className="flex justify-between w-full main-content flex-col">
-          <FreelanceAoNavbar />
-          <RechercheDisplay missions={missions}/>
+          <AODisplay propositions={propositions} />
         </div>
       </main>
     </>

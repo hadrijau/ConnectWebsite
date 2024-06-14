@@ -1,19 +1,36 @@
-"use client"
-import React from "react";
+"use client";
+import React, { useState } from "react";
 import Image from "next/image";
 import FormButton from "@/components/common/FormButton";
 import Link from "next/link";
 import Mission from "@/entities/mission";
 import CompetencesContainer from "@/components/common/CompetencesContainer";
 import dayjs from "dayjs";
+import Freelance from "@/entities/freelance";
+import { useRouter } from "next/navigation";
 interface DisplayMissionProps {
   mission: Mission;
+  user: Freelance;
   freelance?: boolean;
 }
 
-const DisplayMission: React.FC<DisplayMissionProps> = ({ mission, freelance }) => {
-  
+const DisplayMission: React.FC<DisplayMissionProps> = ({
+  mission,
+  freelance,
+  user,
+}) => {
   const missionDate = dayjs(mission.date).toDate();
+  const router = useRouter();
+  const [error, setError] = useState(false);
+
+  const handleAnswer = () => {
+    console.log("herrre")
+    if (user.competences.length == 0 || user.experiences.length == 0) {
+      setError(true);
+    } else {
+      router.push(`/freelance/ao/answer/${mission._id}`);
+    }
+  };
   return (
     <div className="flex flex-col w-full">
       <div className="flex flex-col w-full">
@@ -46,7 +63,6 @@ const DisplayMission: React.FC<DisplayMissionProps> = ({ mission, freelance }) =
           </div>
 
           <div className="flex flex-col w-4/12">
-
             <div className="flex my-2">
               <Image
                 src="/freelanceMissionCalendar.svg"
@@ -55,9 +71,7 @@ const DisplayMission: React.FC<DisplayMissionProps> = ({ mission, freelance }) =
                 alt="calendrier"
                 className="mr-4"
               />
-              {missionDate
-                .toLocaleDateString("fr-FR")
-                .replaceAll("/", ".")}
+              {missionDate.toLocaleDateString("fr-FR").replaceAll("/", ".")}
             </div>
             <div className="flex my-2">
               <Image
@@ -89,30 +103,38 @@ const DisplayMission: React.FC<DisplayMissionProps> = ({ mission, freelance }) =
               />
             </div>
             <div className="flex my-2">
-                <Image
-                  src="/ImageMap.svg"
-                  height={25}
-                  width={25}
-                  alt="calendrier"
-                  className="mr-4"
-                />
-                <p className="mt-1">
-                  {mission.city}, {mission.postalCode}
-                </p>
-              </div>
-              <CompetencesContainer competences={mission.competences} freelance={true}/>
+              <Image
+                src="/ImageMap.svg"
+                height={25}
+                width={25}
+                alt="calendrier"
+                className="mr-4"
+              />
+              <p className="mt-1">
+                {mission.city}, {mission.postalCode}
+              </p>
+            </div>
+            <CompetencesContainer
+              competences={mission.competences}
+              freelance={true}
+            />
           </div>
         </div>
-        <div className=" flex items-center justify-center w-7/12">
-          <div className="w-5/12 mb-20 mt-5">
-            <Link href={`/freelance/ao/answer/${mission._id}`}>
-              <FormButton
-                title="Répondre"
-                background="#B9D38680"
-                textClassName="text-black text-semibold text-xl"
-              />
-            </Link>
+        <div className=" flex items-center justify-center w-7/12 flex-col mb-20">
+          <div className="w-5/12 mt-5">
+            <FormButton
+              title="Répondre"
+              background="#B9D38680"
+              handleButtonClick={handleAnswer}
+              textClassName="text-black text-semibold text-xl"
+            />
           </div>
+          {error && (
+            <p className="error mt-5">
+              Veuillez remplir d&apos;abord compléter{" "}
+              <Link href="/freelance/profil/competences" className="font-semibold">votre profil</Link>
+            </p>
+          )}
         </div>
       </div>
     </div>

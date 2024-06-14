@@ -68,11 +68,7 @@ export default function EnterprisePage() {
               </p>
             </div>
             <div className="photo-container">
-              <Image
-                src="/partner.svg"
-                alt="salarié"
-                fill
-              />
+              <Image src="/partner.svg" alt="salarié" fill />
             </div>
           </div>
         </div>
@@ -97,20 +93,19 @@ export default function EnterprisePage() {
               </p>
             </div>
             <div className="photo-container">
-              <Image
-                src="/fusee.svg"
-                alt="Application mobile connect"
-                fill
-              />
+              <Image src="/fusee.svg" alt="Application mobile connect" fill />
             </div>
           </div>
         </div>
 
         <div className="w-full flex justify-center py-10">
           <div className="main-indep flex justify-between">
-            <div className="w-6/12 mt-20">
+            <div className="w-6/12">
               <h2 className="text-3xl font-bold mb-14 mr leading-relaxed 2lg:text-2xl">
-                Diffusez vos offres de missions avec simplicité
+                Diffusez vos offres de missions avec{" "}
+                <span style={{ color: "#BA3A8E" }}>
+                  simplicité
+                </span>{" "}
               </h2>
               <p className="text-xl leading-relaxed 2lg:text-base">
                 Avec CONNECT, il vous suffit de mettre votre annonce sur
@@ -123,11 +118,7 @@ export default function EnterprisePage() {
               </p>
             </div>
             <div className="photo-container">
-              <Image
-                src="/appli.svg"
-                alt="Application mobile connect"
-                fill
-              />
+              <Image src="/appli.svg" alt="Application mobile connect" fill />
             </div>
           </div>
         </div>

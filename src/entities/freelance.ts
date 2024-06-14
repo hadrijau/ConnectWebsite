@@ -152,6 +152,26 @@ class Freelance {
 
     return data;
   }
+
+  async delete() {
+    const response = await fetch(
+      `${baseUrl}/api/freelance/email/${this.email}`,
+      {
+        method: "DELETE",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    );
+
+    const data = await response.json();
+
+    if (!response.ok) {
+      throw new Error(data.message);
+    }
+
+    return data;
+  }
 }
 
 export default Freelance;

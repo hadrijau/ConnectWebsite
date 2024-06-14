@@ -119,12 +119,15 @@ const SelectOptions: React.FC<SelectOptionsProps> = ({ user }) => {
         </div>
 
         <div className="flex justify-between mt-10">
-          <p
-            onClick={() => router.push("/freelance")}
-            className="cursor-pointer mt-5"
-          >
-            &#60;- retour à l&apos;accueil
-          </p>
+          {user.competences.length != 0 && (
+            <p
+              onClick={() => router.push("/freelance")}
+              className="cursor-pointer mt-5"
+            >
+              &#60;- retour à l&apos;accueil
+            </p>
+          )}
+
           <div className="flex justify-end">
             {isLoading ? (
               <CircularProgress size={20} />

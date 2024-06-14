@@ -14,7 +14,7 @@ const config: Config = {
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
       textUnderlineOffset: {
-        23: "23px",
+        24: "24px",
       },
     },
     screens: {

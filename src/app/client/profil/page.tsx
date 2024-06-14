@@ -11,7 +11,7 @@ const ProfileClientPage = async () => {
   return (
     <SessionProvider>
       <div className="flex min-h-screen">
-        <NavBarProfileClient className="navbar-container" />
+        <NavBarProfileClient className="navbar-container" user={user}/>
         <div className="content-container">
           <div className="flex justify-end">
             <h5 className="font-bad-script text-2xl mt-10 mr-10">

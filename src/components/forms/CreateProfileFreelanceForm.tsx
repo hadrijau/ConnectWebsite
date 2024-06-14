@@ -7,6 +7,8 @@ import * as yup from "yup";
 import Freelance from "@/entities/freelance";
 import CircularProgress from "@mui/material/CircularProgress";
 import FreelanceProfilPictureUpload from "../upload/FreelanceProfilPictureUpload";
+import CustomSelect from "../common/CustomSelect";
+import { lengthOptions } from "@/lib/selectConstants";
 
 interface CreateProfileFreelanceFormProps {
   user: Freelance;
@@ -23,7 +25,7 @@ const CreateProfileFreelanceForm: React.FC<CreateProfileFreelanceFormProps> = ({
     title: user.title || "",
     phone: user.phone || "",
     lastMission: user.lastMission,
-    lengthMissionWanted: user.lengthMissionWanted || "",
+    lengthMissionWanted: user.lengthMissionWanted || 10,
     descriptionMissionWanted: user.descriptionMissionWanted || "",
   };
 
@@ -53,7 +55,9 @@ const CreateProfileFreelanceForm: React.FC<CreateProfileFreelanceFormProps> = ({
             title: values.title,
             phone: values.phone,
             lastMission: values.lastMission,
-            lengthMissionWanted: values.lengthMissionWanted,
+            lengthMissionWanted: lengthOptions.find(
+              (option) => option.value === values.lengthMissionWanted
+            )!.label,
             descriptionMissionWanted: values.descriptionMissionWanted,
             profilePicture: user.profilePicture,
             enterprise: user.enterprise,
@@ -76,6 +80,7 @@ const CreateProfileFreelanceForm: React.FC<CreateProfileFreelanceFormProps> = ({
         values,
         handleChange,
         handleBlur,
+        setFieldValue,
         touched,
         errors,
         handleSubmit,
@@ -135,21 +140,15 @@ const CreateProfileFreelanceForm: React.FC<CreateProfileFreelanceFormProps> = ({
             />
           </div>
           <div className="my-3">
-            <TextInput
+            <CustomSelect
               name="lengthMissionWanted"
-              type="text"
               value={values.lengthMissionWanted}
-              onChange={handleChange}
+              onChange={(e) =>
+                setFieldValue("lengthMissionWanted", e.target.value)
+              }
               onBlur={handleBlur}
-              error={
-                touched.lengthMissionWanted! &&
-                Boolean(errors.lengthMissionWanted)
-              }
-              helperText={
-                touched.lengthMissionWanted && errors.lengthMissionWanted
-              }
+              options={lengthOptions}
               placeholder="Durée de mission souhaitée"
-              className="rounded-full my-4 w-10/12"
             />
           </div>
 
@@ -167,12 +166,15 @@ const CreateProfileFreelanceForm: React.FC<CreateProfileFreelanceFormProps> = ({
             />
           </div>
           <div className="flex justify-between mt-10">
-            <p
-              onClick={() => router.push("/freelance")}
-              className="cursor-pointer mt-5"
-            >
-              &#60;- retour à l&apos;accueil
-            </p>
+            {user.title && (
+              <p
+                onClick={() => router.push("/freelance")}
+                className="cursor-pointer mt-5"
+              >
+                &#60;- retour à l&apos;accueil
+              </p>
+            )}
+
             <div className="flex justify-end">
               {isLoading ? (
                 <CircularProgress size={20} />

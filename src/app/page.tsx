@@ -85,7 +85,7 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="justify-between my-10 w-full flex">
+          <div className="justify-between my-28 w-full flex">
             <div className="flex flex-col w-7/12 lg:w-8/12">
               <h1 className="my-2 text-left text-4xl text-bold leading-relaxed 2lg:text-3xl">
                 Une application facile d’utilisation et ludique

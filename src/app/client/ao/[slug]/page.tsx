@@ -13,7 +13,7 @@ import ClientIntroSection from "@/components/common/ClientIntroSection";
 
 const ClientAODetailPage = async ({ params }: { params: { slug: string } }) => {
   const mission = await getMissionById(params.slug);
-
+  
   return (
     <>
       <ClientNavbar />

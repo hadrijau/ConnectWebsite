@@ -20,7 +20,7 @@ interface DataGridAOProps {
 
 const DataGridAO: React.FC<DataGridAOProps> = ({ missions, user }) => {
   const dateFormatter = (params: { value: string | Date }) => {
-    return dayjs(params.value).format("DD.MM.YYYY");
+    return dayjs(params?.value).format("DD.MM.YYYY");
   };
 
   const [openPopupId, setOpenPopupId] = useState<string | null>(null);

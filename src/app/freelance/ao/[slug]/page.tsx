@@ -7,10 +7,13 @@ import { getMissionById } from "@/http/mission";
 import "@/styles/Client.css";
 import DisplayMission from "@/components/freelance/DisplayMission";
 import FreelanceNavBar from "@/components/navbar/FreelanceNavbar";
+import { auth } from "@/auth";
+import { getFreelanceByEmail } from "@/http/freelance";
 
 const FreelanceMissionDetailPage = async ({ params }: { params: { slug: string } }) => {
   const mission = await getMissionById(params.slug);
-
+  const session = await auth();
+  const user = await getFreelanceByEmail(session?.user?.email!);
   return (
     <>
       <FreelanceNavBar />
@@ -22,7 +25,7 @@ const FreelanceMissionDetailPage = async ({ params }: { params: { slug: string }
             <h5 className="mb-10">&#60;- retour aux appels d&apos;offres</h5>
           </Link>
 
-          <DisplayMission mission={mission} freelance={true} />
+          <DisplayMission mission={mission} freelance={true} user={user}/>
         </div>
       </main>
     </>

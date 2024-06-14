@@ -174,12 +174,15 @@ const EntrepriseFreelanceForm: React.FC<EntrepriseFreelanceFormProps> = ({
           </div>
           <div className="flex justify-between mt-10">
             <div className="flex flex-col">
-              <p
-                onClick={() => router.push("/freelance")}
-                className="cursor-pointer"
-              >
-                &#60;- retour à l&apos;accueil
-              </p>
+              {user.enterprise.name && (
+                <p
+                  onClick={() => router.push("/freelance")}
+                  className="cursor-pointer"
+                >
+                  &#60;- retour à l&apos;accueil
+                </p>
+              )}
+
               <p
                 className="mt-3 cursor-pointer"
                 onClick={() => router.push("/freelance")}
