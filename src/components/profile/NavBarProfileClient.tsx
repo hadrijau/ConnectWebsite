@@ -51,24 +51,12 @@ const NavBarProfileClient: React.FC<NavBarProfileClientProps> = ({
 
   const handleDeleteClient = async () => {
     const client = new Client({
-      _id: user._id,
-      firstname: user.firstname,
-      lastname: user.lastname,
-      email: user.email,
-      phoneNumber: "",
-      address: "",
-      postalCode: "",
-      city: "",
-      domainName: "",
-      sector: "",
-      description: "",
-      lastAOId: "",
+      ...user,
     });
     router.push("/");
     await client.delete();
     await deleteUser(user.email);
     signOut();
-
   };
 
   return (

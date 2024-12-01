@@ -7,7 +7,7 @@ interface AOFreelanceProps {
   title: string;
   companyName: string;
   companyLogo: string;
-  clientProposedPrice: number;
+  clientProposedPrice: string;
   freelanceProposedPrice: number;
   city: string;
   modalities: string;

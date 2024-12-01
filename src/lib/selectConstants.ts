@@ -65,3 +65,26 @@ export const typeOfContractOptions = [
     label: "CDI",
   },
 ];
+
+export const refusalsOptions = [
+  {
+    value: 10,
+    label: "Hors Budget",
+  },
+  {
+    value: 20,
+    label: "Problème de disponibilité",
+  },
+  {
+    value: 30,
+    label: "Expériences non significatives",
+  },
+  {
+    value: 40,
+    label: "Qualifications inadaptées",
+  },
+  {
+    value: 50,
+    label: "Autre",
+  },
+];

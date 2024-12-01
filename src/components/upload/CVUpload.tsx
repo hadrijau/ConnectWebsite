@@ -9,7 +9,6 @@ interface CVUploadProps {
 }
 
 const CVUpload: React.FC<CVUploadProps> = ({ freelance }) => {
-  console.log("free", freelance);
   const [downloadUrl, setDownloadUrl] = useState("");
   const [fileName, setFileName] = useState("");
   const [isLoading, setIsLoading] = useState(false);
@@ -27,29 +26,19 @@ const CVUpload: React.FC<CVUploadProps> = ({ freelance }) => {
 
   const router = useRouter();
   const updateFreelance = async (downloadUrl: string) => {
-    setIsLoading(true)
-    const updatedFreelance = new Freelance({
-      _id: freelance._id,
-      title: freelance.title,
-      phone: freelance.phone,
-      firstname: freelance.firstname,
-      lastname: freelance.lastname,
-      email: freelance.email,
-      lastMission: freelance.lastMission,
-      lengthMissionWanted: freelance.lengthMissionWanted,
-      descriptionMissionWanted: freelance.descriptionMissionWanted,
-      competences: freelance.competences,
-      enterprise: freelance.enterprise,
-      profilePicture: freelance.profilePicture,
-      experiences: freelance.experiences,
+    setIsLoading(true);
+    const updatedFreelance = {
+      ...freelance,
       cv: downloadUrl,
-    });
-    await updatedFreelance.update();
+    };
+
+    const freelanceInstance = new Freelance(updatedFreelance);
+    await freelanceInstance.update();
     router.refresh();
     setIsLoading(false);
   };
   if (isLoading) {
-    return <CircularProgress />
+    return <CircularProgress />;
   } else if (freelance.cv) {
     return (
       <div className="flex">

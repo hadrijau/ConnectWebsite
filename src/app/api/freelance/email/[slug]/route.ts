@@ -1,6 +1,7 @@
 import { connectToDatabase } from "@/lib/db";
 import { NextResponse } from "next/server";
 
+// Get freelance by email
 export async function GET(
   request: Request,
   { params }: { params: { slug: string } }
@@ -17,6 +18,7 @@ export async function GET(
   }
 }
 
+// Update freelance by email
 export async function PUT(
   req: Request,
   { params }: { params: { slug: string } }
@@ -36,6 +38,10 @@ export async function PUT(
       experiences,
       enterprise,
       cv,
+      missionsLost,
+      missionsPendingApproval,
+      missionsApproved,
+      missionsLiked,
     } = await req.json();
     const client = await connectToDatabase();
     const db = client.db();
@@ -64,6 +70,10 @@ export async function PUT(
           enterprise,
           experiences,
           cv,
+          missionsLost,
+          missionsPendingApproval,
+          missionsApproved,
+          missionsLiked,
         },
       }
     );

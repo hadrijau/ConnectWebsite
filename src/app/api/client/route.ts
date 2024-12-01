@@ -2,6 +2,8 @@ import { connectToDatabase } from "@/lib/db";
 import { ObjectId } from "mongodb";
 import { NextResponse } from "next/server";
 
+// POST /api/client
+// Create a new client.
 export async function POST(req: Request) {
   try {
     const {
@@ -17,6 +19,7 @@ export async function POST(req: Request) {
       description,
       _id,
       lastAOId,
+      missions,
     } = await req.json();
 
     const client = await connectToDatabase();
@@ -35,6 +38,7 @@ export async function POST(req: Request) {
       description,
       _id: new ObjectId(_id),
       lastAOId,
+      missions,
     });
 
     return NextResponse.json({ message: "Client created" }, { status: 201 });

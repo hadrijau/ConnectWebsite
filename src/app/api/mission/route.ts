@@ -1,7 +1,6 @@
 import Client from "@/entities/client";
 import Mission from "@/entities/mission";
 import { connectToDatabase } from "@/lib/db";
-import { Db, ObjectId } from "mongodb";
 import { NextResponse } from "next/server";
 
 export async function POST(req: Request) {
@@ -25,12 +24,15 @@ export async function POST(req: Request) {
       postalCode,
       companyName,
       status,
+      propositions,
     } = await req.json();
 
+    // Connect to the database
     const client = await connectToDatabase();
     const db = client.db();
 
-    await db.collection("missions").insertOne({
+    // Insert the new mission into the database
+    const result = await db.collection("missions").insertOne({
       clientId,
       title,
       context,
@@ -49,10 +51,25 @@ export async function POST(req: Request) {
       postalCode,
       companyName,
       status,
+      propositions,
     });
 
-    return NextResponse.json({ message: "Mission created" }, { status: 201 });
+    // Fetch the newly inserted mission using the inserted _id
+    const newMission = await db
+      .collection("missions")
+      .findOne({ _id: result.insertedId });
+
+    if (!newMission) {
+      return NextResponse.json(
+        { message: "Mission creation failed" },
+        { status: 500 }
+      );
+    }
+
+    // Return the newly created mission
+    return NextResponse.json({ mission: newMission }, { status: 201 });
   } catch (err) {
+    console.error(err);
     return NextResponse.json({ message: "ERROR" }, { status: 500 });
   }
 }

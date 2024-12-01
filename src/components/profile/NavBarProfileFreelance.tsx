@@ -70,20 +70,7 @@ const NavBarProfileFreelance: React.FC<NavBarProfileFreelanceProps> = ({
 
   const handleDeleteFreelance = async () => {
     const freelance = new Freelance({
-      _id: user._id,
-      title: user.title,
-      phone: user.phone,
-      firstname: user.firstname,
-      lastname: user.lastname,
-      enterprise: user.enterprise,
-      lastMission: user.lastMission,
-      lengthMissionWanted: "",
-      descriptionMissionWanted: "",
-      competences: [],
-      experiences: [],
-      profilePicture: "",
-      email: user.email,
-      cv: "",
+      ...user,
     });
     router.push("/");
     await freelance.delete();

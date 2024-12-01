@@ -1,11 +1,25 @@
 import { ObjectId } from "mongodb";
 import { Dayjs } from "dayjs";
-import Proposition from "@/entities/proposition";
 
 export enum MissionStatus {
   PUBLISHED = "Publié",
   STARTED = "Commencé",
 }
+
+export enum ClientStatus {
+  UNOPENED = "Non ouvert",
+  OPENED = "Ouvert",
+}
+
+export interface Proposition {
+  missionId: string;
+  freelanceId: string;
+  status: ClientStatus;
+  whyMe: string;
+  freelanceDisponibility: Dayjs;
+  freelanceProposedPrice: number;
+}
+
 interface MissionProps {
   clientId: ObjectId;
   title: string;
@@ -30,7 +44,6 @@ interface MissionProps {
 
 class Mission {
   _id?: ObjectId;
-  propositions?: Proposition[];
   clientId: ObjectId;
   title: string;
   context: string;
@@ -49,6 +62,7 @@ class Mission {
   aoId: string;
   city: string;
   postalCode: string;
+  propositions: Proposition[];
 
   constructor({
     clientId,
@@ -89,9 +103,7 @@ class Mission {
     this.aoId = aoId;
     this.city = city;
     this.postalCode = postalCode;
-    if (propositions) {
-      this.propositions = propositions;
-    }
+    this.propositions = propositions;
     if (_id) {
       this._id = _id;
     }
@@ -119,6 +131,7 @@ class Mission {
         aoId: this.aoId,
         city: this.city,
         postalCode: this.postalCode,
+        propositions: this.propositions,
       }),
       headers: {
         "Content-Type": "application/json",
@@ -158,6 +171,7 @@ class Mission {
         aoId: this.aoId,
         city: this.city,
         postalCode: this.postalCode,
+        propositions: this.propositions,
       }),
       headers: {
         "Content-Type": "application/json",

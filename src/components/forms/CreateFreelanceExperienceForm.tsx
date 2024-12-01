@@ -45,23 +45,9 @@ const CreateFreelanceExperienceForm: React.FC<
 
   const handleDeleteExperience = async (index: number) => {
     const updatedExperiences = user.experiences.filter((_, i) => i !== index);
-    const updatedFreelance = new Freelance({
-      _id: user._id,
-      title: user.title,
-      phone: user.phone,
-      firstname: user.firstname,
-      lastname: user.lastname,
-      email: user.email,
-      lastMission: user.lastMission,
-      lengthMissionWanted: user.lengthMissionWanted,
-      descriptionMissionWanted: user.descriptionMissionWanted,
-      competences: user.competences,
-      enterprise: user.enterprise,
-      profilePicture: user.profilePicture,
-      experiences: updatedExperiences,
-      cv: user.cv,
-    });
-    await updatedFreelance.update();
+    const updatedFreelance = { ...user, experiences: updatedExperiences };
+    const freelanceInstance = new Freelance(updatedFreelance);
+    await freelanceInstance.update();
     router.refresh();
   };
 
@@ -92,23 +78,13 @@ const CreateFreelanceExperienceForm: React.FC<
         }
 
         try {
-          const updatedFreelance = new Freelance({
-            _id: user._id,
-            title: user.title,
-            phone: user.phone,
-            firstname: user.firstname,
-            lastname: user.lastname,
-            email: user.email,
-            lastMission: user.lastMission,
-            lengthMissionWanted: user.lengthMissionWanted,
-            descriptionMissionWanted: user.descriptionMissionWanted,
-            competences: user.competences,
-            enterprise: user.enterprise,
-            profilePicture: user.profilePicture,
+          const updatedFreelance = {
+            ...user,
             experiences: updatedExperiences,
-            cv: user.cv,
-          });
-          await updatedFreelance.update();
+          };
+
+          const freelanceInstance = new Freelance(updatedFreelance);
+          await freelanceInstance.update();
           router.refresh();
           resetForm();
           setIsLoadingAddExperience(false);
@@ -183,10 +159,15 @@ const CreateFreelanceExperienceForm: React.FC<
                     name="jobTitle"
                     type="text"
                     value={formik.values.jobTitle}
-                    error={formik.touched.jobTitle! && Boolean(formik.errors.jobTitle)}
+                    error={
+                      formik.touched.jobTitle! &&
+                      Boolean(formik.errors.jobTitle)
+                    }
                     onChange={formik.handleChange}
                     onBlur={formik.handleBlur}
-                    helperText={formik.touched.jobTitle && formik.errors.jobTitle}
+                    helperText={
+                      formik.touched.jobTitle && formik.errors.jobTitle
+                    }
                     placeholder="Intitulé du poste*"
                     className="my-4 w-10/12"
                   />
@@ -196,7 +177,9 @@ const CreateFreelanceExperienceForm: React.FC<
                     name="company"
                     type="text"
                     value={formik.values.company}
-                    error={formik.touched.company! && Boolean(formik.errors.company)}
+                    error={
+                      formik.touched.company! && Boolean(formik.errors.company)
+                    }
                     onChange={formik.handleChange}
                     onBlur={formik.handleBlur}
                     helperText={formik.touched.company && formik.errors.company}
@@ -231,8 +214,14 @@ const CreateFreelanceExperienceForm: React.FC<
                       formik.setFieldValue("beginningDate", value)
                     }
                     onBlur={formik.handleBlur}
-                    error={formik.touched.beginningDate && Boolean(formik.errors.beginningDate)}
-                    helperText={formik.touched.beginningDate && formik.errors.beginningDate}
+                    error={
+                      formik.touched.beginningDate &&
+                      Boolean(formik.errors.beginningDate)
+                    }
+                    helperText={
+                      formik.touched.beginningDate &&
+                      formik.errors.beginningDate
+                    }
                     placeholder="Sélectionner la date de début*"
                   />
                 </div>
@@ -246,7 +235,9 @@ const CreateFreelanceExperienceForm: React.FC<
                       formik.setFieldValue("endDate", value)
                     }
                     onBlur={formik.handleBlur}
-                    error={formik.touched.endDate && Boolean(formik.errors.endDate)}
+                    error={
+                      formik.touched.endDate && Boolean(formik.errors.endDate)
+                    }
                     helperText={formik.touched.endDate && formik.errors.endDate}
                     placeholder="Sélectionner la date de fin*"
                   />

@@ -2,6 +2,7 @@ import { baseUrl } from "@/lib/baseUrl";
 import { ObjectId } from "mongodb";
 import { Dayjs } from "dayjs";
 
+// Assuming Mission only has _id or similar reference
 export interface Experience {
   jobTitle: string;
   company: string;
@@ -34,6 +35,10 @@ interface FreelanceProps {
   competences: { label: string; level: number }[];
   profilePicture: string;
   experiences: Experience[];
+  missionsApproved: ObjectId[];
+  missionsPendingApproval: ObjectId[];
+  missionsLost: ObjectId[];
+  missionsLiked: ObjectId[];
   enterprise: Enterprise;
   cv: string;
 }
@@ -52,6 +57,10 @@ class Freelance {
   competences: { label: string; level: number }[];
   profilePicture: string;
   experiences: Experience[];
+  missionsApproved: ObjectId[];
+  missionsPendingApproval: ObjectId[];
+  missionsLost: ObjectId[];
+  missionsLiked: ObjectId[];
   cv: string;
 
   constructor({
@@ -68,6 +77,10 @@ class Freelance {
     competences,
     profilePicture,
     experiences,
+    missionsApproved,
+    missionsPendingApproval,
+    missionsLost,
+    missionsLiked,
     cv,
   }: FreelanceProps) {
     this._id = _id;
@@ -83,6 +96,10 @@ class Freelance {
     this.competences = competences;
     this.profilePicture = profilePicture;
     this.experiences = experiences;
+    this.missionsApproved = missionsApproved;
+    this.missionsPendingApproval = missionsPendingApproval;
+    this.missionsLost = missionsLost;
+    this.missionsLiked = missionsLiked;
     this.cv = cv;
   }
 
@@ -101,6 +118,10 @@ class Freelance {
         descriptionMissionWanted: this.descriptionMissionWanted,
         competences: this.competences,
         profilePicture: this.profilePicture,
+        missionsApproved: this.missionsApproved,
+        missionsPendingApproval: this.missionsPendingApproval,
+        missionsLost: this.missionsLost,
+        missionsLiked: this.missionsLiked,
         experiences: this.experiences,
         cv: this.cv,
       }),
@@ -136,6 +157,10 @@ class Freelance {
           descriptionMissionWanted: this.descriptionMissionWanted,
           competences: this.competences,
           profilePicture: this.profilePicture,
+          missionsApproved: this.missionsApproved,
+          missionsPendingApproval: this.missionsPendingApproval,
+          missionsLost: this.missionsLost,
+          missionsLiked: this.missionsLiked,
           experiences: this.experiences,
           cv: this.cv,
         }),

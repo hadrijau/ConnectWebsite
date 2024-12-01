@@ -9,8 +9,6 @@ import { getClientByEmail } from "@/http/client";
 import ClientIntroSection from "@/components/common/ClientIntroSection";
 
 const ClientMissionsPage = async () => {
-  const session = await auth();
-  const user = await getClientByEmail(session?.user?.email!);
 
   return (
     <>

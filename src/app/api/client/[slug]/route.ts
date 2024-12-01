@@ -1,6 +1,8 @@
 import { connectToDatabase } from "@/lib/db";
 import { NextResponse } from "next/server";
 
+// GET /api/client/[slug]
+// Get a client by email.
 export async function GET(
   request: Request,
   { params }: { params: { slug: string } }
@@ -16,6 +18,8 @@ export async function GET(
   }
 }
 
+// PUT /api/client/[slug]
+// Update a client by email.
 export async function PUT(
   req: Request,
   { params }: { params: { slug: string } }
@@ -31,6 +35,7 @@ export async function PUT(
       description,
       sector,
       lastAOId,
+      missions,
     } = await req.json();
     const client = await connectToDatabase();
     const db = client.db();
@@ -57,6 +62,7 @@ export async function PUT(
           description,
           sector,
           lastAOId,
+          missions,
         },
       }
     );
@@ -66,6 +72,8 @@ export async function PUT(
   }
 }
 
+// DELETE /api/client/[slug]
+// Delete a client by email.
 export async function DELETE(
   req: Request,
   { params }: { params: { slug: string } }

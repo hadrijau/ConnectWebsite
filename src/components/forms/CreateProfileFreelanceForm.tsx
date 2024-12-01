@@ -50,8 +50,8 @@ const CreateProfileFreelanceForm: React.FC<CreateProfileFreelanceFormProps> = ({
       onSubmit={async (values) => {
         setIsLoading(true);
         try {
-          const updatedFreelance = new Freelance({
-            email: user.email,
+          const updatedFreelance = {
+            ...user,
             title: values.title,
             phone: values.phone,
             lastMission: values.lastMission,
@@ -59,16 +59,9 @@ const CreateProfileFreelanceForm: React.FC<CreateProfileFreelanceFormProps> = ({
               (option) => option.value === values.lengthMissionWanted
             )!.label,
             descriptionMissionWanted: values.descriptionMissionWanted,
-            profilePicture: user.profilePicture,
-            enterprise: user.enterprise,
-            competences: user.competences,
-            _id: user._id,
-            lastname: user.lastname,
-            firstname: user.firstname,
-            experiences: user.experiences,
-            cv: user.cv,
-          });
-          await updatedFreelance.update();
+          };
+          const freelanceInstance = new Freelance(updatedFreelance);
+          await freelanceInstance.update();
           router.push("/freelance/profil/competences");
           setIsLoading(false);
         } catch (err) {

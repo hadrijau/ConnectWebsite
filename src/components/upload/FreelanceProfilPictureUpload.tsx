@@ -15,23 +15,13 @@ const FreelanceProfilPictureUpload: React.FC<
   const [downloadUrl, setDownloadUrl] = useState("");
   const router = useRouter();
   const updateFreelance = async (downloadUrl: string) => {
-    const updatedFreelance = new Freelance({
-      email: freelance.email,
-      title: freelance.title,
-      phone: freelance.phone,
-      lastMission: freelance.lastMission,
-      lengthMissionWanted: freelance.lengthMissionWanted,
-      descriptionMissionWanted: freelance.descriptionMissionWanted,
+    const updatedFreelance = {
+      ...freelance,
       profilePicture: downloadUrl,
-      enterprise: freelance.enterprise,
-      competences: freelance.competences,
-      _id: freelance._id,
-      lastname: freelance.lastname,
-      firstname: freelance.firstname,
-      experiences: freelance.experiences,
-      cv: freelance.cv,
-    });
-    await updatedFreelance.update();
+    };
+    const freelanceInstance = new Freelance(updatedFreelance);
+    await freelanceInstance.update();
+
     router.refresh();
   };
 

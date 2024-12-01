@@ -5,7 +5,7 @@ import { auth } from "@/auth";
 import { redirect } from "next/navigation";
 import AODisplay from "@/components/freelance/AODisplay";
 import Proposition from "@/entities/proposition";
-import { getPropositionsByFreelanceId } from "@/http/propositions";
+import { getPropositionsByFreelanceId } from "@/http/mission";
 
 export default async function AOPropositionsPage() {
   const session = await auth();
@@ -14,7 +14,7 @@ export default async function AOPropositionsPage() {
   }
 
   const propositions: Proposition[] = await getPropositionsByFreelanceId(
-    session?.user?.id
+    session.user.id
   );
 
   return (

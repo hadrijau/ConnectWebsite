@@ -18,7 +18,7 @@ const ClientAOPage = async () => {
     return <Loading />
   }
   const missions: Mission[] = await getMissionsByClientId(session.user.id);
-
+  console.log("session", session);
   const client = await getClientByEmail(session.user.email);
   return (
     <>

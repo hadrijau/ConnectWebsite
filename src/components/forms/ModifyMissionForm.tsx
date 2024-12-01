@@ -40,6 +40,7 @@ const ModifyMissionForm: React.FC<ModifyMissionFormProps> = ({
     clientId,
     status,
     companyName,
+    propositions
   },
 }) => {
   const router = useRouter();
@@ -112,7 +113,7 @@ const ModifyMissionForm: React.FC<ModifyMissionFormProps> = ({
         aoId,
         status,
         companyName,
-        propositions: [],
+        propositions: propositions,
         _id,
       });
       await updatedMission.update();

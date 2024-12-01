@@ -4,10 +4,20 @@ import NavBarProfileClient from "@/components/profile/NavBarProfileClient";
 import { auth } from "@/auth";
 import { SessionProvider } from "next-auth/react";
 import { getClientByEmail } from "@/http/client";
+import { redirect } from "next/navigation";
 
 const ProfileClientPage = async () => {
   const session = await auth();
-  const user = await getClientByEmail(session?.user?.email!);
+
+  const handleSignOut = () => {
+    redirect("/login");
+  };
+  if (!session || !session.user || !session.user.email) {
+    handleSignOut();
+    return;
+  } 
+  const user = await getClientByEmail(session.user.email);
+
   return (
     <SessionProvider>
       <div className="flex min-h-screen">

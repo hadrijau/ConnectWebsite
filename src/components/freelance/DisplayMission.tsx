@@ -16,15 +16,15 @@ interface DisplayMissionProps {
 
 const DisplayMission: React.FC<DisplayMissionProps> = ({
   mission,
-  freelance,
   user,
 }) => {
+  console.log("mission", mission);
   const missionDate = dayjs(mission.date).toDate();
   const router = useRouter();
   const [error, setError] = useState(false);
   const scrollRef = useRef<HTMLHeadingElement>(null);
   const handleAnswer = () => {
-    if (user.competences.length == 0 || user.experiences.length == 0) {
+    if (user.competences.length == 0) {
       setError(true);
     } else {
       router.push(`/freelance/ao/answer/${mission._id}`);

@@ -4,6 +4,7 @@ import { connectToDatabase } from "@/lib/db";
 import { Db, ObjectId } from "mongodb";
 import { NextResponse } from "next/server";
 
+// Get all missions from a client.
 export async function GET(
   request: Request,
   { params }: { params: { slug: string } }

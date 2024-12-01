@@ -4,8 +4,8 @@ import FreelanceIntroSection from "@/components/common/FreelanceIntroSection";
 import { auth } from "@/auth";
 import { redirect } from "next/navigation";
 import AODisplay from "@/components/freelance/AODisplay";
-import Proposition from "@/entities/proposition";
-import { getPropositionsByFreelanceId } from "@/http/propositions";
+import { getPropositionsByFreelanceId } from "@/http/mission";
+import { Proposition } from "@/entities/mission";
 
 export default async function AOPropositionsPage() {
   const session = await auth();

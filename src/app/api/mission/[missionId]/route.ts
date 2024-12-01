@@ -4,12 +4,12 @@ import { NextResponse } from "next/server";
 
 export async function GET(
   request: Request,
-  { params }: { params: { slug: string } }
+  { params }: { params: { missionId: string } }
 ) {
   try {
     const client = await connectToDatabase();
     const db = client.db();
-    const objectId = new ObjectId(params.slug);
+    const objectId = new ObjectId(params.missionId);
     const mission = await db.collection("missions").findOne({ _id: objectId });
 
     return NextResponse.json(mission, { status: 200 });
@@ -20,7 +20,7 @@ export async function GET(
 
 export async function PUT(
   req: Request,
-  { params }: { params: { slug: string } }
+  { params }: { params: { missionId: string } }
 ) {
   try {
     const {
@@ -36,11 +36,12 @@ export async function PUT(
       hiddenMissionPlace,
       hiddenTJM,
       companyName,
+      propositions,
     } = await req.json();
 
     const client = await connectToDatabase();
     const db = client.db();
-    const objectId = new ObjectId(params.slug);
+    const objectId = new ObjectId(params.missionId);
 
     const mission = await db.collection("missions").findOne({ _id: objectId });
 
@@ -67,6 +68,7 @@ export async function PUT(
           hiddenMissionPlace,
           hiddenTJM,
           companyName,
+          propositions,
         },
       }
     );
@@ -84,12 +86,12 @@ export async function PUT(
 
 export async function DELETE(
   request: Request,
-  { params }: { params: { slug: string } }
+  { params }: { params: { missionId: string } }
 ) {
   try {
     const client = await connectToDatabase();
     const db = client.db();
-    const objectId = new ObjectId(params.slug);
+    const objectId = new ObjectId(params.missionId);
 
     const deleteResult = await db
       .collection("missions")

@@ -4,17 +4,11 @@ import Image from "next/image";
 import dayjs from "dayjs";
 import TextInput from "@/components/common/TextInput";
 import "@/styles/Freelance.css";
-import Mission from "@/entities/mission";
+import Mission, { ClientStatus, Proposition } from "@/entities/mission";
 import CompetencesContainer from "@/components/common/CompetencesContainer";
 import * as yup from "yup";
 import CustomDateField from "../common/CustomDateField";
-import { Formik, Form, Field, ErrorMessage } from "formik";
-import Proposition, {
-  ClientStatus,
-  FreelanceStatus,
-} from "@/entities/proposition";
-import { useSession } from "next-auth/react";
-import { ObjectId } from "mongodb";
+import { Formik, Form, Field } from "formik";
 import Freelance from "@/entities/freelance";
 import CVUpload from "../upload/CVUpload";
 import { useRouter } from "next/navigation";
@@ -51,26 +45,28 @@ const AnswerMission: React.FC<AnswerMissionProps> = ({
 
   const handleFormSubmit = async (values: typeof initialValues) => {
     setIsLoading(true);
-    const proposition = new Proposition({
+    const proposition: Proposition = {
       missionId: String(mission._id!),
       freelanceId: String(freelance._id),
-      clientStatus: ClientStatus.UNOPENED,
-      freelanceStatus: FreelanceStatus.ONGOING,
-      cv: freelance.cv,
       whyMe: values.whyMe,
-      freelance: `${freelance.firstname} ${freelance.lastname}`,
-      freelanceEnterprise: freelance.enterprise,
       freelanceDisponibility: values.disponiblity,
-      clientDisponibility: mission.date,
-      city: mission.city,
-      clientProposedPrice: Number(mission.price),
       freelanceProposedPrice: Number(values.freelanceProposedPrice),
-      modalities: mission.modalities,
-      title: mission.title,
-      companyName: mission.companyName,
-      length: mission.length,
+      status: ClientStatus.UNOPENED,
+    };
+
+    const updatedMissionWithProposition = new Mission({
+      ...mission,
+      propositions: [...mission.propositions, proposition],
     });
-    await proposition.save();
+    await updatedMissionWithProposition.update();
+    const updatedFreelance = new Freelance({
+      ...freelance,
+      missionsPendingApproval: [
+        ...freelance.missionsPendingApproval,
+        mission._id!,
+      ],
+    });
+    updatedFreelance.update();
     router.push("/freelance/ao/propositions");
   };
 
@@ -99,7 +95,11 @@ const AnswerMission: React.FC<AnswerMissionProps> = ({
         errors,
         handleSubmit,
       }) => (
-        <Form className="flex flex-col w-full" onSubmit={handleSubmit} ref={scrollRef}>
+        <Form
+          className="flex flex-col w-full"
+          onSubmit={handleSubmit}
+          ref={scrollRef}
+        >
           <div className="flex flex-col w-full">
             <div className="flex w-full justify-between">
               <div className="flex-col w-7/12">
@@ -117,7 +117,7 @@ const AnswerMission: React.FC<AnswerMissionProps> = ({
                 </div>
 
                 <div className="flex flex-col mt-16">
-                  <h5 className="why-me-text text-2xl mb-5">
+                  <h5 className="why-me-text text-2xl mb-5 text-extra-bold">
                     Pourquoi toi et pas un autre ? (*)
                   </h5>
                   <TextInput
@@ -133,15 +133,15 @@ const AnswerMission: React.FC<AnswerMissionProps> = ({
                     placeholder="Quelles sont tes forces ? Quelles sont tes expériences significatives pouvant faire pencher la balance ?"
                   />
 
-                  <div className="flex">
+                  <div className="flex-col">
                     <div className="mt-8 w-5/12 flex-col">
-                      <h5 className="text-xl">
-                        Disponilbités{" "}
+                      <h5 className="text-xl text-normal">
+                        Disponibilités{" "}
                         <span style={{ color: "#B9D386", fontWeight: "bold" }}>
                           *
                         </span>
                       </h5>
-                      <div className="w-8/12 my-5 px-2">
+                      <div className="w-8/12 my-5">
                         <Field
                           name="date"
                           component={CustomDateField}
@@ -161,7 +161,7 @@ const AnswerMission: React.FC<AnswerMissionProps> = ({
                       </div>
                     </div>
                     <div className="mt-8">
-                      <h5 className="text-xl">
+                      <h5 className="text-xl  text-normal">
                         Montant que je souhaite percevoir (HT){" "}
                         <span style={{ color: "#B9D386", fontWeight: "bold" }}>
                           *
@@ -208,9 +208,7 @@ const AnswerMission: React.FC<AnswerMissionProps> = ({
                     alt="calendrier"
                     className="mr-4"
                   />
-                  {missionDate
-                    .toLocaleDateString("fr-FR")
-                    .replaceAll("/", ".")}
+                  {missionDate.toLocaleDateString("fr-FR").replaceAll("/", ".")}
                 </div>
                 <div className="flex my-2">
                   <Image

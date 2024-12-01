@@ -3,18 +3,32 @@ import ClientNavbar from "@/components/navbar/ClientNavbar";
 import Link from "next/link";
 import "@/styles/Client.css";
 import ClientIntroSection from "@/components/common/ClientIntroSection";
-import Proposition from "@/entities/proposition";
-import { getPropositionsByMissionId } from "@/http/propositions";
 import DatagridPropositions from "@/components/datagrid/DatagridPropositions";
 import Image from "next/image";
+import { getMissionById } from "@/http/mission";
+import Mission, { Proposition } from "@/entities/mission";
+import { redirect } from "next/navigation";
+import { auth } from "@/auth";
+import { getClientByEmail } from "@/http/client";
+
 const ClientPropositionsAOPage = async ({
   params,
 }: {
   params: { slug: string };
 }) => {
-  const propositions: Proposition[] = await getPropositionsByMissionId(
-    params.slug
-  );
+  const missionId = params.slug;
+  const mission: Mission = await getMissionById(missionId);
+  const propositions: Proposition[] = mission.propositions;
+  const session = await auth();
+
+  const handleSignOut = () => {
+    redirect("/login");
+  };
+  if (!session || !session.user || !session.user.email) {
+    handleSignOut();
+    return;
+  } 
+  const client = await getClientByEmail(session.user.email);
   return (
     <>
       <ClientNavbar />
@@ -42,7 +56,7 @@ const ClientPropositionsAOPage = async ({
               </div>
             </div>
           </div>
-          {propositions && <DatagridPropositions propositions={propositions} />}
+          {propositions && <DatagridPropositions propositions={propositions} missionId={missionId} client={client}/>}
         </div>
       </main>
     </>
@@ -50,3 +64,4 @@ const ClientPropositionsAOPage = async ({
 };
 
 export default ClientPropositionsAOPage;
+

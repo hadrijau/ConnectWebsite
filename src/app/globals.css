@@ -14,6 +14,10 @@ strong {
   font-weight: 600;
 }
 
+.text-extra-bold {
+  font-weight: 700;
+}
+
 .text-bold {
   font-weight: 600;
 }
@@ -72,6 +76,10 @@ a {
 
 .bg-pink {
   background: linear-gradient(0deg, #d892c0, #d892c0);
+}
+
+.bg-slight-blue {
+  background-color: rgba(188, 217, 232, 1);
 }
 
 .bg-client {

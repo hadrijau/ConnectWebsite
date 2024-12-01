@@ -14,6 +14,7 @@ interface ClientProps {
   sector: string;
   description: string;
   lastAOId: string;
+  missions: ObjectId[];
 }
 
 class Client {
@@ -29,8 +30,10 @@ class Client {
   sector: string;
   description: string;
   lastAOId: string;
+  missions: ObjectId[];
 
   constructor({
+    _id,
     firstname,
     lastname,
     email,
@@ -41,8 +44,8 @@ class Client {
     domainName,
     sector,
     description,
-    _id,
     lastAOId,
+    missions,
   }: ClientProps) {
     this._id = _id;
     this.firstname = firstname;
@@ -56,6 +59,7 @@ class Client {
     this.sector = sector;
     this.description = description;
     this.lastAOId = lastAOId;
+    this.missions = missions; // Store mission references (ObjectId[])
   }
 
   async save() {
@@ -73,6 +77,7 @@ class Client {
         sector: this.sector,
         description: this.description,
         lastAOId: this.lastAOId,
+        missions: this.missions,
       }),
       headers: {
         "Content-Type": "application/json",
@@ -105,6 +110,7 @@ class Client {
         description: this.description,
         sector: this.sector,
         lastAOId: this.lastAOId,
+        missions: this.missions,
       }),
       headers: {
         "Content-Type": "application/json",

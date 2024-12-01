@@ -73,6 +73,7 @@ const CreateProfilClientForm: React.FC<CreateProfilClientFormProps> = ({
         description: values.description,
         _id: client._id,
         lastAOId: client.lastAOId,
+        missions: client.missions,
       });
       await updatedClient.update();
       router.push("/client");

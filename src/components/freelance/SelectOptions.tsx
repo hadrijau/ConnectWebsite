@@ -50,23 +50,13 @@ const SelectOptions: React.FC<SelectOptionsProps> = ({ user }) => {
       setIsLoading(false);
       return;
     }
-    const updatedFreelance = new Freelance({
-      email: user.email,
-      title: user.title,
-      phone: user.phone,
-      lastMission: user.lastMission,
-      lengthMissionWanted: user.lengthMissionWanted,
-      descriptionMissionWanted: user.descriptionMissionWanted,
-      profilePicture: user.profilePicture,
-      enterprise: user.enterprise,
+    const updatedFreelance = {
+      ...user,
       competences: selectedCompetences,
-      _id: user._id,
-      lastname: user.lastname,
-      firstname: user.firstname,
-      experiences: user.experiences,
-      cv: user.cv,
-    });
-    await updatedFreelance.update();
+    };
+
+    const freelanceInstance = new Freelance(updatedFreelance);
+    await freelanceInstance.update();
     router.push("/freelance/profil/experiences");
     setIsLoading(false);
   };

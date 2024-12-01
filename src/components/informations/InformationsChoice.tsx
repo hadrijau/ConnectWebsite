@@ -40,6 +40,7 @@ const InformationsChoice = ({ email, firstname, lastname, password }) => {
         description: "",
         _id: user._id,
         lastAOId: "AO00001",
+        missions: [],
       });
       await client.save();
       router.push("/client/profil");
@@ -65,6 +66,10 @@ const InformationsChoice = ({ email, firstname, lastname, password }) => {
         descriptionMissionWanted: "",
         competences: [],
         experiences: [],
+        missionsLiked: [],
+        missionsApproved: [],
+        missionsPendingApproval: [],
+        missionsLost: [],
         profilePicture: "",
         email,
         cv: "",

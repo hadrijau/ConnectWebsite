@@ -38,7 +38,7 @@ const EntrepriseFreelanceForm: React.FC<EntrepriseFreelanceFormProps> = ({
     siret: user.enterprise.siret || "",
     hasTVA:
       tvaOptions.find((option) => option.label === user.enterprise.hasTVA)
-        ?.value || "",
+        ?.value || 10,
   };
   const [isLoading, setIsLoading] = useState(false);
 
@@ -47,7 +47,6 @@ const EntrepriseFreelanceForm: React.FC<EntrepriseFreelanceFormProps> = ({
       initialValues={initialValues}
       onSubmit={async (values) => {
         setIsLoading(true);
-        console.log("values", values.hasTVA);
         try {
           const enterprise: Enterprise = {
             name: values.name,
@@ -58,23 +57,12 @@ const EntrepriseFreelanceForm: React.FC<EntrepriseFreelanceFormProps> = ({
             hasTVA: tvaOptions.find((option) => option.value === values.hasTVA)!
               .label,
           };
-          const updatedFreelance = new Freelance({
-            email: user.email,
-            title: user.title,
-            phone: user.phone,
-            lastMission: user.lastMission,
-            lengthMissionWanted: user.lengthMissionWanted,
-            descriptionMissionWanted: user.descriptionMissionWanted,
-            profilePicture: user.profilePicture,
+          const updatedFreelance = {
+            ...user,
             enterprise: enterprise,
-            competences: user.competences,
-            _id: user._id,
-            lastname: user.lastname,
-            firstname: user.firstname,
-            experiences: user.experiences,
-            cv: user.cv,
-          });
-          await updatedFreelance.update();
+          };
+          const freelanceInstance = new Freelance(updatedFreelance);
+          await freelanceInstance.update();
           router.push("/freelance");
           setIsLoading(false);
         } catch (err) {

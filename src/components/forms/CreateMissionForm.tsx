@@ -86,21 +86,6 @@ const CreateMissionForm: React.FC<CreateMissionFormProps> = ({ user }) => {
       const numericPart = parseInt(user.lastAOId.substring(2), 10);
       const nextNumericPart = numericPart + 1;
       const newAoId = `AO${nextNumericPart.toString().padStart(5, "0")}`;
-      const client = new Client({
-        firstname: user.firstname,
-        lastname: user.lastname,
-        email: user.email,
-        phoneNumber: user.phoneNumber,
-        address: user.address,
-        postalCode: user.postalCode,
-        city: user.city,
-        sector: user.sector,
-        domainName: user.domainName,
-        description: user.description,
-        _id: user._id,
-        lastAOId: newAoId,
-      });
-      await client.update();
       const mission = new Mission({
         clientId: user._id!,
         title: values.title,
@@ -122,9 +107,16 @@ const CreateMissionForm: React.FC<CreateMissionFormProps> = ({ user }) => {
         aoId: user.lastAOId,
         postalCode: user.postalCode,
         city: user.city,
-        propositions: []
+        propositions: [],
       });
-      await mission.save();
+      const result = await mission.save();
+  
+      const client = new Client({
+        ...user,
+        missions: [...user.missions, result.mission._id],
+        lastAOId: newAoId,
+      });
+      await client.update();
       router.push("/client/ao");
       router.refresh();
       setLoading(false);
@@ -377,6 +369,8 @@ const CreateMissionForm: React.FC<CreateMissionFormProps> = ({ user }) => {
                     )} */}
                     <div className="w-6/12">
                       <CustomAutocomplete
+                        name="competences"
+        
                         value={competence.label}
                         setValue={(newValue) => {
                           const updatedCompetences = [...selectedCompetences];

@@ -71,3 +71,41 @@ export async function getClientByEmail(email: string) {
 
   return data;
 }
+
+export async function getAllMissionsForAllClients() {
+  const response = await fetch(`${baseUrl}/api/client/mission`, {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+    },
+  });
+
+  const data = await response.json();
+  if (!response.ok) {
+    throw new Error(data.message);
+  }
+
+  return data;
+}
+
+export async function getMissionByIdForClientById(
+  missionId: string,
+  clientId: string
+) {
+  const response = await fetch(
+    `${baseUrl}/api/client/${clientId}/mission/${missionId}`,
+    {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    }
+  );
+
+  const data = await response.json();
+  if (!response.ok) {
+    throw new Error(data.message);
+  }
+
+  return data;
+}

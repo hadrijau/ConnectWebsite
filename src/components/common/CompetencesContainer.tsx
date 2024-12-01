@@ -24,7 +24,7 @@ const CompetencesContainer: React.FC<CompetencesContainerProps> = ({
 
       {competences.map((competence, index) => (
         <div
-          key={competence.label}
+          key={index}
           className="competence-container rounded-xl flex flex-row mt-2 mx-3 justify-between lg:mx-0"
         >
           <div className="w-6/12">

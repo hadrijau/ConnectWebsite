@@ -2,6 +2,8 @@ import { connectToDatabase } from "@/lib/db";
 import { ObjectId } from "mongodb";
 import { NextResponse } from "next/server";
 
+// POST /api/freelance
+// Create a new freelance.
 export async function POST(req: Request) {
   try {
     const {
@@ -18,6 +20,10 @@ export async function POST(req: Request) {
       profilePicture,
       enterprise,
       experiences,
+      missionsLost,
+      missionsPendingApproval,
+      missionsApproved,
+      missionsLiked,
     } = await req.json();
 
     const client = await connectToDatabase();
@@ -37,9 +43,13 @@ export async function POST(req: Request) {
       profilePicture,
       enterprise,
       experiences,
+      missionsLost,
+      missionsPendingApproval,
+      missionsApproved,
+      missionsLiked,
     });
 
-    return NextResponse.json({ message: "Mission created" }, { status: 201 });
+    return NextResponse.json({ message: "Freelance created" }, { status: 201 });
   } catch (err) {
     console.log("err", err);
     return NextResponse.json({ message: "ERROR" }, { status: 500 });

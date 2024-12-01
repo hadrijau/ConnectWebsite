@@ -129,7 +129,9 @@ const DataGridAO: React.FC<DataGridAOProps> = ({ missions, user }) => {
                   </p>
                   <p
                     className="profil-client-option cursor-pointer py-2 px-3 text-left font-medium"
-                    onClick={() => router.push(`/client/ao/propositions/${params.row.id}`)}
+                    onClick={() =>
+                      router.push(`/client/ao/propositions/${params.row.id}`)
+                    }
                   >
                     Propositions
                   </p>
@@ -183,22 +185,11 @@ const DataGridAO: React.FC<DataGridAOProps> = ({ missions, user }) => {
     try {
       setLoading(true);
       setOpenThreeDotsMenu(false);
-      console.log("user", user)
       const numericPart = parseInt(user.lastAOId.substring(2), 10);
       const nextNumericPart = numericPart + 1;
       const newAoId = `AO${nextNumericPart.toString().padStart(5, "0")}`;
       const client = new Client({
-        firstname: user.firstname,
-        lastname: user.lastname,
-        email: user.email,
-        phoneNumber: user.phoneNumber,
-        address: user.address,
-        postalCode: user.postalCode,
-        city: user.city,
-        sector: user.sector,
-        domainName: user.domainName,
-        description: user.description,
-        _id: user._id,
+        ...user,
         lastAOId: newAoId,
       });
       await client.update();
@@ -227,10 +218,9 @@ const DataGridAO: React.FC<DataGridAOProps> = ({ missions, user }) => {
       setLoading(false);
       router.refresh();
     } catch (err) {
-      setLoading(false)
-      console.log("err", err)
+      setLoading(false);
+      console.log("err", err);
     }
-
   };
   const handleClickOpen = (idAO: string) => {
     setIdAO(idAO);
