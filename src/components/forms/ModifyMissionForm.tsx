@@ -40,7 +40,8 @@ const ModifyMissionForm: React.FC<ModifyMissionFormProps> = ({
     clientId,
     status,
     companyName,
-    propositions
+    propositions,
+    acceptedFreelanceId,
   },
 }) => {
   const router = useRouter();
@@ -93,6 +94,7 @@ const ModifyMissionForm: React.FC<ModifyMissionFormProps> = ({
   const handleFormSubmit = async (values: typeof initialValues) => {
     try {
       const updatedMission = new Mission({
+        acceptedFreelanceId,
         clientId,
         title: values.title,
         context: values.context,

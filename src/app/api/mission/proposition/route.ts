@@ -79,6 +79,7 @@ export async function DELETE(req: Request) {
         _id: new ObjectId(missionId),
       },
       {
+        //@ts-ignore
         $pull: {
           propositions: { freelanceId }, // Match the freelanceId in the propositions array
         },

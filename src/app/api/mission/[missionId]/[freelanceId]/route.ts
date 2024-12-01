@@ -1,6 +1,7 @@
 import { connectToDatabase } from "@/lib/db";
 import { NextResponse } from "next/server";
 import { ObjectId } from "mongodb";
+import { Proposition } from "@/entities/mission";
 
 // GET /api/mission/[missionId]/[freelanceId]
 // Get all propositions for a given freelance and a given mission
@@ -33,7 +34,8 @@ export async function GET(
 
     // Return the propositions that match the freelanceId
     const filteredPropositions = mission.propositions.filter(
-      (proposition) => proposition.freelanceId === params.freelanceId
+      (proposition: Proposition) =>
+        proposition.freelanceId === params.freelanceId
     );
 
     return NextResponse.json(filteredPropositions, { status: 200 });

@@ -41,6 +41,7 @@ const InformationsChoice = ({ email, firstname, lastname, password }) => {
         _id: user._id,
         lastAOId: "AO00001",
         missions: [],
+        acceptedMissions: [],
       });
       await client.save();
       router.push("/client/profil");

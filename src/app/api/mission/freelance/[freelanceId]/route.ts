@@ -1,6 +1,6 @@
 import { connectToDatabase } from "@/lib/db";
 import { NextResponse } from "next/server";
-import { ObjectId } from "mongodb";
+import { Proposition } from "@/entities/mission";
 
 // Get all propositions for a given freelance
 export async function GET(
@@ -24,11 +24,11 @@ export async function GET(
       )
       .toArray();
 
-    console.log("mission", missions);
     // Filter out the propositions that match the freelanceId in each mission
     const allPropositionsForFreelance = missions.flatMap((mission) =>
       mission.propositions.filter(
-        (proposition) => proposition.freelanceId === params.freelanceId
+        (proposition: Proposition) =>
+          proposition.freelanceId === params.freelanceId
       )
     );
 

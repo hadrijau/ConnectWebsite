@@ -1,4 +1,3 @@
-"use client";
 import React from "react";
 import CustomSelect from "@/components/common/CustomSelect";
 import "@/styles/Client.css";
@@ -24,14 +23,17 @@ const RefuseFreelanceCandidatureForm: React.FC<
   };
 
   const handleFormSubmit = async (values: typeof initialValues) => {
-    console.log("heyyy")
-    const deleteResult = await deleteProposition(mission._id, freelance._id);
+    const deleteResult = await deleteProposition(
+      String(mission._id),
+      String(freelance._id)
+    );
     if (!deleteResult.success) {
       console.log("Error deleting proposition");
     }
     const updatedFreelance = new Freelance({
-        ...freelance,
-        missionsLost: [...freelance.missionsLost, mission._id],
+      ...freelance,
+      // @ts-ignore
+      missionsLost: [...freelance.missionsLost, mission._id],
     });
     updatedFreelance.update();
     router.refresh();
@@ -57,7 +59,7 @@ const RefuseFreelanceCandidatureForm: React.FC<
                 {` ${freelance.firstname} ${freelance.lastname}`}
               </span>
               <br />
-              comme non intéressant pour l'offre ?
+              comme non intéressant pour l&apos;offre ?
             </p>
             <p className="text-light text-center mb-5">Pour quelle raison ?</p>
             <CustomSelect

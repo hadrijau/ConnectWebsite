@@ -24,6 +24,8 @@ export async function PUT(
 ) {
   try {
     const {
+      acceptedFreelanceId,
+      clientId,
       title,
       context,
       goals,
@@ -35,7 +37,12 @@ export async function PUT(
       hiddenCompany,
       hiddenMissionPlace,
       hiddenTJM,
+      createdAt,
+      aoId,
+      city,
+      postalCode,
       companyName,
+      status,
       propositions,
     } = await req.json();
 
@@ -56,6 +63,8 @@ export async function PUT(
       { _id: objectId },
       {
         $set: {
+          acceptedFreelanceId,
+          clientId,
           title,
           context,
           goals,
@@ -67,7 +76,12 @@ export async function PUT(
           hiddenCompany,
           hiddenMissionPlace,
           hiddenTJM,
+          createdAt,
+          aoId,
+          city,
+          postalCode,
           companyName,
+          status,
           propositions,
         },
       }

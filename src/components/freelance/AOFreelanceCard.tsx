@@ -1,6 +1,5 @@
 import React, { FC } from "react";
 import Image from "next/image";
-import { ObjectId } from "mongodb";
 import dayjs, { Dayjs } from "dayjs";
 
 interface AOFreelanceProps {
@@ -8,7 +7,6 @@ interface AOFreelanceProps {
   companyName: string;
   companyLogo: string;
   clientProposedPrice: string;
-  freelanceProposedPrice: number;
   city: string;
   modalities: string;
   date: Dayjs;
@@ -20,7 +18,6 @@ const AOFreelanceCard: FC<AOFreelanceProps> = ({
   companyName,
   companyLogo,
   clientProposedPrice,
-  freelanceProposedPrice,
   date,
   city,
   modalities,
@@ -110,17 +107,6 @@ const AOFreelanceCard: FC<AOFreelanceProps> = ({
             />
             <p className="ml-2 text-sm text-normal lg:text-xs">
               Tarif demandé: {clientProposedPrice} € HT/jour
-            </p>
-          </div>
-          <div className="flex mt-5">
-            <Image
-              src="/price.svg"
-              width={20}
-              height={20}
-              alt="Prix d'une mission"
-            />
-            <p className="ml-2 text-sm text-normal lg:text-xs">
-              Tarif proposé: {freelanceProposedPrice} € HT/jour
             </p>
           </div>
         </div>

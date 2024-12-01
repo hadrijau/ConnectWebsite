@@ -8,13 +8,17 @@ import CardMission from "@/components/freelance/CardMission";
 import { redirect } from "next/navigation";
 import Image from "next/image";
 import FreelanceAoNavbar from "@/components/freelance/FreelanceAoNavbar";
+import { getFreelanceById } from "@/http/freelance";
+
 export default async function AOCherisPage() {
   const missions: Mission[] = await getMissions();
 
   const session = await auth();
-  if (!session) {
+  if (!session || !session.user || !session.user.id) {
     redirect("/login");
   }
+
+  const freelance = await getFreelanceById(session.user.id);
   return (
     <>
       <FreelanceNavBar />
@@ -29,25 +33,12 @@ export default async function AOCherisPage() {
           <div className="flex justify-between w-full mt-10">
             <div className="flex-col w-7/12 lg:w-8/12">
               {missions.map((mission, index) => {
-                const { _id, title, price, propositions, date, length } =
-                  mission;
-                  let propositionsLength = 0;
-                  if (propositions && propositions.length != 0) {
-                    propositionsLength = propositionsLength
-                  }
-                return (
-                  <CardMission
-                    key={index}
-                    _id={_id!}
-                    title={title}
-                    propositions={propositionsLength}
-                    date={date}
-                    companyLogo={"/logoSoge.svg"}
-                    companyName={"Company B"}
-                    price={price}
-                    length={length}
-                  />
-                );
+                const { propositions } = mission;
+                let propositionsLength = 0;
+                if (propositions && propositions.length != 0) {
+                  propositionsLength = propositionsLength;
+                }
+                return <CardMission key={index} mission={mission} freelance={freelance}/>;
               })}
             </div>
 

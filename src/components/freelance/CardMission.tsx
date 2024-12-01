@@ -1,41 +1,60 @@
+"use client";
 import React, { FC } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { ObjectId } from "mongodb";
-import dayjs, { Dayjs } from "dayjs";
+import dayjs from "dayjs";
+import Mission from "@/entities/mission";
+import Freelance from "@/entities/freelance";
+import { useRouter } from "next/navigation";
+
 interface CardMissionProps {
-  _id: ObjectId;
-  title: string;
-  companyName: string;
-  companyLogo: string;
-  price: string;
-  propositions: number;
-  date: Dayjs;
-  length: string;
+  mission: Mission,
+  freelance: Freelance
 }
 
 const CardMission: FC<CardMissionProps> = ({
-  _id,
-  title,
-  companyName,
-  companyLogo,
-  price,
-  propositions,
-  date,
-  length,
+  mission: {
+    _id,
+    title,
+    companyName,
+    propositions,
+    price,
+    length,
+    date,
+  },
+  freelance,
 }) => {
   const formattedDate = dayjs(date).format("DD.MM.YYYY");
 
+  const router = useRouter();
+  const handleAddLikeMission = async () => {
+    const updatedFreelance = new Freelance({
+      ...freelance,
+      missionsLiked: [...freelance.missionsLiked, _id!],
+    });
+    updatedFreelance.update();
+    router.push("/freelance/ao/cheris");
+  }
+
   return (
     <Link href={`/freelance/ao/${_id}`}>
-      <div className="flex card-mission-container p-4 my-10 w-full">
+      <div className="relative flex card-mission-container p-4 my-10 w-full">
         <Image
-          src={companyLogo}
+          src={"/logoSoge.svg"}
           alt="logo"
           width={75}
           height={75}
           className="mr-7"
         />
+        <div className="absolute top-0 right-0 mt-4 mr-7">
+          <Image
+            src="/likeMissionFreelance.svg"
+            alt="Like Mission"
+            width={20}
+            height={20}
+            onClick={handleAddLikeMission}
+          />
+        </div>
         <div className="flex flex-col w-full">
           <h2 className="text-normal text-2xl">{title}</h2>
           <h5 className="text-light text-base">{companyName}</h5>
@@ -48,7 +67,7 @@ const CardMission: FC<CardMissionProps> = ({
                 alt="Nombre de propositions"
                 color="black"
               />
-              <p className="ml-2 text-sm text-normal lg:text-xs">{propositions} propositions</p>
+              <p className="ml-2 text-sm text-normal lg:text-xs">{propositions.length} propositions</p>
             </div>
             <div className="flex w-3/12">
               <Image

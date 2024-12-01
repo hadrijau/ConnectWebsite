@@ -87,6 +87,8 @@ const CreateMissionForm: React.FC<CreateMissionFormProps> = ({ user }) => {
       const nextNumericPart = numericPart + 1;
       const newAoId = `AO${nextNumericPart.toString().padStart(5, "0")}`;
       const mission = new Mission({
+        // @ts-ignore
+        acceptedFreelanceId: "",
         clientId: user._id!,
         title: values.title,
         context: values.context,
@@ -368,9 +370,7 @@ const CreateMissionForm: React.FC<CreateMissionFormProps> = ({ user }) => {
                       </button>
                     )} */}
                     <div className="w-6/12">
-                      <CustomAutocomplete
-                        name="competences"
-        
+                      <CustomAutocomplete        
                         value={competence.label}
                         setValue={(newValue) => {
                           const updatedCompetences = [...selectedCompetences];

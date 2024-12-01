@@ -31,3 +31,14 @@ export async function getFreelanceById(id: string) {
 
   return data;
 }
+
+export async function getAllMissionsByFreelanceId(freelanceId: string) {
+  const response = await fetch(
+    `${baseUrl}/api/freelance/mission/${freelanceId}`
+  );
+  if (!response.ok) {
+    throw new Error("Failed to fetch missions");
+  }
+  const data = await response.json();
+  return data;
+}

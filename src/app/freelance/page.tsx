@@ -3,20 +3,19 @@ import "@/styles/Freelance.css";
 import DimensionCard from "@/components/home/DimensionCard";
 import FreelanceIntroSection from "@/components/common/FreelanceIntroSection";
 import FreelanceNavBar from "@/components/navbar/FreelanceNavbar";
-// import missions from "@/mockData/missions";
 import CardMission from "@/components/freelance/CardMission";
-import ongoingMissions from "@/mockData/ongoingmissions";
 import CardOnGoingMission from "@/components/freelance/CardOnGoingMission";
 import { getMissions } from "@/http/mission";
 import Mission from "@/entities/mission";
 import { auth } from "@/auth";
 import { redirect } from "next/navigation";
+import { getAllMissionsByFreelanceId, getFreelanceById } from "@/http/freelance";
 
 export default async function FreelancePage() {
   const missions: Mission[] = await getMissions();
 
   const session = await auth();
-  if (!session) {
+  if (!session || !session.user || !session.user.id) {
     redirect("/login");
   }
 
@@ -26,6 +25,12 @@ export default async function FreelancePage() {
         new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()
     )
     .slice(0, 5);
+
+  const { approvedMissions } = await getAllMissionsByFreelanceId(
+    session.user.id
+  );
+
+  const freelance = await getFreelanceById(session.user.id);
 
   return (
     <>
@@ -43,25 +48,13 @@ export default async function FreelancePage() {
               Les appels d&apos;offre du moment spécialement pour toi
             </h1>
 
-            {recentMissions.map((mission, index) => {
-              const { _id, title, price, propositions, date, length, companyName } = mission;
+            {recentMissions.map((mission: Mission, index) => {
+              const { propositions } = mission;
               let propositionsLength = 0;
               if (propositions && propositions.length != 0) {
-                propositionsLength = propositionsLength
+                propositionsLength = propositionsLength;
               }
-              return (
-                <CardMission
-                  key={index}
-                  _id={_id!}
-                  title={title}
-                  propositions={propositionsLength}
-                  date={date}
-                  companyLogo={"/logoSoge.svg"}
-                  companyName={companyName}
-                  price={price}
-                  length={length}
-                />
-              );
+              return <CardMission key={index} mission={mission} freelance={freelance}/>;
             })}
           </div>
 
@@ -76,13 +69,13 @@ export default async function FreelancePage() {
             <h5 className="text-center text-normal text-xl">
               Mes missions en cours...
             </h5>
-            {ongoingMissions.map((mission, index) => {
-              const { title, company, date } = mission;
+            {approvedMissions.map((mission: Mission, index: number) => {
+              const { title, companyName, date } = mission;
               return (
                 <CardOnGoingMission
                   key={index}
                   title={title}
-                  company={company}
+                  company={companyName}
                   date={date}
                 />
               );

@@ -43,6 +43,8 @@ interface FreelanceProps {
   cv: string;
 }
 
+// Possibilité de changer la structure de mission pour avoir un object avec l'id et le statut
+// de la mission (approved, pending, lost, liked)
 class Freelance {
   _id: ObjectId;
   title: string;

@@ -6,6 +6,7 @@ import { NextResponse } from "next/server";
 export async function POST(req: Request) {
   try {
     const {
+      acceptedFreelanceId,
       clientId,
       title,
       context,
@@ -33,6 +34,7 @@ export async function POST(req: Request) {
 
     // Insert the new mission into the database
     const result = await db.collection("missions").insertOne({
+      acceptedFreelanceId,
       clientId,
       title,
       context,

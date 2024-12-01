@@ -4,8 +4,7 @@ import FreelanceIntroSection from "@/components/common/FreelanceIntroSection";
 import { auth } from "@/auth";
 import { redirect } from "next/navigation";
 import AODisplay from "@/components/freelance/AODisplay";
-import Proposition from "@/entities/proposition";
-import { getPropositionsByFreelanceId } from "@/http/mission";
+import { getAllMissionsByFreelanceId } from "@/http/freelance";
 
 export default async function AOPropositionsPage() {
   const session = await auth();
@@ -13,9 +12,8 @@ export default async function AOPropositionsPage() {
     redirect("/login");
   }
 
-  const propositions: Proposition[] = await getPropositionsByFreelanceId(
-    session.user.id
-  );
+  const { approvedMissions, pendingMissions, likedMissions, lostMissions } =
+    await getAllMissionsByFreelanceId(session.user.id);
 
   return (
     <>
@@ -27,7 +25,12 @@ export default async function AOPropositionsPage() {
         />
 
         <div className="flex justify-between w-full main-content flex-col">
-          <AODisplay propositions={propositions} />
+          <AODisplay
+            approvedMissions={approvedMissions}
+            pendingMissions={pendingMissions}
+            likedMissions={likedMissions}
+            lostMissions={lostMissions}
+          />
         </div>
       </main>
     </>

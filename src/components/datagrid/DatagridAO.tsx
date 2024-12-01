@@ -195,6 +195,7 @@ const DataGridAO: React.FC<DataGridAOProps> = ({ missions, user }) => {
       await client.update();
       const mission: Mission = await getMissionById(idAO);
       const missionDuplicate = new Mission({
+        acceptedFreelanceId: mission.acceptedFreelanceId,
         clientId: mission.clientId,
         title: mission.title,
         context: mission.context,

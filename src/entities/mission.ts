@@ -22,6 +22,7 @@ export interface Proposition {
 
 interface MissionProps {
   clientId: ObjectId;
+  acceptedFreelanceId: ObjectId;
   title: string;
   context: string;
   goals: string;
@@ -45,6 +46,7 @@ interface MissionProps {
 class Mission {
   _id?: ObjectId;
   clientId: ObjectId;
+  acceptedFreelanceId: ObjectId;
   title: string;
   context: string;
   goals: string;
@@ -66,6 +68,7 @@ class Mission {
 
   constructor({
     clientId,
+    acceptedFreelanceId,
     title,
     context,
     goals,
@@ -86,6 +89,7 @@ class Mission {
     propositions,
   }: MissionProps) {
     this.clientId = clientId;
+    this.acceptedFreelanceId = acceptedFreelanceId;
     this.title = title;
     this.context = context;
     this.goals = goals;
@@ -113,6 +117,7 @@ class Mission {
     const response = await fetch("/api/mission", {
       method: "POST",
       body: JSON.stringify({
+        acceptedFreelanceId: this.acceptedFreelanceId,
         clientId: this.clientId,
         title: this.title,
         context: this.context,
@@ -155,16 +160,19 @@ class Mission {
     const response = await fetch(`/api/mission/${this._id}`, {
       method: "PUT",
       body: JSON.stringify({
+        acceptedFreelanceId: this.acceptedFreelanceId,
+        clientId: this.clientId,
         title: this.title,
         context: this.context,
         goals: this.goals,
         date: this.date,
-        status: this.status,
         price: this.price,
         length: this.length,
+        status: this.status,
         modalities: this.modalities,
-        companyName: this.companyName,
         competences: this.competences,
+        createdAt: this.createdAt,
+        companyName: this.companyName,
         hiddenCompany: this.hiddenCompany,
         hiddenMissionPlace: this.hiddenMissionPlace,
         hiddenTJM: this.hiddenTJM,

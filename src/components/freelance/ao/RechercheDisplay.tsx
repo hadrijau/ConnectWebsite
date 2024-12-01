@@ -3,12 +3,14 @@ import React, { useEffect, useState } from "react";
 import CardMission from "@/components/freelance/CardMission";
 import Image from "next/image";
 import Mission from "@/entities/mission";
+import Freelance from "@/entities/freelance";
 
 interface RechercheDisplayProps {
   missions: Mission[];
+  freelance: Freelance;
 }
 
-const RechercheDisplay: React.FC<RechercheDisplayProps> = ({ missions }) => {
+const RechercheDisplay: React.FC<RechercheDisplayProps> = ({ missions, freelance }) => {
   const [searchInput, setSearchInput] = useState("");
   const [filteredMissions, setFilteredMissions] = useState(missions);
 
@@ -63,14 +65,8 @@ const RechercheDisplay: React.FC<RechercheDisplayProps> = ({ missions }) => {
             return (
               <CardMission
                 key={index}
-                _id={_id!}
-                title={title}
-                propositions={propositionsLength}
-                date={date}
-                companyLogo={"/logoSoge.svg"}
-                companyName={companyName}
-                price={price}
-                length={length}
+                mission={mission}
+                freelance={freelance}
               />
             );
           })}

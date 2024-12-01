@@ -20,6 +20,7 @@ export async function POST(req: Request) {
       _id,
       lastAOId,
       missions,
+      acceptedMissions,
     } = await req.json();
 
     const client = await connectToDatabase();
@@ -39,6 +40,7 @@ export async function POST(req: Request) {
       _id: new ObjectId(_id),
       lastAOId,
       missions,
+      acceptedMissions,
     });
 
     return NextResponse.json({ message: "Client created" }, { status: 201 });

@@ -7,15 +7,17 @@ import { auth } from "@/auth";
 import { redirect } from "next/navigation";
 import FreelanceAoNavbar from "@/components/freelance/FreelanceAoNavbar";
 import RechercheDisplay from "@/components/freelance/ao/RechercheDisplay";
+import { getFreelanceById } from "@/http/freelance";
 
 export default async function RechercheAOPage() {
   const missions: Mission[] = await getMissions();
 
   const session = await auth();
-  if (!session) {
+  if (!session || !session.user || !session.user.id) {
     redirect("/login");
   }
 
+  const freelance = await getFreelanceById(session.user.id);
 
   return (
     <>
@@ -28,7 +30,7 @@ export default async function RechercheAOPage() {
 
         <div className="flex justify-between w-full main-content flex-col">
           <FreelanceAoNavbar />
-          <RechercheDisplay missions={missions}/>
+          <RechercheDisplay missions={missions} freelance={freelance} />
         </div>
       </main>
     </>

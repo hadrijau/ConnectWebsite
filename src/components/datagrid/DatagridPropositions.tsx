@@ -167,12 +167,28 @@ const DatagridPropositions: React.FC<DatagridPropositionsProps> = ({
   };
 
   const handleSlotSubmit = async () => {
+    if (!freelance || !mission) return;
     const updatedFreelance = new Freelance({
       ...freelance,
+      // @ts-ignore
       missionsApproved: [...freelance.missionsApproved, missionId!],
+      missionsPendingApproval: freelance.missionsPendingApproval.filter((missionId) => missionId !== mission._id),
     });
-    const freelanceInstance = new Freelance(updatedFreelance);
-    await freelanceInstance.update();
+    await updatedFreelance.update();
+
+    const updatedClient = new Client({
+      ...client,
+      // @ts-ignore
+      acceptedMissions: [...client.acceptedMissions, missionId!],
+    });
+    await updatedClient.update();
+
+    const updatedMission = new Mission({
+      ...mission,
+      acceptedFreelanceId: freelance._id,
+    })
+    await updatedMission.update();
+
     const slots = [
       { date: slot1.date.format("DD-MM-YYYY"), time: slot1.time.format("HH:mm") },
       { date: slot2.date.format("DD-MM-YYYY"), time: slot2.time.format("HH:mm") },

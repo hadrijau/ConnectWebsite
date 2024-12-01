@@ -3,7 +3,6 @@ import CardOnGoingMission from "@/components/freelance/CardOnGoingMission";
 import ClientNavbar from "@/components/navbar/ClientNavbar";
 import CardMissionClient from "@/components/freelance/CardMissionClient";
 import { getMissions, getMissionsByClientId } from "@/http/mission";
-import ongoingMissions from "@/mockData/ongoingmissions";
 import Link from "next/link";
 import Image from "next/image";
 import "@/styles/Client.css";
@@ -80,13 +79,13 @@ const ClientSpacePage = async () => {
             <h5 className="text-center text-normal text-xl">
               Les missions en cours...
             </h5>
-            {ongoingMissions.map((mission, index) => {
-              const { title, company, date } = mission;
+            {missions.map((mission: Mission, index: number) => {
+              const { title, companyName, date } = mission;
               return (
                 <CardOnGoingMission
                   key={index}
                   title={title}
-                  company={company}
+                  company={companyName}
                   date={date}
                 />
               );
