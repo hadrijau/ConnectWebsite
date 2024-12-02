@@ -36,6 +36,7 @@ export async function PUT(
       sector,
       lastAOId,
       missions,
+      acceptedMissions,
     } = await req.json();
     const client = await connectToDatabase();
     const db = client.db();
@@ -63,6 +64,7 @@ export async function PUT(
           sector,
           lastAOId,
           missions,
+          acceptedMissions,
         },
       }
     );

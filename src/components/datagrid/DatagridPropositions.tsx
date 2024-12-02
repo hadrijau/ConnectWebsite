@@ -17,11 +17,12 @@ import {
 } from "@mui/x-date-pickers";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import "dayjs/locale/fr";
-import Mission, { ClientStatus, Proposition } from "@/entities/mission";
+import Mission, { MissionStatus, Proposition } from "@/entities/mission";
 import { sendEmail } from "@/http/email";
 import { updatePropositionStatus } from "@/http/mission";
 import Client from "@/entities/client";
 import RefuseFreelanceCandidatureForm from "@/components/forms/RefuseFreelanceCandidatureForm";
+import CircularProgress from "@mui/material/CircularProgress";
 
 interface DatagridPropositionsProps {
   propositions: Proposition[];
@@ -32,10 +33,10 @@ interface DatagridPropositionsProps {
 const DatagridPropositions: React.FC<DatagridPropositionsProps> = ({
   propositions,
   missionId,
-  client
+  client,
 }) => {
   const [mission, setMission] = useState<Mission>();
-  const [rows, setRows] = useState<any[]>([]); 
+  const [rows, setRows] = useState<any[]>([]);
 
   useEffect(() => {
     const fetchMission = async () => {
@@ -131,15 +132,17 @@ const DatagridPropositions: React.FC<DatagridPropositionsProps> = ({
     setUninterested(false);
   };
 
-
   const handleDelete = async (id: string) => {
     await deleteMission(String(id));
     handleClose();
     router.refresh();
   };
 
+  const [submittingSlots, setSubmittingSlots] = useState(false);
   const handleRowClick = async (params: any) => {
-    const fetchedFreelance: Freelance = await getFreelanceById(params.row.freelanceId);
+    const fetchedFreelance: Freelance = await getFreelanceById(
+      params.row.freelanceId
+    );
     setFreelance(fetchedFreelance);
     setFreelanceDisponibility(params.row.freelanceDisponibility);
     setFreelanceProposedPrice(params.row.freelanceProposedPrice);
@@ -167,12 +170,15 @@ const DatagridPropositions: React.FC<DatagridPropositionsProps> = ({
   };
 
   const handleSlotSubmit = async () => {
+    setSubmittingSlots(true);
     if (!freelance || !mission) return;
     const updatedFreelance = new Freelance({
       ...freelance,
       // @ts-ignore
       missionsApproved: [...freelance.missionsApproved, missionId!],
-      missionsPendingApproval: freelance.missionsPendingApproval.filter((missionId) => missionId !== mission._id),
+      missionsPendingApproval: freelance.missionsPendingApproval.filter(
+        (missionId) => missionId !== mission._id
+      ),
     });
     await updatedFreelance.update();
 
@@ -185,14 +191,24 @@ const DatagridPropositions: React.FC<DatagridPropositionsProps> = ({
 
     const updatedMission = new Mission({
       ...mission,
+      status: MissionStatus.STARTED,
       acceptedFreelanceId: freelance._id,
-    })
+    });
     await updatedMission.update();
 
     const slots = [
-      { date: slot1.date.format("DD-MM-YYYY"), time: slot1.time.format("HH:mm") },
-      { date: slot2.date.format("DD-MM-YYYY"), time: slot2.time.format("HH:mm") },
-      { date: slot3.date.format("DD-MM-YYYY"), time: slot3.time.format("HH:mm") },
+      {
+        date: slot1.date.format("DD-MM-YYYY"),
+        time: slot1.time.format("HH:mm"),
+      },
+      {
+        date: slot2.date.format("DD-MM-YYYY"),
+        time: slot2.time.format("HH:mm"),
+      },
+      {
+        date: slot3.date.format("DD-MM-YYYY"),
+        time: slot3.time.format("HH:mm"),
+      },
     ];
     const result = await sendEmail(freelance!.email, client.email, slots);
 
@@ -201,11 +217,12 @@ const DatagridPropositions: React.FC<DatagridPropositionsProps> = ({
     }
     const resultUpdate = await updatePropositionStatus(
       missionId,
-      String(freelance!._id),
+      String(freelance!._id)
     );
     if (!resultUpdate.success) {
       console.error("Error updating proposition status:", resultUpdate.error);
     }
+    setSubmittingSlots(false);
     router.refresh();
   };
 
@@ -236,7 +253,10 @@ const DatagridPropositions: React.FC<DatagridPropositionsProps> = ({
                 </div>
 
                 <div className="flex justify-center items-center my-10">
-                  <button className="bg-slate-300 px-4 py-2 rounded-lg mx-5 text-normal" onClick={() => setUninterested(true)}>
+                  <button
+                    className="bg-slate-300 px-4 py-2 rounded-lg mx-5 text-normal"
+                    onClick={() => setUninterested(true)}
+                  >
                     🚫 Non intéressé
                   </button>
                   <button
@@ -323,13 +343,19 @@ const DatagridPropositions: React.FC<DatagridPropositionsProps> = ({
                       />
                     </div>
                     <div className="flex justify-center items-center">
-                      <button
-                        className="my-6 py-2 px-10 submit-button rounded-2xl bg-client"
-                        type="submit"
-                        onClick={handleSlotSubmit}
-                      >
-                        <span className="text-normal ml-2 mr-2">Soumettre</span>
-                      </button>
+                      {submittingSlots ? (
+                        <CircularProgress size={20} />
+                      ) : (
+                        <button
+                          className="my-6 py-2 px-10 submit-button rounded-2xl bg-client"
+                          type="submit"
+                          onClick={handleSlotSubmit}
+                        >
+                          <span className="text-normal ml-2 mr-2">
+                            Soumettre
+                          </span>
+                        </button>
+                      )}
                     </div>
                   </div>
                 )}
@@ -412,9 +438,15 @@ const DatagridPropositions: React.FC<DatagridPropositionsProps> = ({
           )}
         </CustomDialog>
 
-        <CustomDialog open={uninterested} onClose={() => setUninterested(false)}>
+        <CustomDialog
+          open={uninterested}
+          onClose={() => setUninterested(false)}
+        >
           {freelance && mission && (
-           <RefuseFreelanceCandidatureForm mission={mission} freelance={freelance}/>
+            <RefuseFreelanceCandidatureForm
+              mission={mission}
+              freelance={freelance}
+            />
           )}
         </CustomDialog>
         <DataGrid

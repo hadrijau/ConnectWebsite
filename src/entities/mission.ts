@@ -1,9 +1,15 @@
 import { ObjectId } from "mongodb";
 import { Dayjs } from "dayjs";
 
+// Used in the client mission page to have access to the freelance name and firstname in the mission
+export interface MappedMission extends Mission {
+  freelanceInfos?: string; // Extends Mission and adds freelanceInfos
+}
+
 export enum MissionStatus {
   PUBLISHED = "Publié",
   STARTED = "Commencé",
+  COMPLETED = "Terminé",
 }
 
 export enum ClientStatus {

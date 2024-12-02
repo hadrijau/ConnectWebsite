@@ -2,24 +2,6 @@ import { connectToDatabase } from "@/lib/db";
 import { ObjectId } from "mongodb";
 import { NextResponse } from "next/server";
 
-// Get all missions from all clients.
-export async function GET() {
-  try {
-    const client = await connectToDatabase();
-    const db = client.db();
-    const allMissions = await db
-      .collection("clients")
-      .aggregate([
-        { $unwind: "$missions" },
-        { $replaceRoot: { newRoot: "$missions" } },
-      ])
-      .toArray();
-    return NextResponse.json({ missions: allMissions }, { status: 200 });
-  } catch (err) {
-    return NextResponse.json({ message: "ERROR" }, { status: 500 });
-  }
-}
-
 // Add a mission to a client.
 export async function POST(req: Request) {
   try {
