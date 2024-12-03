@@ -1,24 +1,24 @@
 import "@/styles/Freelance.css";
 import FreelanceNavBar from "@/components/navbar/FreelanceNavbar";
 import FreelanceIntroSection from "@/components/common/FreelanceIntroSection";
-import { getMissions } from "@/http/mission";
 import Mission from "@/entities/mission";
 import { auth } from "@/auth";
 import CardMission from "@/components/freelance/CardMission";
 import { redirect } from "next/navigation";
 import Image from "next/image";
 import FreelanceAoNavbar from "@/components/freelance/FreelanceAoNavbar";
-import { getFreelanceById } from "@/http/freelance";
+import { getAllMissionsByFreelanceId, getFreelanceById } from "@/http/freelance";
 
 export default async function AOCherisPage() {
-  const missions: Mission[] = await getMissions();
-
   const session = await auth();
   if (!session || !session.user || !session.user.id) {
     redirect("/login");
   }
 
   const freelance = await getFreelanceById(session.user.id);
+  const { likedMissions } =
+  await getAllMissionsByFreelanceId(session.user.id);
+
   return (
     <>
       <FreelanceNavBar />
@@ -32,7 +32,7 @@ export default async function AOCherisPage() {
           <FreelanceAoNavbar />
           <div className="flex justify-between w-full mt-10">
             <div className="flex-col w-7/12 lg:w-8/12">
-              {missions.map((mission, index) => {
+              {likedMissions.map((mission: Mission, index: number) => {
                 const { propositions } = mission;
                 let propositionsLength = 0;
                 if (propositions && propositions.length != 0) {
