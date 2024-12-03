@@ -222,8 +222,8 @@ const DatagridPropositions: React.FC<DatagridPropositionsProps> = ({
     if (!resultUpdate.success) {
       console.error("Error updating proposition status:", resultUpdate.error);
     }
-    setSubmittingSlots(false);
     router.refresh();
+    setSubmittingSlots(false);
   };
 
   return (

@@ -21,7 +21,7 @@ const LoginPage = () => {
     setIsLoading(true);
     const isUserKnown = await getUserByEmail(values.email);
     if (!isUserKnown) {
-      setIsLoading(false)
+      setIsLoading(false);
       setUserExists(false);
       return;
     }
@@ -31,7 +31,7 @@ const LoginPage = () => {
       email: values.email,
       password: values.password,
     });
- 
+
     if (result?.error) {
       setError("Mot de passe incorrect");
       setIsLoading(false);
@@ -39,11 +39,11 @@ const LoginPage = () => {
     }
 
     if (user.type === "client") {
-      setIsLoading(false);
       router.push("/client");
-    } else if (user.type === "freelance") {
       setIsLoading(false);
+    } else if (user.type === "freelance") {
       router.push("/freelance");
+      setIsLoading(false);
     } else {
       throw new Error("Unknown type");
     }
@@ -155,7 +155,6 @@ const LoginPage = () => {
             )}
           </Formik>
         </div>
-
 
         <Link href="#">
           <h5 className="password-forgotten font-bold my-7">
