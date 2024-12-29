@@ -6,6 +6,7 @@ import ClientNavLink from "@/components/navbar/ClientNavLink";
 import { useSession, signOut } from "next-auth/react";
 import "@/styles/components/NavBarProfile.css";
 import { baseUrl } from "@/lib/baseUrl";
+import MobileNavbar from "./MobileNavbar";
 
 const ClientNavbar = () => {
   const router = useRouter();
@@ -44,13 +45,14 @@ const ClientNavbar = () => {
         )}
       </ClientNavLink>
 
-      <ClientNavLink href="/client/ao">AO</ClientNavLink>
-      <ClientNavLink href="/client/missions">Missions</ClientNavLink>
 
-      <ClientNavLink href="/client/documents" className="text-center">
+      <ClientNavLink href="/client/ao" className="display-computer">AO</ClientNavLink>
+      <ClientNavLink href="/client/missions" className="display-computer">Missions</ClientNavLink>
+
+      <ClientNavLink href="/client/documents" className="text-center display-computer">
         Documents officiels
       </ClientNavLink>
-      <div className="flex">
+      <div className="flex display-computer">
         <div
           style={{ display: "inline-block", transform: "scale(0.3, 4)" }}
           className="mr-10 mt-7"
@@ -104,6 +106,15 @@ const ClientNavbar = () => {
           )}
         </div>
       </div>
+      <MobileNavbar
+        menuOpen={openPopupDisconnect}
+        setMenuOpen={setOpenPopupDisconnect}
+        setLogoFullShown={setLogoFullShown}
+        logoFullShown={logoFullShown}
+        userType="client"
+        handleSignOut={handleSignOut}
+        status={status}
+      />
     </nav>
   );
 };

@@ -78,6 +78,10 @@ a {
   background: linear-gradient(0deg, #d892c0, #d892c0);
 }
 
+.bg-insciption {
+  background: linear-gradient(0deg, #e5bed9, #8ebcd6);
+}
+
 .bg-slight-blue {
   background-color: rgba(188, 217, 232, 1);
 }
@@ -99,6 +103,10 @@ a {
 
 .main-indep {
   max-width: 1498px;
+}
+
+.border-green {
+  border: 2px solid #b9d386;
 }
 
 .error {
@@ -134,6 +142,22 @@ a {
   font-size: 1.25rem;
 }
 
+.img-banner-mobile {
+  width: 100%;
+}
+
+.display-mobile {
+  display: none;
+}
+
+.display-tablet {
+  display: none;
+}
+
+.display-tablet-mobile {
+  display: none;
+}
+
 @media (max-width: 1550px) {
   main {
     margin-right: 3rem;
@@ -150,15 +174,6 @@ a {
 }
 
 @media screen and (max-width: 1300px) {
-  .header-title-intro-section-text {
-    color: white;
-    font-size: 2.25rem;
-    line-height: 4rem;
-  }
-
-  .header-title-intro-section-text-indep {
-    font-size: 2.25rem;
-  }
   .header-title-text {
     font-size: 1.875rem;
   }
@@ -171,14 +186,6 @@ a {
 }
 
 @media screen and (max-width: 1150px) {
-  .header-title-intro-section-text {
-    color: white;
-    font-size: 1.875rem;
-    line-height: normal;
-  }
-  .header-title-intro-section-text-indep {
-    font-size: 1.875rem;
-  }
   .header-title-text {
     font-size: 1.875rem;
   }
@@ -195,11 +202,76 @@ a {
     margin-right: 2.5rem;
     margin-left: 2.5rem;
   }
+  main {
+    margin-right: 2rem;
+    margin-left: 2rem;
+  }
+  .undertitle-text {
+    font-size: 1.15rem;
+  }
+  .header-title-text {
+    font-size: 1.5rem;
+  }
 }
 
 @media screen and (max-width: 800px) {
   .main-indep {
     margin-right: 2rem;
     margin-left: 2rem;
+  }
+  .header-title-text {
+    font-size: 1.25rem;
+  }
+  .undertitle-text {
+    font-size: 1rem;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .display-tablet {
+    display: block;
+  }
+  .display-tablet-mobile {
+    display: block;
+  }
+  .display-computer {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .base-text {
+    font-size: 0.875rem;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .undertitle-text {
+    font-size: 0.775rem;
+  }
+  .base-text {
+    font-size: 0.8rem;
+  }
+  .header-title-text {
+    font-size: 1rem;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .display-mobile {
+    display: block;
+  }
+
+  .display-tablet {
+    display: none;
+  }
+
+  .display-computer-tablet {
+    display: none;
+  }
+
+  main {
+    margin-right: 1rem;
+    margin-left: 1rem;
   }
 }

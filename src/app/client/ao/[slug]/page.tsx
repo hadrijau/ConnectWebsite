@@ -10,10 +10,11 @@ import { getMissionById } from "@/http/mission";
 import "@/styles/Client.css";
 import DisplayMission from "@/components/client/DisplayMission";
 import ClientIntroSection from "@/components/common/ClientIntroSection";
+import DisplayMissionMobile from "@/components/client/DisplayMissionMobile";
 
 const ClientAODetailPage = async ({ params }: { params: { slug: string } }) => {
   const mission = await getMissionById(params.slug);
-  
+
   return (
     <>
       <ClientNavbar />
@@ -23,8 +24,12 @@ const ClientAODetailPage = async ({ params }: { params: { slug: string } }) => {
           undertitle="Je gère mes appels d’offres en les ajoutant, en les supprimant ou en les modifiant. "
         />
 
-        <div className="main-content w-full">
+        <div className="main-content w-full display-computer">
           <DisplayMission mission={mission} />
+        </div>
+
+        <div className="main-content w-full display-tablet-mobile">
+          <DisplayMissionMobile mission={mission} />
         </div>
       </main>
     </>

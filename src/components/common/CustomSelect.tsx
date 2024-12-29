@@ -3,7 +3,7 @@ import Box from "@mui/material/Box";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select, { SelectChangeEvent } from "@mui/material/Select";
-import { useTheme } from '@mui/material/styles';
+import { useTheme } from "@mui/material/styles";
 import InputLabel from "@mui/material/InputLabel";
 import OutlinedInput from "@mui/material/OutlinedInput";
 import FormHelperText from "@mui/material/FormHelperText";
@@ -22,6 +22,7 @@ interface CustomSelectProps {
   placeholder: string;
   error?: boolean;
   helperText?: string;
+  className?: string; // Add this prop for custom Tailwind classes
 }
 
 const CustomSelect: React.FC<CustomSelectProps> = ({
@@ -33,11 +34,12 @@ const CustomSelect: React.FC<CustomSelectProps> = ({
   placeholder,
   error = false,
   helperText = "",
+  className = "",
 }) => {
   const theme = useTheme();
 
   return (
-    <Box sx={{ minWidth: "50%" }}>
+    <Box className={className}>
       <FormControl fullWidth variant="outlined" error={error}>
         <InputLabel>{placeholder}</InputLabel>
         <Select
@@ -45,36 +47,43 @@ const CustomSelect: React.FC<CustomSelectProps> = ({
           id={name}
           name={name}
           value={value}
-          className="px-2"
           onChange={onChange}
           onBlur={onBlur}
           input={<OutlinedInput label={placeholder} />}
           sx={{
-            '& .MuiOutlinedInput-notchedOutline': {
-              borderColor: error ? theme.palette.error.main : theme.palette.divider,
+            "& .MuiOutlinedInput-notchedOutline": {
+              borderColor: error
+                ? theme.palette.error.main
+                : theme.palette.divider,
             },
-            '&:hover .MuiOutlinedInput-notchedOutline': {
-              borderColor: error ? theme.palette.error.main : theme.palette.text.primary,
+            "&:hover .MuiOutlinedInput-notchedOutline": {
+              borderColor: error
+                ? theme.palette.error.main
+                : theme.palette.text.primary,
             },
-            '&.Mui-focused .MuiOutlinedInput-notchedOutline': {
-              borderColor: error ? theme.palette.error.main : theme.palette.primary.main,
+            "&.Mui-focused .MuiOutlinedInput-notchedOutline": {
+              borderColor: error
+                ? theme.palette.error.main
+                : theme.palette.primary.main,
             },
-            '& .MuiSelect-select': {
+            "& .MuiSelect-select": {
               paddingLeft: theme.spacing(1),
-            }
+            },
           }}
         >
           <MenuItem value="" disabled>
             {placeholder}
           </MenuItem>
           {options.map((option, index) => (
-            <MenuItem value={option.value} key={index}>{option.label}</MenuItem>
+            <MenuItem value={option.value} key={index}>
+              {option.label}
+            </MenuItem>
           ))}
         </Select>
         {error && <FormHelperText>{helperText}</FormHelperText>}
       </FormControl>
     </Box>
   );
-}
+};
 
 export default CustomSelect;

@@ -103,10 +103,10 @@ const CreateProfilClientForm: React.FC<CreateProfilClientFormProps> = ({
         handleSubmit,
       }) => {
         return (
-          <Form
-            className="flex-col mt-5 w-8/12 2xl:w-9/12 2lg:w-10/12"
+            <Form
+            className="flex-col mt-5 w-8/12 2xl:w-9/12 2lg:w-10/12 3md:w-11/12 md:w-full"
             onSubmit={handleSubmit}
-          >
+            >
             <div className="flex my-5">
               <Image
                 src="/uploadProfilClient.svg"
@@ -128,7 +128,7 @@ const CreateProfilClientForm: React.FC<CreateProfilClientFormProps> = ({
                 value={values.domainName}
                 error={touched.domainName! && Boolean(errors.domainName)}
                 helperText={touched.domainName && errors.domainName}
-                className="rounded-2xl w-8/12 lg:w-11/12"
+                className="rounded-2xl w-8/12 lg:w-11/12 3md:w-12/12"
                 placeholder="Nom de domaine*"
               />
             </div>
@@ -141,7 +141,7 @@ const CreateProfilClientForm: React.FC<CreateProfilClientFormProps> = ({
                 value={values.phoneNumber}
                 error={touched.phoneNumber! && Boolean(errors.phoneNumber)}
                 helperText={touched.phoneNumber && errors.phoneNumber}
-                className="rounded-2xl my-4 w-8/12 lg:w-11/12"
+                className="rounded-2xl my-4 w-8/12 lg:w-11/12 3md:w-12/12"
                 placeholder="Numéro de téléphone*"
               />
             </div>
@@ -165,7 +165,7 @@ const CreateProfilClientForm: React.FC<CreateProfilClientFormProps> = ({
                 onChange={handleChange}
                 onBlur={handleBlur}
                 value={values.address}
-                className="rounded-2xl my-4 w-8/12 lg:w-11/12"
+                className="rounded-2xl my-4 w-8/12 lg:w-11/12 3md:w-12/12"
                 placeholder="Adresse*"
                 error={touched.address! && Boolean(errors.address)}
                 helperText={touched.address && errors.address}

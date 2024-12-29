@@ -24,6 +24,10 @@ textarea {
   width: 150px;
 }
 
+.popup-datagrid-mission {
+  width: 250px;
+}
+
 input:focus-visible {
   outline: none;
 }
@@ -105,11 +109,11 @@ input:focus-visible {
 }
 
 .bin-img-container {
-    width: 25px;
-    height: 25px;
+  width: 25px;
+  height: 25px;
 }
 .hide-button {
-    border: 5px solid rgba(216, 146, 192, 1);
+  border: 5px solid rgba(216, 146, 192, 1);
 }
 .hide-button-focus {
   border: 5px solid rgba(216, 146, 192, 1);
@@ -125,5 +129,21 @@ input:focus-visible {
   }
   .content-container {
     margin-left: 40%;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .navbar-container {
+    width: 35%;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .navbar-container {
+    display: none;
+  }
+  .content-container {
+    margin-left: 0;
+    width: 100%;
   }
 }

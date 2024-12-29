@@ -50,8 +50,17 @@
   left: 5rem;
 }
 
-.display-mobile {
-  display: none;
+.header-title-intro-section-text {
+  color: white;
+  font-size: 3rem;
+  line-height: 5rem;
+  font-weight: 600;
+}
+
+.header-title-intro-section-text-indep {
+  font-size: 3rem;
+  line-height: 5rem;
+  font-weight: 500;
 }
 
 @media screen and (max-width: 1440px) {
@@ -61,12 +70,20 @@
   }
 }
 
-
 @media screen and (max-width: 1360px) {
   .text-container {
     position: absolute;
     top: 4rem;
     left: 5rem;
+  }
+  .header-title-intro-section-text {
+    color: white;
+    font-size: 2.25rem;
+    line-height: 4rem;
+  }
+
+  .header-title-intro-section-text-indep {
+    font-size: 2.25rem;
   }
 }
 
@@ -92,14 +109,24 @@
     top: 3.5rem;
     left: 4rem;
   }
+  .header-title-intro-section-text {
+    color: white;
+    font-size: 1.875rem;
+    line-height: normal;
+  }
+  .header-title-intro-section-text-indep {
+    font-size: 1.875rem;
+  }
 }
-
 
 @media screen and (max-width: 1100px) {
   .text-container {
     position: absolute;
     top: 4.5rem;
     left: 4rem;
+  }
+  .header-title-intro-section-text-indep {
+    line-height: 3rem;
   }
 }
 
@@ -109,7 +136,6 @@
     top: 4rem;
     left: 4rem;
   }
-
 }
 
 @media screen and (max-width: 1000px) {
@@ -143,20 +169,52 @@
     top: 2.5rem;
     left: 3rem;
   }
-}
 
-@media screen and (max-width: 825px) {
-  .text-container {
-    position: absolute;
-    top: 2rem;
-    left: 2.5rem;
+  .header-title-intro-section-text {
+    font-size: 1.5rem;
+    line-height: 2.5rem;
   }
 }
 
-@media screen and (max-width: 775px) {
+@media screen and (max-width: 800px) {
+  .main-indep {
+    margin-right: 2rem;
+    margin-left: 2rem;
+  }
+  .header-title-intro-section-text {
+    font-size: 1.25rem;
+    line-height: 2rem;
+  }
+}
+
+@media screen and (max-width: 700px) {
   .text-container {
     position: absolute;
-    top: 1.75rem;
-    left: 2.5rem;
+    top: 2rem;
+    left: 2rem;
+  }
+  .header-title-intro-section-text-indep {
+    font-size: 1.5rem;
+    line-height: 3rem;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .header-title-intro-section-text {
+    font-size: 1rem;
+    line-height: 1.5rem;
+  }
+  .header-title-intro-section-text-indep {
+    font-size: 1.225rem;
+    line-height: 3rem;
+  }
+
+}
+
+@media screen and (max-width: 550px) {
+  .text-container {
+    position: absolute;
+    top: 1.25rem;
+    left: 1.5rem;
   }
 }

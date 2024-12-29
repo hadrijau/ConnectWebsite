@@ -45,7 +45,7 @@ const DatagridMissionsClient: React.FC<DatagridMissionsClientProps> = ({
     const rect = event.currentTarget.getBoundingClientRect();
     setPopupPosition({
       top: rect.bottom + window.scrollY,
-      left: rect.right + window.scrollX - 150,
+      left: rect.right + window.scrollX - 250,
     });
     setOpenPopupId((prevId) => (prevId === id ? null : id));
   };
@@ -127,7 +127,7 @@ const DatagridMissionsClient: React.FC<DatagridMissionsClientProps> = ({
               popupPosition &&
               ReactDOM.createPortal(
                 <div
-                  className="absolute bg-white rounded-md shadow-md p-3 popup-datagrid"
+                  className="absolute bg-white rounded-md shadow-md p-3 popup-datagrid-mission"
                   style={{
                     top: popupPosition.top,
                     left: popupPosition.left,

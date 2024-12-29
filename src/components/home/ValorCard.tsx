@@ -7,13 +7,21 @@ import { useMediaQuery } from "@react-hook/media-query";
 interface ValorCardProps {
   imageSrc: string;
   title: string;
+  className?: string;
   children?: ReactNode;
 }
 
-const ValorCard: React.FC<ValorCardProps> = ({ imageSrc, title, children }) => {
+const ValorCard: React.FC<ValorCardProps> = ({
+  imageSrc,
+  title,
+  children,
+  className,
+}) => {
   const isWideScreen = useMediaQuery("(min-width: 1140px)");
   return (
-    <div className="flex flex-col items-center mx-3 py-3 valor-container px-5">
+    <div
+      className={`flex flex-col items-center mx-3 py-3 valor-container px-5 ${className}`}
+    >
       <Image
         src={imageSrc}
         alt=""
@@ -21,8 +29,10 @@ const ValorCard: React.FC<ValorCardProps> = ({ imageSrc, title, children }) => {
         width={isWideScreen ? 200 : 150}
       />
 
-      <h2 className="text-center font-bold text-4xl my-3 header-title-text">{title}</h2>
-      <p className="text h-6/12 text-center">{children}</p>
+      <h2 className="text-center font-bold text-4xl my-3 header-title-text">
+        {title}
+      </h2>
+      <p className="h-6/12 text-center">{children}</p>
     </div>
   );
 };

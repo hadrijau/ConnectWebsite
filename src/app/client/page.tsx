@@ -10,12 +10,13 @@ import Mission from "@/entities/mission";
 import ClientIntroSection from "@/components/common/ClientIntroSection";
 import { auth } from "@/auth";
 import Loading from "@/app/loading";
+import MobileIntroClientSection from "@/components/common/MobileIntroClientSection";
 
 const ClientSpacePage = async () => {
   const session = await auth();
 
   if (!session || !session.user || !session.user.id) {
-    return <Loading />
+    return <Loading />;
   }
   const missions: Mission[] = await getMissionsByClientId(session.user.id);
 
@@ -28,13 +29,19 @@ const ClientSpacePage = async () => {
           undertitle="Le succès n'est pas final, l'échec n'est pas fatal. C'est le courage de continuer qui compte."
         />
 
-        <div className="flex justify-between w-full mt-10 main-content">
+        <MobileIntroClientSection
+          firstTitle="Bienvenue dans ton espace"
+          secondTitle="Le succès n'est pas final, l'échec n'est pas fatal. C'est le courage de continuer qui compte."
+        />
+        <div className="flex justify-between w-full mt-10 main-content sm:flex-col">
           <div className="flex-col w-8/12">
-            <div className="flex justify-between w-full">
+            <div className="flex justify-between w-full items-center md:flex-col-reverse md:items-start">
               <h1 className="text-semibold header-offres-client text-2xl">
                 Mes appels d&apos;offres
               </h1>
-              <Link href="/client/ao/create-ao" className="text-normal">+ Ajouter un appel d&apos;offres</Link>
+              <Link href="/client/ao/create-ao" className="text-normal md:mb-8">
+                + Ajouter un appel d&apos;offres
+              </Link>
             </div>
 
             {missions.map((mission, index: number) => {
@@ -45,11 +52,11 @@ const ClientSpacePage = async () => {
                 propositions,
                 date,
                 length,
-                createdAt
+                createdAt,
               } = mission;
               let propositionsLength = 0;
               if (propositions && propositions.length != 0) {
-                propositionsLength = propositionsLength
+                propositionsLength = propositionsLength;
               }
               return (
                 <CardMissionClient
@@ -68,7 +75,7 @@ const ClientSpacePage = async () => {
             })}
           </div>
 
-          <div className="flex flex-col ongoing-mission-container-client p-10 rounded-3xl w-3/12 items-center">
+          <div className="flex flex-col ongoing-mission-container-client p-10 rounded-3xl w-3/12 items-center md:w-4/12 sm:w-5/12 md:p-5">
             <Image
               src="/clientMissionSpaceship.svg"
               width={70}
@@ -76,7 +83,7 @@ const ClientSpacePage = async () => {
               alt="Missions en cours"
               className="mb-5"
             />
-            <h5 className="text-center text-normal text-xl">
+            <h5 className="text-center text-normal text-xl md:text-base">
               Les missions en cours...
             </h5>
             {missions.map((mission: Mission, index: number) => {

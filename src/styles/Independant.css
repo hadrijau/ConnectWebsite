@@ -22,3 +22,30 @@
     rgba(58, 142, 186, 0) 100%
   );
 }
+
+.photo-container {
+  position: relative;
+  width: 400px;
+  height: 400px;
+}
+
+@media screen and (max-width: 650px) {
+  .photo-container {
+    width: 250px;
+    height: 250px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .photo-container {
+    width: 180px;
+    height: 180px;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .photo-container {
+    width: 150px;
+    height: 150px;
+  }
+}

@@ -1,39 +1,44 @@
 .section-image {
-    width: 50%;
+  width: 50%;
 }
 
 .header-home {
-    font-size: 3.5rem;
-    font-weight: 800;
+  font-size: 3.5rem;
+  font-weight: 800;
 }
 
 .header-valor {
-    width: 30%;
+  width: 30%;
 }
 
-.valor-container {
-    width: 308px;
-    height: 415px;
+.display-tablet {
+  display: none;
 }
 
 .text-app-container {
-    max-width: 70%;
+  max-width: 70%;
 }
 
 .ios-picture {
-    width: 275px!important;
+  width: 275px !important;
 }
 
 .dimension-img {
-    width: 100%;
+  width: 100%;
 }
 
 .play-store-img {
-    width: 30%;
+  width: 30%;
 }
 
-@media screen and (max-width:1200px) {
-    .valor-container {
-        width: 250px;
-    }
+@media screen and (max-width: 900px) {
+  .display-tablet {
+    display: block;
+  }
+  .display-laptop {
+    display: none;
+  }
+  .text-app-container {
+    max-width: 100%;
+  }
 }

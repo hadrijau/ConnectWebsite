@@ -5,6 +5,7 @@ import { usePathname, useRouter } from "next/navigation";
 import NavLink from "@/components/navbar/NavLink";
 import { useSession, signOut } from "next-auth/react";
 import "@/styles/components/NavBar.css";
+import MobileNavbar from "./MobileNavbar";
 
 const Navbar = () => {
   const { data: session, status } = useSession();
@@ -200,80 +201,15 @@ const Navbar = () => {
         </div>
       )}
 
-      {/* Burger Menu for smaller screens */}
-      <div className="burger-menu" onClick={() => setMenuOpen(!menuOpen)}>
-        <div className="burger-line"></div>
-        <div className="burger-line"></div>
-        <div className="burger-line"></div>
-      </div>
-
-      <div className={`menu-items ${menuOpen ? "show" : ""}`}>
-        <NavLink
-          href="/portage"
-          className="text-normal"
-          onClick={() => setMenuOpen(false)}
-        >
-          Société de portage
-        </NavLink>
-        <NavLink
-          href="/metiers"
-          className="text-normal"
-          onClick={() => setMenuOpen(false)}
-        >
-          Métiers
-        </NavLink>
-        <NavLink
-          href="/histoire"
-          className="text-normal"
-          onClick={() => setMenuOpen(false)}
-        >
-          Notre histoire
-        </NavLink>
-        {status === "authenticated" ? (
-          <>
-            <NavLink
-              href="/freelance"
-              className="text-normal"
-              onClick={() => setMenuOpen(false)}
-            >
-              Accueil
-            </NavLink>
-            <NavLink
-              href="/freelance/profil"
-              className="text-normal"
-              onClick={() => setMenuOpen(false)}
-            >
-              Mon profil
-            </NavLink>
-            <p
-              className="text-normal cursor-pointer"
-              onClick={() => {
-                handleSignOut();
-                setMenuOpen(false);
-              }}
-            >
-              Déconnexion
-            </p>
-          </>
-        ) : (
-          <>
-            <NavLink
-              href="/signup"
-              className="text-normal"
-              onClick={() => setMenuOpen(false)}
-            >
-              Découvrir maintenant
-            </NavLink>
-            <NavLink
-              href="/login"
-              className="text-normal"
-              onClick={() => setMenuOpen(false)}
-            >
-              Me connecter
-            </NavLink>
-          </>
-        )}
-      </div>
+      <MobileNavbar
+        menuOpen={menuOpen}
+        setMenuOpen={setMenuOpen}
+        setLogoFullShown={setLogoFullShown}
+        logoFullShown={logoFullShown}
+        userType={userType}
+        handleSignOut={handleSignOut}
+        status={status}
+      />
     </nav>
   );
 };

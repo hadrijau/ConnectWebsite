@@ -6,10 +6,10 @@ import { signIn } from "next-auth/react";
 import CircularProgress from "@mui/material/CircularProgress";
 import Client from "@/entities/client";
 import Freelance, { Enterprise } from "@/entities/freelance";
+import Image from "next/image";
 
 //@ts-ignore
 const InformationsChoice = ({ email, firstname, lastname, password }) => {
-  
   const router = useRouter();
   const [isLoading, setIsLoading] = useState(false);
 
@@ -82,8 +82,14 @@ const InformationsChoice = ({ email, firstname, lastname, password }) => {
   };
 
   return (
-    <div className="w-6/12 flex flex-col px-20">
-      <h3 className="text-3xl text-normal mt-20 ml-10 mb-20 text-infos underline underline-offset-8 decoration-green-700">
+    <div className="w-6/12 flex flex-col px-20 3md:px-10 md:w-full md:justify-between md:p-0">
+      <div className="hidden md:flex justify-center items-center">
+        <h3 className=" text-3xl text-normal mt-20 mb-5 text-center mx-10">
+          Plutôt team indep ou team client ?
+        </h3>
+      </div>
+
+      <h3 className="text-3xl text-normal mt-20 ml-10 mb-20 text-infos underline underline-offset-8 decoration-green-700 md:mt-10 md:text-xl text-left md:text-left">
         Où te situes-tu ?
       </h3>
 
@@ -92,7 +98,7 @@ const InformationsChoice = ({ email, firstname, lastname, password }) => {
           <CircularProgress size={40} />
         </div>
       ) : (
-        <div>
+        <div className="md:mx-10">
           <div
             className=" flex flex-col items-center py-10 px-5 cursor-pointer independant-signup-card"
             onClick={() => handleUpdateUser("freelance")}
@@ -127,6 +133,10 @@ const InformationsChoice = ({ email, firstname, lastname, password }) => {
           </div>
         </div>
       )}
+
+      <div className="w-full h-96 relative">
+        <Image src="/signup.svg" alt="Equipe connect" layout="fill" objectFit="cover" />
+      </div>
     </div>
   );
 };

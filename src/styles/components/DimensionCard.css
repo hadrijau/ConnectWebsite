@@ -1,5 +1,11 @@
 .dimension-card-container {
-    border-radius: 20px;
-    width: 180px;
+  border-radius: 20px;
+  width: 180px;
 }
 
+@media screen and (max-width: 600px) {
+  .dimension-card-container {
+    width: 100px;
+    height: auto;
+  }
+}

@@ -1,11 +1,36 @@
-
 .custom-button {
-    border-radius: 20px;
-    padding-left: 1rem;
-    padding-right: 1rem;
-    width: 13rem;
+  border-radius: 20px;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  width: 13rem;
 }
 
 .green-button {
-    background-color: #B9D386
+  background-color: #b9d386;
+}
+
+@media screen and (max-width: 900px) {
+  .custom-button {
+    width: 10rem;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .custom-button {
+    width: 8rem;
+    padding-left: 1rem;
+    border-radius: 15px;
+    padding-right: 1rem;
+    padding-top: 0.35rem;
+    padding-bottom: 0.35rem;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .custom-button {
+    padding-left: 0.875rem;
+    padding-right: 0.875rem;
+    padding-top: 0.25rem;
+    padding-bottom: 0.25rem;
+  }
 }

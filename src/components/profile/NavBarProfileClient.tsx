@@ -60,7 +60,7 @@ const NavBarProfileClient: React.FC<NavBarProfileClientProps> = ({
   };
 
   return (
-    <div className={`flex-col bg-pink p-10 ${className} relative`}>
+    <div className={`flex-col bg-pink p-10 ${className} relative 2md:p-5`  }>
       <Link href="/">
         <Image
           src="/logoWithConnect.svg"

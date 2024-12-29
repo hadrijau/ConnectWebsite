@@ -1,47 +1,53 @@
 .portage-section {
-    width: 100%;
+  width: 100%;
 }
 
 .portage-title {
-    font-weight: 600;
-    margin-bottom: 3rem;
+  font-weight: 600;
+  margin-bottom: 3rem;
 }
 
 .portage-paragraph {
-    line-height: 2rem;
+  line-height: 2rem;
 }
 
 .expert-it-img-container {
-    position: relative;
-    background-color: black;
+  position: relative;
+  background-color: black;
 }
 
 .text-it {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 80%;
-    z-index: 1;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80%;
+  z-index: 1;
 }
 
 .it-img {
-    opacity: 0.4;
+  opacity: 0.4;
 }
 
 .btn-expert-it {
-    background : linear-gradient(274.67deg, #D892C0 33.16%, #79B3D1 62.86%);
-    width: 70%;
-    position: absolute;
-    top: 80%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+  background: linear-gradient(274.67deg, #d892c0 33.16%, #79b3d1 62.86%);
+  width: 70%;
+  position: absolute;
+  top: 80%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .question-section {
-    position: sticky;
-    bottom: -20%;
- /* Positions the element at the top of the viewport */
-    left: 60%; /* Positions the element at the left of the viewport */
-    background-color: #fff; /* Optional: Set a background color */
+  position: sticky;
+  bottom: -20%;
+  /* Positions the element at the top of the viewport */
+  left: 60%; /* Positions the element at the left of the viewport */
+  background-color: #fff; /* Optional: Set a background color */
+}
+
+@media screen and (max-width: 500px) {
+  .portage-title {
+    margin-bottom: 1rem;
   }
+}

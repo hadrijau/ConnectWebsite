@@ -20,8 +20,17 @@ const LevelSelector: React.FC<LevelSelectorProps> = ({ value, onChange }) => {
   };
 
   return (
-    <Box display="flex" alignItems="center" justifyContent="space-between">
-      <Box mr={2} minWidth={100}>
+    <Box
+      display="flex"
+      alignItems="center"
+      justifyContent="center"
+      flexDirection="column"
+    >
+      <Box
+        mr={2}
+        minWidth={100}
+        className="text-base 2lg:text-sm text-center"
+      >
         {levelLabels[selectedLevel - 1]}
       </Box>
       <Box display="flex" alignItems="flex-end" marginBottom={1}>
@@ -31,7 +40,11 @@ const LevelSelector: React.FC<LevelSelectorProps> = ({ value, onChange }) => {
             width={5}
             height={height}
             mx={0.2}
-            bgcolor={index < selectedLevel ? "rgba(216, 146, 192, 1)" : theme.palette.grey[300]}
+            bgcolor={
+              index < selectedLevel
+                ? "rgba(216, 146, 192, 1)"
+                : theme.palette.grey[300]
+            }
             onClick={() => handleClick(index + 1)}
             sx={{ cursor: "pointer", transition: "background-color 0.3s" }}
           />

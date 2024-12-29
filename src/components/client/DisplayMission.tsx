@@ -11,7 +11,6 @@ interface DisplayMissionProps {
 }
 
 const DisplayMission: React.FC<DisplayMissionProps> = ({ mission }) => {
-  const [modify, setModify] = useState(false);
   const router = useRouter();
 
   const missionDate = dayjs(mission.date).toDate();
@@ -22,7 +21,7 @@ const DisplayMission: React.FC<DisplayMissionProps> = ({ mission }) => {
           <h5 className="mb-10">&#60;- retour aux appels d&apos;offres</h5>
         </Link>
         <div className="flex w-full justify-between">
-          <div className="flex-col w-7/12">
+          <div className="flex-col w-7/12 3md:w-6/12">
             <div className="flex items-center mb-4">
               <Image
                 src="/logoSoge.svg"
@@ -32,7 +31,7 @@ const DisplayMission: React.FC<DisplayMissionProps> = ({ mission }) => {
               />
               <div className="flex-col ml-10">
                 <h4 className="text-normal text-2xl">{mission.title}</h4>
-                <h5 className="text-light mb-3 text-xl">AO 00002</h5>
+                <h5 className="text-light mb-3 text-xl">{mission.aoId}</h5>
               </div>
             </div>
 
@@ -50,17 +49,17 @@ const DisplayMission: React.FC<DisplayMissionProps> = ({ mission }) => {
 
             <div className="flex items-center justify-center">
               <button
-                className="my-12 py-5 px-10 submit-button rounded-2xl bg-client"
+                className="my-12 py-5 px-10 submit-button rounded-2xl bg-client 3md:px-6 3md:py-3"
                 type="submit"
               >
-                <span className="text-xl text-normal ml-2 mr-2">
+                <span className="text-xl text-normal ml-2 mr-2 2lg:text-lg 3md:text-base">
                   Besoin d&apos;aide pour trouver la personne idéale ?
                 </span>
               </button>
             </div>
           </div>
 
-          <div className="flex flex-col w-4/12">
+          <div className="flex flex-col w-4/12 3md:w-5/12">
             <Image
               src="/clientMissionModify.svg"
               height={25}

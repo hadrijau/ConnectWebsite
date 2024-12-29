@@ -10,6 +10,7 @@ import DataGridAO from "@/components/datagrid/DatagridAO";
 import { auth } from "@/auth";
 import Loading from "@/app/loading";
 import { getClientByEmail } from "@/http/client";
+import DataGridAOMobile from "@/components/datagrid/DatagridAOMobile";
 
 const ClientAOPage = async () => {
   const session = await auth();
@@ -34,7 +35,14 @@ const ClientAOPage = async () => {
             + Ajouter un appel d&apos;offres
           </Link>
 
+          <div className="display-computer">
           <DataGridAO missions={missions} user={client}/>
+
+          </div>
+
+          <div className="display-tablet-mobile">
+            <DataGridAOMobile missions={missions} user={client}/>
+          </div>
         </div>
       </main>
     </>

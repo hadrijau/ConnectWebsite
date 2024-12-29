@@ -29,11 +29,20 @@ const config: Config = {
       lg: { max: "1140px" },
       // => @media (max-width: 1023px) { ... }
 
+      "3md": { max: "1023px" },
+
+      "2md": { max: "900px" },
+      // => @media (max-width: 900Px) { ... }
+
       md: { max: "767px" },
       // => @media (max-width: 767px) { ... }
 
-      sm: { max: "639px" },
+      sm: { max: "600px" },
       // => @media (max-width: 639px) { ... }
+
+      xs: { max: "500px" },
+
+      "2xs": { max: "430px" },
     },
   },
   plugins: [],

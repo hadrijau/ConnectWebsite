@@ -47,7 +47,7 @@ const SignupPage = () => {
   };
   return (
     <div className="flex h-screen">
-      <div className="w-6/12 flex flex-col px-20 py-10">
+      <div className="w-6/12 flex flex-col px-20 py-10 3md:px-10 md:w-full md:justify-between md:pt-10 md:pb-0">
         <Image
           src="logoWithConnect.svg"
           alt="Connect logo"
@@ -59,8 +59,11 @@ const SignupPage = () => {
         <h1 className="text-3xl mb-10 text-normal">Inscription</h1>
 
         <SignupForm handleSubmit={handleSubmit} userExists={userExists} />
+        <div className=" hidden md:flex md:justify-center md:items-center md:w-fill md:h-96 md:relative">
+          <Image src="signup2.svg" alt="Equipe connect" layout="fill" />
+        </div>
       </div>
-      <div className="w-6/12 flex flex-col join-connect overflow-hidden">
+      <div className="w-6/12 flex flex-col join-connect overflow-hidden md:hidden">
         <h3 className="text-3xl text-normal mt-20 ml-10 mb-20">
           Rejoins la team Connect
         </h3>

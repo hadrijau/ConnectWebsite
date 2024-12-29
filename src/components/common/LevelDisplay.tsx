@@ -16,7 +16,7 @@ const LevelDisplay: React.FC<LevelDisplayProps> = ({ value, freelance  }) => {
 
   return (
     <Box display="flex" alignItems="center" justifyContent="space-between">
-      <Box mr={2} minWidth={100}>
+      <Box mr={2} minWidth={100} className="text-sm">
         {levelLabels[selectedLevel - 1]}
       </Box>
       <Box display="flex" alignItems="flex-end" marginBottom={1}>

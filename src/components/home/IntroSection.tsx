@@ -31,7 +31,7 @@ const IntroSection: React.FC<IntroSectionProps> = ({
     pathImageMobile = "/imgHistoireTel.svg";
   } else if (path.startsWith("/independant")) {
     pathImage = "/imgIndependant.svg";
-    pathImageMobile = "/imgIndependantTel.svg";
+    pathImageMobile = "/imgIndepTel.svg";
   } else if (path.startsWith("/metiers")) {
     pathImage = "/imgMetiers.svg";
     pathImageMobile = "/imgMetiersTel.svg";
@@ -42,22 +42,20 @@ const IntroSection: React.FC<IntroSectionProps> = ({
 
   return (
     <div>
-      <div className="display-computer">
+      <div className="display-computer-tablet">
         <div className="flex justify-center relative">
-          <img
-            src={pathImage}
-            alt="banner connect"
-          ></img>
+          <img src={pathImage} alt="banner connect"></img>
           <div className="text-container">
             <h1 className="header-title-intro-section-text text-white">
               {firstTitle} <br /> {secondTitle} <br />
             </h1>
+
             <h5
               className={
                 path.startsWith("/independant") ||
                 path.startsWith("/entreprise")
-                  ? "undertitle-text my-4 text-white md:my-2"
-                  : "undertitle-text my-6 text-white md:my-4"
+                  ? "undertitle-text my-4 text-white 2md:mb-6 mt-1 md:mb-3"
+                  : "undertitle-text my-6 text-white 2md:mb-6 mt-1 md:mb-3"
               }
             >
               {undertitle}
@@ -66,20 +64,17 @@ const IntroSection: React.FC<IntroSectionProps> = ({
             {path.startsWith("/independant") ||
             path.startsWith("/entreprise") ? (
               <div className="flex items-center">
-                <div className="flex ml-5 mt-6 lg:mt-2">
-                  <Image
-                    src="googlePlay.svg"
-                    alt="Google Play"
-                    className="mr-10"
-                    width={140}
-                    height={66}
-                  />
-                  <Image
-                    src="iosStore.svg"
-                    alt="IOS Store"
-                    width={150}
-                    height={80}
-                  />
+                <div className="flex ml-5 mt-6 lg:mt-2 md:ml-0 sm:mt-0">
+                  <div className="w-44 h-20 relative 2lg:w-36 2lg:h-16 md:w-24 md:h-12 mr-10 md:mr-5 ">
+                    <Image
+                      src="googlePlay.svg"
+                      alt="Google Play"
+                      layout="fill"
+                    />
+                  </div>
+                  <div className="w-44 h-20 relative 2lg:w-36 2lg:h-16  md:w-24 md:h-12">
+                    <Image src="iosStore.svg" alt="IOS Store" layout="fill" />
+                  </div>
                 </div>
               </div>
             ) : (
@@ -98,7 +93,7 @@ const IntroSection: React.FC<IntroSectionProps> = ({
                   background="none"
                   borderColor="#B9D386"
                   newBackground="#B9D386"
-                  className="empty-button mx-2"
+                  className="mx-2"
                 ></Button>
               </div>
             )}
@@ -107,10 +102,11 @@ const IntroSection: React.FC<IntroSectionProps> = ({
       </div>
 
       <div className="display-mobile">
-      <img
-            src={pathImageMobile}
-            alt="banner connect"
-          ></img>
+        <img
+          src={pathImageMobile}
+          alt="banner connect"
+          className="img-banner-mobile"
+        ></img>
       </div>
     </div>
   );

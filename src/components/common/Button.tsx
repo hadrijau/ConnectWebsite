@@ -26,14 +26,14 @@ const Button: React.FC<ButtonProps> = ({
 
   return (
     <button
-      className={`${className} text-white text-center py-4 custom-button 2lg:py-3`}
+      className={`${className} text-white text-center py-4 custom-button 2lg:py-3 2md:py-2 md:px-1`}
       onMouseEnter={() => setUpdatedBackground(newBackground)}
       onMouseLeave={() => setUpdatedBackground(background)}
       style={{
         background: updatedBackground,
         fontWeight: updatedBackground === "none" ? 500 : 700,
         borderWidth: 5,
-        borderColor: borderColor
+        borderColor: borderColor,
       }}
     >
       <Link href={href} className="base-text">
