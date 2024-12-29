@@ -293,7 +293,7 @@ const DataGridAO: React.FC<DataGridAOProps> = ({ missions, user }) => {
         sx={{
           "& .MuiDataGrid-root": {
             fontFamily: "Poppins, sans-serif",
-            fontSize: "2rem",
+            fontSize: "1.5rem",
           },
           "& .MuiDataGrid-columnHeaders": {
             backgroundColor: "rgba(217, 217, 217, 0.41)",
@@ -309,7 +309,7 @@ const DataGridAO: React.FC<DataGridAOProps> = ({ missions, user }) => {
             alignContent: "center",
             alignItems: "center",
             justifyContent: "center",
-            fontSize: "1.2rem",
+            fontSize: "1rem",
             fontWeight: 500,
             overflow: "visible",
           },
@@ -323,7 +323,7 @@ const DataGridAO: React.FC<DataGridAOProps> = ({ missions, user }) => {
             whiteSpace: "normal",
           },
           "& .MuiDataGrid-columnHeaderTitle": {
-            fontSize: "1.2rem",
+            fontSize: "1rem",
             fontWeight: 500,
             whiteSpace: "normal",
             lineHeight: "normal",

@@ -1,11 +1,10 @@
 import React from "react";
 import ClientNavbar from "@/components/navbar/ClientNavbar";
-import { getMissions, getMissionsByClientId } from "@/http/mission";
+import { getMissionsByClientId } from "@/http/mission";
 import Link from "next/link";
 import "@/styles/Client.css";
 import Mission from "@/entities/mission";
 import ClientIntroSection from "@/components/common/ClientIntroSection";
-import Box from "@mui/material/Box";
 import DataGridAO from "@/components/datagrid/DatagridAO";
 import { auth } from "@/auth";
 import Loading from "@/app/loading";
@@ -16,10 +15,9 @@ const ClientAOPage = async () => {
   const session = await auth();
 
   if (!session || !session.user || !session.user.id || !session.user.email) {
-    return <Loading />
+    return <Loading />;
   }
   const missions: Mission[] = await getMissionsByClientId(session.user.id);
-  console.log("session", session);
   const client = await getClientByEmail(session.user.email);
   return (
     <>
@@ -31,17 +29,19 @@ const ClientAOPage = async () => {
         />
 
         <div className="main-content w-full">
-          <Link href="/client/ao/create-ao" className="text-normal text-base ml-5">
+          <Link
+            href="/client/ao/create-ao"
+            className="text-normal text-base ml-5"
+          >
             + Ajouter un appel d&apos;offres
           </Link>
 
           <div className="display-computer">
-          <DataGridAO missions={missions} user={client}/>
-
+            <DataGridAO missions={missions} user={client} />
           </div>
 
           <div className="display-tablet-mobile">
-            <DataGridAOMobile missions={missions} user={client}/>
+            <DataGridAOMobile missions={missions} user={client} />
           </div>
         </div>
       </main>

@@ -29,13 +29,13 @@ const DisplayMissionMobile: React.FC<DisplayMissionMobileProps> = ({
             <div className="flex">
               <Image
                 src="/logoSoge.svg"
-                width={150}
-                height={150}
+                width={100}
+                height={100}
                 alt="Logo société générale"
               />
               <div className="flex-col ml-10">
-                <h4 className="text-normal text-2xl">{mission.title}</h4>
-                <h5 className="text-light mb-3 text-xl">{mission.aoId}</h5>
+                <h4 className="text-normal text-xl">{mission.title}</h4>
+                <h5 className="text-light mb-3 text-lg">{mission.aoId}</h5>
               </div>
               <div className="items-start flex ml-4">
                 <div className="flex">

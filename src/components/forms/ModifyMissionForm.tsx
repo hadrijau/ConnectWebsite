@@ -11,10 +11,9 @@ import { useRouter } from "next/navigation";
 import { lengthOptions, modalitiesOptions } from "@/lib/selectConstants";
 import Mission from "@/entities/mission";
 import { Formik, Form, Field, ErrorMessage } from "formik";
-import CustomAutocomplete from "@/components/common/CustomAutocomplete";
-import LevelSelector from "@/components/common/LevelSelector";
-import { competences as competenceList } from "@/lib/competences";
 import CustomDialog from "@/components/common/CustomDialog";
+import CompetencesSelection from "@/components/forms/CompetencesSelection";
+import MissionFormCommon from "./ MissionFormCommon";
 
 interface ModifyMissionFormProps {
   mission: Mission;
@@ -92,6 +91,7 @@ const ModifyMissionForm: React.FC<ModifyMissionFormProps> = ({
     useState<{ label: string; level: number }[]>(competences);
 
   const handleFormSubmit = async (values: typeof initialValues) => {
+    setLoading(true);
     try {
       const updatedMission = new Mission({
         acceptedFreelanceId,
@@ -121,7 +121,9 @@ const ModifyMissionForm: React.FC<ModifyMissionFormProps> = ({
       await updatedMission.update();
       router.push(`/client/ao/${_id}`);
       router.refresh();
+      setLoading(false);
     } catch (err) {
+      setLoading(false);
       console.log("Error creating mission", err);
     }
   };
@@ -136,6 +138,8 @@ const ModifyMissionForm: React.FC<ModifyMissionFormProps> = ({
   const addCompetence = () => {
     setSelectedCompetences([...selectedCompetences, { label: "", level: 0 }]);
   };
+
+  const [loading, setLoading] = useState(false);
 
   return (
     <Formik
@@ -168,255 +172,35 @@ const ModifyMissionForm: React.FC<ModifyMissionFormProps> = ({
       }) => {
         return (
           <Form className="flex flex-col w-full" onSubmit={handleSubmit}>
-            <h5 className="mb-10 cursor-pointer back-button" onClick={handleClickOpen}>
+            <h5
+              className="mb-10 cursor-pointer back-button"
+              onClick={handleClickOpen}
+            >
               &#60;- retour aux appels d&apos;offres
             </h5>
 
-            <div className="flex w-full justify-between">
-              <div className="flex flex-col w-7/12">
-                <h5 className="text-light mb-3">AO 00002</h5>
-                <div className="my-5">
-                  <TextInput
-                    name="title"
-                    type="text"
-                    onChange={handleChange}
-                    onBlur={handleBlur}
-                    value={values.title}
-                    error={touched.title && Boolean(errors.title)}
-                    helperText={touched.title && errors.title}
-                    placeholder="Titre de la mission*"
-                  />
-                </div>
-                <div className="my-5">
-                  <TextInput
-                    name="context"
-                    type="text"
-                    multiline
-                    rows={13}
-                    onChange={handleChange}
-                    onBlur={handleBlur}
-                    value={values.context}
-                    error={touched.context && Boolean(errors.context)}
-                    helperText={touched.context && errors.context}
-                    placeholder="Contexte *"
-                  />
-                </div>
-                <div className="my-5">
-                  <TextInput
-                    name="goals"
-                    type="text"
-                    multiline
-                    rows={13}
-                    onBlur={handleBlur}
-                    onChange={handleChange}
-                    value={values.goals}
-                    error={touched.goals && Boolean(errors.goals)}
-                    helperText={touched.goals && errors.goals}
-                    placeholder="Missions et livrables *"
-                  />
-                </div>
-
-                <div className="flex justify-between mt-5 mb-10">
-                  <div
-                    className={`rounded-2xl cursor-pointer w-3/12 p-2 ${
-                      !updatedHiddenCompany
-                        ? `hide-button`
-                        : "hide-button-focus"
-                    }`}
-                    onClick={() =>
-                      setUpdatedHiddenCompany(!updatedHiddenCompany)
-                    }
-                  >
-                    <h5 className="text-normal text-center">
-                      Je cache le nom de la société
-                    </h5>
-                  </div>
-                  <div
-                    className={`rounded-2xl cursor-pointer w-3/12 p-2 ${
-                      !updatedHiddenTJM ? `hide-button` : "hide-button-focus"
-                    }`}
-                    onClick={() => setUpdatedHiddenTJM(!updatedHiddenTJM)}
-                  >
-                    <h5 className="text-normal text-center">
-                      Je cache le TJM demandé
-                    </h5>
-                  </div>
-                  <div
-                    className={`rounded-2xl cursor-pointer w-3/12 p-2 ${
-                      !updatedHiddenMissionPlace
-                        ? `hide-button`
-                        : "hide-button-focus"
-                    }`}
-                    onClick={() =>
-                      setUpdatedHiddenMissionPlace(!updatedHiddenMissionPlace)
-                    }
-                  >
-                    <h5 className="text-normal text-center">
-                      Je cache le lieu de la mission
-                    </h5>
-                  </div>
-                </div>
-              </div>
-
-              <div className="flex flex-col w-4/12">
-                <div className="flex my-2">
-                  <Image
-                    src="/calendrier.svg"
-                    height={25}
-                    width={25}
-                    alt="calendrier"
-                    className="mr-4"
-                  />
-                  <div className="w-6/12">
-                    <Field
-                      name="date"
-                      component={CustomDateField}
-                      value={values.date}
-                      onChange={(value: Dayjs | null) =>
-                        setFieldValue("date", value)
-                      }
-                      onBlur={handleBlur}
-                      error={touched.date && Boolean(errors.date)}
-                      helperText={touched.date && errors.date}
-                      placeholder="Sélectionner une date*"
-                    />
-                  </div>
-                </div>
-                <div className="flex my-2">
-                  <Image
-                    src="/tarifHT.svg"
-                    height={25}
-                    width={25}
-                    alt="calendrier"
-                    className="mr-4"
-                  />
-                  <div className="w-4/12">
-                    <TextInput
-                      name="price"
-                      type="number"
-                      onChange={handleChange}
-                      onBlur={handleBlur}
-                      value={values.price}
-                      error={touched.price && Boolean(errors.price)}
-                      helperText={touched.price && errors.price}
-                      placeholder="Tarif*"
-                    />
-                  </div>
-                  <p className="mt-4 ml-4">€ HT/jour</p>
-                </div>
-                <div className="flex my-2">
-                  <Image
-                    src="/dureeMission.svg"
-                    height={25}
-                    width={25}
-                    alt="calendrier"
-                    className="mr-4"
-                  />
-                  <CustomSelect
-                    name="length"
-                    value={values.length}
-                    onChange={(e) => setFieldValue("length", e.target.value)}
-                    onBlur={handleBlur}
-                    options={lengthOptions}
-                    placeholder="Durée de la mission*"
-                  />
-                </div>
-                <div className="flex my-2">
-                  <Image
-                    src="/modaliteTravail.svg"
-                    height={25}
-                    width={25}
-                    alt="calendrier"
-                    className="mr-4"
-                  />
-                  <CustomSelect
-                    name="modalities"
-                    value={values.modalities}
-                    onChange={(e) =>
-                      setFieldValue("modalities", e.target.value)
-                    }
-                    onBlur={handleBlur}
-                    options={modalitiesOptions}
-                    placeholder="Modalitiés de la mission*"
-                  />
-                  <ErrorMessage
-                    name="sector"
-                    component="div"
-                    className="text-red-500 text-sm"
-                  />
-                </div>
-                <div className="flex my-2 competences-container rounded-2xl p-6 flex-col">
-                  <p className=" text-xl text-normal">
-                    Compétences requises <span className="color-red">*</span>
-                  </p>
-
-                  <div className="flex justify-between mt-5 mb-5">
-                    <p>Compétences</p>
-                    <p>Niveau</p>
-                  </div>
-
-                  {selectedCompetences.map((competence, index) => {
-                    return (
-                      <div
-                        key={index}
-                        className="flex flex-row justify-between my-1 lg:mx-0"
-                      >
-                        {/* {index >= 5 && (
-                    <button
-                      className="mr-2 text-red-500"
-                      onClick={() => removeCompetence(competence)}
-                    >
-                      x
-                    </button>
-                  )} */}
-                        <div className="w-6/12">
-                          <CustomAutocomplete
-                            value={competence.label}
-                            setValue={(newValue) => {
-                              const updatedCompetences = [
-                                ...selectedCompetences,
-                              ];
-                              updatedCompetences[index].label = newValue || "";
-                              setSelectedCompetences(updatedCompetences);
-                            }}
-                            options={competenceList}
-                          />
-                        </div>
-
-                        <div className="w-5/12 flex justify-center lg:w-7/12">
-                          <LevelSelector
-                            value={competence.level}
-                            onChange={(level) => {
-                              const updatedCompetences = [
-                                ...selectedCompetences,
-                              ];
-                              updatedCompetences[index].level = level;
-                              setSelectedCompetences(updatedCompetences);
-                            }}
-                          />
-                        </div>
-                      </div>
-                    );
-                  })}
-
-                  <div
-                    className="flex justify-end mt-5 cursor-pointer"
-                    onClick={addCompetence}
-                  >
-                    <p className="text-normal">+ Ajoute une compétence</p>
-                  </div>
-                </div>
-                {formError && <p className="error text-xs">{formError}</p>}
-                <button
-                  className="my-12 py-5 px-10 submit-button rounded-2xl bg-client"
-                  type="submit"
-                >
-                  <span className="text-xl text-semibold ml-2 mr-2">
-                    Enregistrer les modifications
-                  </span>
-                </button>
-              </div>
-            </div>
+            <MissionFormCommon
+              values={values}
+              handleBlur={handleBlur}
+              setFieldValue={setFieldValue}
+              touched={touched}
+              errors={errors}
+              handleChange={handleChange}
+              hiddenCompany={hiddenCompany}
+              setHiddenTJM={setUpdatedHiddenTJM}
+              hiddenMissionPlace={hiddenMissionPlace}
+              setHiddenMissionPlace={setUpdatedHiddenMissionPlace}
+              setHiddenCompany={setUpdatedHiddenCompany}
+              hiddenTJM={hiddenTJM}
+              lastAOId={aoId}
+              city={city}
+              postalCode={postalCode}
+              selectedCompetences={selectedCompetences}
+              setSelectedCompetences={setSelectedCompetences}
+              addCompetence={addCompetence}
+              formError={formError!}
+              loading={loading}
+            />
 
             <CustomDialog open={open} onClose={handleClose}>
               <div className="flex mr-10 ml-5">

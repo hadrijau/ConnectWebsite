@@ -1,10 +1,10 @@
 import React from "react";
-import FreelanceIntroSection from "@/components/common/FreelanceIntroSection";
 import ClientNavbar from "@/components/navbar/ClientNavbar";
 import { getMissionById } from "@/http/mission";
 import ModifyMissionForm from "@/components/forms/ModifyMissionForm";
 import "@/styles/Client.css";
 import ClientIntroSection from "@/components/common/ClientIntroSection";
+import ModifyMissionFormMobile from "@/components/forms/ModifyMissionFormMobile";
 
 const ClientAOModifyPage = async ({ params }: { params: { slug: string } }) => {
   const mission = await getMissionById(params.slug);
@@ -18,8 +18,12 @@ const ClientAOModifyPage = async ({ params }: { params: { slug: string } }) => {
           undertitle="Je gère mes appels d’offres en les ajoutant, en les supprimant ou en les modifiant. "
         />
 
-        <div className="main-content w-full">
+        <div className="main-content w-full display-computer">
           <ModifyMissionForm mission={mission} />
+        </div>
+
+        <div className="display-tablet-mobile">
+          <ModifyMissionFormMobile mission={mission} />
         </div>
       </main>
     </>
