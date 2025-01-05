@@ -1,62 +1,62 @@
 .freelance-navbar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    background-color: #ffffff; /* adjust as needed */
-    z-index: 1000;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #ffffff; /* adjust as needed */
+  z-index: 1000;
 }
 
 .undertitle-select {
-    color: #95AA84
+  color: #95aa84;
 }
 
 .select-profile {
-    border: 1px solid #698754;
-    border-radius: 10px;
-    position: absolute;
-    background-color: white;
-    z-index: 1000;
-    top: 6rem;
-    right: 3rem;
-    width: 180px;
+  border: 1px solid #698754;
+  border-radius: 10px;
+  position: absolute;
+  background-color: white;
+  z-index: 1000;
+  top: 6rem;
+  right: 3rem;
+  width: 180px;
 }
 
 .select-profile-client {
-    border: 1px solid rgba(201, 105, 168, 1);
-    border-radius: 10px;
-    position: absolute;
-    background-color: white;
-    z-index: 1000;
-    top: 6rem;
-    right: 3rem;
-    width: 180px;
+  border: 1px solid rgba(201, 105, 168, 1);
+  border-radius: 10px;
+  position: absolute;
+  background-color: white;
+  z-index: 1000;
+  top: 6rem;
+  right: 3rem;
+  width: 180px;
 }
 
 .select-ao {
-    border: 1px solid #698754;
-    border-radius: 10px;
-    position: absolute;
-    top: 2rem;
-    right: 0rem;
-    width: 20rem;
-    z-index: 1000;
-    background-color: white;
+  border: 1px solid #698754;
+  border-radius: 10px;
+  position: absolute;
+  top: 2rem;
+  right: 0rem;
+  width: 20rem;
+  z-index: 1000;
+  background-color: white;
 }
 
 .ao-option:hover {
-    background-color: rgba(185, 211, 134, 0.5);
-    border-radius: 5px;
+  background-color: rgba(185, 211, 134, 0.5);
+  border-radius: 5px;
 }
 
 .profil-option:hover {
-    background-color: rgba(185, 211, 134, 0.5);
-    border-radius: 5px;
-    font-weight: 600;
+  background-color: rgba(185, 211, 134, 0.5);
+  border-radius: 5px;
+  font-weight: 600;
 }
 
 .profil-client-option:hover {
-    background: rgba(216, 146, 192, 0.24);
-    border-radius: 5px;
-    font-weight: 600;
+  background: rgba(216, 146, 192, 0.24);
+  border-radius: 5px;
+  font-weight: 600;
 }

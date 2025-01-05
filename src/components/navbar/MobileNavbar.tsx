@@ -1,9 +1,13 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
 import Image from "next/image";
-import { useRouter } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import NavLink from "@/components/navbar/NavLink";
+import Link from "next/link";
+import AODropdownMobile from "@/components/navbar/AODropdownMobile";
+import MissionDropdownMobile from "@/components/navbar/MissionDropdownMobile";
 import "@/styles/components/NavBar.css";
+import OfficialDocumentsMobile from "@/components/navbar/OfficialDocumentsDropdownMobile";
 
 interface MobileNavbarProps {
   menuOpen: boolean;
@@ -25,16 +29,42 @@ const MobileNavbar: React.FC<MobileNavbarProps> = ({
   status,
 }) => {
   const router = useRouter();
+  const path = usePathname();
+
+  const [openAO, setOpenAO] = useState(false);
+
+  const handleOpenAO = () => {
+    setOpenAO(!openAO);
+  };
+
+  const [openMissions, setOpenMissions] = useState(false);
+  const handleOpenMissions = () => {
+    setOpenMissions(!openMissions);
+  };
+
+  const [openOfficialDocuments, setOpenOfficialDocuments] = useState(false);
+  const handleOpenOfficialDocuments = () => {
+    setOpenOfficialDocuments(!openOfficialDocuments);
+  };
+
+  let background;
+  if (status != "authenticated") {
+    background = "bg-white";
+  }
+  if (userType === "client") {
+    background = "bg-client";
+  } else if (userType === "freelance") {
+    background = "bg-freelance";
+  }
 
   return (
     <div>
-      {" "}
       <div className="burger-menu" onClick={() => setMenuOpen(!menuOpen)}>
         <div className="burger-line"></div>
         <div className="burger-line"></div>
         <div className="burger-line"></div>
       </div>
-      <div className={`menu-items p-6 ${menuOpen ? "show" : ""}`}>
+      <div className={`menu-items p-6 ${background} ${menuOpen ? "show" : ""}`}>
         <div className="flex justify-between mb-5 mt-3">
           {logoFullShown ? (
             <Image
@@ -66,91 +96,124 @@ const MobileNavbar: React.FC<MobileNavbarProps> = ({
         </div>
 
         {status === "authenticated" && (
-          <div className="flex">
-            <Image
-              src={
-                userType === "client"
-                  ? "/profilClient.svg"
-                  : "/profilFreelance.svg"
-              }
-              alt="Profil"
-              width={30}
-              className="mx-3 cursor-pointer relative self-start"
-              height={30}
-            />
-            <div className={`flex flex-col`}>
-              <p
-                className={
+          <div className="flex flex-col mx-3">
+            <div className="flex">
+              <Image
+                src={
                   userType === "client"
-                    ? "profil-option-client cursor-pointer text-sm font-medium mb-4 mt-2"
-                    : "profil-option-indep cursor-pointer text-sm font-medium mb-4 mt-2"
+                    ? "/profilClient.svg"
+                    : "/profilFreelance.svg"
                 }
-                onClick={() => {
-                  if (userType === "client") {
-                    router.push("/client");
-                  } else {
-                    router.push("/freelance");
+                alt="Profil"
+                width={30}
+                className="mr-3 cursor-pointer relative self-start"
+                height={30}
+              />
+              <div className={`flex flex-col`}>
+                <p
+                  className={
+                    userType === "client"
+                      ? "profil-option-client cursor-pointer text-sm font-medium mb-4 mt-2"
+                      : "profil-option-indep cursor-pointer text-sm font-medium mb-4 mt-2"
                   }
-                }}
-              >
-                Accueil
-              </p>
-              <p
-                className={
-                  userType === "client"
-                    ? "profil-option-client cursor-pointer text-sm font-medium mb-4"
-                    : "profil-option-indep cursor-pointer text-sm font-medium mb-4"
-                }
-                onClick={() => {
-                  if (userType === "client") {
-                    router.push("/client/profil");
-                  } else {
-                    router.push("/freelance/profil");
+                  onClick={() => {
+                    if (userType === "client") {
+                      router.push("/client");
+                    } else {
+                      router.push("/freelance");
+                    }
+                  }}
+                >
+                  Accueil
+                </p>
+                <p
+                  className={
+                    userType === "client"
+                      ? "profil-option-client cursor-pointer text-sm font-medium mb-4"
+                      : "profil-option-indep cursor-pointer text-sm font-medium mb-4"
                   }
-                }}
-              >
-                Mon profil
-              </p>
-              <p
-                className={
-                  userType === "client"
-                    ? "profil-option-client cursor-pointer text-sm font-medium mb-4"
-                    : "profil-option-indep cursor-pointer text-sm font-medium mb-4"
-                }
-                onClick={handleSignOut}
-              >
-                Déconnexion
-              </p>
+                  onClick={() => {
+                    if (userType === "client") {
+                      router.push("/client/profil");
+                    } else {
+                      router.push("/freelance/profil");
+                    }
+                  }}
+                >
+                  Mon profil
+                </p>
+                <p
+                  className={
+                    userType === "client"
+                      ? "profil-option-client cursor-pointer text-sm font-medium mb-4"
+                      : "profil-option-indep cursor-pointer text-sm font-medium mb-4"
+                  }
+                  onClick={handleSignOut}
+                >
+                  Déconnexion
+                </p>
+              </div>
             </div>
+
+            {userType === "client" && (
+              <div className="flex-col flex">
+                <Link href="/client/ao" className="text-base text-normal mb-5">AO</Link>
+                <Link href="/client/missions" className="text-base text-normal">Missions</Link>
+                <OfficialDocumentsMobile
+                  openOfficialDocuments={openOfficialDocuments}
+                  handleOpenOfficialDocuments={handleOpenOfficialDocuments}
+                  router={router}
+                  userType={userType}
+                />
+              </div>
+            )}
+
+            {userType === "freelance" && (
+              <div className="w-[300px]">
+                <AODropdownMobile
+                  openAO={openAO}
+                  handleOpenAO={handleOpenAO}
+                  router={router}
+                />
+                <MissionDropdownMobile
+                  openMission={openMissions}
+                  handleOpenMission={handleOpenMissions}
+                  router={router}
+                />
+                <OfficialDocumentsMobile
+                  openOfficialDocuments={openOfficialDocuments}
+                  handleOpenOfficialDocuments={handleOpenOfficialDocuments}
+                  router={router}
+                  userType={userType}
+                />
+              </div>
+            )}
           </div>
         )}
 
-        <div className="flex flex-col ml-4 mr-5 mt-5">
-          <NavLink
-            href="/portage"
-            className="text-normal mb-4"
-            onClick={() => setMenuOpen(false)}
-          >
-            Société de portage
-          </NavLink>
-          <NavLink
-            href="/metiers"
-            className="text-normal mb-4"
-            onClick={() => setMenuOpen(false)}
-          >
-            Métiers
-          </NavLink>
-          <NavLink
-            href="/histoire"
-            className="text-normal mb-4"
-            onClick={() => setMenuOpen(false)}
-          >
-            Notre histoire
-          </NavLink>
-        </div>
-
         {status !== "authenticated" && (
-          <>
+          <div className="flex flex-col ml-4 mr-5 mt-5">
+            <NavLink
+              href="/portage"
+              className="text-normal mb-4"
+              onClick={() => setMenuOpen(false)}
+            >
+              Société de portage
+            </NavLink>
+            <NavLink
+              href="/metiers"
+              className="text-normal mb-4"
+              onClick={() => setMenuOpen(false)}
+            >
+              Métiers
+            </NavLink>
+            <NavLink
+              href="/histoire"
+              className="text-normal mb-4"
+              onClick={() => setMenuOpen(false)}
+            >
+              Notre histoire
+            </NavLink>
             <NavLink
               href="/signup"
               className="text-normal bg-insciption px-10 py-3 rounded-xl"
@@ -165,7 +228,7 @@ const MobileNavbar: React.FC<MobileNavbarProps> = ({
             >
               Me connecter
             </NavLink>
-          </>
+          </div>
         )}
       </div>
     </div>

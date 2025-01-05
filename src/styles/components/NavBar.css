@@ -63,9 +63,8 @@
   .menu-items {
     display: none;
     flex-direction: column;
-    background-color: #fff;
     position: absolute;
-    top: 30px; /* Adjust based on your nav height */
+    top: 30px;
     right: 10px;
     padding: 10px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
