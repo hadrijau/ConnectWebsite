@@ -1,7 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import Image from "next/image";
-import { usePathname, useRouter } from "next/navigation";
+import { useRouter } from "next/navigation";
 import NavLink from "@/components/navbar/NavLink";
 import Link from "next/link";
 import AODropdownMobile from "@/components/navbar/AODropdownMobile";
@@ -29,7 +29,6 @@ const MobileNavbar: React.FC<MobileNavbarProps> = ({
   status,
 }) => {
   const router = useRouter();
-  const path = usePathname();
 
   const [openAO, setOpenAO] = useState(false);
 
