@@ -1,17 +1,16 @@
 import React from "react";
-import CardOnGoingMission from "@/components/freelance/CardOnGoingMission";
 import ClientNavbar from "@/components/navbar/ClientNavbar";
 import CardMissionClient from "@/components/client/CardMissionClient";
 import { getMissionsByClientId } from "@/http/mission";
 import Link from "next/link";
-import Image from "next/image";
-import "@/styles/Client.css";
 import Mission from "@/entities/mission";
 import ClientIntroSection from "@/components/common/ClientIntroSection";
 import { auth } from "@/auth";
 import Loading from "@/app/loading";
 import MobileIntroClientSection from "@/components/common/MobileIntroClientSection";
 import CardMissionMobileClient from "@/components/client/CardMissionClientMobile";
+import OnGoingMissionContainer from "@/components/common/OnGoingMissionContainer";
+import "@/styles/Client.css";
 
 const ClientSpacePage = async () => {
   const session = await auth();
@@ -92,29 +91,7 @@ const ClientSpacePage = async () => {
             })}
           </div>
 
-          <div className="flex flex-col ongoing-mission-container-client p-10 rounded-3xl w-3/12 items-center 2md:p-5 md:w-4/12 sm:w-full md:p-5 ">
-            <Image
-              src="/clientMissionSpaceship.svg"
-              width={70}
-              height={70}
-              alt="Missions en cours"
-              className="mb-5"
-            />
-            <h5 className="text-center text-normal text-xl md:text-base">
-              Les missions en cours...
-            </h5>
-            {missions.map((mission: Mission, index: number) => {
-              const { title, companyName, date } = mission;
-              return (
-                <CardOnGoingMission
-                  key={index}
-                  title={title}
-                  company={companyName}
-                  date={date}
-                />
-              );
-            })}
-          </div>
+          <OnGoingMissionContainer missions={missions}/>
         </div>
       </main>
     </>

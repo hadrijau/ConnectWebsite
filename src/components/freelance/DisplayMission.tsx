@@ -8,10 +8,11 @@ import CompetencesContainer from "@/components/common/CompetencesContainer";
 import dayjs from "dayjs";
 import Freelance from "@/entities/freelance";
 import { useRouter } from "next/navigation";
+
 interface DisplayMissionProps {
   mission: Mission;
   user: Freelance;
-  freelance?: boolean;
+  userType: string;
 }
 
 const DisplayMission: React.FC<DisplayMissionProps> = ({

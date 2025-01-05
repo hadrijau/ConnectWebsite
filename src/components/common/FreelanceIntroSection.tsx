@@ -3,6 +3,7 @@ import React from "react";
 import { usePathname } from "next/navigation";
 import "@/styles/components/FreelanceIntroSection.css";
 import "@/styles/components/IntroSection.css";
+
 interface FreelanceIntroSectionProps {
   firstTitle: string;
   undertitle?: string;
@@ -18,32 +19,31 @@ const FreelanceIntroSection: React.FC<FreelanceIntroSectionProps> = ({
   let pathImage = "";
   let pathImageMobile = "";
   
-  
   if (path == ("/freelance")) {
     pathImage = "/freelanceAccueil.svg";
-    pathImageMobile = "/imgfreelanceTel.svg";
+    pathImageMobile = "/imgFreelanceMobileAccueil.svg";
   } else if (path.startsWith("/freelance/entreprise")) {
     pathImage = "/freelanceMyEnterprise.svg";
-    pathImageMobile = "/imgAccueilTel.svg";
+    pathImageMobile = "/imgFreelanceMobileEnterprise.svg";
   } else if (path.startsWith("/freelance/missions")) {
     pathImage = "/freelanceMissions.svg";
-    pathImageMobile = "/imgHistoireTel.svg";
+    pathImageMobile = "/imgFreelanceMobileMission.svg";
   } else if (path.startsWith("/freelance/documents")) {
     pathImage = "/freelanceOfficialDocuments.svg";
-    pathImageMobile = "/imgIndependantTel.svg";
+    pathImageMobile = "/imgFreelanceMobileOfficialDocuments.svg";
   } else if (path.startsWith("/freelance/ao")) {
     pathImage = "/freelanceAO.svg";
-    pathImageMobile = "/imgAccueilTel.svg";
+    pathImageMobile = "/imgFreelanceMobileAccueil.svg";
   }
 
   return (
     <div>
-      <div className="display-computer">
+      <div className="display-computer-tablet">
         <div className="flex justify-center relative">
           <img src={pathImage} alt="banner connect"></img>
           <div className="text-container">
             <h1 className="header-title-intro-section-text-indep">{firstTitle}</h1>
-            <h5 className="undertitle-text mt-10">{undertitle}</h5>
+            <h5 className="undertitle-text w-8/12 mt-10 md:mt-0">{undertitle}</h5>
             <h5 className="undertitle-text ">{subtitle}</h5>
 
           </div>
