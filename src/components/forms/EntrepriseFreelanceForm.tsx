@@ -80,7 +80,7 @@ const EntrepriseFreelanceForm: React.FC<EntrepriseFreelanceFormProps> = ({
         setFieldValue,
       }) => (
         <Form
-          className="flex-col mt-5 w-8/12 2xl:w-9/12 2lg:w-10/12"
+          className="flex-col mt-5 w-8/12 2xl:w-9/12 2lg:w-10/12 3md:w-11/12"
           onSubmit={handleSubmit}
         >
           <div className="mt-10">
@@ -160,19 +160,19 @@ const EntrepriseFreelanceForm: React.FC<EntrepriseFreelanceFormProps> = ({
               placeholder="Es-tu assujetti à la TVA ?"
             />
           </div>
-          <div className="flex justify-between mt-10">
+          <div className="flex justify-between mt-10 3md:justify-end">
             <div className="flex flex-col">
               {user.enterprise.name && (
                 <p
                   onClick={() => router.push("/freelance")}
-                  className="cursor-pointer"
+                  className="cursor-pointer 3md:hidden"
                 >
                   &#60;- retour à l&apos;accueil
                 </p>
               )}
 
               <p
-                className="mt-3 cursor-pointer"
+                className="mt-3 cursor-pointer 3md:mr-10"
                 onClick={() => router.push("/freelance")}
               >
                 Je passe cette étape

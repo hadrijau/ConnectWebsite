@@ -19,7 +19,7 @@ const CompetencesContainer: React.FC<CompetencesContainerProps> = ({
 
       <div className="flex my-5 justify-between">
         <p className="text-sm w-5/12">Compétences</p>
-        <div className="flex justify-center w-5/12">
+        <div className="flex justify-center">
           <p className="text-sm text-center">Niveau</p>
         </div>
       </div>
@@ -32,7 +32,7 @@ const CompetencesContainer: React.FC<CompetencesContainerProps> = ({
           <div className="w-6/12 flex items-center">
             <span className="text-sm">{competence.label}</span>
           </div>
-          <div className="w-5/12 flex justify-center lg:w-7/12">
+          <div className="w-5/12 flex justify-end lg:w-7/12">
             <LevelDisplay value={competence.level} freelance={freelance} />
           </div>
         </div>

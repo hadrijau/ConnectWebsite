@@ -103,7 +103,7 @@ const Navbar = () => {
       </div>
 
       {status === "authenticated" ? (
-        <div className="flex">
+        <div className="flex display-computer">
           <Image
             src={
               userType === "client"

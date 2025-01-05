@@ -2,12 +2,12 @@ import React, { Suspense } from "react";
 import ClientNavbar from "@/components/navbar/ClientNavbar";
 import CreateMissionForm from "@/components/forms/CreateMissionForm";
 import { auth } from "@/auth";
-import "@/styles/Client.css";
 import { getClientByEmail } from "@/http/client";
 import ClientIntroSection from "@/components/common/ClientIntroSection";
 import Loading from "@/app/loading";
 import { redirect } from "next/navigation";
 import CreateMissionFormMobile from "@/components/forms/CreateMissionFormMobile";
+import "@/styles/Client.css";
 
 const ClientCreateAOPage = async () => {
   const session = await auth();

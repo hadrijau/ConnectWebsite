@@ -62,9 +62,9 @@ const SelectOptions: React.FC<SelectOptionsProps> = ({ user }) => {
   };
 
   return (
-    <div className="flex-col mt-5 ml-20">
+    <div className="flex-col mt-5 mr-5 ml-20 3md:ml-10 sm:ml-5">
       <h1 className="font-bold text-3xl font-green">Mes compétences</h1>
-      <h5 className="font-normal text-2xl mt-5">
+      <h5 className="font-normal text-2xl mt-5 lg:text-xl 3md:text-base">
         Tu as des facultés dans certains domaines ? <br />
         Sélectionne-les.
       </h5>
@@ -74,7 +74,7 @@ const SelectOptions: React.FC<SelectOptionsProps> = ({ user }) => {
         5 compétences pour te faire remarquer.
       </p>
 
-      <div className="flex-col mt-5 w-8/12 2xl:w-9/12 2lg:w-10/12">
+      <div className="flex-col mt-5 w-8/12 2xl:w-9/12 2lg:w-10/12 lg:w-full">
         <div className="w-12/12">
           <SearchBar
             createMission={false}
@@ -93,7 +93,7 @@ const SelectOptions: React.FC<SelectOptionsProps> = ({ user }) => {
           {selectedCompetences.map((competence) => (
             <div
               key={competence.label}
-              className="competence-select-container rounded-xl px-5 py-2 flex-row mt-5 mx-3 inline w-5/12"
+              className="competence-select-container rounded-xl px-5 py-2 flex-row mt-5 mx-3 inline w-5/12 md:w-10/12 sm:w-full sm:mx-0"
             >
               <span>
                 <span
@@ -108,11 +108,11 @@ const SelectOptions: React.FC<SelectOptionsProps> = ({ user }) => {
           ))}
         </div>
 
-        <div className="flex justify-between mt-10">
+        <div className="flex justify-between mt-10 3md:justify-end">
           {user.competences.length != 0 && (
             <p
               onClick={() => router.push("/freelance")}
-              className="cursor-pointer mt-5"
+              className="cursor-pointer mt-5 3md:hidden"
             >
               &#60;- retour à l&apos;accueil
             </p>
@@ -128,7 +128,7 @@ const SelectOptions: React.FC<SelectOptionsProps> = ({ user }) => {
                 className={` text-center rounded-2xl py-3 cursor-pointer px-8 font-semibold`}
                 style={{ background: "rgba(185, 211, 134, 0.5)" }}
               >
-                OK
+                Suivant
               </button>
             )}
           </div>

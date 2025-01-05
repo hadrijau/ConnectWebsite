@@ -197,6 +197,18 @@ a {
   }
 }
 
+@media screen and (max-width: 1024px) {
+  .display-tablet {
+    display: block;
+  }
+  .display-tablet-mobile {
+    display: block;
+  }
+  .display-computer {
+    display: none;
+  }
+}
+
 @media screen and (max-width: 900px) {
   .main-indep {
     margin-right: 2.5rem;
@@ -224,18 +236,6 @@ a {
   }
   .undertitle-text {
     font-size: 1rem;
-  }
-}
-
-@media screen and (max-width: 767px) {
-  .display-tablet {
-    display: block;
-  }
-  .display-tablet-mobile {
-    display: block;
-  }
-  .display-computer {
-    display: none;
   }
 }
 

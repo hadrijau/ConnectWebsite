@@ -243,7 +243,7 @@ const DataGridAO: React.FC<DataGridAOProps> = ({ missions, user }) => {
     <div style={{ width: "100%", height: 375 }} className="mt-5 mb-20">
       {loading && (
         <div className="absolute inset-0 flex items-center justify-center bg-white bg-opacity-75 z-50">
-          <Loading /> {/* Render the Loading component */}
+          <Loading />
         </div>
       )}
       <CustomDialog open={open} onClose={handleClose}>

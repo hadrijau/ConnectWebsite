@@ -1,7 +1,7 @@
 import "@/styles/Freelance.css";
 import FreelanceIntroSection from "@/components/common/FreelanceIntroSection";
 import FreelanceNavBar from "@/components/navbar/FreelanceNavbar";
-  
+
 export default async function EnterprisePage() {
   return (
     <>

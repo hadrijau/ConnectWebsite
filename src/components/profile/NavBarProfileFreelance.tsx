@@ -78,7 +78,7 @@ const NavBarProfileFreelance: React.FC<NavBarProfileFreelanceProps> = ({
     signOut();
   };
   return (
-    <div className={`flex-col bg-green pt-10 px-10 ${className}`}>
+    <div className={`flex-col bg-green pt-10 px-10 ${className} lg:px-5`}>
       <Link href="/">
         <Image
           src="/logoWithConnect.svg"
@@ -97,12 +97,12 @@ const NavBarProfileFreelance: React.FC<NavBarProfileFreelanceProps> = ({
             key={index}
             className="flex my-10 cursor-pointer"
           >
-            <div className="bg-white rounded-full overflow-hidden mr-10">
-              <Image src={image} alt="Mon Profil" width={130} height={130} />
+            <div className="bg-white rounded-full flex justify-center items-center overflow-hidden mr-10 relative w-24 h-24 lg:w-20 lg:h-20">
+              <Image src={image} alt="Mon Profil" layout="fill" />
             </div>
             <div className="flex justify-center items-center">
               <h5
-                className="font-normal text-xl"
+                className="font-normal text-xl 2lg:text-base"
                 style={
                   path == href.toString()
                     ? {

@@ -120,7 +120,7 @@ const CreateFreelanceExperienceForm: React.FC<
 
         return (
           <Form
-            className="flex-col mt-5 w-8/12 2xl:w-9/12 2lg:w-10/12"
+            className="flex-col mt-5 w-8/12 2xl:w-9/12 2lg:w-10/12 lg:w-11/12"
             onSubmit={formik.handleSubmit}
           >
             <div className="overflow-auto max-h-96 ">
@@ -154,7 +154,7 @@ const CreateFreelanceExperienceForm: React.FC<
               )}
 
               <div className="flex justify-between mt-10">
-                <div className="flex flex-col w-5/12">
+                <div className="flex flex-col w-5/12 lg:w-6/12 lg:mx-1">
                   <TextInput
                     name="jobTitle"
                     type="text"
@@ -172,7 +172,7 @@ const CreateFreelanceExperienceForm: React.FC<
                     className="my-4 w-10/12"
                   />
                 </div>
-                <div className="flex flex-col w-5/12">
+                <div className="flex flex-col w-5/12 lg:w-6/12 lg:mx-1">
                   <TextInput
                     name="company"
                     type="text"
@@ -205,7 +205,7 @@ const CreateFreelanceExperienceForm: React.FC<
               </div>
 
               <div className="flex justify-between mt-10">
-                <div className="flex flex-col w-5/12">
+                <div className="flex flex-col w-5/12 lg:w-6/12 lg:mx-1">
                   <Field
                     name="beginningDate"
                     component={CustomDateField}
@@ -226,7 +226,7 @@ const CreateFreelanceExperienceForm: React.FC<
                   />
                 </div>
 
-                <div className="flex flex-col w-5/12">
+                <div className="flex flex-col w-5/12 lg:w-6/12 lg:mx-1">
                   <Field
                     name="endDate"
                     component={CustomDateField}
@@ -267,11 +267,11 @@ const CreateFreelanceExperienceForm: React.FC<
               <CVUpload freelance={user} />
             </div>
 
-            <div className="flex justify-between mt-10">
+            <div className="flex justify-between mt-10 3md:justify-end">
               {user.experiences.length !== 0 && (
                 <p
                   onClick={() => router.push("/freelance")}
-                  className="cursor-pointer mt-5"
+                  className="cursor-pointer mt-5 3md:hidden"
                 >
                   &#60;- retour à l&apos;accueil
                 </p>
@@ -284,7 +284,7 @@ const CreateFreelanceExperienceForm: React.FC<
                   className={` text-center rounded-2xl py-3 cursor-pointer px-8 font-semibold`}
                   style={{ background: "rgba(185, 211, 134, 0.5)" }}
                 >
-                  OK
+                  Suivant
                 </div>
               </div>
             </div>

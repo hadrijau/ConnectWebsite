@@ -1,8 +1,8 @@
 import React from "react";
 import CardOnGoingMission from "@/components/freelance/CardOnGoingMission";
 import ClientNavbar from "@/components/navbar/ClientNavbar";
-import CardMissionClient from "@/components/freelance/CardMissionClient";
-import { getMissions, getMissionsByClientId } from "@/http/mission";
+import CardMissionClient from "@/components/client/CardMissionClient";
+import { getMissionsByClientId } from "@/http/mission";
 import Link from "next/link";
 import Image from "next/image";
 import "@/styles/Client.css";
@@ -11,6 +11,7 @@ import ClientIntroSection from "@/components/common/ClientIntroSection";
 import { auth } from "@/auth";
 import Loading from "@/app/loading";
 import MobileIntroClientSection from "@/components/common/MobileIntroClientSection";
+import CardMissionMobileClient from "@/components/client/CardMissionClientMobile";
 
 const ClientSpacePage = async () => {
   const session = await auth();
@@ -34,7 +35,7 @@ const ClientSpacePage = async () => {
           secondTitle="Le succès n'est pas final, l'échec n'est pas fatal. C'est le courage de continuer qui compte."
         />
         <div className="flex justify-between w-full mt-10 main-content sm:flex-col">
-          <div className="flex-col w-8/12">
+          <div className="flex-col w-8/12 md:w-7/12 sm:w-full">
             <div className="flex justify-between w-full items-center md:flex-col-reverse md:items-start">
               <h1 className="text-semibold header-offres-client text-2xl">
                 Mes appels d&apos;offres
@@ -59,23 +60,39 @@ const ClientSpacePage = async () => {
                 propositionsLength = propositionsLength;
               }
               return (
-                <CardMissionClient
-                  _id={_id!}
-                  key={index}
-                  title={title}
-                  propositions={propositionsLength}
-                  date={date}
-                  companyLogo={"/logoSoge.svg"}
-                  companyName={"Company B"}
-                  price={price}
-                  length={length}
-                  createdAt={createdAt}
-                />
+                <div key={index}>
+                  <div className="display-computer">
+                    <CardMissionClient
+                      _id={_id!}
+                      title={title}
+                      propositions={propositionsLength}
+                      date={date}
+                      companyLogo={"/logoSoge.svg"}
+                      companyName={"Company B"}
+                      price={price}
+                      length={length}
+                      createdAt={createdAt}
+                    />
+                  </div>
+                  <div className="display-tablet-mobile">
+                    <CardMissionMobileClient
+                      _id={_id!}
+                      title={title}
+                      propositions={propositionsLength}
+                      date={date}
+                      companyLogo={"/logoSoge.svg"}
+                      companyName={"Company B"}
+                      price={price}
+                      length={length}
+                      createdAt={createdAt}
+                    />
+                  </div>
+                </div>
               );
             })}
           </div>
 
-          <div className="flex flex-col ongoing-mission-container-client p-10 rounded-3xl w-3/12 items-center md:w-4/12 sm:w-5/12 md:p-5">
+          <div className="flex flex-col ongoing-mission-container-client p-10 rounded-3xl w-3/12 items-center 2md:p-5 md:w-4/12 sm:w-full md:p-5 ">
             <Image
               src="/clientMissionSpaceship.svg"
               width={70}

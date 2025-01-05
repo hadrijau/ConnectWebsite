@@ -27,7 +27,7 @@ const ClientPropositionsAOPage = async ({
   if (!session || !session.user || !session.user.email) {
     handleSignOut();
     return;
-  } 
+  }
   const client = await getClientByEmail(session.user.email);
   return (
     <>
@@ -56,7 +56,24 @@ const ClientPropositionsAOPage = async ({
               </div>
             </div>
           </div>
-          {propositions && <DatagridPropositions propositions={propositions} missionId={missionId} client={client}/>}
+          {propositions && (
+            <>
+              <div className="display-computer">
+                <DatagridPropositions
+                  propositions={propositions}
+                  missionId={missionId}
+                  client={client}
+                />
+              </div>
+              <div className="display-tablet-mobile">
+                <DatagridPropositions
+                  propositions={propositions}
+                  missionId={missionId}
+                  client={client}
+                />
+              </div>
+            </>
+          )}
         </div>
       </main>
     </>
@@ -64,4 +81,3 @@ const ClientPropositionsAOPage = async ({
 };
 
 export default ClientPropositionsAOPage;
-

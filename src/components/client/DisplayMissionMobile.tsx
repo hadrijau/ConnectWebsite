@@ -6,20 +6,91 @@ import CompetencesContainer from "../common/CompetencesContainer";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import dayjs from "dayjs";
+import { deleteMission, getMissionById } from "@/http/mission";
+import CustomDialog from "../common/CustomDialog";
+import Client from "@/entities/client";
+import Loading from "@/app/loading";
+import ReactDOM from "react-dom";
 
 interface DisplayMissionMobileProps {
   mission: Mission;
+  user: Client;
 }
 
 const DisplayMissionMobile: React.FC<DisplayMissionMobileProps> = ({
   mission,
+  user,
 }) => {
   const router = useRouter();
   const [openThreeDotsMenu, setOpenThreeDotsMenu] = useState(false);
-
+  const [popupPosition, setPopupPosition] = useState<{
+    top: number;
+    left: number;
+  } | null>(null);
   const missionDate = dayjs(mission.date).toDate();
+
+  const handleDelete = async (id: string) => {
+    await deleteMission(String(id));
+    handleCloseDelete();
+    router.push(`/client/ao`);
+  };
+
+  const [openDelete, setOpenDelete] = useState(false);
+  const handleCloseDelete = () => {
+    setOpenDelete(false);
+  };
+
+  const handleDuplicate = async (idAO: string) => {
+    try {
+      setLoading(true);
+      setOpenThreeDotsMenu(false);
+      const numericPart = parseInt(user.lastAOId.substring(2), 10);
+      const nextNumericPart = numericPart + 1;
+      const newAoId = `AO${nextNumericPart.toString().padStart(5, "0")}`;
+      const client = new Client({
+        ...user,
+        lastAOId: newAoId,
+      });
+      await client.update();
+      const mission: Mission = await getMissionById(idAO);
+      const missionDuplicate = new Mission({
+        acceptedFreelanceId: mission.acceptedFreelanceId,
+        clientId: mission.clientId,
+        title: mission.title,
+        context: mission.context,
+        goals: mission.goals,
+        date: mission.date,
+        price: mission.price,
+        companyName: mission.companyName,
+        length: mission.length,
+        modalities: mission.modalities,
+        competences: mission.competences,
+        hiddenCompany: mission.hiddenCompany,
+        hiddenMissionPlace: mission.hiddenMissionPlace,
+        hiddenTJM: mission.hiddenTJM,
+        aoId: newAoId,
+        city: mission.city,
+        status: mission.status,
+        propositions: mission.propositions!,
+        postalCode: mission.postalCode,
+      });
+      await missionDuplicate.save();
+      setLoading(false);
+      router.refresh();
+    } catch (err) {
+      setLoading(false);
+      console.log("err", err);
+    }
+  };
+  const [loading, setLoading] = useState(false);
+
   return (
     <div className="flex flex-col w-full">
+      {loading && (
+        <div className="absolute inset-0 flex items-center justify-center bg-white bg-opacity-75 z-50">
+          <Loading />
+        </div>
+      )}
       <div className="flex flex-col w-full">
         <Link href="/client/ao">
           <h5 className="mb-10">&#60;- retour aux appels d&apos;offres</h5>
@@ -55,9 +126,7 @@ const DisplayMissionMobile: React.FC<DisplayMissionMobileProps> = ({
                     width={28}
                     alt="modification"
                     className="img-modification justify-end mb-2"
-                    onClick={() =>
-                      router.push(`/client/ao/modify/${mission._id}`)
-                    }
+                    onClick={() => setOpenDelete(true)}
                   />
                 </div>
               </div>
@@ -71,9 +140,44 @@ const DisplayMissionMobile: React.FC<DisplayMissionMobileProps> = ({
                 alt="modification"
                 className="img-modification justify-end"
                 style={{ maxWidth: "20px", maxHeight: "20px" }}
-                onClick={() => router.push(`/client/ao/modify/${mission._id}`)}
+                onClick={(event: React.MouseEvent<HTMLImageElement>) => {
+                  setOpenThreeDotsMenu(!openThreeDotsMenu);
+                  const rect = event.currentTarget.getBoundingClientRect();
+                  setPopupPosition({
+                    top: rect.bottom + window.scrollY,
+                    left: rect.right + window.scrollX - 150,
+                  });
+                }}
               />
             </div>
+            {openThreeDotsMenu &&
+              popupPosition &&
+              ReactDOM.createPortal(
+                <div
+                  className="absolute bg-white rounded-md shadow-md p-3 popup-datagrid"
+                  style={{
+                    top: popupPosition.top,
+                    left: popupPosition.left,
+                    zIndex: 9000,
+                  }}
+                >
+                  <p
+                    className="profil-client-option cursor-pointer py-2 px-3 text-left font-medium"
+                    onClick={() =>
+                      router.push(`/client/ao/propositions/${mission._id}`)
+                    }
+                  >
+                    Propositions
+                  </p>
+                  <p
+                    className="profil-client-option cursor-pointer py-2 px-3 text-left font-medium"
+                    onClick={() => handleDuplicate(String(mission._id))}
+                  >
+                    Dupliquer
+                  </p>
+                </div>,
+                document.body
+              )}
           </div>
 
           <div className="flex justify-between my-4">
@@ -149,6 +253,36 @@ const DisplayMissionMobile: React.FC<DisplayMissionMobileProps> = ({
             </button>
           </div>
         </div>
+        <CustomDialog open={openDelete} onClose={handleCloseDelete}>
+          <div className="flex">
+            <div className="flex flex-col">
+              <h2 className="text-normal text-lg text-center mt-10">
+                Es-tu sûr(e) de vouloir supprimer ton appel d&apos;offres ?
+              </h2>
+              <div className="flex my-10 ml-10">
+                <div
+                  className="delete-ao-button-dialog cursor-pointer text-normal rounded-2xl py-2 px-10 text-center mr-4"
+                  onClick={() => handleDelete(String(mission._id))}
+                >
+                  Oui
+                </div>
+                <div
+                  className="delete-ao-button-dialog cursor-pointer text-normal rounded-2xl py-2 px-10 text-center ml-4"
+                  onClick={handleCloseDelete}
+                >
+                  Non
+                </div>
+              </div>
+            </div>
+
+            <Image
+              src="/deleteAO.svg"
+              width={200}
+              height={200}
+              alt="Supprimer AO"
+            />
+          </div>
+        </CustomDialog>
       </div>
     </div>
   );

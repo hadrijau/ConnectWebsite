@@ -22,7 +22,7 @@ const ClientAOModifyPage = async ({ params }: { params: { slug: string } }) => {
           <ModifyMissionForm mission={mission} />
         </div>
 
-        <div className="display-tablet-mobile">
+        <div className="main-content w-full display-tablet-mobile">
           <ModifyMissionFormMobile mission={mission} />
         </div>
       </main>

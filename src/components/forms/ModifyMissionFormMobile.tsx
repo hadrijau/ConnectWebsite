@@ -9,7 +9,7 @@ import { lengthOptions, modalitiesOptions } from "@/lib/selectConstants";
 import Mission from "@/entities/mission";
 import { Formik, Form } from "formik";
 import CustomDialog from "@/components/common/CustomDialog";
-import MissionFormCommonMobile from "./MissionFormCommonMobile";
+import MissionFormCommonMobile from "@/components/forms/MissionFormCommonMobile";
 
 interface ModifyMissionFormMobileProps {
   mission: Mission;
@@ -47,7 +47,7 @@ const ModifyMissionFormMobile: React.FC<ModifyMissionFormMobileProps> = ({
   const [updatedHiddenMissionPlace, setUpdatedHiddenMissionPlace] =
     useState(hiddenMissionPlace);
 
-  const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = useState(false);
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -87,6 +87,7 @@ const ModifyMissionFormMobile: React.FC<ModifyMissionFormMobileProps> = ({
     useState<{ label: string; level: number }[]>(competences);
 
   const handleFormSubmit = async (values: typeof initialValues) => {
+    setLoading(true);
     try {
       const updatedMission = new Mission({
         acceptedFreelanceId,
@@ -116,10 +117,13 @@ const ModifyMissionFormMobile: React.FC<ModifyMissionFormMobileProps> = ({
       await updatedMission.update();
       router.push(`/client/ao/${_id}`);
       router.refresh();
+      setLoading(false);
     } catch (err) {
       console.log("Error creating mission", err);
+      setLoading(false);
     }
   };
+
 
   const removeCompetence = (option: { label: string; level: number }): void => {
     const updatedOptions = selectedCompetences.filter(
@@ -197,17 +201,17 @@ const ModifyMissionFormMobile: React.FC<ModifyMissionFormMobileProps> = ({
             />
 
             <CustomDialog open={open} onClose={handleClose}>
-              <div className="flex mr-10 ml-5 items-center">
+              <div className="flex mr-10 ml-5 items-center realtive">
                 <div className="flex flex-col">
-                  <h2 className="text-normal text-lg mr-32 ml-10 mt-10">
+                  <h2 className="text-normal text-lg text-center mt-10">
                     ⚠️ ATTEND ! Tu as oublié d’enregistrer ! ⚠️
                   </h2>
-                  <h5 className="ml-20 text-normal mt-10">
+                  <h5 className="text-center text-normal mt-10">
                     Veux-tu continuer tes modifications ?
                   </h5>
-                  <div className="flex my-10 ml-10 w-9/12 justify-between">
+                  <div className="flex my-10 mr-10">
                     <button
-                      className={`rounded-2xl cursor-pointer p-2 w-5/12 hide-button-focus`}
+                      className={`rounded-2xl cursor-pointer p-2 w-5/12 mr-5 hide-button-focus`}
                       onClick={handleClose}
                     >
                       <h5 className="text-normal text-center text-sm">
@@ -224,13 +228,14 @@ const ModifyMissionFormMobile: React.FC<ModifyMissionFormMobileProps> = ({
                     </button>
                   </div>
                 </div>
-
-                <div className="w-48 h-48 relative">
-                  <Image
-                    src="/modifyPopup.svg"
-                    layout="fill"
-                    alt="Supprimer AO"
-                  />
+                <div className="absolute bottom-6 right-2">
+                  <div className="w-24 h-24 relative">
+                    <Image
+                      src="/modifyPopup.svg"
+                      layout="fill"
+                      alt="Supprimer AO"
+                    />
+                  </div>
                 </div>
               </div>
             </CustomDialog>

@@ -79,7 +79,7 @@ const CreateProfileFreelanceForm: React.FC<CreateProfileFreelanceFormProps> = ({
         handleSubmit,
       }) => (
         <Form
-          className="flex-col mt-5 w-8/12 2xl:w-9/12 2lg:w-10/12"
+          className="flex-col mt-5 w-8/12 2xl:w-9/12 2lg:w-10/12 3md:w-11/12"
           onSubmit={handleSubmit}
         >
           <div className="flex my-5">
@@ -158,11 +158,11 @@ const CreateProfileFreelanceForm: React.FC<CreateProfileFreelanceFormProps> = ({
               className="h-40 rounded-3xl w-10/12"
             />
           </div>
-          <div className="flex justify-between mt-10">
+          <div className="flex justify-between mt-10 3md:justify-end">
             {user.title && (
               <p
                 onClick={() => router.push("/freelance")}
-                className="cursor-pointer mt-5"
+                className="cursor-pointer mt-5 3md:hidden"
               >
                 &#60;- retour à l&apos;accueil
               </p>
@@ -178,7 +178,7 @@ const CreateProfileFreelanceForm: React.FC<CreateProfileFreelanceFormProps> = ({
                   className={` text-center rounded-2xl py-3 cursor-pointer px-8 font-semibold`}
                   style={{ background: "rgba(185, 211, 134, 0.5)" }}
                 >
-                  OK
+                  Suivant
                 </button>
               )}
             </div>

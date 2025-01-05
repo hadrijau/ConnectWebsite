@@ -88,13 +88,13 @@ const CardMissionClient: FC<CardMissionClientProps> = ({
             alt="logo"
             width={75}
             height={75}
-            className="mr-7"
+            className="mr-7 lg:mr-3"
           />
           <div className="flex flex-col w-full">
-            <h2 className="text-normal text-2xl">{title}</h2>
+            <h2 className="text-normal text-2xl lg:text-xl">{title}</h2>
             <h5 className="text-light text-base">{companyName}</h5>
             <div className="flex justify-between w-full mt-2">
-              <div className="flex w-3/12">
+              <div className="flex w-3/12 items-center">
                 <Image
                   src="/clientMissionProposition.svg"
                   width={20}
@@ -102,7 +102,7 @@ const CardMissionClient: FC<CardMissionClientProps> = ({
                   alt="Nombre de propositions"
                   color="black"
                 />
-                <p className="ml-2 text-sm text-normal lg:ml-1">
+                <p className="ml-2 text-sm text-normal lg:ml-1 lg:text-xs">
                   {propositions} propositions
                 </p>
               </div>
@@ -113,7 +113,7 @@ const CardMissionClient: FC<CardMissionClientProps> = ({
                   height={15}
                   alt="Prix d'une mission"
                 />
-                <p className="ml-2 text-sm text-normal lg:ml-1">
+                <p className="ml-2 text-sm text-normal lg:ml-1 lg:text-xs">
                   {price} € HT/jour
                 </p>
               </div>
@@ -124,7 +124,7 @@ const CardMissionClient: FC<CardMissionClientProps> = ({
                   height={15}
                   alt="Durée d'une mission"
                 />
-                <p className="ml-2 text-sm text-normal lg:ml-1">
+                <p className="ml-2 text-sm text-normal lg:ml-1 lg:text-xs">
                   {length.toString()}
                 </p>
               </div>
@@ -136,7 +136,7 @@ const CardMissionClient: FC<CardMissionClientProps> = ({
                   color="black"
                   alt="Durée d'une mission"
                 />
-                <p className="ml-2 text-sm text-normal lg:ml-1">
+                <p className="ml-2 text-sm text-normal lg:ml-1 lg:text-xs">
                   {formattedDate}
                 </p>
               </div>

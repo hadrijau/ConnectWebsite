@@ -1,18 +1,21 @@
 import React from "react";
-import FreelanceIntroSection from "@/components/common/FreelanceIntroSection";
 import ClientNavbar from "@/components/navbar/ClientNavbar";
-import FormButton from "@/components/common/FormButton";
-import Link from "next/link";
-import Image from "next/image";
-
+import { auth } from "@/auth";
 import { getMissionById } from "@/http/mission";
-
-import "@/styles/Client.css";
+import { getClientByEmail } from "@/http/client";
 import DisplayMission from "@/components/client/DisplayMission";
 import ClientIntroSection from "@/components/common/ClientIntroSection";
 import DisplayMissionMobile from "@/components/client/DisplayMissionMobile";
+import { redirect } from "next/navigation";
+import "@/styles/Client.css";
 
 const ClientAODetailPage = async ({ params }: { params: { slug: string } }) => {
+  const session = await auth();
+  if (!session || !session.user || !session.user.email) {
+    redirect("/login");
+  }
+
+  const user = await getClientByEmail(session.user.email);
   const mission = await getMissionById(params.slug);
 
   return (
@@ -29,7 +32,7 @@ const ClientAODetailPage = async ({ params }: { params: { slug: string } }) => {
         </div>
 
         <div className="main-content w-full display-tablet-mobile">
-          <DisplayMissionMobile mission={mission} />
+          <DisplayMissionMobile mission={mission} user={user}/>
         </div>
       </main>
     </>
