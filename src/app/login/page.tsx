@@ -1,15 +1,15 @@
 "use client";
 import React, { useState } from "react";
 import Image from "next/image";
-import "@/styles/Login.css";
 import { useRouter } from "next/navigation";
 import { getUserByEmail } from "@/http/user";
 import Link from "next/link";
 import { signIn } from "next-auth/react";
-import { Formik, Field, Form } from "formik";
+import { Formik, Form } from "formik";
 import TextInput from "@/components/common/TextInput";
 import CircularProgress from "@mui/material/CircularProgress";
 import * as yup from "yup";
+import "@/styles/Login.css";
 
 const LoginPage = () => {
   const router = useRouter();
@@ -66,17 +66,18 @@ const LoginPage = () => {
         alt="Connection à connect"
       />
 
-      <div className="form-container w-5/12 flex flex-col items-center py-4 px-10 justify-center lg:w-7/12">
+      <div className="form-container w-5/12 flex flex-col items-center py-4 px-10 justify-center lg:w-7/12 3md:w-9/12 sm:w-full">
         <Link href="/">
-          <Image
-            src="logoWithConnect.svg"
-            alt="Logo Connect avec le nom"
-            width={180}
-            height={180}
-          />
+          <div className="h-40 w-40 relative">
+            <Image
+              src="logoWithConnect.svg"
+              alt="Logo Connect avec le nom"
+              layout="fill"
+            />
+          </div>
         </Link>
 
-        <h1 className="text-bold mb-8 text-3xl text-center">
+        <h1 className="text-bold mb-8 text-3xl text-center md:text-xl">
           Connecte-toi à ton compte
         </h1>
         <div className="w-full">

@@ -1,6 +1,5 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import "@/styles/Client.css";
 import { GridColDef, DataGrid } from "@mui/x-data-grid";
 import dayjs, { Dayjs } from "dayjs";
 import { useRouter } from "next/navigation";
@@ -9,7 +8,7 @@ import CustomDialog from "@/components/common/CustomDialog";
 import Loading from "@/app/loading";
 import { getFreelanceById } from "@/http/freelance";
 import Freelance from "@/entities/freelance";
-import LevelDisplay from "../common/LevelDisplay";
+import LevelDisplay from "@/components/common/LevelDisplay";
 import {
   DatePicker,
   LocalizationProvider,
@@ -23,14 +22,15 @@ import { updatePropositionStatus } from "@/http/mission";
 import Client from "@/entities/client";
 import RefuseFreelanceCandidatureForm from "@/components/forms/RefuseFreelanceCandidatureForm";
 import CircularProgress from "@mui/material/CircularProgress";
+import "@/styles/Client.css";
 
-interface DatagridPropositionsProps {
+interface DatagridPropositionsMobileProps {
   propositions: Proposition[];
   missionId: string;
   client: Client;
 }
 
-const DatagridPropositions: React.FC<DatagridPropositionsProps> = ({
+const DatagridPropositionsMobile: React.FC<DatagridPropositionsMobileProps> = ({
   propositions,
   missionId,
   client,
@@ -229,36 +229,36 @@ const DatagridPropositions: React.FC<DatagridPropositionsProps> = ({
         )}
         <CustomDialog open={open} onClose={() => setOpen(false)}>
           {freelance && mission && (
-            <div className="flex px-10">
+            <div className="flex px-10 md:px-5">
               <div className="flex flex-col">
                 <h2 className="text-normal text-xl mr-32 mt-10">
                   {freelance.firstname} {freelance.lastname}
                 </h2>
 
-                <div className="flex mt-10 justify-between">
-                  <p className="text-normal">
+                <div className="flex mt-10 justify-between sm:flex-col">
+                  <p className="text-normal sm:text-base">
                     Disponiblités :{" "}
                     {dayjs(freelanceDisponibility).format("DD.MM.YYYY")}
                   </p>
-                  <p className="text-normal">
+                  <p className="text-normal sm:text-base sm:mt-2">
                     Tarif demandé : {freelanceProposedPrice} €
                   </p>
                 </div>
 
-                <div className="flex justify-center items-center my-10">
+                <div className="flex justify-center items-center my-10 md:w-full md:justify-between sm:flex-col">
                   <button
-                    className="bg-slate-300 px-4 py-2 rounded-lg mx-5 text-normal"
+                    className="bg-slate-300 px-4 py-2 rounded-lg mx-5 text-normal md:text-sm md:mx-0 sm:text-base sm:w-full sm:my-2"
                     onClick={() => setUninterested(true)}
                   >
                     🚫 Non intéressé
                   </button>
                   <button
-                    className="bg-client px-4 py-2 rounded-lg mx-5 text-normal"
+                    className="bg-client px-4 py-2 rounded-lg mx-5 text-normal md:text-sm md:mx-0 sm:text-base sm:w-full sm:my-2"
                     onClick={handleInterestedClick}
                   >
                     ✨ Intéressé
                   </button>
-                  <button className="bg-slight-blue px-4 py-2 rounded-lg mx-5 text-normal">
+                  <button className="bg-slight-blue px-4 py-2 rounded-lg mx-5 text-normal md:text-sm md:mx-0 sm:text-base sm:w-full sm:my-2">
                     🤷 Peut-être
                   </button>
                 </div>
@@ -498,7 +498,7 @@ const DatagridPropositions: React.FC<DatagridPropositionsProps> = ({
               fontSize: "0.75rem",
             },
             "& .MuiDataGrid-columnHeaderTitle": {
-                fontSize: "0.75rem",
+              fontSize: "0.75rem",
               fontWeight: 500,
               whiteSpace: "normal",
               lineHeight: "normal",
@@ -523,4 +523,4 @@ const DatagridPropositions: React.FC<DatagridPropositionsProps> = ({
   );
 };
 
-export default DatagridPropositions;
+export default DatagridPropositionsMobile;

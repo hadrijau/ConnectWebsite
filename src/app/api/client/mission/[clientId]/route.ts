@@ -26,7 +26,6 @@ export async function GET(
     const client = await connectToDatabase();
     const db = client.db();
 
-    // Step 1: Fetch the client data
     const clientData = await db.collection("client").findOne({
       _id: new ObjectId(clientId),
     });

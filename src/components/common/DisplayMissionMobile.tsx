@@ -2,24 +2,27 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import Mission from "@/entities/mission";
-import CompetencesContainer from "../common/CompetencesContainer";
+import CompetencesContainer from "@/components/common/CompetencesContainer";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import dayjs from "dayjs";
 import { deleteMission, getMissionById } from "@/http/mission";
-import CustomDialog from "../common/CustomDialog";
+import CustomDialog from "@/components/common/CustomDialog";
 import Client from "@/entities/client";
 import Loading from "@/app/loading";
 import ReactDOM from "react-dom";
+import FormButton from "@/components/common/FormButton";
 
 interface DisplayMissionMobileProps {
   mission: Mission;
   user: Client;
+  userType: string;
 }
 
 const DisplayMissionMobile: React.FC<DisplayMissionMobileProps> = ({
   mission,
   user,
+  userType,
 }) => {
   const router = useRouter();
   const [openThreeDotsMenu, setOpenThreeDotsMenu] = useState(false);
@@ -83,6 +86,16 @@ const DisplayMissionMobile: React.FC<DisplayMissionMobileProps> = ({
     }
   };
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(false);
+
+  const handleAnswer = () => {
+    // @ts-ignore
+    if (user.competences.length == 0) {
+      setError(true);
+    } else {
+      router.push(`/freelance/ao/answer/${mission._id}`);
+    }
+  };
 
   return (
     <div className="flex flex-col w-full">
@@ -92,8 +105,8 @@ const DisplayMissionMobile: React.FC<DisplayMissionMobileProps> = ({
         </div>
       )}
       <div className="flex flex-col w-full">
-        <Link href="/client/ao">
-          <h5 className="mb-10">&#60;- retour aux appels d&apos;offres</h5>
+        <Link href={userType === "client" ? "/client/ao" : "/freelance"}>
+          <h5 className="mb-10 xs:mt-10">&#60;- retour aux appels d&apos;offres</h5>
         </Link>
         <div className="flex flex-col">
           <div className="flex items-start mb-4 justify-between">
@@ -104,52 +117,57 @@ const DisplayMissionMobile: React.FC<DisplayMissionMobileProps> = ({
                 height={100}
                 alt="Logo société générale"
               />
-              <div className="flex-col ml-10">
-                <h4 className="text-normal text-xl">{mission.title}</h4>
+              <div className="flex-col ml-10 sm:ml-0">
+                <h4 className="text-normal text-xl sm:text-lg">{mission.title}</h4>
                 <h5 className="text-light mb-3 text-lg">{mission.aoId}</h5>
               </div>
-              <div className="items-start flex ml-4">
-                <div className="flex">
-                  <Image
-                    src="/clientMissionModify.svg"
-                    height={25}
-                    width={25}
-                    alt="modification"
-                    className="img-modification justify-end"
-                    onClick={() =>
-                      router.push(`/client/ao/modify/${mission._id}`)
-                    }
-                  />
-                  <Image
-                    src="/corbeille.svg"
-                    height={28}
-                    width={28}
-                    alt="modification"
-                    className="img-modification justify-end mb-2"
-                    onClick={() => setOpenDelete(true)}
-                  />
+              {userType === "client" && (
+                <div className="items-start flex ml-4">
+                  <div className="flex">
+                    <Image
+                      src="/clientMissionModify.svg"
+                      height={25}
+                      width={25}
+                      alt="modification"
+                      className="img-modification justify-end"
+                      onClick={() =>
+                        router.push(`/client/ao/modify/${mission._id}`)
+                      }
+                    />
+                    <Image
+                      src="/corbeille.svg"
+                      height={28}
+                      width={28}
+                      alt="modification"
+                      className="img-modification justify-end mb-2"
+                      onClick={() => setOpenDelete(true)}
+                    />
+                  </div>
                 </div>
-              </div>
+              )}
             </div>
 
-            <div className="flex flex-end items-start">
-              <Image
-                src="/threeDot.svg"
-                height={20}
-                width={20}
-                alt="modification"
-                className="img-modification justify-end"
-                style={{ maxWidth: "20px", maxHeight: "20px" }}
-                onClick={(event: React.MouseEvent<HTMLImageElement>) => {
-                  setOpenThreeDotsMenu(!openThreeDotsMenu);
-                  const rect = event.currentTarget.getBoundingClientRect();
-                  setPopupPosition({
-                    top: rect.bottom + window.scrollY,
-                    left: rect.right + window.scrollX - 150,
-                  });
-                }}
-              />
-            </div>
+            {userType === "client" && (
+              <div className="flex flex-end items-start mt-2">
+                <Image
+                  src="/threeDot.svg"
+                  height={20}
+                  width={20}
+                  alt="modification"
+                  className="img-modification justify-end"
+                  style={{ maxWidth: "20px", maxHeight: "20px" }}
+                  onClick={(event: React.MouseEvent<HTMLImageElement>) => {
+                    setOpenThreeDotsMenu(!openThreeDotsMenu);
+                    const rect = event.currentTarget.getBoundingClientRect();
+                    setPopupPosition({
+                      top: rect.bottom + window.scrollY,
+                      left: rect.right + window.scrollX - 150,
+                    });
+                  }}
+                />
+              </div>
+            )}
+
             {openThreeDotsMenu &&
               popupPosition &&
               ReactDOM.createPortal(
@@ -184,7 +202,11 @@ const DisplayMissionMobile: React.FC<DisplayMissionMobileProps> = ({
             <div className="flex-col">
               <div className="flex my-2">
                 <Image
-                  src="/calendrier.svg"
+                  src={
+                    userType === "freelance"
+                      ? "/freelanceMissionCalendar.svg"
+                      : "/calendrier.svg"
+                  }
                   height={25}
                   width={25}
                   alt="calendrier"
@@ -194,7 +216,11 @@ const DisplayMissionMobile: React.FC<DisplayMissionMobileProps> = ({
               </div>
               <div className="flex my-2">
                 <Image
-                  src="/tarifHT.svg"
+                  src={
+                    userType === "freelance"
+                      ? "/freelanceMissionPrice.svg"
+                      : "/tarifHT.svg"
+                  }
                   height={25}
                   width={25}
                   alt="calendrier"
@@ -207,7 +233,11 @@ const DisplayMissionMobile: React.FC<DisplayMissionMobileProps> = ({
             <div className="flex-col">
               <div className="flex my-2">
                 <Image
-                  src="/dureeMission.svg"
+                  src={
+                    userType === "freelance"
+                      ? "/freelanceMissionTime.svg"
+                      : "/dureeMission.svg"
+                  }
                   height={25}
                   width={25}
                   alt="calendrier"
@@ -215,16 +245,34 @@ const DisplayMissionMobile: React.FC<DisplayMissionMobileProps> = ({
                 />
                 {mission.length}
               </div>
-              <div className="flex my-2">
-                <Image
-                  src="/modaliteTravail.svg"
-                  height={25}
-                  width={25}
-                  alt="calendrier"
-                  className="mr-4"
-                />
-                {mission.modalities}
-              </div>
+
+              {userType === "client" && (
+                <div className="flex my-2">
+                  <Image
+                    src="/modaliteTravail.svg"
+                    height={25}
+                    width={25}
+                    alt="calendrier"
+                    className="mr-4"
+                  />
+                  {mission.modalities}
+                </div>
+              )}
+
+              {userType === "freelance" && (
+                <div className="flex my-2">
+                  <Image
+                    src="/freelanceMissionPropositions.svg"
+                    height={25}
+                    width={25}
+                    alt="calendrier"
+                    className="mr-4"
+                  />
+                  <p className="mt-2">
+                    {mission.propositions.length} propositions
+                  </p>
+                </div>
+              )}
             </div>
           </div>
 
@@ -240,18 +288,23 @@ const DisplayMissionMobile: React.FC<DisplayMissionMobileProps> = ({
             </div>
           </div>
 
-          <CompetencesContainer competences={mission.competences} />
+          <CompetencesContainer
+            competences={mission.competences}
+            freelance={userType === "freelance"}
+          />
 
-          <div className="flex items-center justify-center">
-            <button
-              className="my-12 py-5 px-10 submit-button rounded-2xl bg-client 3md:px-6 3md:py-3"
-              type="submit"
-            >
-              <span className="text-xl text-normal ml-2 mr-2 2lg:text-lg 3md:text-base">
-                Besoin d&apos;aide pour trouver la personne idéale ?
-              </span>
-            </button>
-          </div>
+          {userType === "client" && (
+            <div className="flex items-center justify-center">
+              <button
+                className="my-12 py-5 px-10 submit-button rounded-2xl bg-client 3md:px-6 3md:py-3"
+                type="submit"
+              >
+                <span className="text-xl text-normal ml-2 mr-2 2lg:text-lg 3md:text-base">
+                  Besoin d&apos;aide pour trouver la personne idéale ?
+                </span>
+              </button>
+            </div>
+          )}
         </div>
         <CustomDialog open={openDelete} onClose={handleCloseDelete}>
           <div className="flex">
@@ -283,6 +336,30 @@ const DisplayMissionMobile: React.FC<DisplayMissionMobileProps> = ({
             />
           </div>
         </CustomDialog>
+
+        {userType === "freelance" && (
+          <div className=" flex items-center justify-center flex-col mb-20">
+            <div className="w-5/12 mt-5 xs:w-full">
+              <FormButton
+                title="Répondre"
+                background="#B9D38680"
+                handleButtonClick={handleAnswer}
+                textClassName="text-black text-semibold text-xl"
+              />
+            </div>
+            {error && (
+              <p className="error mt-5">
+                Veuillez remplir d&apos;abord compléter{" "}
+                <Link
+                  href="/freelance/profil/competences"
+                  className="font-semibold"
+                >
+                  votre profil
+                </Link>
+              </p>
+            )}
+          </div>
+        )}
       </div>
     </div>
   );

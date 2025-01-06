@@ -28,7 +28,6 @@ export default async function AOPropositionsPage() {
           <AODisplay
             approvedMissions={approvedMissions}
             pendingMissions={pendingMissions}
-            likedMissions={likedMissions}
             lostMissions={lostMissions}
           />
         </div>

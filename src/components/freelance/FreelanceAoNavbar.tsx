@@ -8,7 +8,7 @@ const FreelanceAoNavbar = () => {
   const path = usePathname();
 
   return (
-    <div className="flex justify-between w-full">
+    <div className="flex justify-between w-full md:hidden">
       <Link className="flex" href="/freelance/ao/recherche">
         <Image
           src="/freelanceMissionSpaceship.svg"

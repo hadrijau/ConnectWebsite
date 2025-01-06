@@ -31,12 +31,15 @@ const MissionDropdownMobile: React.FC<MissionDropdownMobileProps> = ({
 
       {openMission && (
         <div className="flex flex-col">
-          <div className="flex cursor-pointer ao-option mt-2 text-normal text-sm">
+          <div
+            className="flex cursor-pointer ao-option p-2"
+            onClick={() => router.push("/freelance/missions/ongoing")}
+          >
             Mes missions en cours
           </div>
           <div
-            className="flex cursor-pointer ao-option mt-2 text-normal text-sm"
-            onClick={() => router.push("/freelance/ao/cheris")}
+            className="flex cursor-pointer ao-option p-2"
+            onClick={() => router.push("/freelance/missions/past")}
           >
             Mes missions passées
           </div>

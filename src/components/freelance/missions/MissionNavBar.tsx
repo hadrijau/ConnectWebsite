@@ -9,15 +9,15 @@ interface MissionNavBarProps {
 const MissionNavBar:React.FC<MissionNavBarProps> = ({ status, setStatus }) => {
   return (
 <div className="flex justify-center w-full">
-  <div className="flex items-center justify-between w-9/12">
+  <div className="flex items-center justify-between w-9/12 md:w-full">
     <div
-      className={status == "En cours" ? "text-bold font-green cursor-pointer underline underline-offset-24" : "text-normal cursor-pointer"}
+      className={status == "En cours" ? "text-bold font-green cursor-pointer underline underline-offset-24 sm:text-sm" : "text-normal  sm:text-sm cursor-pointer"}
       onClick={() => setStatus("En cours")}
     >
       Mes missions en cours 
     </div>
     <div
-      className={status == "Passé" ? "text-bold font-green cursor-pointer underline underline-offset-24" : "text-normal cursor-pointer"}
+      className={status == "Passé" ? "text-bold font-green cursor-pointer underline underline-offset-24 sm:text-sm" : "text-normal cursor-pointer sm:text-sm"}
       onClick={() => setStatus("Passé")}
     >
       Mes missions passées

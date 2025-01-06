@@ -43,7 +43,7 @@ const FreelanceIntroSection: React.FC<FreelanceIntroSectionProps> = ({
           <img src={pathImage} alt="banner connect"></img>
           <div className="text-container">
             <h1 className="header-title-intro-section-text-indep">{firstTitle}</h1>
-            <h5 className="undertitle-text w-8/12 mt-10 md:mt-0">{undertitle}</h5>
+            <h5 className="undertitle-text mt-10 md:mt-0">{undertitle}</h5>
             <h5 className="undertitle-text ">{subtitle}</h5>
 
           </div>

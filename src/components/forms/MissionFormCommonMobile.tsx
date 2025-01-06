@@ -78,8 +78,8 @@ const MissionFormCommonMobile: React.FC<MissionFormCommonMobileProps> = ({
         <div className="flex my-2 justify-end">
           <Image
             src="/ImageMap.svg"
-            height={25}
-            width={25}
+            height={15}
+            width={15}
             alt="calendrier"
             className="mr-4"
           />
@@ -93,8 +93,8 @@ const MissionFormCommonMobile: React.FC<MissionFormCommonMobileProps> = ({
             <div className="flex my-4">
               <Image
                 src="/calendrier.svg"
-                height={25}
-                width={25}
+                height={15}
+                width={15}
                 alt="calendrier"
                 className="mr-4"
               />
@@ -116,8 +116,8 @@ const MissionFormCommonMobile: React.FC<MissionFormCommonMobileProps> = ({
             <div className="flex my-4">
               <Image
                 src="/tarifHT.svg"
-                height={25}
-                width={25}
+                height={15}
+                width={15}
                 alt="calendrier"
                 className="mr-4"
               />
@@ -141,8 +141,8 @@ const MissionFormCommonMobile: React.FC<MissionFormCommonMobileProps> = ({
             <div className="flex my-4">
               <Image
                 src="/dureeMission.svg"
-                height={25}
-                width={25}
+                height={15}
+                width={15}
                 alt="calendrier"
                 className="mr-4"
               />
@@ -159,8 +159,8 @@ const MissionFormCommonMobile: React.FC<MissionFormCommonMobileProps> = ({
             <div className="flex my-4">
               <Image
                 src="/modaliteTravail.svg"
-                height={25}
-                width={25}
+                height={15}
+                width={15}
                 alt="calendrier"
                 className="mr-4"
               />
@@ -211,24 +211,11 @@ const MissionFormCommonMobile: React.FC<MissionFormCommonMobileProps> = ({
           />
         </div>
 
-        <div className="flex flex-col">
-          <div className="flex my-2 competences-container rounded-2xl p-6 flex-col">
-            <p className=" text-xl text-normal 3md:text-lg">
-              Compétences requises <span className="color-red">*</span>
-            </p>
-
-            <div className="flex mt-5 mb-5 justify-between">
-              <p className="w-6/12 text-center 2lg:w-8/12">Compétences</p>
-              <p className="w-5/12 text-center 2lg:w-3/12">Niveau</p>
-            </div>
-
-            <CompetencesSelection
-              competences={selectedCompetences}
-              setCompetences={setSelectedCompetences}
-              addCompetence={addCompetence}
-            />
-          </div>
-        </div>
+        <CompetencesSelection
+          competences={selectedCompetences}
+          setCompetences={setSelectedCompetences}
+          addCompetence={addCompetence}
+        />
 
         <div className="flex justify-between mt-5">
           <div

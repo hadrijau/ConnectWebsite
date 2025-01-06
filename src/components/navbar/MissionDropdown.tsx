@@ -38,12 +38,15 @@ const MissionDropdown: React.FC<MissionDropdownProps> = ({
 
       {openMission && (
         <div className="flex flex-col select-ao p-3">
-          <div className="flex cursor-pointer ao-option p-2">
+          <div
+            className="flex cursor-pointer ao-option p-2"
+            onClick={() => router.push("/freelance/missions/ongoing")}
+          >
             Mes missions en cours
           </div>
           <div
             className="flex cursor-pointer ao-option p-2"
-            onClick={() => router.push("/freelance/ao/cheris")}
+            onClick={() => router.push("/freelance/missions/past")}
           >
             Mes missions passées
           </div>

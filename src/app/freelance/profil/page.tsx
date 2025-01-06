@@ -3,7 +3,7 @@ import NavBarProfile from "@/components/profile/NavBarProfileFreelance";
 import { auth } from "@/auth";
 import { getFreelanceByEmail } from "@/http/freelance";
 import CreateProfileFreelanceForm from "@/components/forms/CreateProfileFreelanceForm";
-import Navbar from "@/components/navbar/NavBar";
+import FreelanceNavBar from "@/components/navbar/FreelanceNavbar";
 
 const ProfileFreelancePage = async () => {
   const session = await auth();
@@ -13,7 +13,7 @@ const ProfileFreelancePage = async () => {
     <div className="flex min-h-screen">
       <NavBarProfile className="w-4/12 display-computer" user={user} />
       <div className="display-tablet-mobile">
-        <Navbar />
+        <FreelanceNavBar />
       </div>
       <div className="flex-col w-8/12 3md:w-full 3md:mt-20">
         <div className="flex justify-end">

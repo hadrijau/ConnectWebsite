@@ -1,31 +1,41 @@
 import React from "react";
 import FreelanceIntroSection from "@/components/common/FreelanceIntroSection";
 import Link from "next/link";
-
 import { getMissionById } from "@/http/mission";
-
-import "@/styles/Client.css";
-import DisplayMission from "@/components/freelance/DisplayMission";
+import DisplayMission from "@/components/common/DisplayMission";
 import FreelanceNavBar from "@/components/navbar/FreelanceNavbar";
 import { auth } from "@/auth";
 import { getFreelanceByEmail } from "@/http/freelance";
+import "@/styles/Client.css";
+import DisplayMissionMobile from "@/components/common/DisplayMissionMobile";
 
-const FreelanceMissionDetailPage = async ({ params }: { params: { slug: string } }) => {
+const FreelanceMissionDetailPage = async ({
+  params,
+}: {
+  params: { slug: string };
+}) => {
   const mission = await getMissionById(params.slug);
   const session = await auth();
   const user = await getFreelanceByEmail(session?.user?.email!);
+
+  // @ts-ignore
+  const userType = session?.user?.type;
   return (
     <>
       <FreelanceNavBar />
       <main className="flex flex-col items-center justify-between mt-32">
         <FreelanceIntroSection firstTitle="Appel d'offre" />
 
-        <div className="flex flex-col justify-between w-full mt-10 main-content">
-          <Link href="/freelance">
-            <h5 className="mb-10">&#60;- retour aux appels d&apos;offres</h5>
-          </Link>
+        <div className="main-content w-full display-computer">
+          <DisplayMission mission={mission} userType={userType} user={user} />
+        </div>
 
-          <DisplayMission mission={mission} freelance={true} user={user}/>
+        <div className="main-content w-full display-tablet-mobile">
+          <DisplayMissionMobile
+            mission={mission}
+            user={user}
+            userType={userType}
+          />
         </div>
       </main>
     </>

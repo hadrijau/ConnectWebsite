@@ -42,7 +42,8 @@ export default async function FreelancePage() {
       <main className="flex flex-col items-center justify-between mt-32">
         <FreelanceIntroSection
           firstTitle="Bienvenue dans ton espace"
-          undertitle="Le succès n'est pas final, l'échec n'est pas fatal. C'est le courage de continuer qui compte."
+          undertitle="Le succès n'est pas final, l'échec n'est pas fatal."
+          subtitle="C'est le courage de continuer qui compte."
         />
 
         <MobileIntroClientSection

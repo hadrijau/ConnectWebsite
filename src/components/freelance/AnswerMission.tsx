@@ -3,17 +3,18 @@ import React, { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import dayjs from "dayjs";
 import TextInput from "@/components/common/TextInput";
-import "@/styles/Freelance.css";
 import Mission, { ClientStatus, Proposition } from "@/entities/mission";
 import CompetencesContainer from "@/components/common/CompetencesContainer";
 import * as yup from "yup";
-import CustomDateField from "../common/CustomDateField";
+import CustomDateField from "@/components/common/CustomDateField";
 import { Formik, Form, Field } from "formik";
 import Freelance from "@/entities/freelance";
-import CVUpload from "../upload/CVUpload";
+import CVUpload from "@/components/upload/CVUpload";
 import { useRouter } from "next/navigation";
 import { CircularProgress } from "@mui/material";
 import { Dayjs } from "dayjs";
+import "@/styles/Freelance.css";
+
 interface AnswerMissionProps {
   mission: Mission;
   freelance: Freelance;
@@ -102,7 +103,7 @@ const AnswerMission: React.FC<AnswerMissionProps> = ({
         >
           <div className="flex flex-col w-full">
             <div className="flex w-full justify-between">
-              <div className="flex-col w-7/12">
+              <div className="flex-col w-7/12 2md:w-6/12">
                 <div className="flex items-center mb-4">
                   <Image
                     src="/logoSoge.svg"
@@ -117,7 +118,7 @@ const AnswerMission: React.FC<AnswerMissionProps> = ({
                 </div>
 
                 <div className="flex flex-col mt-16">
-                  <h5 className="why-me-text text-2xl mb-5 text-extra-bold">
+                  <h5 className="why-me-text text-2xl mb-5 text-extra-bold 2md:text-xl">
                     Pourquoi toi et pas un autre ? (*)
                   </h5>
                   <TextInput
@@ -134,14 +135,14 @@ const AnswerMission: React.FC<AnswerMissionProps> = ({
                   />
 
                   <div className="flex-col">
-                    <div className="mt-8 w-5/12 flex-col">
-                      <h5 className="text-xl text-normal">
+                    <div className="mt-8 w-5/12 flex-col 2md:w-8/12">
+                      <h5 className="text-xl text-normal 2md:text-base">
                         Disponibilités{" "}
                         <span style={{ color: "#B9D386", fontWeight: "bold" }}>
                           *
                         </span>
                       </h5>
-                      <div className="w-8/12 my-5">
+                      <div className="w-8/12 my-5 2md:w-full">
                         <Field
                           name="date"
                           component={CustomDateField}
@@ -161,7 +162,7 @@ const AnswerMission: React.FC<AnswerMissionProps> = ({
                       </div>
                     </div>
                     <div className="mt-8">
-                      <h5 className="text-xl  text-normal">
+                      <h5 className="text-xl  text-normal 2md:text-base">
                         Montant que je souhaite percevoir (HT){" "}
                         <span style={{ color: "#B9D386", fontWeight: "bold" }}>
                           *
@@ -199,7 +200,7 @@ const AnswerMission: React.FC<AnswerMissionProps> = ({
                 </div>
               </div>
 
-              <div className="flex flex-col w-4/12">
+              <div className="flex flex-col w-4/12 2md:w-5/12">
                 <div className="flex my-2">
                   <Image
                     src="/freelanceMissionCalendar.svg"

@@ -20,6 +20,9 @@ const ClientSpacePage = async () => {
   }
   const missions: Mission[] = await getMissionsByClientId(session.user.id);
 
+  // @ts-ignore
+  const userType = session.user.type;
+
   return (
     <>
       <ClientNavbar />
@@ -91,7 +94,7 @@ const ClientSpacePage = async () => {
             })}
           </div>
 
-          <OnGoingMissionContainer missions={missions}/>
+          <OnGoingMissionContainer missions={missions} userType={userType} />
         </div>
       </main>
     </>

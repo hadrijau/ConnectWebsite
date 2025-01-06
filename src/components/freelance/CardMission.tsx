@@ -8,33 +8,28 @@ import Freelance from "@/entities/freelance";
 import { useRouter } from "next/navigation";
 
 interface CardMissionProps {
-  mission: Mission,
-  freelance: Freelance
+  mission: Mission;
+  freelance: Freelance;
 }
 
 const CardMission: FC<CardMissionProps> = ({
-  mission: {
-    _id,
-    title,
-    companyName,
-    propositions,
-    price,
-    length,
-    date,
-  },
+  mission: { _id, title, companyName, propositions, price, length, date },
   freelance,
 }) => {
   const formattedDate = dayjs(date).format("DD.MM.YYYY");
 
   const router = useRouter();
-  const handleAddLikeMission = async () => {
+  const handleAddLikeMission = async (e: React.MouseEvent) => {
+    e.stopPropagation();
+    e.preventDefault();
+
     const updatedFreelance = new Freelance({
       ...freelance,
       missionsLiked: [...freelance.missionsLiked, _id!],
     });
     updatedFreelance.update();
     router.push("/freelance/ao/cheris");
-  }
+  };
 
   return (
     <Link href={`/freelance/ao/${_id}`}>
@@ -67,7 +62,9 @@ const CardMission: FC<CardMissionProps> = ({
                 alt="Nombre de propositions"
                 color="black"
               />
-              <p className="ml-2 text-sm text-normal lg:text-xs">{propositions.length} propositions</p>
+              <p className="ml-2 text-sm text-normal 2lg:text-xs">
+                {propositions.length} propositions
+              </p>
             </div>
             <div className="flex w-3/12">
               <Image
@@ -76,7 +73,9 @@ const CardMission: FC<CardMissionProps> = ({
                 height={15}
                 alt="Prix d'une mission"
               />
-              <p className="ml-2 text-sm text-normal lg:text-xs">{price} € HT/jour</p>
+              <p className="ml-2 text-sm text-normal 2lg:text-xs">
+                {price} € HT/jour
+              </p>
             </div>
             <div className="flex w-3/12">
               <Image
@@ -85,7 +84,9 @@ const CardMission: FC<CardMissionProps> = ({
                 height={15}
                 alt="Durée d'une mission"
               />
-              <p className="ml-2 text-sm text-normal lg:text-xs">{length.toString()}</p>
+              <p className="ml-2 text-sm text-normal 2lg:text-xs">
+                {length.toString()}
+              </p>
             </div>
             <div className="flex w-3/12">
               <Image
@@ -95,7 +96,9 @@ const CardMission: FC<CardMissionProps> = ({
                 color="black"
                 alt="Durée d'une mission"
               />
-              <p className="ml-2 text-sm text-normal lg:text-xs">{formattedDate}</p>
+              <p className="ml-2 text-sm text-normal 2lg:text-xs">
+                {formattedDate}
+              </p>
             </div>
           </div>
         </div>

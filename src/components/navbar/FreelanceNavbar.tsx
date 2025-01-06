@@ -6,14 +6,16 @@ import FreelanceNavLink from "@/components/navbar/FreelanceNavLink";
 import { signOut, useSession } from "next-auth/react";
 import { baseUrl } from "@/lib/baseUrl";
 import MobileNavbar from "@/components/navbar/MobileNavbar";
-import "@/styles/components/NavBarProfile.css";
 import AODropdown from "@/components/navbar/AODropdown";
+import "@/styles/components/NavBarProfile.css";
+import MobileNavbarFreelanceProfile from "./MobileNavbarFreelanceProfile";
 
 const FreelanceNavBar = () => {
   const path = usePathname();
   const router = useRouter();
   const { data: session, status } = useSession();
 
+  console.log("path", path);
   if (status === "unauthenticated") {
     router.push("/login");
   }
@@ -74,7 +76,10 @@ const FreelanceNavBar = () => {
         />
       </div>
 
-      <FreelanceNavLink href="/freelance/missions" className="display-computer">
+      <FreelanceNavLink
+        href="/freelance/missions/ongoing"
+        className="display-computer"
+      >
         Mes missions
       </FreelanceNavLink>
 
@@ -144,15 +149,19 @@ const FreelanceNavBar = () => {
           )}
         </div>
       </div>
-      <MobileNavbar
-        menuOpen={openPopupDisconnect}
-        setMenuOpen={setOpenPopupDisconnect}
-        setLogoFullShown={setLogoFullShown}
-        logoFullShown={logoFullShown}
-        userType="freelance"
-        handleSignOut={handleSignOut}
-        status={status}
-      />
+      {path.startsWith("/freelance/profil") ? (
+        <MobileNavbarFreelanceProfile />
+      ) : (
+        <MobileNavbar
+          menuOpen={openPopupDisconnect}
+          setMenuOpen={setOpenPopupDisconnect}
+          setLogoFullShown={setLogoFullShown}
+          logoFullShown={logoFullShown}
+          userType="freelance"
+          handleSignOut={handleSignOut}
+          status={status}
+        />
+      )}
     </nav>
   );
 };

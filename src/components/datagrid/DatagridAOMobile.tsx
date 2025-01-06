@@ -55,6 +55,19 @@ const DataGridAOMobile: React.FC<DataGridAOMobileProps> = ({
       flex: 0.4,
       minWidth: 80,
       editable: false,
+      renderCell: (params: GridRenderCellParams) => (
+        <div
+          style={{
+            whiteSpace: "normal", // Allows text to wrap
+            wordWrap: "break-word", // Ensures long words break to the next line
+            overflow: "visible", // Ensures the content is fully visible
+            textAlign: "center",
+            lineHeight: "1.2",
+          }}
+        >
+          {params.value}
+        </div>
+      ),
     },
     {
       field: "status",
@@ -211,7 +224,7 @@ const DataGridAOMobile: React.FC<DataGridAOMobileProps> = ({
           },
           "& .MuiDataGrid-columnHeaders": {
             backgroundColor: "rgba(217, 217, 217, 0.41)",
-            fontSize: "0.75rem",
+            fontSize: "0.7rem",
           },
           "& .MuiDataGrid-row:nth-of-type(odd)": {
             backgroundColor: "rgba(244, 225, 237, 1)",
@@ -224,7 +237,7 @@ const DataGridAOMobile: React.FC<DataGridAOMobileProps> = ({
             alignContent: "center",
             alignItems: "center",
             justifyContent: "center",
-            fontSize: "0.8rem",
+            fontSize: "0.7rem",
             fontWeight: 500,
             overflow: "visible",
           },
@@ -239,7 +252,7 @@ const DataGridAOMobile: React.FC<DataGridAOMobileProps> = ({
             whiteSpace: "normal",
           },
           "& .MuiDataGrid-columnHeaderTitle": {
-            fontSize: "0.75rem",
+            fontSize: "0.7rem",
             fontWeight: 500,
             whiteSpace: "normal",
             lineHeight: "normal",

@@ -8,7 +8,7 @@ interface PropositionsNavBarProps {
 
 const PropositionsNavBar:React.FC<PropositionsNavBarProps> = ({ status, setStatus }) => {
   return (
-    <div className="bg-freelance flex rounded-2xl items-center justify-between w-6/12 py-5 px-10 mt-10">
+    <div className="bg-freelance flex rounded-2xl items-center justify-between w-6/12 py-5 px-10 mt-10 3md:w-8/12 md:w-full">
       <div
         className={status == "En cours" ? "text-normal cursor-pointer underline underline-offset-24" : "text-normal cursor-pointer"}
         onClick={() => setStatus("En cours")}

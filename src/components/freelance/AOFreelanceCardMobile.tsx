@@ -1,8 +1,8 @@
-import React, { FC } from "react";
+import React from "react";
 import Image from "next/image";
 import dayjs, { Dayjs } from "dayjs";
 
-interface AOFreelanceProps {
+interface AOFreelanceMobileProps {
   title: string;
   companyName: string;
   companyLogo: string;
@@ -13,7 +13,7 @@ interface AOFreelanceProps {
   length: string;
 }
 
-const AOFreelanceCard: FC<AOFreelanceProps> = ({
+const AOFreelanceCardMobile: React.FC<AOFreelanceMobileProps> = ({
   title,
   companyName,
   companyLogo,
@@ -27,7 +27,7 @@ const AOFreelanceCard: FC<AOFreelanceProps> = ({
 
   return (
     <div className="flex flex-col card-mission-container my-10 w-full p-5">
-      <div className="flex justify-between">
+      <div className="flex">
         <Image
           src={companyLogo}
           alt="logo"
@@ -35,32 +35,21 @@ const AOFreelanceCard: FC<AOFreelanceProps> = ({
           height={75}
           className="mr-7"
         />
-        <div className="flex flex-col w-8/12 3md:w-6/12 sm:w-5/12">
+        <div className="flex flex-col w-8/12 3md:w-full">
           <h2 className="text-normal text-2xl sm:text-lg">{title}</h2>
           <h5 className="text-light text-base">{companyName}</h5>
         </div>
-        <div className="flex-col">
-          <div className="flex w-3/12">
-            <Image
-              src="/ImageMap.svg"
-              height={20}
-              width={20}
-              alt="calendrier"
-              className="mr-4"
-            />
-            <p className="sm:text-sm">{city}</p>
-          </div>
-          <div className="flex">
-            <Image
-              src="/modalitiesFreelance.svg"
-              height={20}
-              width={20}
-              alt="calendrier"
-              className="mr-4"
-            />
-            <p className="sm:text-sm"> {modalities}</p>
-          </div>
-        </div>
+      </div>
+
+      <div className="flex justify-end">
+        <Image
+          src="/ImageMap.svg"
+          height={20}
+          width={20}
+          alt="calendrier"
+          className="mr-4"
+        />
+        <p className="sm:text-sm">{city}</p>
       </div>
 
       <div className="flex mt-5">
@@ -89,7 +78,7 @@ const AOFreelanceCard: FC<AOFreelanceProps> = ({
             </p>
           </div>
         </div>
-        <div className=" flex-col w-full mt-2">
+        <div className=" flex-col mt-2">
           <div className="flex">
             <Image
               src="/price.svg"
@@ -101,10 +90,20 @@ const AOFreelanceCard: FC<AOFreelanceProps> = ({
               Tarif demandé: {clientProposedPrice} € HT/jour
             </p>
           </div>
+
+          <div className="flex mt-3">
+            <Image
+              src="/modalitiesFreelance.svg"
+              height={20}
+              width={20}
+              alt="calendrier"
+            />
+            <p className="ml-2 text-sm text-normal lg:text-xs">{modalities}</p>
+          </div>
         </div>
       </div>
     </div>
   );
 };
 
-export default AOFreelanceCard;
+export default AOFreelanceCardMobile;

@@ -13,13 +13,25 @@ interface CardMissionMobileProps {
 }
 
 const CardMissionMobile: FC<CardMissionMobileProps> = ({
-  mission: { _id, title, companyName, propositions, price, length, date, createdAt },
+  mission: {
+    _id,
+    title,
+    companyName,
+    propositions,
+    price,
+    length,
+    date,
+    createdAt,
+  },
   freelance,
 }) => {
   const formattedDate = dayjs(date).format("DD.MM.YYYY");
 
   const router = useRouter();
-  const handleAddLikeMission = async () => {
+  const handleAddLikeMission = async (e: React.MouseEvent) => {
+    e.stopPropagation();
+    e.preventDefault();
+
     const updatedFreelance = new Freelance({
       ...freelance,
       missionsLiked: [...freelance.missionsLiked, _id!],
@@ -33,32 +45,30 @@ const CardMissionMobile: FC<CardMissionMobileProps> = ({
   return (
     <Link href={`/freelance/ao/${_id}`} className="w-full">
       <div className="flex card-mission-container p-4 my-10 w-full relative sm:my-5">
-        <div className="flex absolute top-2 right-3">
-          <div className="flex items-center">
-            <Image
-              src="/likeMissionFreelance.svg"
-              width={30}
-              height={30}
-              alt="publication AO"
-              onClick={handleAddLikeMission}
-            />
-
-            <p className="text-normal text-xs ml-1">6</p>
-          </div>
-        </div>
-
         <div className="flex flex-col w-full">
-          <div className="flex mb-2">
+          <div className="flex mb-2 justify-between">
             <Image
               src={"/logoSoge.svg"}
               alt="logo"
               width={75}
               height={75}
-              className="mr-10"
+              className="mr-5"
             />
             <div className="flex-col">
               <h2 className="text-normal text-2xl lg:text-xl">{title}</h2>
               <h5 className="text-light text-base">{companyName}</h5>
+            </div>
+            <div className="flex items-center justify-end">
+              <Image
+                src="/likeMissionFreelance.svg"
+                width={30}
+                height={30}
+                alt="publication AO"
+                className="ml-5"
+                onClick={handleAddLikeMission}
+              />
+
+              <p className="text-normal text-xs ml-1">6</p>
             </div>
           </div>
 

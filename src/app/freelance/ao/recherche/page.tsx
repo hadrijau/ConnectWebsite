@@ -1,4 +1,3 @@
-import "@/styles/Freelance.css";
 import FreelanceNavBar from "@/components/navbar/FreelanceNavbar";
 import FreelanceIntroSection from "@/components/common/FreelanceIntroSection";
 import { getMissions } from "@/http/mission";
@@ -8,6 +7,7 @@ import { redirect } from "next/navigation";
 import FreelanceAoNavbar from "@/components/freelance/FreelanceAoNavbar";
 import RechercheDisplay from "@/components/freelance/ao/RechercheDisplay";
 import { getFreelanceById } from "@/http/freelance";
+import "@/styles/Freelance.css";
 
 export default async function RechercheAOPage() {
   const missions: Mission[] = await getMissions();

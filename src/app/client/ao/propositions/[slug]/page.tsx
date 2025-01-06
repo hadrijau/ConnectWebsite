@@ -10,6 +10,7 @@ import Mission, { Proposition } from "@/entities/mission";
 import { redirect } from "next/navigation";
 import { auth } from "@/auth";
 import { getClientByEmail } from "@/http/client";
+import DatagridPropositionsMobile from "@/components/datagrid/DatagridPropositionsMobile";
 
 const ClientPropositionsAOPage = async ({
   params,
@@ -40,7 +41,7 @@ const ClientPropositionsAOPage = async ({
 
         <div className="main-content w-full">
           <div className="flex-col items-start self-start main-content">
-            <Link href="/client/ao" className="w-1/12 flex">
+            <Link href="/client/ao" className="w-1/12 flex md:w-3/12">
               <h5 className="mb-10">&#60;- retour</h5>
             </Link>
             <div className="flex mb-5">
@@ -51,8 +52,8 @@ const ClientPropositionsAOPage = async ({
                 alt="Logo société générale"
               />
               <div className="flex-col">
-                <h5 className="text-normal text-2xl">Chargé de projet IT</h5>
-                <p className="text-xl">AO0001</p>
+                <h5 className="text-normal text-2xl">{mission.title}</h5>
+                <p className="text-xl">{mission.aoId}</p>
               </div>
             </div>
           </div>
@@ -66,7 +67,7 @@ const ClientPropositionsAOPage = async ({
                 />
               </div>
               <div className="display-tablet-mobile">
-                <DatagridPropositions
+                <DatagridPropositionsMobile
                   propositions={propositions}
                   missionId={missionId}
                   client={client}
